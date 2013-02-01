@@ -1,4 +1,4 @@
-splunk_syn_hl
+Syntax highlighting for Splunk's .conf files
 =============
 
-Syntax highlighting for Splunk .conf files
+This project is public domain. Questions? Comments? Corrections? Contributions? Send me an email.
