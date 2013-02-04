@@ -22,11 +22,17 @@ syn region confString start=/"/ end=/"/ oneline display
 syn keyword confBoolean on off true false 0 1 True False
 syn keyword confTodo FIXME NOTE TODO contained
 
+" Define stanzas
+syn region confStanza matchgroup=confStanzaStart start=/^\[/ matchgroup=confStanzaEnd end=/\]/ oneline display contains=@confStanzas
+
+" Group clusters (incomplete)
+syn cluster confStanzas contains=confAlertActionStanzas,confAppStanzas,confAuditStanzas,confAuthenticationStanzas,confAuthorizeStanzas,confCommandsStanzas,confCrawlStanzas,confDefmodeStanzas,confDeployClientStanzas,confDistSearchStanzas,confEventGenStanzas,confEventRenderStanzas,confEventDiscoverStanzas,confEventTypesStanzas,confFieldsStanzas,confIndexesStanzas,confInputsStanzas,confLimitsStanzas,confOutputsStanzas,confPDFserverStanzas,confPropsStanzas,confPubsubStanzas,confRegmonFiltersStanzas,confRestmapStanzas,confSavedSearchesStanzas,confSegmenterStanzas,confServerStanzas,confServerClassStanzas,confSourceTypesStanzas,confTenantsStanzas,confTimesStanzas,confTransactionTypesStanzas,confTransformsStanzas,confUserSeedStanzas,confViewStatesStanzas,confWebStanzas,confWmiStanzas,confWorkflowActionsStanzas
+
 " admon.conf
 syn keyword confADmon targetDc startingNode monitorSubtree disabled index
 
 " alert_actions.conf
-syn keyword confAlertActionsStanzas default email rss script summary_index populate_lookup
+syn keyword confAlertActionsStanzas contained default email rss script summary_index populate_lookup
 syn keyword confAlertActions maxresults hostname ttl maxtime track_alert command
 syn keyword confAlertActions from to cc bcc subject format sendresults inline
 syn keyword confAlertActions mailserver use_ssl use_tls auth_username auth_password
@@ -36,17 +42,17 @@ syn keyword confAlertActions reportCIDFontList width_sort_columns preprocess_res
 syn keyword confAlertActions items_count filename _name dest
 
 " app.conf
-syn keyword confAppStanzas launcher package install triggers ui credentials_settings credential:
+syn keyword confAppStanzas contained launcher package install triggers ui credentials_settings credential:
 syn keyword confApp remote_tab version description author id check_for_updates
 syn keyword confApp state state_change_requires_restart is_configured build allows_disable
 syn keyword confApp reload. is_visible is_manageable label verify_script password
 
 " audit.conf
-syn keyword confAuditStanzas eventHashing filterSpec: auditTrail
+syn keyword confAuditStanzas contained eventHashing filterSpec: auditTrail
 syn keyword confAudit filters all source host sourcetype privateKey publicKey queueing
 
 " authentication.conf
-syn keyword confAuthenticationStanzas authentication roleMap_ cacheTiming
+syn keyword confAuthenticationStanzas contained authentication roleMap_ cacheTiming
 syn keyword confAuthentication authType authSettings host SSLEnabled port bindDN bindDNpassword
 syn keyword confAuthentication userBaseDN userBaseFilter userNameAttribute realNameAttribute
 syn keyword confAuthentication groupMappingAttribute groupBaseDN groupBaseFilter dynamicGroupFilter
@@ -56,12 +62,12 @@ syn keyword confAuthentication network_timeout scriptPath scriptSearchFilters us
 syn keyword confAuthentication getUserInfoTTL getUsersTTL
 
 " authorize.conf
-syn keyword confAuthorizeStanzas default capability:: role_ 
+syn keyword confAuthorizeStanzas contained default capability:: role_ 
 syn keyword confAuthorize importRoles srchFilter srchTimeWin srchDiskQuota srchJobsQuota
 syn keyword confAuthorize rtSrchJobsQuota srchMaxTime srchIndexesDefault srchIndexesAllowed
 
 " commands.conf
-syn keyword confCommandsStanzas default
+syn keyword confCommandsStanzas contained default
 syn keyword confCommands type filename local perf_warn_limit streaming maxinputs passauth
 syn keyword confCommands run_in_preview enableheader retainsevents generating generates_timeorder
 syn keyword confCommands overrides_timeorder requires_preop streaming_preop required_fields
@@ -70,24 +76,24 @@ syn keyword confCommands requires_srinfo needs_empty_results changes_colorder cl
 syn keyword confCommands stderr_dest outputheader
 
 " crawl.conf
-syn keyword confCrawlStanzas default files
+syn keyword confCrawlStanzas contained default files
 syn keyword confCrawl root bad_directories_list bad_extensions_list
 
 " default-mode.conf
-syn keyword confDefModeStanzas pipeline:
+syn keyword confDefModeStanzas contained pipeline:
 syn keyword confDefMode disabled disabled_processors
 
 " deploymentclient.conf
-syn keyword confDeployClientStanzas deployment-client target-broker:deploymentServer
+syn keyword confDeployClientStanzas contained deployment-client target-broker:deploymentServer
 syn keyword confDeployClient disabled clientName workingDir repositoryLocation
 syn keyword confDeployClient serverRepositoryLocationPolicy endpoint serverEndpointPolicy
 syn keyword confDeployClient phoneHomeIntervalInSecs handshakeRetryIntervalInSecs
 syn keyword confDeployClient reloadDSOnAppInstall targetUri
 
 " distsearch.conf
-syn keyword confDistSearchStanzas distributedSearch tokenExchKeys replicationSettings
-syn keyword confDistSearchStanzas replicationSettings:refineConf replicationWhitelist
-syn keyword confDistSearchStanzas replicationBlacklist searchhead:
+syn keyword confDistSearchStanzas contained distributedSearch tokenExchKeys replicationSettings
+syn keyword confDistSearchStanzas contained replicationSettings:refineConf replicationWhitelist
+syn keyword confDistSearchStanzas contained replicationBlacklist searchhead:
 syn keyword confDistSearch disabled heartbeatMcastAddr heartbeatPort ttl heartbeatFrequency
 syn keyword confDistSearch statusTimeout removedTimedOutServers checkTimedOutServersFrequency
 syn keyword confDistSearch autoAddServers bestEffortSearch skipOurselves servers disabled_servers
@@ -99,28 +105,28 @@ syn keyword confDistSearch allowSkipEncoding allowDeltaUpload sanitizeMetaFiles
 syn keyword confDistSearch replicate mounted_bundles bundles_location
 
 " event_renderers.conf
-syn keyword confEventRenderStanzas default
+syn keyword confEventRenderStanzas contained default
 syn keyword confEventRender eventtype priority template css_class
 
 " eventdiscoverer.conf
-syn keyword confEventDiscoverStanzas default
+syn keyword confEventDiscoverStanzas contained default
 syn keyword confEventDiscover ignored_keywords ignored_fields important_keywords
 
 " eventgen.conf
-syn keyword confEventGenStanzas default global
+syn keyword confEventGenStanzas contained default global
 syn keyword confEventGen spoolDir spoolFile interval count earliest latest breaker token replacementType
 syn keyword confEventGen replacement
 
 " eventtypes.conf
-syn keyword confEventTypesStanzas default
+syn keyword confEventTypesStanzas contained default
 syn keyword confEventTypes disabled search priority description tags
 
 " fields.conf
-syn keyword confFieldsStanzas default
+syn keyword confFieldsStanzas contained default
 syn keyword confFields TOKENIZER INDEXED INDEXED_VALUE
 
 " indexes.conf
-syn keyword confIndexesStanzas default volume:
+syn keyword confIndexesStanzas contained default volume:
 syn keyword confIndexes sync defaultDatabase queryLanguageDefinition blockSignatureDatabase
 syn keyword confIndexes memPoolMB indexThreads assureUTF8 enableRealtimeSearch suppressBannerList
 syn keyword confIndexes maxRunningProcessGroups maxRunningProcessGroupsLowPriority bucketRebuildMemoryHint
@@ -138,12 +144,13 @@ syn keyword confIndexes maxTimeUnreplicatedNoAcks isReadOnly homePath.maxDataSiz
 syn keyword confIndexes disableGlobalMetadata repFactor path maxVolumeDataSizeMB rotatePeriodInSecs
 
 " inputs.conf
-syn keyword confInputsStanzas default monitor: batch: tcp: splunktcp splunktcp-ssl: tcp-ssl: SSL udp: fifo:
-syn keyword confInputsStanzas script: fschange: filter: WinEventLog:
+syn keyword confInputsStanzas contained default monitor: batch: tcp: splunktcp: splunktcp-ssl: tcp-ssl: SSL udp: fifo:
+syn keyword confInputsStanzas contained script: fschange: filter: WinEventLog:
 syn keyword confInputs host index source sourcetype queue _TCP_ROUTING _SYSLOG_ROUTING
-syn keyword confInputs host_regex host_segment whitelist blacklist crcSalt initCrcLength ignoreOlderThan
+syn keyword confInputs host_regex host_segment crcSalt initCrcLength ignoreOlderThan
+syn keyword confInputs whitelist blacklist _whitelist _blacklist
 syn keyword confInputs followTail alwaysOpenFile time_before_close recursive followSymlink dedicatedFD
-syn keyword confInputs _whitelist _blacklist move_policy connection_host queueSize persistentQueueSize
+syn keyword confInputs move_policy connection_host queueSize persistentQueueSize
 syn keyword confInputs requireHeader listenOnIPv6 acceptFrom rawTcpDoneTimeout route compressed
 syn keyword confInputs enableS2SHeartbeat s2sHeartbeatTimeout inputShutdownTimeout 
 syn keyword confInputs serverCert password rootCA requireClientCert supportSSLV3Only cipherSuite
@@ -154,13 +161,13 @@ syn keyword confInputs disabled start_from current_only checkpointInterval evt_r
 syn keyword confInputs evt_dns_name
 
 " limits.conf
-syn keyword confLimitsStanzas default searchresults subsearch anomalousvalue associate autoregress
-syn keyword confLimitsStanzas concurrency ctable correlate discretize export extern inputcsv
-syn keyword confLimitsStanzas indexpreview join kmeans kv lookup metrics rare restapi search
-syn keyword confLimitsStanzas realtime slc sort stats sistats thruput journal_compress summarize
-syn keyword confLimitsStanzas transactions inputproc scheduler auto_summarizer show_source
-syn keyword confLimitsStanzas typeahead typer authtokens sample metadata set input_channels
-syn keyword confLimitsStanzas ldap spath reversedns viewstates tscollect pdf
+syn keyword confLimitsStanzas contained default searchresults subsearch anomalousvalue associate autoregress
+syn keyword confLimitsStanzas contained concurrency ctable correlate discretize export extern inputcsv
+syn keyword confLimitsStanzas contained indexpreview join kmeans kv lookup metrics rare restapi search
+syn keyword confLimitsStanzas contained realtime slc sort stats sistats thruput journal_compress summarize
+syn keyword confLimitsStanzas contained transactions inputproc scheduler auto_summarizer show_source
+syn keyword confLimitsStanzas contained typeahead typer authtokens sample metadata set input_channels
+syn keyword confLimitsStanzas contained ldap spath reversedns viewstates tscollect pdf
 syn keyword confLimits max_mem_usage_mb maxresultrows tocsv_maxretry tocsv_retryperiod_ms maxout
 syn keyword confLimits maxtime ttl maxvalues maxvaluesize maxfields maxp maxrange
 syn keyword confLimits max_count maxbins add_timestamp add_offset perf_warn_limit mkdir_max_retries
@@ -218,18 +225,18 @@ syn keyword confMultikv .start .start_offset .member .end .linecount .ignore .re
 syn keyword confMultikv _tokenize_ _align_ _token_list_
 
 " outputs.conf
-syn keyword confOutputsStanzas default tcpout tcpout: tcpout-server: syslog syslog: indexAndForward
+syn keyword confOutputsStanzas contained default tcpout tcpout: tcpout-server: syslog syslog: indexAndForward
 syn keyword confOutputs defaultGroup indexAndForward server sendCookedData heartbeatFrequency
 syn keyword confOutputs blockOnCloning compressed maxQueueSize dropEventsOnQueueFull dropClonedEventsOnQueueFull
 syn keyword confOutputs maxFailuresPerInterval secsInFailureInterval maxConnectionsPerIndexer
 syn keyword confOutputs connectionTimeout readTimeout writeTimeout dnsResolutionInterval
-syn keyword confOutputs forceTimebasedAutoLB forwardedindex. .whitelist .blacklist autoLBFrequency
+syn keyword confOutputs forceTimebasedAutoLB forwardedindex. autoLBFrequency .whitelist .blacklist
 syn keyword confOutputs forwardedindex.filter.disable autoLB sslPassword sslCertPath sslRootCAPath
 syn keyword confOutputs sslVerifyServerCert sslCommonNameToCheck sslAltNameToCheck useClientSSLCompression
 syn keyword confOutputs useACK type priority syslogSourceType timestampformat selectiveIndexing
 
 " pdf_server.conf
-syn keyword confPDFserverStanzas settings
+syn keyword confPDFserverStanzas contained settings
 syn keyword confPDFserver startwebserver httpport enableSplunkWebSSL privKeyPath caCertPath 
 syn keyword confPDFserver supportSSLV3Only root_endpoint static_endpoint static_dir enable_gzip
 syn keyword confPDFserver server.thread_pool server.socket_host log.access_file log.error_file
@@ -244,7 +251,7 @@ syn keyword confPDFserver appserver_ipaddr client_ipaddr screenshot_enabled
 syn keyword confProcmonFilters proc type hive
 
 " props.conf
-syn keyword confPropsStanzas default
+syn keyword confPropsStanzas contained default
 syn keyword confProps host source sourcetype CHARSET TRUNCATE LINE_BREAKER LINE_BREAKER_LOOKBEHIND
 syn keyword confProps SHOULD_LINEMERGE BREAK_ONLY_BEFORE_DATE BREAK_ONLY_BEFORE MUST_BREAK_AFTER
 syn keyword confProps MUST_NOT_BREAK_AFTER MUST_NOT_BREAK_BEFORE MAX_EVENTS DATETIME_CONFIG TIME_PREFIX
@@ -257,23 +264,23 @@ syn keyword confProps LESS_THAN MORE_THAN_ LESS_THAN_ ANNOTATE_PUNCT HEADER_MODE
 syn keyword confProps given_type
 
 " pubsub.conf
-syn keyword confPubsubStanzas default pubsub-server:deploymentServer pubsub-server:
+syn keyword confPubsubStanzas contained default pubsub-server:deploymentServer pubsub-server:
 syn keyword confPubsub disabled targetUri
 syn keyword confPubsub_Constants direct
 
 " regmon-filters.conf
-syn keyword confRegmonFiltersStanzas default
+syn keyword confRegmonFiltersStanzas contained default
 syn keyword confRegmonFilters proc hive type baseline baseline_interval disabled index
 
 " restmap.conf
-syn keyword confRestmapStanzas global script: admin: validation: eai: input: peerupload:
+syn keyword confRestmapStanzas contained global script: admin: validation: eai: input: peerupload:
 syn keyword confRestmap allowGetAuth pythonHandlerPath match requireAuthentication capability
 syn keyword confRestmap scripttype handler xsl script output_modes members handlertype handlerfile
 syn keyword confRestmap handleractions showInDirSvc desc dynamic path untar
 syn keyword confRestmap capability.post capability.delete capability.get capability.put
 
 " savedsearches.conf
-syn keyword confSavedSearchesStanzas default
+syn keyword confSavedSearchesStanzas contained default
 syn keyword confSavedSearches disabled search enableSched cron_schedule schedule max_concurrent
 syn keyword confSavedSearches realtime_schedule counttype relation quantity alert_condition action.
 syn keyword confSavedSearches action.email action.email.to action.email.from action.email.subject
@@ -295,23 +302,23 @@ syn keyword confSavedSearches request.ui_dispatch_app request.ui_dispatch_view s
 syn keyword confSavedSearches action_email role userid query nextrun qualifiedSearch
 
 " searchbnf.conf
-syn keyword confSearchbnfStanzas default -command
+syn keyword confSearchbnfStanzas contained default -command
 syn keyword confSearchbnf SYNTAX SIMPLESYNTAX ALIAS DESCRIPTION SHORTDESC EXAMPLE COMMENT USAGE TAGS
 syn keyword confSearchbnf RELATED maintainer appears-in note supports-multivalue
 
 " segmenters.conf
-syn keyword confSegmentersStanzas default
+syn keyword confSegmentersStanzas contained default
 syn keyword confSegmenters MAJOR MINOR INTERMEDIATE_MAJORS FILTER LOOKAHEAD MAJOR_LEN MINOR_LEN
 syn keyword confSegmenters MAJOR_COUNT MINOR_COUNT
 
 " server.conf
-syn keyword confServerStanzas default general sslConfig httpServer httpServerListener: mimetype-extension-map
-syn keyword confServerStanzas applicationsManagement scripts diskUsage queue queue= pubsubsvr-http
-syn keyword confServerStanzas fileInput diag license lmpool:auto_generated_pool_forwarder
-syn keyword confServerStanzas lmpool:auto_generated_pool_free lmpool:auto_generated_pool_enterprise
-syn keyword confServerStanzas lmpool:auto_generated_pool_fixed-sourcetype_ clustermaster:
-syn keyword confServerStanzas lmpool:auto_generated_pool_download_trial pooling clustering
-syn keyword confServerStanzas replication_port replication_port-ssl
+syn keyword confServerStanzas contained default general sslConfig httpServer httpServerListener: mimetype-extension-map
+syn keyword confServerStanzas contained applicationsManagement scripts diskUsage queue queue= pubsubsvr-http
+syn keyword confServerStanzas contained fileInput diag license lmpool:auto_generated_pool_forwarder
+syn keyword confServerStanzas contained lmpool:auto_generated_pool_free lmpool:auto_generated_pool_enterprise
+syn keyword confServerStanzas contained lmpool:auto_generated_pool_fixed-sourcetype_ clustermaster:
+syn keyword confServerStanzas contained lmpool:auto_generated_pool_download_trial pooling clustering
+syn keyword confServerStanzas contained replication_port replication_port-ssl
 syn keyword confServer serverName sessionTimeout trustedIP allowRemoteLogin pass4SymmKey listenOnIPv6
 syn keyword confServer connectUsingIpVersion guid useHTTPServerCompression useHTTPClientCompression
 syn keyword confServer enableSplunkdSSL useSplunkdClientSSLCompression supportSSLV3Only sslVerifyServerCert
@@ -333,17 +340,18 @@ syn keyword confServer_Constants always never requireSetPassword KB MB GB self E
 syn keyword confServer_Constants master slave searchhead enabled clustermaster:
 
 " serverclass.conf
-syn keyword confServerClassStanzas global serverClass:
+syn keyword confServerClassStanzas contained global serverClass:
 syn keyword confServerClass repositoryLocation targetRepositoryLocation tmpFolder continueMatching
-syn keyword confServerClass endpoint filterType whitelist. blacklist. machineTypes machineTypesFilter
+syn keyword confServerClass endpoint filterType machineTypes machineTypesFilter whitelist. blacklist.
 syn keyword confServerClass restartSplunkWeb restartSplunkd stateOnClient appFile
+syn match confServerClassMatch "\(white\|black\)list\.\d\+"
 
 " source-classifier.conf
 "syn keyword confSourceClassStanzas
 syn keyword confSourceClass ignored_model_keywords ignored_filename_keywords
 
 " sourcetypes.conf
-syn keyword confSourceTypesStanzas default
+syn keyword confSourceTypesStanzas contained default
 syn keyword confSourceTypes _sourcetype _source
 
 " splunk-launch.conf
@@ -356,20 +364,20 @@ syn keyword confSplunkLaunch SPLUNK_WEB_NAME
 "syn keyword confTags
 
 " tenants.conf
-syn keyword confTenantsStanzas default tenant:
+syn keyword confTenantsStanzas contained default tenant:
 syn keyword confTenants filterType whitelist. blacklist. phoneHomeTopic
 
 " times.conf
-syn keyword confTimesStanzas default
+syn keyword confTimesStanzas contained default
 syn keyword confTimes label header_label earliest_time latest_time order sub_menu is_sub_menu
 
 " transactiontypes.conf
-syn keyword confTransactionTypesStanzas default
+syn keyword confTransactionTypesStanzas contained default
 syn keyword confTransactionTypes maxspan maxpause maxevents fields startswith endswith connected maxopentxn
 syn keyword confTransactionTypes maxopenevents keepevicted mvlist delim nullstr search
 
 " transforms.conf
-syn keyword confTransformsStanzas default
+syn keyword confTransformsStanzas contained default
 syn keyword confTransforms REGEX FORMAT LOOKAHEAD WRITE_META DEST_KEY DEFAULT_VALUE SOURCE_KEY
 syn keyword confTransforms REPEAT_MATCH DELIMS FIELDS MV_ADD CLEAN_KEYS KEEP_EMPTY_VALS CAN_OPTIMIZE
 syn keyword confTransforms filename max_matches min_matches default_match case_sensitive_match
@@ -379,15 +387,15 @@ syn keyword confTransforms_Constants _raw _done _meta _time MetaData:FinalType M
 syn keyword confTransforms_Constants _MetaData:Index MetaData:Source MetaData:Sourcetype
 
 " user-seed.conf
-syn keyword confUserSeedStanzas user_info
+syn keyword confUserSeedStanzas contained user_info
 syn keyword confUserSeed USERNAME PASSWORD
 
 " viewstates.conf
-syn keyword confViewStatesStanzas default
+syn keyword confViewStatesStanzas contained default
 "syn keyword confViewStates
 
 " web.conf
-syn keyword confWebStanzas settings endpoint:
+syn keyword confWebStanzas contained settings endpoint:
 syn keyword confWeb startwebserver httpport mgmtHostPort enableSplunkWebSSL privKeyPath caCertPath
 syn keyword confWeb serviceFormPostURL userRegistrationURL updateCheckerBaseURL docsCheckerBaseURL
 syn keyword confWeb enable_insecure_login login_content supportSSLV3Only cipherSuite root_endpoint
@@ -410,21 +418,18 @@ syn keyword confWeb enabled_decomposers trustedIP remoteUser SSOMode
 syn keyword confWeb_Constants None Firebug Server permissive strict no yes only
 
 " wmi.conf
-syn keyword confWmiStanzas settings WMI:
+syn keyword confWmiStanzas contained settings WMI:
 syn keyword confWmi initial_backoff max_backoff max_retries_at_max_backoff checkpoint_sync_interval
 syn keyword confWmi server interval disabled hostname current_only index event_log_file
 syn keyword confWmi disable_hostname_normalization wql namespace
 
 " workflow_actions.conf
-syn keyword confWorkflowActionsStanzas default
+syn keyword confWorkflowActionsStanzas contained default
 syn keyword confWorkflowActions type label fields eventtypes display_location disabled link.uri
 syn keyword confWorkflowActions link.target link.method link.postargs. search.search_string search.app
 syn keyword confWorkflowActions search.view search.target search.earliest search.latest
 syn keyword confWorkflowActions search.preserve_timerange
 
-
-" Define stanzas
-syn region confStanza matchgroup=confStanzaStart start=/^\[/ matchgroup=confStanzaEnd end=/\]/ oneline display contains=confStanzas
 
 " Highlight definitions (generic)
 hi def link confComment Comment
@@ -432,15 +437,12 @@ hi def link confSpecComment Comment
 hi def link confBoolean Boolean
 hi def link confTodo Todo
 
-hi def link confStanzaStart Type
-hi def link confstanzaEnd Type
-
-" Group clusters (incomplete)
-"syn cluster confStanzas contains=confAlertActionStanzas,confAppStanzas,confAuditStanzas,confAuthenticationStanzas,confAuthorizeStanzas,confCommandsStanzas,confCrawlStanzas,confDefmodeStanzas
+hi def link confStanzaStart Preproc
+hi def link confstanzaEnd Preproc
 
 " Highlight for stanzas
 hi def link confStanza Function
-"hi def link confStanzas Debug
+hi def link confInputsStanzas Type
 
 " Other highlights
 hi def link confString String
@@ -481,6 +483,7 @@ hi def link confSegmenters Keyword
 hi def link confServer Keyword
 hi def link confServer_Constants Constant
 hi def link confServerClass Keyword
+hi def link confServerClassMatch Keyword
 hi def link confSourceClass Keyword
 hi def link confSourceTypes Keyword
 hi def link confSplunkLaunch Keyword
