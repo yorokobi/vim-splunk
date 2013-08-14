@@ -285,8 +285,10 @@ syn keyword confSavedSearches disabled search enableSched cron_schedule schedule
 syn keyword confSavedSearches realtime_schedule counttype relation quantity alert_condition action.
 syn keyword confSavedSearches action.email action.email.to action.email.from action.email.subject
 syn keyword confSavedSearches action.email.subject action.email.mailserver action.populate_lookup
+syn keyword confSavedSearches action.email.inline action.email.sendresults action.email.sendpdf
 syn keyword confSavedSearches action.script action.summary_index action.script.filename
 syn keyword confSavedSearches action.summary_index._name action.summary_index.inline action.summary_index.
+syn keyword confSavedSearches action.summary_index.report_name action.summary_index.report
 syn keyword confSavedSearches action.populate_lookup.dest run_on_startup dispatch.ttl dispatch.buckets
 syn keyword confSavedSearches dispatch.max_count dispatch.max_time dispatch.lookups dispatch.earliest_time
 syn keyword confSavedSearches dispatch.latest_time dispatch.time_format dispatch.spawn_process
