@@ -344,13 +344,9 @@ syn keyword confSavedSearches display.visualizations.charting.axisX.maximumNumbe
 syn keyword confSavedSearches display.visualizations.charting.chart.sliceCollapsingThreshold display.visualizations.charting.gaugeColors
 syn keyword confSavedSearches display.visualizations.charting.chart.rangeValues display.visualizations.singlevalue.beforeLabel
 syn keyword confSavedSearches display.visualizations.singlevalue.afterLabel display.visualizations.singlevalue.underLabel 
-
-# Page options
-display.page.search.mode = [fast|smart|verbose]
-display.page.search.timeline.format = [hidden|compact|full]
-display.page.search.timeline.scale = [linear|log]
-display.page.search.showFields = <bool>
-display.page.pivot.dataModel = <string>
+syn keyword confSavedSearches display.page.search.mode display.page.search.timeline.format display.page.search.timeline.scale
+syn keyword confSavedSearches display.page.search.showFields display.page.pivot.dataModel 
+syn keyword confSavedSearches_Constants fast smart verbose hidden compact full linear log
 
 " searchbnf.conf
 syn keyword confSearchbnfStanzas contained default -command
@@ -553,6 +549,7 @@ hi def link confPubsub_Constants Constant
 hi def link confRegmonFilters Keyword
 hi def link confRestmap Keyword
 hi def link confSavedSearches Keyword
+hi def link confSavedSearches_Constants Constant
 hi def link confSearchbnf Keyword
 hi def link confSegmenters Keyword
 hi def link confServer Keyword
