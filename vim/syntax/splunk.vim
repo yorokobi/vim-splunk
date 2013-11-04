@@ -346,7 +346,8 @@ syn keyword confSavedSearches display.visualizations.charting.chart.rangeValues 
 syn keyword confSavedSearches display.visualizations.singlevalue.afterLabel display.visualizations.singlevalue.underLabel 
 syn keyword confSavedSearches display.page.search.mode display.page.search.timeline.format display.page.search.timeline.scale
 syn keyword confSavedSearches display.page.search.showFields display.page.pivot.dataModel 
-syn keyword confSavedSearches_Constants fast smart verbose hidden compact full linear log
+syn keyword confSavedSearches_Constants fast smart verbose hidden compact full linear log events statistics visualizations
+syn keyword confSavedSearches_Constants heatmap highlow stacked default stacked100 right bottom top left visible collapsed
 
 " searchbnf.conf
 syn keyword confSearchbnfStanzas contained default -command
