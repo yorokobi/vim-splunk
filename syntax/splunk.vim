@@ -172,7 +172,6 @@ syn keyword confInputs suppress_text printSchema remoteAddress process user addr
 syn keyword confInputs protocol readInterval driverBufferSize userBufferSize multikvMaxEventCount multikvMaxTimeMs
 syn keyword confInputs table output.format output.timestamp output.timestamp.column output.timestamp.format
 
-
 " limits.conf
 syn keyword confLimitsStanzas contained default searchresults subsearch anomalousvalue associate autoregress
 syn keyword confLimitsStanzas contained concurrency ctable correlate discretize export extern inputcsv
