@@ -170,6 +170,7 @@ syn keyword confInputs evt_dns_name _INDEX_AND_FORWARD_ROUTING negotiateNewProto
 syn keyword confInputs allowSslRenegotiation start_by_shell object counters instances samplingInterval stats showZeroValue
 syn keyword confInputs suppress_text printSchema remoteAddress process user addressFamily packetType direction protocol
 syn keyword confInputs protocol readInterval driverBufferSize userBufferSize multikvMaxEventCount multikvMaxTimeMs
+syn keyword confInputs table output.format output.timestamp output.timestamp.column output.timestamp.format
 
 " limits.conf
 syn keyword confLimitsStanzas contained default searchresults subsearch anomalousvalue associate autoregress
