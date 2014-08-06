@@ -9,7 +9,6 @@ elseif exists("b:current_syntax")
     finish
 endif
 
-setlocal iskeyword+=-
 setlocal iskeyword+=.
 setlocal iskeyword+=:
 syn case match
@@ -23,10 +22,12 @@ syn keyword confBoolean on off true false 0 1 True False
 syn keyword confTodo FIXME NOTE TODO contained
 
 " Define stanzas
-syn region confStanza matchgroup=confStanzaStart start=/^\[/ matchgroup=confStanzaEnd end=/\]/ oneline display contains=@confStanzas
+syn region confStanza matchgroup=confStanzaStart start=/^\[/ matchgroup=confStanzaEnd end=/\]/ oneline transparent contains=@confStanzas
 
 " Group clusters (incomplete)
-syn cluster confStanzas contains=confAlertActionStanzas,confAppStanzas,confAuditStanzas,confAuthenticationStanzas,confAuthorizeStanzas,confCommandsStanzas,confCrawlStanzas,confDataModelsStanzas,confDefmodeStanzas,confDeployClientStanzas,confDistSearchStanzas,confEventGenStanzas,confEventRenderStanzas,confEventDiscoverStanzas,confEventTypesStanzas,confFieldsStanzas,confIndexesStanzas,confInputsStanzas,confLimitsStanzas,confOutputsStanzas,confPDFserverStanzas,confPropsStanzas,confPubsubStanzas,confRegmonFiltersStanzas,confRestmapStanzas,confSavedSearchesStanzas,confSegmenterStanzas,confServerStanzas,confServerClassStanzas,confSourceTypesStanzas,confTenantsStanzas,confTimesStanzas,confTransactionTypesStanzas,confTransformsStanzas,confUIPrefsStanzas,confUserSeedStanzas,confViewStatesStanzas,confWebStanzas,confWmiStanzas,confWorkflowActionsStanzas
+syn cluster confStanzas contains=confAlertActionStanzas,confAppStanzas,confAuditStanzas,confAuthenticationStanzas,confAuthorizeStanzas,confCommandsStanzas,confCrawlStanzas,confDataModelsStanzas,confDefmodeStanzas,confDeployClientStanzas,confDistSearchStanzas,confEventGenStanzas,confEventRenderStanzas,confEventDiscoverStanzas,confEventTypesStanzas,confFieldsStanzas,confIndexesStanzas,confInputsStanzas,confLimitsStanzas,confOutputsStanzas,confPDFserverStanzas,confPropsStanzas,confPubsubStanzas,confRegmonFiltersStanzas,confRestmapStanzas,confSavedSearchesStanzas,confSegmenterStanzas,confServerStanzas,confServerClassStanzas,confSourceTypesStanzas,confTenantsStanzas,confTimesStanzas,confTransactionTypesStanzas,confTransformsStanzas,confUIPrefsStanzas,confUserSeedStanzas,confViewStatesStanzas,confWebStanzas,confWmiStanzas,confWorkflowActionsStanzas,confGenericStanzas
+
+syn match confGenericStanzas display contained /\v[^\]]+/
 
 " admon.conf
 syn keyword confADmon targetDc startingNode monitorSubtree disabled index
@@ -514,12 +515,52 @@ hi def link confSpecComment Comment
 hi def link confBoolean Boolean
 hi def link confTodo Todo
 
-hi def link confStanzaStart Preproc
-hi def link confstanzaEnd Preproc
+hi def link confStanzaStart Delimiter
+hi def link confstanzaEnd Delimiter
 
 " Highlight for stanzas
 hi def link confStanza Function
+hi def link confGenericStanzas Special
+hi def link confAlertActionStanzas Identifier
+hi def link confAppStanzas Identifier
+hi def link confAuditStanzas Identifier
+hi def link confAuthenticationStanzas Identifier
+hi def link confAuthorizeStanzas Identifier
+hi def link confCommandsStanzas Identifier
+hi def link confCrawlStanzas Identifier
+hi def link confDataModelsStanzas Identifier
+hi def link confDefmodeStanzas Identifier
+hi def link confDeployClientStanzas Identifier
+hi def link confDistSearchStanzas Identifier
+hi def link confEventDiscoverStanzas Identifier
+hi def link confEventGenStanzas Identifier
+hi def link confEventRenderStanzas Identifier
+hi def link confEventTypesStanzas Identifier
+hi def link confFieldsStanzas Identifier
+hi def link confIndexesStanzas Identifier
 hi def link confInputsStanzas Type
+hi def link confLimitsStanzas Identifier
+hi def link confOutputsStanzas Identifier
+hi def link confPDFserverStanzas Identifier
+hi def link confPropsStanzas Identifier
+hi def link confPubsubStanzas Identifier
+hi def link confRegmonFiltersStanzas Identifier
+hi def link confRestmapStanzas Identifier
+hi def link confSavedSearchesStanzas Identifier
+hi def link confSegmenterStanzas Identifier
+hi def link confServerClassStanzas Identifier
+hi def link confServerStanzas Identifier
+hi def link confSourceTypesStanzas Identifier
+hi def link confTenantsStanzas Identifier
+hi def link confTimesStanzas Identifier
+hi def link confTransactionTypesStanzas Identifier
+hi def link confTransformsStanzas Identifier
+hi def link confUIPrefsStanzas Identifier
+hi def link confUserSeedStanzas Identifier
+hi def link confViewStatesStanzas Identifier
+hi def link confWebStanzas Identifier
+hi def link confWmiStanzas Identifier
+hi def link confWorkflowActionsStanzas Identifier
 
 " Other highlights
 hi def link confString String
