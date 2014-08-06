@@ -62,7 +62,7 @@ syn keyword confAuthentication network_timeout scriptPath scriptSearchFilters us
 syn keyword confAuthentication getUserInfoTTL getUsersTTL passwordHashAlgorithm
 
 " authorize.conf
-syn keyword confAuthorizeStanzas contained default capability:: role_ 
+syn keyword confAuthorizeStanzas contained default capability:: role_
 syn keyword confAuthorize importRoles srchFilter srchTimeWin srchDiskQuota srchJobsQuota
 syn keyword confAuthorize rtSrchJobsQuota srchMaxTime srchIndexesDefault srchIndexesAllowed
 syn keyword confAuthorize cumulativeSrchJobsQuota cumulativeRTSrchJobsQuota
@@ -137,8 +137,8 @@ syn keyword confIndexesStanzas contained default volume:
 syn keyword confIndexes sync defaultDatabase queryLanguageDefinition blockSignatureDatabase
 syn keyword confIndexes memPoolMB indexThreads assureUTF8 enableRealtimeSearch suppressBannerList
 syn keyword confIndexes maxRunningProcessGroups maxRunningProcessGroupsLowPriority bucketRebuildMemoryHint
-syn keyword confIndexes serviceOnlyAsNeeded serviceSubtaskTimingPeriod maxBucketSizeCacheEntries 
-syn keyword confIndexes tsidxStatsHomePath disabled deleted homePath coldPath thawedPath 
+syn keyword confIndexes serviceOnlyAsNeeded serviceSubtaskTimingPeriod maxBucketSizeCacheEntries
+syn keyword confIndexes tsidxStatsHomePath disabled deleted homePath coldPath thawedPath
 syn keyword confIndexes bloomHomePath createBloomfilter summaryHomePath maxBloomBackfillBucketAge
 syn keyword confIndexes enableOnlineBucketRepair maxWarmDBCount maxTotalDataSizeMB
 syn keyword confIndexes rotatePeriodInSecs frozenTimePeriodInSecs warmToColdScript
@@ -160,10 +160,10 @@ syn keyword confInputs whitelist blacklist _whitelist _blacklist
 syn keyword confInputs followTail alwaysOpenFile time_before_close recursive followSymlink dedicatedFD
 syn keyword confInputs move_policy connection_host queueSize persistentQueueSize
 syn keyword confInputs requireHeader listenOnIPv6 acceptFrom rawTcpDoneTimeout route compressed
-syn keyword confInputs enableS2SHeartbeat s2sHeartbeatTimeout inputShutdownTimeout 
+syn keyword confInputs enableS2SHeartbeat s2sHeartbeatTimeout inputShutdownTimeout
 syn keyword confInputs serverCert password rootCA requireClientCert supportSSLV3Only cipherSuite
 syn keyword confInputs _rcvbuf no_priority_stripping no_appending_timestamp interval passAuth
-syn keyword confInputs signedaudit filters recurse followLinks pollPeriod hashMaxSize fullEvent 
+syn keyword confInputs signedaudit filters recurse followLinks pollPeriod hashMaxSize fullEvent
 syn keyword confInputs sendEventMaxSize filesPerDelay delayInMills regex
 syn keyword confInputs disabled start_from current_only checkpointInterval evt_resolve_ad_obj evt_dc_name
 syn keyword confInputs evt_dns_name _INDEX_AND_FORWARD_ROUTING negotiateNewProtocol concurrentChannelLimit
@@ -222,7 +222,7 @@ syn keyword confLimits max_timebefore max_timeafter distributed distributed_sear
 syn keyword confLimits use_cache fetch_multiplier cache_ttl_sec min_prefix_length max_concurrent_per_user
 syn keyword confLimits maxlen expiration_time maxsamples maxtotalsamples max_inactive lowater_inactive
 syn keyword confLimits inactive_eligibility_age_seconds max_users_to_precache allow_multiple_matching_users
-syn keyword confLimits extraction_cutoff extract_all rdnsMaxDutyCycle enable_reaper reaper_freq 
+syn keyword confLimits extraction_cutoff extract_all rdnsMaxDutyCycle enable_reaper reaper_freq
 syn keyword confLimits reaper_soft_warn_level squashcase keepresults tsidx_init_file_goal_mb
 syn keyword confLimits optimize_period optimize_min_src_count optimize_max_size_mb
 syn keyword confLimits max_rows_per_table render_endpoint_timeout min_batch_size_bytes default_time_bins
@@ -259,7 +259,7 @@ syn keyword confOutputs channelReapLowater
 
 " pdf_server.conf
 syn keyword confPDFserverStanzas contained settings
-syn keyword confPDFserver startwebserver httpport enableSplunkWebSSL privKeyPath caCertPath 
+syn keyword confPDFserver startwebserver httpport enableSplunkWebSSL privKeyPath caCertPath
 syn keyword confPDFserver supportSSLV3Only root_endpoint static_endpoint static_dir enable_gzip
 syn keyword confPDFserver server.thread_pool server.socket_host log.access_file log.error_file
 syn keyword confPDFserver log.screen request.show_tracebacks engine.autoreload_on tools.sessions.on
@@ -334,8 +334,8 @@ syn keyword confSavedSearches display.general.enablePreview display.general.type
 syn keyword confSavedSearches display.events.fields display.events.type display.events.rowNumbers display.events.maxLines display.events.raw.drilldown
 syn keyword confSavedSearches display.events.list.drilldown display.events.list.wrap display.events.table.drilldown display.events.table.wrap
 syn keyword confSavedSearches display.statistics.rowNumbers display.statistics.wrap display.statistics.overlay display.statistics.drilldown
-syn keyword confSavedSearches display.visualizations.show display.visualizations.type display.visualizations.chartHeight 
-syn keyword confSavedSearches display.visualizations.charting.chart display.visualizations.charting.chart.stackMode 
+syn keyword confSavedSearches display.visualizations.show display.visualizations.type display.visualizations.chartHeight
+syn keyword confSavedSearches display.visualizations.charting.chart display.visualizations.charting.chart.stackMode
 syn keyword confSavedSearches display.visualizations.charting.chart.nullValueMode display.visualizations.charting.drilldown
 syn keyword confSavedSearches display.visualizations.charting.chart.style display.visualizations.charting.layout.splitSeries
 syn keyword confSavedSearches display.visualizations.charting.legend.placement display.visualizations.charting.legend.labelStyle.overflowMode
@@ -347,9 +347,9 @@ syn keyword confSavedSearches display.visualizations.charting.axisX.minimumNumbe
 syn keyword confSavedSearches display.visualizations.charting.axisX.maximumNumber display.visualizations.charting.axisY.maximumNumber
 syn keyword confSavedSearches display.visualizations.charting.chart.sliceCollapsingThreshold display.visualizations.charting.gaugeColors
 syn keyword confSavedSearches display.visualizations.charting.chart.rangeValues display.visualizations.singlevalue.beforeLabel
-syn keyword confSavedSearches display.visualizations.singlevalue.afterLabel display.visualizations.singlevalue.underLabel 
+syn keyword confSavedSearches display.visualizations.singlevalue.afterLabel display.visualizations.singlevalue.underLabel
 syn keyword confSavedSearches display.page.search.mode display.page.search.timeline.format display.page.search.timeline.scale
-syn keyword confSavedSearches display.page.search.showFields display.page.pivot.dataModel 
+syn keyword confSavedSearches display.page.search.showFields display.page.pivot.dataModel
 syn keyword confSavedSearches_Constants fast smart verbose hidden compact full linear log events statistics visualizations
 syn keyword confSavedSearches_Constants heatmap highlow stacked default stacked100 right bottom top left visible collapsed
 
@@ -447,15 +447,15 @@ syn keyword confTransforms_Constants _MetaData:Index MetaData:Source MetaData:So
 
 " ui-prefs.conf
 syn keyword confUIPrefsStanzas contained default
-syn keyword confUIPrefs dispatch.earliest_time dispatch.latest_time display.prefs.autoOpenSearchAssistant display.prefs.timeline.height 
-syn keyword confUIPrefs display.prefs.timeline.minimized display.prefs.timeline.minimalMode display.prefs.aclFilter display.prefs.searchContext 
-syn keyword confUIPrefs display.prefs.events.count display.prefs.statistics.count display.prefs.fieldCoverage display.general.enablePreview 
-syn keyword confUIPrefs display.events.fields display.events.type display.events.rowNumbers display.events.maxLines display.events.raw.drilldown 
-syn keyword confUIPrefs display.events.list.drilldown display.events.list.wrap display.events.table.drilldown display.events.table.wrap 
-syn keyword confUIPrefs display.statistics.rowNumbers display.statistics.wrap display.statistics.drilldown display.visualizations.type 
-syn keyword confUIPrefs display.visualizations.chartHeight display.visualizations.charting.chart display.visualizations.charting.chart.style 
-syn keyword confUIPrefs display.visualizations.charting.legend.labelStyle.overflowMode display.page.search.mode display.page.search.timeline.format 
-syn keyword confUIPrefs display.page.search.timeline.scale display.page.search.showFields 
+syn keyword confUIPrefs dispatch.earliest_time dispatch.latest_time display.prefs.autoOpenSearchAssistant display.prefs.timeline.height
+syn keyword confUIPrefs display.prefs.timeline.minimized display.prefs.timeline.minimalMode display.prefs.aclFilter display.prefs.searchContext
+syn keyword confUIPrefs display.prefs.events.count display.prefs.statistics.count display.prefs.fieldCoverage display.general.enablePreview
+syn keyword confUIPrefs display.events.fields display.events.type display.events.rowNumbers display.events.maxLines display.events.raw.drilldown
+syn keyword confUIPrefs display.events.list.drilldown display.events.list.wrap display.events.table.drilldown display.events.table.wrap
+syn keyword confUIPrefs display.statistics.rowNumbers display.statistics.wrap display.statistics.drilldown display.visualizations.type
+syn keyword confUIPrefs display.visualizations.chartHeight display.visualizations.charting.chart display.visualizations.charting.chart.style
+syn keyword confUIPrefs display.visualizations.charting.legend.labelStyle.overflowMode display.page.search.mode display.page.search.timeline.format
+syn keyword confUIPrefs display.page.search.timeline.scale display.page.search.showFields
 syn keyword confUIPrefs_Constants none app owner raw list table inner outer full row cell charting singlevalue line area column bar pie scatter
 syn keyword confUIPrefs_Constants radialGauge fillerGauge markerGauge minimal shiny ellipsisEnd ellipsisMiddle ellipsisStart fast smart verbose
 syn keyword confUIPrefs_Constants hidden compact full linear log
@@ -476,7 +476,7 @@ syn keyword confWeb enable_insecure_login login_content supportSSLV3Only cipherS
 syn keyword confWeb static_endpoint static_dir rss_endpoint tools.staticdir.generate_indexes
 syn keyword confWeb template_dir module_dir enable_gzip use_future_expires flash_major_version
 syn keyword confWeb flash_minor_version flash_revision_version enable_proxy_write js_logger_mode
-syn keyword confWeb js_logger_mode_server_end_point js_logger_mode_server_poll_buffer 
+syn keyword confWeb js_logger_mode_server_end_point js_logger_mode_server_poll_buffer
 syn keyword confWeb js_logger_mode_server_max_buffer ui_inactivity_timeout js_no_cache
 syn keyword confWeb enable_autocomplete_login minify_js minify_css trap_module_exceptions
 syn keyword confWeb jschart_test_mode max_view_cache_size version_label_format remoteUser SSOMode
@@ -484,7 +484,7 @@ syn keyword confWeb trustedIP testing_endpoint testing_dir server.thread_pool se
 syn keyword confWeb server.thread_pool_min_spare server.thread_pool_max_spare server.socket_host
 syn keyword confWeb listenOnIPv6 max_upload_size log.access_maxsize log.access_maxfiles
 syn keyword confWeb log.error_maxsize log.error_maxfiles log.screen request.show_tracebacks
-syn keyword confWeb engine.autoreload_on tools.session.on tools.sessions.timeout 
+syn keyword confWeb engine.autoreload_on tools.session.on tools.sessions.timeout
 syn keyword confWeb tools.sessions.restart_persist tools.sessions.httponly tools.sessions.secure
 syn keyword confWeb response.timeout tools.sessions.storage_type tools.sessions.storage_path
 syn keyword confWeb tools.decode.on tools.encode.on tools.encode.encoding tools.proxy.on pid_path
