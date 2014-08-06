@@ -17,7 +17,7 @@ syn case match
 syn match confComment /^#.*/ contains=confTodo oneline display
 syn match confSpecComment /^\s*\*.*/ contains=confTodo oneline display
 
-syn region confString start=/"/ end=/"/ oneline display
+syn region confString start=/"/ skip="\\\"" end=/"/ oneline display contains=NONE
 
 syn keyword confBoolean on off true false 0 1 True False
 syn keyword confTodo FIXME NOTE TODO contained
@@ -278,13 +278,16 @@ syn keyword confProps host source sourcetype CHARSET TRUNCATE LINE_BREAKER LINE_
 syn keyword confProps SHOULD_LINEMERGE BREAK_ONLY_BEFORE_DATE BREAK_ONLY_BEFORE MUST_BREAK_AFTER
 syn keyword confProps MUST_NOT_BREAK_AFTER MUST_NOT_BREAK_BEFORE MAX_EVENTS DATETIME_CONFIG TIME_PREFIX
 syn keyword confProps MAX_TIMESTAMP_LOOKAHEAD TIME_FORMAT TZ MAX_DAYS_AGO MAX_DAYS_HENCE MAX_DIFF_SECS_AGO
-syn keyword confProps MAX_DIFF_SECS_HENCE TRANSFORMS- REPORT- EXTRACT- KV_MODE CHECK_FOR_HEADER
-syn keyword confProps SEDCMD- LOOKUP- FIELDALIAS- EVAL- NO_BINARY_CHECK SEGMENTATION SEGMENTATION-
+syn keyword confProps MAX_DIFF_SECS_HENCE KV_MODE CHECK_FOR_HEADER
+syn keyword confProps NO_BINARY_CHECK SEGMENTATION
 syn keyword confProps CHECK_METHOD initCrcLength PREFIX_SOURCETYPE sourcetype rename invalid_cause is_valid
-syn keyword confProps unarchive_cmd unarchive_sourcetype LEARN_SOURCETYPE LEARN_MODEL maxDist MORE_THAN
-syn keyword confProps LESS_THAN MORE_THAN_ LESS_THAN_ ANNOTATE_PUNCT HEADER_MODE _actions pulldown_type
+syn keyword confProps unarchive_cmd unarchive_sourcetype LEARN_SOURCETYPE LEARN_MODEL maxDist
+syn keyword confProps ANNOTATE_PUNCT HEADER_MODE _actions pulldown_type
 syn keyword confProps given_type TZ_ALIAS INDEXED_EXTRACTIONS PREAMBLE_REGEX FIELD_HEADER_REGEX HEADER_FIELD_LINE_NUMBER
 syn keyword confProps FIELD_DELIMITER FIELD_QUOTE TIMESTAMP_FIELDS FIELD_NAMES detect_trailing_nulls
+
+syn match confComplex /\v<(EVAL|EXTRACT|FIELDALIAS|LOOKUP|REPORT|SEDCMD|SEGMENTATION|TRANSFORMS)-\k+/
+syn match confComplex /\v<(MORE|LESS)_THAN_\d+/
 
 " pubsub.conf
 syn keyword confPubsubStanzas contained default pubsub-server:deploymentServer pubsub-server:
@@ -377,7 +380,7 @@ syn keyword confServer max-age follow-symlinks disableDefaultPort acceptFrom str
 syn keyword confServer max_content_length ssl allowInternetAccess url loginUrl detailsUrl useragent
 syn keyword confServer updateHost updatePath updateTimeout initialNumberOfScriptProcesses minFreeSpace
 syn keyword confServer pollingFrequency pollingTimerFrequency maxSize disabled stateIntervalInSecs
-syn keyword confServer outputQueue EXCLUDE- master_uri active_group connection_timeout send_timeout
+syn keyword confServer outputQueue master_uri active_group connection_timeout send_timeout
 syn keyword confServer receive_timeout squash_threshold description quota slaves stack_id state storage
 syn keyword confServer lock.timeout lock.logging poll.interval.rebuild poll.interval.check poll.blacklist.
 syn keyword confServer mode cxn_timeout rcv_timeout rep_cxn_timeout rep_send_timeout rep_rcv_timeout
@@ -392,6 +395,8 @@ syn keyword confServer cntr_2_lookback_time cntr_3_lookback_time sampling_interv
 syn keyword confServer max_replication_errors target_wait_time commit_retry_time percent_peers_to_restart executor_workers
 syn keyword confServer_Constants always never requireSetPassword KB MB GB self Enterprise Trial Forwarder Free
 syn keyword confServer_Constants master slave searchhead enabled clustermaster: silence
+
+syn match confComplex /\v<EXCLUDE-\k+/
 
 " serverclass.conf
 syn keyword confServerClassStanzas contained global serverClass:
@@ -546,6 +551,7 @@ hi def link confOutputs Keyword
 hi def link confPDFserver Keyword
 hi def link confProcmonFilters Keyword
 hi def link confProps Keyword
+hi def link confComplex Preproc
 hi def link confPubsub Keyword
 hi def link confPubsub_Constants Constant
 hi def link confRegmonFilters Keyword
