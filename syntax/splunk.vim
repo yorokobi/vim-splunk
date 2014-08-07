@@ -368,9 +368,11 @@ syn keyword confSavedSearches_Constants fast smart verbose hidden compact full l
 syn keyword confSavedSearches_Constants heatmap highlow stacked default stacked100 right bottom top left visible collapsed
 
 " searchbnf.conf
-syn keyword confSearchbnfStanzas contained default -command
-syn keyword confSearchbnf SYNTAX SIMPLESYNTAX ALIAS DESCRIPTION SHORTDESC EXAMPLE COMMENT USAGE TAGS
-syn keyword confSearchbnf RELATED maintainer appears-in note supports-multivalue
+syn match   confSearchbnfStanzas contained /\v<(default|[^-]+-(command|options))>/
+syn case ignore
+syn keyword confSearchbnf syntax simplesyntax alias description shortdesc example comment usage tags
+syn keyword confSearchbnf related maintainer appears-in note supports-multivalue
+syn case match
 
 " segmenters.conf
 syn keyword confSegmentersStanzas contained default
