@@ -304,16 +304,16 @@ syn match confComplex /\v<(EVAL|EXTRACT|FIELDALIAS|LOOKUP|REPORT|SEDCMD|SEGMENTA
 syn match confComplex /\v<(MORE|LESS)_THAN_\d+>/
 
 " pubsub.conf
-syn keyword confPubsubStanzas contained default pubsub-server:deploymentServer pubsub-server:
+syn match   confPubsubStanzas contained /\v<(default|pubsub-server:[^\]]+)>/
 syn keyword confPubsub disabled targetUri
 syn keyword confPubsub_Constants direct
 
 " regmon-filters.conf
-syn keyword confRegmonFiltersStanzas contained default
+syn match   confRegmonFiltersStanzas contained /\v<(default)>/
 syn keyword confRegmonFilters proc hive type baseline baseline_interval disabled index
 
 " restmap.conf
-syn keyword confRestmapStanzas contained global script: admin: validation: eai: input: peerupload:
+syn match   confRestmapStanzas contained /\v<(global|(script|admin|validation|eai|input|peerupload):[^\]]+)>/
 syn keyword confRestmap allowGetAuth pythonHandlerPath match requireAuthentication capability
 syn keyword confRestmap scripttype handler xsl script output_modes members handlertype handlerfile
 syn keyword confRestmap handleractions showInDirSvc desc dynamic path untar
@@ -321,7 +321,7 @@ syn keyword confRestmap capability.post capability.delete capability.get capabil
 syn keyword confRestmap includeInAccessLog
 
 " savedsearches.conf
-syn keyword confSavedSearchesStanzas contained default
+syn match   confSavedSearchesStanzas contained /\v<(default)>/
 syn keyword confSavedSearches disabled search enableSched cron_schedule schedule max_concurrent
 syn keyword confSavedSearches realtime_schedule counttype relation quantity alert_condition action.
 syn keyword confSavedSearches action.email action.email.to action.email.from action.email.subject
