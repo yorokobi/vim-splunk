@@ -60,14 +60,14 @@ syn match   confAuditStanzas contained /\v<(event(Hash|Sign)ing|auditTrail|filte
 syn keyword confAudit filters all source host sourcetype privateKey publicKey queueing
 
 " authentication.conf
-syn keyword confAuthenticationStanzas contained authentication roleMap_ cacheTiming
-syn keyword confAuthentication authType authSettings host SSLEnabled port bindDN bindDNpassword
+syn match   confAuthenticationStanzas contained /\v<(authentication|cacheTiming|splunk_auth|roleMap_[^\]]+)>/
+syn keyword confAuthentication admin authType authSettings host SSLEnabled port bindDN bindDNpassword
 syn keyword confAuthentication userBaseDN userBaseFilter userNameAttribute realNameAttribute
 syn keyword confAuthentication groupMappingAttribute groupBaseDN groupBaseFilter dynamicGroupFilter
 syn keyword confAuthentication dynamicMemberAttribute groupNameAttribute groupMemberAttribute
 syn keyword confAuthentication nestedGroups charset anonymous_referrals sizelimit timelimit
-syn keyword confAuthentication network_timeout scriptPath scriptSearchFilters userLoginTTL
-syn keyword confAuthentication getUserInfoTTL getUsersTTL passwordHashAlgorithm
+syn keyword confAuthentication network_timeout scriptPath Scripted scriptSearchFilters user userLoginTTL
+syn keyword confAuthentication getUserInfoTTL getUsersTTL passwordHashAlgorithm power
 
 " authorize.conf
 syn keyword confAuthorizeStanzas contained default capability:: role_
