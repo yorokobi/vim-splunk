@@ -438,20 +438,20 @@ syn keyword confSplunkLaunch SPLUNK_WEB_NAME
 "syn keyword confTags
 
 " tenants.conf
-syn keyword confTenantsStanzas contained default tenant:
+syn match   confTenantsStanzas contained /\v<(default|tenant:[^\]]+)>/
 syn keyword confTenants filterType whitelist. blacklist. phoneHomeTopic
 
 " times.conf
-syn keyword confTimesStanzas contained default
+syn match   confTimesStanzas contained /\v<(default)>/
 syn keyword confTimes label header_label earliest_time latest_time order sub_menu is_sub_menu
 
 " transactiontypes.conf
-syn keyword confTransactionTypesStanzas contained default
+syn match   confTransactionTypesStanzas contained /\v<(default)>/
 syn keyword confTransactionTypes maxspan maxpause maxevents fields startswith endswith connected maxopentxn
 syn keyword confTransactionTypes maxopenevents keepevicted mvlist delim nullstr search
 
 " transforms.conf
-syn keyword confTransformsStanzas contained default
+syn match   confTransformsStanzas contained /\v<(default)>/
 syn keyword confTransforms REGEX FORMAT LOOKAHEAD WRITE_META DEST_KEY DEFAULT_VALUE SOURCE_KEY
 syn keyword confTransforms REPEAT_MATCH DELIMS FIELDS MV_ADD CLEAN_KEYS KEEP_EMPTY_VALS CAN_OPTIMIZE
 syn keyword confTransforms filename max_matches min_matches default_match case_sensitive_match
@@ -461,7 +461,7 @@ syn keyword confTransforms_Constants _raw _done _meta _time MetaData:FinalType M
 syn keyword confTransforms_Constants _MetaData:Index MetaData:Source MetaData:Sourcetype
 
 " ui-prefs.conf
-syn keyword confUIPrefsStanzas contained default
+syn match   confUIPrefsStanzas contained /v<(default)>/
 syn keyword confUIPrefs dispatch.earliest_time dispatch.latest_time display.prefs.autoOpenSearchAssistant display.prefs.timeline.height
 syn keyword confUIPrefs display.prefs.timeline.minimized display.prefs.timeline.minimalMode display.prefs.aclFilter display.prefs.searchContext
 syn keyword confUIPrefs display.prefs.events.count display.prefs.statistics.count display.prefs.fieldCoverage display.general.enablePreview
@@ -476,15 +476,15 @@ syn keyword confUIPrefs_Constants radialGauge fillerGauge markerGauge minimal sh
 syn keyword confUIPrefs_Constants hidden compact full linear log
 
 " user-seed.conf
-syn keyword confUserSeedStanzas contained user_info
+syn match   confUserSeedStanzas contained /\v<(user_info)>/
 syn keyword confUserSeed USERNAME PASSWORD
 
 " viewstates.conf
-syn keyword confViewStatesStanzas contained default
+syn match   confViewStatesStanzas contained /\v<(default)>/
 "syn keyword confViewStates
 
 " web.conf
-syn keyword confWebStanzas contained settings endpoint:
+syn match   confWebStanzas contained /v<(settings|endpoint:[^\]]+)>/
 syn keyword confWeb startwebserver httpport mgmtHostPort enableSplunkWebSSL privKeyPath caCertPath
 syn keyword confWeb serviceFormPostURL userRegistrationURL updateCheckerBaseURL docsCheckerBaseURL
 syn keyword confWeb enable_insecure_login login_content supportSSLV3Only cipherSuite root_endpoint
@@ -510,13 +510,13 @@ syn keyword confWeb django_path django_force_enable
 syn keyword confWeb_Constants None Firebug Server permissive strict no yes only
 
 " wmi.conf
-syn keyword confWmiStanzas contained settings WMI:
+syn match   confWmiStanzas contained /\v<(settings|WMI:[^\]]+)>/
 syn keyword confWmi initial_backoff max_backoff max_retries_at_max_backoff checkpoint_sync_interval
 syn keyword confWmi server interval disabled hostname current_only index event_log_file
 syn keyword confWmi disable_hostname_normalization wql namespace
 
 " workflow_actions.conf
-syn keyword confWorkflowActionsStanzas contained default
+syn match   confWorkflowActionsStanzas contained /v<(default)>/
 syn keyword confWorkflowActions type label fields eventtypes display_location disabled link.uri
 syn keyword confWorkflowActions link.target link.method link.postargs. search.search_string search.app
 syn keyword confWorkflowActions search.view search.target search.earliest search.latest
