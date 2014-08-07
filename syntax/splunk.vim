@@ -142,7 +142,7 @@ syn match   confFieldsStanzas contained /\v<(default)>/
 syn keyword confFields TOKENIZER INDEXED INDEXED_VALUE
 
 " indexes.conf
-syn keyword confIndexesStanzas contained default volume:
+syn match   confIndexesStanzas contained /\v<(default|volume:[^\]]+)>/
 syn keyword confIndexes sync defaultDatabase queryLanguageDefinition blockSignatureDatabase
 syn keyword confIndexes memPoolMB indexThreads assureUTF8 enableRealtimeSearch suppressBannerList
 syn keyword confIndexes maxRunningProcessGroups maxRunningProcessGroupsLowPriority bucketRebuildMemoryHint
@@ -159,6 +159,7 @@ syn keyword confIndexes partialServiceMetaPeriod throttleCheckPeriod maxTimeUnre
 syn keyword confIndexes maxTimeUnreplicatedNoAcks isReadOnly homePath.maxDataSizeMB coldPath.maxDataSizeMB
 syn keyword confIndexes disableGlobalMetadata repFactor path maxVolumeDataSizeMB rotatePeriodInSecs
 syn keyword confIndexes inPlaceUpdates processTrackerServiceInterval tstatsHomePath minStreamGroupQueueSize
+syn keyword confIndexes_Constants auto_high_volume auto disable
 
 " inputs.conf
 syn keyword confInputsStanzas contained default monitor: batch: tcp: splunktcp: splunktcp-ssl: tcp-ssl: SSL udp: fifo:
@@ -601,6 +602,7 @@ hi def link confEventGen Keyword
 hi def link confEventTypes Keyword
 hi def link confFields Keyword
 hi def link confIndexes Keyword
+hi def link confIndexes_Constants Constant
 hi def link confInputs Keyword
 hi def link confLimits Keyword
 hi def link confMeta Keyword
