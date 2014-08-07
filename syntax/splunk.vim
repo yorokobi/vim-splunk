@@ -375,18 +375,16 @@ syn keyword confSearchbnf related maintainer appears-in note supports-multivalue
 syn case match
 
 " segmenters.conf
-syn keyword confSegmentersStanzas contained default
+syn match   confSegmentersStanzas contained /\v<(default)>/
 syn keyword confSegmenters MAJOR MINOR INTERMEDIATE_MAJORS FILTER LOOKAHEAD MAJOR_LEN MINOR_LEN
 syn keyword confSegmenters MAJOR_COUNT MINOR_COUNT
 
 " server.conf
-syn keyword confServerStanzas contained default general sslConfig httpServer httpServerListener: mimetype-extension-map
-syn keyword confServerStanzas contained applicationsManagement scripts diskUsage queue queue= pubsubsvr-http
-syn keyword confServerStanzas contained fileInput diag license lmpool:auto_generated_pool_forwarder
-syn keyword confServerStanzas contained lmpool:auto_generated_pool_free lmpool:auto_generated_pool_enterprise
-syn keyword confServerStanzas contained lmpool:auto_generated_pool_fixed-sourcetype_ clustermaster:
-syn keyword confServerStanzas contained lmpool:auto_generated_pool_download_trial pooling clustering
-syn keyword confServerStanzas contained replication_port replication_port-ssl
+syn match   confServerStanzas contained /\v<(applicationsManagement|cluster(ing|master:[^\]]+)|default|diag|diskUsage|fileInput)>/
+syn match   confServerStanzas contained /\v<(general|httpServer(Listener:[^\]]+)?| license)>/
+syn match   confServerStanzas contained /\v<(lmpool:auto_generated_pool_(download_trial|enterprise|forwarder|free|fixed-sourcetype_[^\]]+))>/
+syn match   confServerStanzas contained /\v<(mimetype-extension-map|pooling|pubsubsvr-http|queue(\=[^\]]+)?)>/
+syn match   confServerStanzas contained /\v<(replication_port(-ssl)?|scripts|sslConfig)>/
 syn keyword confServer serverName sessionTimeout trustedIP allowRemoteLogin pass4SymmKey listenOnIPv6
 syn keyword confServer connectUsingIpVersion guid useHTTPServerCompression useHTTPClientCompression
 syn keyword confServer enableSplunkdSSL useSplunkdClientSSLCompression supportSSLV3Only sslVerifyServerCert
@@ -427,7 +425,7 @@ syn match   confComplex /\v<(white|black)list\.\d+>/
 syn keyword confSourceClass ignored_model_keywords ignored_filename_keywords
 
 " sourcetypes.conf
-syn keyword confSourceTypesStanzas contained default
+syn match   confSourceTypesStanzas contained /\v<(default)>/
 syn keyword confSourceTypes _sourcetype _source
 
 " splunk-launch.conf
