@@ -92,15 +92,15 @@ syn keyword confCrawl root bad_directories_list bad_extensions_list bad_file_mat
 syn keyword confCrawl collapse_threshold days_sizek_pairs_list big_dir_filecount max_badfiles_per_dir subnet
 
 " datamodels.conf
-syn keyword confDataModelsStanzas contained default
+syn match   confDataModelsStanzas contained /\v<(default)>/
 syn keyword confDataModels acceleration acceleration.earliest_time acceleration.cron_schedule
 
 " default-mode.conf
-syn keyword confDefModeStanzas contained pipeline:
+syn match   confDefModeStanzas contained /\v<(pipeline:[^\]]+)>/
 syn keyword confDefMode disabled disabled_processors
 
 " deploymentclient.conf
-syn keyword confDeployClientStanzas contained deployment-client target-broker:deploymentServer
+syn match   confDeployClientStanzas contained /\v<(deployment-client|target-broker:deploymentServer)>/
 syn keyword confDeployClient disabled clientName workingDir repositoryLocation
 syn keyword confDeployClient serverRepositoryLocationPolicy endpoint serverEndpointPolicy
 syn keyword confDeployClient phoneHomeIntervalInSecs handshakeRetryIntervalInSecs
