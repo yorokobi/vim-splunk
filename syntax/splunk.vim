@@ -287,7 +287,7 @@ syn keyword confPDFserver appserver_ipaddr client_ipaddr screenshot_enabled
 syn keyword confProcmonFilters proc type hive
 
 " props.conf
-syn keyword confPropsStanzas contained default
+syn match   confPropsStanzas contained /\v<(default|(rule|source|delayedrule|host)::[^\]]+)>/
 syn keyword confProps host source sourcetype CHARSET TRUNCATE LINE_BREAKER LINE_BREAKER_LOOKBEHIND
 syn keyword confProps SHOULD_LINEMERGE BREAK_ONLY_BEFORE_DATE BREAK_ONLY_BEFORE MUST_BREAK_AFTER
 syn keyword confProps MUST_NOT_BREAK_AFTER MUST_NOT_BREAK_BEFORE MAX_EVENTS DATETIME_CONFIG TIME_PREFIX
@@ -300,8 +300,8 @@ syn keyword confProps ANNOTATE_PUNCT HEADER_MODE _actions pulldown_type
 syn keyword confProps given_type TZ_ALIAS INDEXED_EXTRACTIONS PREAMBLE_REGEX FIELD_HEADER_REGEX HEADER_FIELD_LINE_NUMBER
 syn keyword confProps FIELD_DELIMITER FIELD_QUOTE TIMESTAMP_FIELDS FIELD_NAMES detect_trailing_nulls
 
-syn match confComplex /\v<(EVAL|EXTRACT|FIELDALIAS|LOOKUP|REPORT|SEDCMD|SEGMENTATION|TRANSFORMS)-\k+/
-syn match confComplex /\v<(MORE|LESS)_THAN_\d+/
+syn match confComplex /\v<(EVAL|EXTRACT|FIELDALIAS|LOOKUP|REPORT|SEDCMD|SEGMENTATION|TRANSFORMS)-\k+>/
+syn match confComplex /\v<(MORE|LESS)_THAN_\d+>/
 
 " pubsub.conf
 syn keyword confPubsubStanzas contained default pubsub-server:deploymentServer pubsub-server:
@@ -413,11 +413,12 @@ syn keyword confServer_Constants master slave searchhead enabled clustermaster: 
 syn match confComplex /\v<EXCLUDE-\k+/
 
 " serverclass.conf
-syn keyword confServerClassStanzas contained global serverClass:
+syn match   confServerClassStanzas contained /\v<(global|serverClass:[^\]]+)>/
 syn keyword confServerClass repositoryLocation targetRepositoryLocation tmpFolder continueMatching
 syn keyword confServerClass endpoint filterType machineTypes machineTypesFilter whitelist. blacklist.
 syn keyword confServerClass restartSplunkWeb restartSplunkd stateOnClient appFile
-syn match confServerClassMatch "\(white\|black\)list\.\d\+"
+
+syn match   confComplex /\v<(white|black)list\.\d+>/
 
 " source-classifier.conf
 "syn keyword confSourceClassStanzas
@@ -624,7 +625,6 @@ hi def link confSegmenters Keyword
 hi def link confServer Keyword
 hi def link confServer_Constants Constant
 hi def link confServerClass Keyword
-hi def link confServerClassMatch Keyword
 hi def link confSourceClass Keyword
 hi def link confSourceTypes Keyword
 hi def link confSplunkLaunch Keyword
