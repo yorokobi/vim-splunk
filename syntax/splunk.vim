@@ -121,24 +121,24 @@ syn keyword confDistSearch replicate mounted_bundles bundles_location trySSLFirs
 syn keyword confDistSearch authTokenConnectionTimeout authTokenSendTimeout authTokenReceiveTimeout allConf
 
 " event_renderers.conf
-syn keyword confEventRenderStanzas contained default
+syn match   confEventRenderStanzas contained /\v<(default)>/
 syn keyword confEventRender eventtype priority template css_class
 
 " eventdiscoverer.conf
-syn keyword confEventDiscoverStanzas contained default
+syn match   confEventDiscoverStanzas contained /v<(default)>/
 syn keyword confEventDiscover ignored_keywords ignored_fields important_keywords
 
 " eventgen.conf
-syn keyword confEventGenStanzas contained default global
+syn match   confEventGenStanzas contained /\v<(default|global)>/
 syn keyword confEventGen spoolDir spoolFile interval count earliest latest breaker token replacementType
 syn keyword confEventGen replacement
 
 " eventtypes.conf
-syn keyword confEventTypesStanzas contained default
+syn match   confEventTypesStanzas contained /\v<(default)>/
 syn keyword confEventTypes disabled search priority description tags
 
 " fields.conf
-syn keyword confFieldsStanzas contained default
+syn match   confFieldsStanzas contained /\v<(default)>/
 syn keyword confFields TOKENIZER INDEXED INDEXED_VALUE
 
 " indexes.conf
