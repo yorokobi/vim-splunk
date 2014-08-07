@@ -259,7 +259,7 @@ syn match   confMultikv /\v<(pre|header|body|post)\.(start(_offset)?|end|member|
 syn keyword confMultikv _chop_ _tokenize_ _align_ _token_list_ _regex_ _all_
 
 " outputs.conf
-syn keyword confOutputsStanzas contained default tcpout tcpout: tcpout-server: syslog syslog: indexAndForward
+syn match   confOutputsStanzas contained /\v<(default|tcpout((-server)?:[^\]]+)?|syslog(:[^\]]+)?|indexAndForward)>/
 syn keyword confOutputs defaultGroup indexAndForward server sendCookedData heartbeatFrequency
 syn keyword confOutputs blockOnCloning compressed maxQueueSize dropEventsOnQueueFull dropClonedEventsOnQueueFull
 syn keyword confOutputs maxFailuresPerInterval secsInFailureInterval maxConnectionsPerIndexer
@@ -272,7 +272,7 @@ syn keyword confOutputs masterUri blockWarnThreshold negotiateNewProtocol channe
 syn keyword confOutputs channelReapLowater
 
 " pdf_server.conf
-syn keyword confPDFserverStanzas contained settings
+syn match   confPDFserverStanzas contained /\v<(settings)>/
 syn keyword confPDFserver startwebserver httpport enableSplunkWebSSL privKeyPath caCertPath
 syn keyword confPDFserver supportSSLV3Only root_endpoint static_endpoint static_dir enable_gzip
 syn keyword confPDFserver server.thread_pool server.socket_host log.access_file log.error_file
