@@ -162,8 +162,8 @@ syn keyword confIndexes inPlaceUpdates processTrackerServiceInterval tstatsHomeP
 syn keyword confIndexes_Constants auto_high_volume auto disable
 
 " inputs.conf
-syn keyword confInputsStanzas contained default monitor: batch: tcp: splunktcp: splunktcp-ssl: tcp-ssl: SSL udp: fifo:
-syn keyword confInputsStanzas contained script: fschange: filter: WinEventLog:
+syn match   confInputsStanzas contained /\v<(tcp(-ssl)?|splunktcp(-ssl)?|monitor|batch|udp|fifo|script|fschange|filter|WinEventLog|(ad|perf)mon):[^\]]+>/
+syn match   confInputsStanzas contained /\v<(default|SSL|splunktcp)>/
 syn keyword confInputs host index source sourcetype queue _TCP_ROUTING _SYSLOG_ROUTING
 syn keyword confInputs host_regex host_segment crcSalt initCrcLength ignoreOlderThan
 syn keyword confInputs whitelist blacklist _whitelist _blacklist
