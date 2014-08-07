@@ -107,9 +107,8 @@ syn keyword confDeployClient phoneHomeIntervalInSecs handshakeRetryIntervalInSec
 syn keyword confDeployClient reloadDSOnAppInstall targetUri
 
 " distsearch.conf
-syn keyword confDistSearchStanzas contained distributedSearch tokenExchKeys replicationSettings
-syn keyword confDistSearchStanzas contained replicationSettings:refineConf replicationWhitelist
-syn keyword confDistSearchStanzas contained replicationBlacklist searchhead:
+syn match confDistSearchStanzas contained /\v<(distributedSearch|tokenExchKeys|searchhead:[^\]]+)>/
+syn match confDistSearchStanzas contained /\v<replication(Settings(:refineConf)?|(White|Black)list)>/
 syn keyword confDistSearch disabled heartbeatMcastAddr heartbeatPort ttl heartbeatFrequency
 syn keyword confDistSearch statusTimeout removedTimedOutServers checkTimedOutServersFrequency
 syn keyword confDistSearch autoAddServers bestEffortSearch skipOurselves servers disabled_servers
@@ -119,7 +118,7 @@ syn keyword confDistSearch connectionTimeout sendRcvTimeout replicationThreads m
 syn keyword confDistSearch maxBundleSize concerningReplicatedFileSize allowStreamUpload
 syn keyword confDistSearch allowSkipEncoding allowDeltaUpload sanitizeMetaFiles
 syn keyword confDistSearch replicate mounted_bundles bundles_location trySSLFirst peerResolutionThreads
-syn keyword confDistSearch authTokenConnectionTimeout authTokenSendTimeout authTokenReceiveTimeout
+syn keyword confDistSearch authTokenConnectionTimeout authTokenSendTimeout authTokenReceiveTimeout allConf
 
 " event_renderers.conf
 syn keyword confEventRenderStanzas contained default
