@@ -56,7 +56,7 @@ syn keyword confApp state state_change_requires_restart is_configured build allo
 syn keyword confApp reload. is_visible is_manageable label verify_script password
 
 " audit.conf
-syn keyword confAuditStanzas contained eventHashing filterSpec: auditTrail
+syn match   confAuditStanzas contained /\v<(event(Hash|Sign)ing|auditTrail|filterSpec:[^\]]+)>/
 syn keyword confAudit filters all source host sourcetype privateKey publicKey queueing
 
 " authentication.conf
