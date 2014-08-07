@@ -76,13 +76,15 @@ syn keyword confAuthorize rtSrchJobsQuota srchMaxTime srchIndexesDefault srchInd
 syn keyword confAuthorize cumulativeSrchJobsQuota cumulativeRTSrchJobsQuota rtsearch
 
 " commands.conf
-syn keyword confCommandsStanzas contained default
+syn match   confCommandsStanzas contained /\v<(default)>/
+syntax case ignore
 syn keyword confCommands type filename local perf_warn_limit streaming maxinputs passauth
 syn keyword confCommands run_in_preview enableheader retainsevents generating generates_timeorder
 syn keyword confCommands overrides_timeorder requires_preop streaming_preop required_fields
 syn keyword confCommands supports_multivalues supports_getinfo supports_rawargs
 syn keyword confCommands requires_srinfo needs_empty_results changes_colorder clear_required_fields
 syn keyword confCommands stderr_dest outputheader
+syntax case match
 
 " crawl.conf
 syn keyword confCrawlStanzas contained default files
