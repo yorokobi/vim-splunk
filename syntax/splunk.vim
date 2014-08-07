@@ -40,7 +40,7 @@ syn match confGenericStanzas display contained /\v[^\]]+/
 syn keyword confADmon targetDc startingNode monitorSubtree disabled index
 
 " alert_actions.conf
-syn keyword confAlertActionsStanzas contained default email rss script summary_index populate_lookup
+syn match   confAlertActionsStanzas contained /\v<(default|email|rss|script|summary_index|populate_lookup)>/
 syn keyword confAlertActions maxresults hostname ttl maxtime track_alert command
 syn keyword confAlertActions from to cc bcc subject format sendresults inline
 syn keyword confAlertActions mailserver use_ssl use_tls auth_username auth_password
