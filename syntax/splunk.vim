@@ -533,7 +533,7 @@ hi def link confstanzaEnd Delimiter
 " Highlight for stanzas
 hi def link confStanza Function
 hi def link confGenericStanzas Special
-hi def link confAlertActionStanzas Identifier
+hi def link confAlertActionsStanzas Identifier
 hi def link confAppStanzas Identifier
 hi def link confAuditStanzas Identifier
 hi def link confAuthenticationStanzas Identifier
@@ -550,7 +550,7 @@ hi def link confEventRenderStanzas Identifier
 hi def link confEventTypesStanzas Identifier
 hi def link confFieldsStanzas Identifier
 hi def link confIndexesStanzas Identifier
-hi def link confInputsStanzas Type
+hi def link confInputsStanzas Identifier
 hi def link confLimitsStanzas Identifier
 hi def link confMetaStanzas Identifier
 hi def link confOutputsStanzas Identifier
@@ -574,6 +574,7 @@ hi def link confViewStatesStanzas Identifier
 hi def link confWebStanzas Identifier
 hi def link confWmiStanzas Identifier
 hi def link confWorkflowActionsStanzas Identifier
+hi def link confSearchbnfStanzas Identifier
 
 " Other highlights
 hi def link confString String
