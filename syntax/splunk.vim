@@ -87,7 +87,7 @@ syn keyword confCommands stderr_dest outputheader
 syntax case match
 
 " crawl.conf
-syn keyword confCrawlStanzas contained default files
+syn match   confCrawlStanzas contained /\v<(default|files|network)>/
 syn keyword confCrawl root bad_directories_list bad_extensions_list bad_file_matches_list packed_extensions_list
 syn keyword confCrawl collapse_threshold days_sizek_pairs_list big_dir_filecount max_badfiles_per_dir subnet
 
