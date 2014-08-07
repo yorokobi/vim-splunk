@@ -183,13 +183,12 @@ syn keyword confInputs protocol readInterval driverBufferSize userBufferSize mul
 syn keyword confInputs table output.format output.timestamp output.timestamp.column output.timestamp.format
 
 " limits.conf
-syn keyword confLimitsStanzas contained default searchresults subsearch anomalousvalue associate autoregress
-syn keyword confLimitsStanzas contained concurrency ctable correlate discretize export extern inputcsv
-syn keyword confLimitsStanzas contained indexpreview join kmeans kv lookup metrics rare restapi search
-syn keyword confLimitsStanzas contained realtime slc sort stats sistats thruput journal_compress summarize
-syn keyword confLimitsStanzas contained transactions inputproc scheduler auto_summarizer show_source
-syn keyword confLimitsStanzas contained typeahead typer authtokens sample metadata set input_channels
-syn keyword confLimitsStanzas contained ldap spath reversedns viewstates tscollect pdf
+syn match   confLimitsStanzas contained /\v<(anomalousvalue|associate|authtokens|auto_summarizer|autoregress|concurrency)>/
+syn match   confLimitsStanzas contained /\v<(correlate|ctable|default|discretize|export|extern|indexpreview)>/
+syn match   confLimitsStanzas contained /\v<(input(_channels|csv|proc)|join|journal_compress|kmeans|kv|ldap|lookup)>/
+syn match   confLimitsStanzas contained /\v<(metadata|metrics|pdf|rare|realtime|restapi|reversedns|sample|scheduler)>/
+syn match   confLimitsStanzas contained /\v<(search(results)?|set|show_source|sistats|slc|sort|spath|stats|subsearch)>/
+syn match   confLimitsStanzas contained /\v<(summarize|thruput|top|transactions|tscollect|typeahead|typer|viewstates)>/
 syn keyword confLimits max_mem_usage_mb maxresultrows tocsv_maxretry tocsv_retryperiod_ms maxout
 syn keyword confLimits maxtime ttl maxvalues maxvaluesize maxfields maxp maxrange
 syn keyword confLimits max_count maxbins add_timestamp add_offset perf_warn_limit mkdir_max_retries
