@@ -255,8 +255,8 @@ syn keyword confMeta_Constants system admin power read write none
 
 " multikv.conf
 "syn keyword confMultikvStanzas
-syn keyword confMultikv .start .start_offset .member .end .linecount .ignore .replace .tokens _chop_
-syn keyword confMultikv _tokenize_ _align_ _token_list_
+syn match   confMultikv /\v<(pre|header|body|post)\.(start(_offset)?|end|member|linecount|ignore|replace|tokens)>/
+syn keyword confMultikv _chop_ _tokenize_ _align_ _token_list_ _regex_ _all_
 
 " outputs.conf
 syn keyword confOutputsStanzas contained default tcpout tcpout: tcpout-server: syslog syslog: indexAndForward
