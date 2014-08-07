@@ -70,10 +70,10 @@ syn keyword confAuthentication network_timeout scriptPath Scripted scriptSearchF
 syn keyword confAuthentication getUserInfoTTL getUsersTTL passwordHashAlgorithm power
 
 " authorize.conf
-syn keyword confAuthorizeStanzas contained default capability:: role_
+syn match   confAuthorizeStanzas contained /\v<(default|(capability::|role_)[^\]]+)>/
 syn keyword confAuthorize importRoles srchFilter srchTimeWin srchDiskQuota srchJobsQuota
 syn keyword confAuthorize rtSrchJobsQuota srchMaxTime srchIndexesDefault srchIndexesAllowed
-syn keyword confAuthorize cumulativeSrchJobsQuota cumulativeRTSrchJobsQuota
+syn keyword confAuthorize cumulativeSrchJobsQuota cumulativeRTSrchJobsQuota rtsearch
 
 " commands.conf
 syn keyword confCommandsStanzas contained default
