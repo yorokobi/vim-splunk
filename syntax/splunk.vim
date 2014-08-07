@@ -50,7 +50,7 @@ syn keyword confAlertActions reportCIDFontList width_sort_columns preprocess_res
 syn keyword confAlertActions items_count filename _name dest
 
 " app.conf
-syn keyword confAppStanzas contained launcher package install triggers ui credentials_settings credential:
+syn match   confAppStanzas contained /\v<(launcher|package|install|triggers|ui|credentials_settings|credential:[^\]]+)>/
 syn keyword confApp remote_tab version description author id check_for_updates docs_section_override
 syn keyword confApp state state_change_requires_restart is_configured build allows_disable
 syn keyword confApp reload. is_visible is_manageable label verify_script password
