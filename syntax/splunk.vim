@@ -25,7 +25,7 @@ syn keyword confTodo FIXME NOTE TODO contained
 syn region confStanza matchgroup=confStanzaStart start=/^\[/ matchgroup=confStanzaEnd end=/\]/ oneline transparent contains=@confStanzas
 
 " Group clusters (incomplete)
-syn cluster confStanzas contains=confAlertActionStanzas,confAppStanzas,confAuditStanzas,confAuthenticationStanzas,confAuthorizeStanzas,confCommandsStanzas,confCrawlStanzas,confDataModelsStanzas,confDefmodeStanzas,confDeployClientStanzas,confDistSearchStanzas,confEventGenStanzas,confEventRenderStanzas,confEventDiscoverStanzas,confEventTypesStanzas,confFieldsStanzas,confIndexesStanzas,confInputsStanzas,confLimitsStanzas,confOutputsStanzas,confPDFserverStanzas,confPropsStanzas,confPubsubStanzas,confRegmonFiltersStanzas,confRestmapStanzas,confSavedSearchesStanzas,confSegmenterStanzas,confServerStanzas,confServerClassStanzas,confSourceTypesStanzas,confTenantsStanzas,confTimesStanzas,confTransactionTypesStanzas,confTransformsStanzas,confUIPrefsStanzas,confUserSeedStanzas,confViewStatesStanzas,confWebStanzas,confWmiStanzas,confWorkflowActionsStanzas,confGenericStanzas
+syn cluster confStanzas contains=confAlertActionsStanzas,confAppStanzas,confAuditStanzas,confAuthenticationStanzas,confAuthorizeStanzas,confCommandsStanzas,confCrawlStanzas,confDataModelsStanzas,confDefmodeStanzas,confDeployClientStanzas,confDistSearchStanzas,confEventGenStanzas,confEventRenderStanzas,confEventDiscoverStanzas,confEventTypesStanzas,confFieldsStanzas,confIndexesStanzas,confInputsStanzas,confLimitsStanzas,confOutputsStanzas,confPDFserverStanzas,confPropsStanzas,confPubsubStanzas,confRegmonFiltersStanzas,confRestmapStanzas,confSavedSearchesStanzas,confSegmenterStanzas,confServerStanzas,confServerClassStanzas,confSourceTypesStanzas,confTenantsStanzas,confTimesStanzas,confTransactionTypesStanzas,confTransformsStanzas,confUIPrefsStanzas,confUserSeedStanzas,confViewStatesStanzas,confWebStanzas,confWmiStanzas,confWorkflowActionsStanzas,confGenericStanzas,confMetaStanzas,confSearchbnfStanzas
 
 syn match confGenericStanzas display contained /\v[^\]]+/
 
@@ -239,6 +239,11 @@ syn keyword confLimits apply_search_filter summariesonly
 " macros.conf
 "syn keyword confMacrosStanzas
 syn keyword confMacros args definition validation errormsg iseval description
+
+" *.meta
+syn match confMetaStanzas contained /\v<(views(\/[^\]]+)?|transforms|exports|savedsearches|macros|eventtypes)>/
+syn keyword confMeta access export owner
+syn keyword confMeta_Constants system admin power read write none
 
 " multikv.conf
 "syn keyword confMultikvStanzas
@@ -540,6 +545,7 @@ hi def link confFieldsStanzas Identifier
 hi def link confIndexesStanzas Identifier
 hi def link confInputsStanzas Type
 hi def link confLimitsStanzas Identifier
+hi def link confMetaStanzas Identifier
 hi def link confOutputsStanzas Identifier
 hi def link confPDFserverStanzas Identifier
 hi def link confPropsStanzas Identifier
@@ -586,6 +592,8 @@ hi def link confFields Keyword
 hi def link confIndexes Keyword
 hi def link confInputs Keyword
 hi def link confLimits Keyword
+hi def link confMeta Keyword
+hi def link confMeta_Constants Constant
 hi def link confMacros Keyword
 hi def link confMultikv Keyword
 hi def link confOutputs Keyword
