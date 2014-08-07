@@ -17,8 +17,15 @@ syn match confComment /^#.*/ contains=confTodo oneline display
 syn match confSpecComment /^\s*\*.*/ contains=confTodo oneline display
 
 syn region confString start=/"/ skip="\\\"" end=/"/ oneline display contains=NONE
+syn region confString start=/`/             end=/`/ oneline display contains=NONE
+syn region confString start=/'/ skip="\\'"  end=/'/ oneline display contains=NONE
+syn match  confNumber /\v(^|\s|\=)\zs[+-]?\d+([ywdhs]|m(on|ins?))(\@([ywdhs]|m(on|ins?))\d*)?>/
+syn match  confNumber /\v(^|\s|\=)\zs[+-]?\d+(\.\d+)*>/
+syn match  confNumber /\v<\d+[TGMK]B>/
+syn match  confPath   ,\v(^|\s|\=)\zs(file:|https?:|\$\k+)?(/+\k+)+(:\d+)?,
+syn match  confPath   ,\v(^|\s|\=)\zsvolume:\k+(/+\k+)+,
 
-syn keyword confBoolean on off true false 0 1 True False
+syn keyword confBoolean on off t[rue] f[alse] T[rue] F[alse]
 syn keyword confTodo FIXME NOTE TODO contained
 
 " Define stanzas
@@ -570,6 +577,8 @@ hi def link confWorkflowActionsStanzas Identifier
 
 " Other highlights
 hi def link confString String
+hi def link confNumber Number
+hi def link confPath   Number
 
 " Highlight definitions (by .conf)
 hi def link confADmon Keyword
