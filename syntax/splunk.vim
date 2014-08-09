@@ -451,7 +451,7 @@ syn keyword confTransactionTypes maxspan maxpause maxevents fields startswith en
 syn keyword confTransactionTypes maxopenevents keepevicted mvlist delim nullstr search
 
 " transforms.conf
-syn match   confTransformsStanzas contained /\v<(default)>/
+syn match   confTransformsStanzas contained /\v<(default|accepted_keys)>/
 syn keyword confTransforms REGEX FORMAT LOOKAHEAD WRITE_META DEST_KEY DEFAULT_VALUE SOURCE_KEY
 syn keyword confTransforms REPEAT_MATCH DELIMS FIELDS MV_ADD CLEAN_KEYS KEEP_EMPTY_VALS CAN_OPTIMIZE
 syn keyword confTransforms filename max_matches min_matches default_match case_sensitive_match
@@ -459,6 +459,8 @@ syn keyword confTransforms match_type external_cmd fields_list external_type tim
 syn keyword confTransforms max_offset_secs min_offset_secs batch_index_query allow_caching
 syn keyword confTransforms_Constants _raw _done _meta _time MetaData:FinalType MetaData:Host queue
 syn keyword confTransforms_Constants _MetaData:Index MetaData:Source MetaData:Sourcetype
+
+syn match confComplex /\v<(KEY\k+)>/
 
 " ui-prefs.conf
 syn match   confUIPrefsStanzas contained /v<(default)>/
