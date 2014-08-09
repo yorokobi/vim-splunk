@@ -125,7 +125,7 @@ syn match   confEventRenderStanzas contained /\v<(default)>/
 syn keyword confEventRender eventtype priority template css_class
 
 " eventdiscoverer.conf
-syn match   confEventDiscoverStanzas contained /v<(default)>/
+syn match   confEventDiscoverStanzas contained /\v<(default)>/
 syn keyword confEventDiscover ignored_keywords ignored_fields important_keywords
 
 " eventgen.conf
@@ -463,7 +463,7 @@ syn keyword confTransforms_Constants _MetaData:Index MetaData:Source MetaData:So
 syn match confComplex /\v<(KEY\k+)>/
 
 " ui-prefs.conf
-syn match   confUIPrefsStanzas contained /v<(default)>/
+syn match   confUIPrefsStanzas contained /\v<(default)>/
 syn keyword confUIPrefs dispatch.earliest_time dispatch.latest_time display.prefs.autoOpenSearchAssistant display.prefs.timeline.height
 syn keyword confUIPrefs display.prefs.timeline.minimized display.prefs.timeline.minimalMode display.prefs.aclFilter display.prefs.searchContext
 syn keyword confUIPrefs display.prefs.events.count display.prefs.statistics.count display.prefs.fieldCoverage display.general.enablePreview
@@ -486,7 +486,7 @@ syn match   confViewStatesStanzas contained /\v<(default)>/
 "syn keyword confViewStates
 
 " web.conf
-syn match   confWebStanzas contained /v<(settings|endpoint:[^\]]+)>/
+syn match   confWebStanzas contained /\v<(settings|endpoint:[^\]]+)>/
 syn keyword confWeb startwebserver httpport mgmtHostPort enableSplunkWebSSL privKeyPath caCertPath
 syn keyword confWeb serviceFormPostURL userRegistrationURL updateCheckerBaseURL docsCheckerBaseURL
 syn keyword confWeb enable_insecure_login login_content supportSSLV3Only cipherSuite root_endpoint
@@ -518,7 +518,7 @@ syn keyword confWmi server interval disabled hostname current_only index event_l
 syn keyword confWmi disable_hostname_normalization wql namespace
 
 " workflow_actions.conf
-syn match   confWorkflowActionsStanzas contained /v<(default)>/
+syn match   confWorkflowActionsStanzas contained /\v<(default)>/
 syn keyword confWorkflowActions type label fields eventtypes display_location disabled link.uri
 syn keyword confWorkflowActions link.target link.method link.postargs. search.search_string search.app
 syn keyword confWorkflowActions search.view search.target search.earliest search.latest
