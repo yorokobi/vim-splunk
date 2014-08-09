@@ -536,7 +536,7 @@ hi def link confstanzaEnd Delimiter
 
 " Highlight for stanzas
 hi def link confStanza Function
-hi def link confGenericStanzas Special
+hi def link confGenericStanzas Function
 hi def link confAlertActionsStanzas Identifier
 hi def link confAppStanzas Identifier
 hi def link confAuditStanzas Identifier
