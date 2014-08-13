@@ -135,7 +135,7 @@ syn keyword confEventGen spoolDir spoolFile interval count earliest latest break
 syn keyword confEventGen replacement
 
 " eventtypes.conf
-syn match   confEventTypesStanzas contained /\v<(default)>/
+syn match   confEventTypesStanzas contained /\v<(default>|\k+-\%\k+\%)/
 syn keyword confEventTypes disabled search priority description tags
 
 " fields.conf
