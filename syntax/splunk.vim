@@ -16,14 +16,15 @@ syn case match
 syn match confComment /^#.*/ contains=confTodo oneline display
 syn match confSpecComment /^\s*\*.*/ contains=confTodo oneline display
 
-syn region confString start=/"/ skip="\\\"" end=/"/ oneline display contains=NONE
-syn region confString start=/`/             end=/`/ oneline display contains=NONE
-syn region confString start=/'/ skip="\\'"  end=/'/ oneline display contains=NONE
-syn match  confNumber /\v(^|\s|\=)\zs[+-]?\d+([ywdhs]|m(on|ins?))(\@([ywdhs]|m(on|ins?))\d*)?>/
-syn match  confNumber /\v(^|\s|\=)\zs[+-]?\d+(\.\d+)*>/
+syn region confString start=/"/ skip="\\\"" end=/"/ oneline display contains=confNumber,confVar
+syn region confString start=/`/             end=/`/ oneline display contains=confNumber,confVar
+syn region confString start=/'/ skip="\\'"  end=/'/ oneline display contains=confNumber,confVar
+syn match  confNumber /\v[+-]?\d+([ywdhs]|m(on|ins?))(\@([ywdhs]|m(on|ins?))\d*)?>/
+syn match  confNumber /\v[+-]?\d+(\.\d+)*>/
 syn match  confNumber /\v<\d+[TGMK]B>/
 syn match  confPath   ,\v(^|\s|\=)\zs(file:|https?:|\$\k+)?(/+\k+)+(:\d+)?,
 syn match  confPath   ,\v(^|\s|\=)\zsvolume:\k+(/+\k+)+,
+syn match  confVar    /\$\k\+\$/
 
 syn keyword confBoolean on off t[rue] f[alse] T[rue] F[alse]
 syn keyword confTodo FIXME NOTE TODO contained
@@ -134,7 +135,7 @@ syn keyword confEventGen spoolDir spoolFile interval count earliest latest break
 syn keyword confEventGen replacement
 
 " eventtypes.conf
-syn match   confEventTypesStanzas contained /\v<(default)>/
+syn match   confEventTypesStanzas contained /\v<(default>|\k+-\%\k+\%)/
 syn keyword confEventTypes disabled search priority description tags
 
 " fields.conf
@@ -584,6 +585,7 @@ hi def link confSearchbnfStanzas Identifier
 hi def link confString String
 hi def link confNumber Number
 hi def link confPath   Number
+hi def link confVar    PreProc
 
 " Highlight definitions (by .conf)
 hi def link confADmon Keyword
