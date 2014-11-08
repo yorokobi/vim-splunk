@@ -12,6 +12,7 @@ endif
 
 setlocal iskeyword+=.
 setlocal iskeyword+=:
+setlocal iskeyword+=-
 syn case match
 
 syn match confComment /^#.*/ contains=confTodo oneline display
