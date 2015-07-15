@@ -80,7 +80,7 @@ syn keyword confAuthentication minPasswordLength
 syn match   confAuthorizeStanzas contained /\v<(default|(capability::|role_)[^\]]+)>/
 syn keyword confAuthorize importRoles grantableRoles srchFilter srchTimeWin srchDiskQuota srchJobsQuota
 syn keyword confAuthorize rtSrchJobsQuota srchMaxTime srchIndexesDefault srchIndexesAllowed
-syn keyword confAuthorize cumulativeSrchJobsQuota cumulativeRTSrchJobsQuota rtsearch
+syn keyword confAuthorize cumulativeSrchJobsQuota cumulativeRTSrchJobsQuota rtsearch schedule_rtsearch
 
 " collections.conf
 syn match   confCollectionsStanzas contained /\v[^\]]+/
