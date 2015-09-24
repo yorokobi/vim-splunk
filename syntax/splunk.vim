@@ -258,6 +258,8 @@ syn keyword confInputs useDeploymentServer indexes formatString evt_resolve_ad_d
 syn keyword confInputs evt_ad_cache_exp evt_ad_cache_exp_neg evt_ad_cache_max_entries evt_sid_cache_disabled
 syn keyword confInputs evt_sid_cache_exp evt_sid_cache_exp_neg evt_sid_cache_max_entries
 syn keyword confInputs sid_cache_disabled sid_cache_exp sid_cache_exp_neg sid_cache_max_entries
+" SPLUNK4JMX
+syn keyword confInputs config_file polling_frequency
 syn keyword confInputs_Constants parsingQueue indexQueue
 
 " instance.cfg
