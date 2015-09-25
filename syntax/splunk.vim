@@ -35,7 +35,7 @@ syn keyword confTodo FIXME NOTE TODO contained
 syn region confStanza matchgroup=confStanzaStart start=/^\[/ matchgroup=confStanzaEnd end=/\]/ oneline transparent contains=@confStanzas
 
 " Group clusters (incomplete)
-syn cluster confStanzas contains=confAlertActionsStanzas,confAppStanzas,confAuditStanzas,confAuthenticationStanzas,confAuthorizeStanzas,confCommandsStanzas,confCrawlStanzas,confDataModelsStanzas,confDefmodeStanzas,confDeployClientStanzas,confDistSearchStanzas,confEventGenStanzas,confEventRenderStanzas,confEventDiscoverStanzas,confEventTypesStanzas,confFieldsStanzas,confIndexesStanzas,confInputsStanzas,confLimitsStanzas,confOutputsStanzas,confPDFserverStanzas,confPropsStanzas,confPubsubStanzas,confRegmonFiltersStanzas,confRestmapStanzas,confSavedSearchesStanzas,confSegmenterStanzas,confServerStanzas,confServerClassStanzas,confSourceTypesStanzas,confTenantsStanzas,confTimesStanzas,confTransactionTypesStanzas,confTransformsStanzas,confUIPrefsStanzas,confUIToursStanzas,confUserSeedStanzas,confViewStatesStanzas,confWebStanzas,confWmiStanzas,confWorkflowActionsStanzas,confGenericStanzas,confMetaStanzas,confSearchbnfStanzas,confCollectionsStanzas,confDataTypesbnfStanzas,confUserPrefsStanzas,confInstanceStanzas
+syn cluster confStanzas contains=confAlertActionsStanzas,confAppStanzas,confAuditStanzas,confAuthenticationStanzas,confAuthorizeStanzas,confCommandsStanzas,confCrawlStanzas,confDataModelsStanzas,confDefmodeStanzas,confDeployClientStanzas,confDistSearchStanzas,confEventGenStanzas,confEventRenderStanzas,confEventDiscoverStanzas,confEventTypesStanzas,confFieldsStanzas,confIndexesStanzas,confInputsStanzas,confLimitsStanzas,confOutputsStanzas,confPDFserverStanzas,confPropsStanzas,confPubsubStanzas,confRegmonFiltersStanzas,confRestmapStanzas,confSavedSearchesStanzas,confSegmenterStanzas,confServerStanzas,confServerClassStanzas,confSourceTypesStanzas,confTenantsStanzas,confTimesStanzas,confTransactionTypesStanzas,confTransformsStanzas,confUIPrefsStanzas,confUITourStanzas,confUserSeedStanzas,confViewStatesStanzas,confWebStanzas,confWmiStanzas,confWorkflowActionsStanzas,confGenericStanzas,confMetaStanzas,confSearchbnfStanzas,confCollectionsStanzas,confDataTypesbnfStanzas,confUserPrefsStanzas,confInstanceStanzas
 
 syn match confGenericStanzas display contained /\v[^\]]+/
 
@@ -49,15 +49,13 @@ syn keyword confAlertActions from to cc bcc subject format sendresults inline
 syn keyword confAlertActions mailserver use_ssl use_tls auth_username auth_password
 syn keyword confAlertActions sendpdf pdfview reportServerEnabled reportServerURL
 syn keyword confAlertActions reportPaperSize reportPaperOrientation reportIncludeSplunkLogo
-syn keyword confAlertActions reportCIDFontList width_sort_columns preprocess_results
-syn keyword confAlertActions items_count filename _name dest subject.alert subject.report useNSSubject message.report message.alert footer.text
-syn keyword confAlertActions include.results_link include.view_link include.search include.trigger include.trigger_time
-syn keyword confAlertActions sendcsv priority inline is_custom payload_format icon_path
-syn keyword confAlertActions icon_path alert.execute.cmd alert.execute.cmd.arg.
-syn keyword confAlertActions content_type reportFileName pdf.footer_enabled pdf.header_enabled
-syn keyword confAlertActions pdf.logo_path pdf.header_left pdf.header_right pdf.header_center
-syn keyword confAlertActions pdf.footer_left pdf.footer_right pdf.footer_center
-syn keyword confAlertActions pdf.html_image_rendering
+syn keyword confAlertActions reportCIDFontList width_sort_columns preprocess_results items_count filename _name dest
+"syn keyword confAlertActions items_count filename _name dest subject.alert subject.report useNSSubject message.report message.alert footer.text
+"syn keyword confAlertActions include.results_link include.view_link include.search include.trigger include.trigger_time
+syn keyword confAlertActions sendcsv priority inline is_custom payload_format icon_path content_type reportFileName icon_path
+syn match   confAlertActions /\v<pdf\.(logo_path|html_image_rendering|(footer|header)_(enabled|center|left|right))>/
+syn match   confAlertActions /\v<alert\.execute\.cmd(\.arg\.\S+)?>/
+syn match   confAlertActions /\v<subject\.(alert|report)|message\.(report|alert)|footer\.text|include\.((results|view)_link|search|trigger|trigger_time)>/
 
 syn keyword confAlertActions_Constants logo title description timestamp pagination none
 
@@ -225,9 +223,9 @@ syn keyword confIndexes recordreader.journal.buffer.size recordreader.csv.dialec
 syn keyword confIndexes splitter.file.split.minsize splitter.file.split.maxsize
 syn keyword confIndexes_Constants auto_high_volume auto disable
 
-syn match confComplex /\v<vix\.input\.\d+\.(path|accept|ignore|required\.fields)>/
-syn match confComplex /\v<vix\.input\.\d+\.(et|lt)\.(regex|format|offset|timezone|value)>/
-syn match confComplex /\v<(recordreader|splitter)\.\w+\.\w+>/
+syn match   confIndexes /\v<vix\.input\.\d+\.(path|accept|ignore|required\.fields)>/
+syn match   confIndexes /\v<vix\.input\.\d+\.(et|lt)\.(regex|format|offset|timezone|value)>/
+syn match   confIndexes /\v<(recordreader|splitter)\.\w+\.\w+>/
 
 " inputs.conf
 syn match   confInputsStanzas contained /\v<(tcp(-ssl)?|splunktcp(-ssl)?|monitor|batch|udp|fifo|script|fschange|filter|WinEventLog|(ad|perf)mon):[^\]]+>/
@@ -352,7 +350,7 @@ syn keyword confLimits threshold_connection_life_time bound_on_disconnect_thresh
 syn keyword confLimits enable_generalization enable_clipping
 syn keyword confLimits_Constants DEBUG INFO WARN ERROR traditional debug nearest-rank interpolated
 
-syn match confComplex /\v<(auto_summary_perc|max_searches_perc)\.\d+\.when>/
+syn match   confLimits /\v<(auto_summary_perc|max_searches_perc)\.\d+\.when>/
 
 " macros.conf
 "syn keyword confMacrosStanzas
@@ -438,7 +436,7 @@ syn keyword confRestmap capability.post capability.delete capability.get capabil
 syn keyword confRestmap includeInAccessLog authKeyStanza allowRestReplay defaultRestReplayStanza
 syn keyword confRestmap restReplay restReplayStanza passSystemAuth nodelists nodes destination
 
-syn match confComplex /\v<capability.(post|delete|get|put)>/
+syn match   confRestmap /\v<capability.(post|delete|get|put)>/
 
 " savedsearches.conf
 syn match   confSavedSearchesStanzas contained /\v<(default)>/
@@ -651,10 +649,10 @@ syn keyword confUIPrefs_Constants hidden compact full linear log tiles
 
 " ui-tour.conf
 syn match   confUITourStanzas contained /\v<()>/
-syn keyword confUITours useTour nextTour intro type label tourPage viewed imgPath context urlData
+syn keyword confUITour useTour nextTour intro type label tourPage viewed imgPath context urlData imageName imageCaption stepText stepElement
+syn keyword confUITour stepPosition stepClickEvent stepClickElement
 
-syn keyword confUITours_Constants image interactive system bottom right left top click mousedown mouseup
-syn match confComplex /\v<(imageName|imageCaption|stepText|stepElement|stepPosition|stepClickEvent|stepClickElement)\d+>/
+syn keyword confUITour_Constants image interactive system bottom right left top click mousedown mouseup
 
 " user-prefs.conf
 syn match   confUserPrefsStanzas contained /\v<(general|default)>/
@@ -718,7 +716,7 @@ syn keyword confWorkflowActions link.target link.method link.postargs. search.se
 syn keyword confWorkflowActions search.view search.target search.earliest search.latest
 syn keyword confWorkflowActions search.preserve_timerange
 
-syn match confComplex /\v<(link\.postargs\.)\d+\.(key|value)>/
+syn match   confWorkflowActions /\v<(link\.postargs\.)\d+\.(key|value)>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment
@@ -844,8 +842,8 @@ hi def link confTransforms Keyword
 hi def link confTransforms_Constants Constant
 hi def link confUIPrefs Keyword
 hi def link confUIPrefs_Constants Constant
-hi def link confUITours Keyword
-hi def link confUITours_Constants Constant
+hi def link confUITour Keyword
+hi def link confUITour_Constants Constant
 hi def link confUserPrefs Keyword
 hi def link confUserSeed Keyword
 hi def link confViewStates Keyword
