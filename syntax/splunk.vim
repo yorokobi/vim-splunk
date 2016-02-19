@@ -35,7 +35,7 @@ syn keyword confTodo FIXME NOTE TODO contained
 syn region confStanza matchgroup=confStanzaStart start=/^\[/ matchgroup=confStanzaEnd end=/\]/ oneline transparent contains=@confStanzas
 
 " Group clusters (incomplete)
-syn cluster confStanzas contains=confAlertActionsStanzas,confAppStanzas,confAuditStanzas,confAuthenticationStanzas,confAuthorizeStanzas,confCommandsStanzas,confCrawlStanzas,confDataModelsStanzas,confDefmodeStanzas,confDeployClientStanzas,confDistSearchStanzas,confEventGenStanzas,confEventRenderStanzas,confEventDiscoverStanzas,confEventTypesStanzas,confFieldsStanzas,confIndexesStanzas,confInputsStanzas,confLimitsStanzas,confOutputsStanzas,confPDFserverStanzas,confPropsStanzas,confPubsubStanzas,confRegmonFiltersStanzas,confRestmapStanzas,confSavedSearchesStanzas,confSegmenterStanzas,confServerStanzas,confServerClassStanzas,confSourceTypesStanzas,confTenantsStanzas,confTimesStanzas,confTransactionTypesStanzas,confTransformsStanzas,confUIPrefsStanzas,confUITourStanzas,confUserSeedStanzas,confViewStatesStanzas,confWebStanzas,confWmiStanzas,confWorkflowActionsStanzas,confGenericStanzas,confMetaStanzas,confSearchbnfStanzas,confCollectionsStanzas,confDataTypesbnfStanzas,confUserPrefsStanzas,confInstanceStanzas
+syn cluster confStanzas contains=confAlertActionsStanzas,confAppStanzas,confAuditStanzas,confAuthenticationStanzas,confAuthorizeStanzas,confCommandsStanzas,confCrawlStanzas,confDataModelsStanzas,confDefmodeStanzas,confDeployClientStanzas,confDistSearchStanzas,confEventGenStanzas,confEventRenderStanzas,confEventDiscoverStanzas,confEventTypesStanzas,confFieldsStanzas,confIndexesStanzas,confInputsStanzas,confSALDAPStanzas,confSALDAPLoggingStanzas,confSALDAPSSLStanzas,confLimitsStanzas,confOutputsStanzas,confPDFserverStanzas,confPropsStanzas,confPubsubStanzas,confRegmonFiltersStanzas,confRestmapStanzas,confSavedSearchesStanzas,confSegmenterStanzas,confServerStanzas,confServerClassStanzas,confSourceTypesStanzas,confTenantsStanzas,confTimesStanzas,confTransactionTypesStanzas,confTransformsStanzas,confUIPrefsStanzas,confUITourStanzas,confUserSeedStanzas,confViewStatesStanzas,confWebStanzas,confWmiStanzas,confWorkflowActionsStanzas,confGenericStanzas,confMetaStanzas,confSearchbnfStanzas,confCollectionsStanzas,confDataTypesbnfStanzas,confUserPrefsStanzas,confInstanceStanzas
 
 syn match confGenericStanzas display contained /\v[^\]]+/
 
@@ -263,6 +263,19 @@ syn keyword confInputs_Constants parsingQueue indexQueue
 " instance.cfg
 syn match   confInstanceStanzas contained /\v<general>/
 syn keyword confInstance guid
+
+" ldap.conf from SA-ldapsearch
+syn match   confSALDAPStanzas contained /\v<default>/
+syn keyword confSALDAP alternatedomain basedn server ssl port binddn password decode paged_size
+
+" logging.conf from SA-ldapsearch
+syn match   confSALDAPLoggingStanzas contained /\v<loggers|logger_root|handlers|formatters|handler_(\S+)|formatter_(\S+)>/
+syn keyword confSALDAPLogging keys level handlers qualname propagate args class formatter datefmt format
+syn keyword confSALDAPLogging_Constants critical error warning info debug notset
+
+" ssl.conf from SA-ldapsearch
+syn match   confSALDAPSSLStanzas contained /\v<sslConfig>/
+syn keyword confSALDAPSSL sslVersions sslVerifyServerCert caCertFile caPath
 
 " limits.conf
 syn match   confLimitsStanzas contained /\v<(anomalousvalue|associate|authtokens|auto_summarizer|autoregress|concurrency)>/
@@ -751,6 +764,9 @@ hi def link confFieldsStanzas Identifier
 hi def link confIndexesStanzas Identifier
 hi def link confInputsStanzas Identifier
 hi def link confLimitsStanzas Identifier
+hi def link confSALDAPStanzas Identifier
+hi def link confSALDAPSSLStanzas Identifier
+hi def link confSALDAPLoggingStanzas Identifier
 hi def link confMetaStanzas Identifier
 hi def link confOutputsStanzas Identifier
 hi def link confPDFserverStanzas Identifier
@@ -808,6 +824,10 @@ hi def link confIndexes Keyword
 hi def link confIndexes_Constants Constant
 hi def link confInputs Keyword
 hi def link confInstance Keyword
+hi def link confSALDAP Keyword
+hi def link confSALDAPLogging Keyword
+hi def link confSALDAPLogging_Constants Constant
+hi def link confSALDAPSSL Keyword
 hi def link confLimits Keyword
 hi def link confLimits_Constants Constant
 hi def link confMeta Keyword
