@@ -93,6 +93,18 @@ syn keyword confAuthorize importRoles grantableRoles srchFilter srchTimeWin srch
 syn keyword confAuthorize rtSrchJobsQuota srchMaxTime srchIndexesDefault srchIndexesAllowed
 syn keyword confAuthorize cumulativeSrchJobsQuota cumulativeRTSrchJobsQuota rtsearch schedule_rtsearch
 syn keyword confAuthorize srchFilterSelecting
+" capabilities
+syn keyword confAuthorizeCaps admin_all_objects delete_by_keyword input_file indexes_edit license_tab output_file request_remote_tok
+syn keyword confAuthorizeCaps restart_splunkd rtsearch run_debug_commands schedule_search schedule_rtsearch search use_file_operator
+syn keyword confAuthorizeCaps web_debug
+syn match   confAuthorizeCaps /\v<accelerate_(search|datamodel)>/
+syn match   confAuthorizeCaps /\v<change_(authentication|own_password)>/
+syn match   confAuthorizeCaps /\v<edit_(deployment_(client|server)|dist_peer|forwarders|httpauths|input_defaults|monitor|roles)>/
+syn match   confAuthorizeCaps /\v<edit_(scripted|search|search_(head_clustering|scheduler|server)|server|sourcetypes|splunktcp(_ssl)?)>/
+syn match   confAuthorizeCaps /\v<edit_(tcp|udp|token_http|user|view_html)>/
+syn match   confAuthorizeCaps /\v<list_(deployment_(client|server)|search_scheduler|forwarders|httpauths|inputs|search_head_clustering)>/
+syn match   confAuthorizeCaps /\v<get_(diag|metadata|typeahead)>/
+syn match   confAuthorizeCaps /\v<rest_(apps_(management|view)|properties_(g|s)et)>/
 
 " collections.conf
 syn match   confCollectionsStanzas contained /\v[^\]]+/
@@ -807,6 +819,7 @@ hi def link confApp Keyword
 hi def link confAudit Keyword
 hi def link confAuthentication Keyword
 hi def link confAuthorize Keyword
+hi def link confAuthorizeCaps Underlined
 hi def link confCollections Keyword
 hi def link confCommands Keyword
 hi def link confCrawl Keyword
