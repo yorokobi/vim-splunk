@@ -89,7 +89,7 @@ syn keyword confAuthentication attributeQuerySoapPassword attributeQuerySoapUser
 syn keyword confAuthentication attributeQueryRequestSigned attributeQueryResponseSigned
 syn keyword confAuthentication redirectAfterLogoutToUrl defaultRoleIfMissing
 syn keyword confAuthentication skipAttributeQueryRequestForUsers maxAttributeQueryThreads
-syn keyword confAuthentication maxAttributeQueryQueueSize attributeQueryTTL
+syn keyword confAuthentication maxAttributeQueryQueueSize attributeQueryTTL nameIdFormat role mail realName
 
 syn keyword confAuthentication_Constants Splunk LDAP Scripted SAML
 syn match   confAuthentication_Constants /\v<SHA(256|512)-crypt(-\d+)?|MD5-crypt>/
