@@ -89,7 +89,7 @@ syn keyword confAuthentication attributeQuerySoapPassword attributeQuerySoapUser
 syn keyword confAuthentication attributeQueryRequestSigned attributeQueryResponseSigned
 syn keyword confAuthentication redirectAfterLogoutToUrl defaultRoleIfMissing
 syn keyword confAuthentication skipAttributeQueryRequestForUsers maxAttributeQueryThreads
-syn keyword confAuthentication maxAttributeQueryQueueSize attributeQueryTTL
+syn keyword confAuthentication maxAttributeQueryQueueSize attributeQueryTTL nameIdFormat role mail realName
 
 syn keyword confAuthentication_Constants Splunk LDAP Scripted SAML
 syn match   confAuthentication_Constants /\v<SHA(256|512)-crypt(-\d+)?|MD5-crypt>/
@@ -516,7 +516,7 @@ syn match   confSavedSearchesStanzas contained /\v<(default)>/
 syn keyword confSavedSearches disabled search enableSched cron_schedule max_concurrent dispatchAs embed.enabled
 syn keyword confSavedSearches realtime_schedule counttype relation quantity alert_condition action_rss displayview nextrun
 syn keyword confSavedSearches qualifiedSearch query restart_on_searchpeer_add role run_n_times run_on_startup userid vsid
-syn match   confSavedSearches /\v<action\.email(\.from|\.mailserver|\.maxresults|\.subject|\.to|\.cc|\.priority|\.reportServerEnabled|\.subject.alert|\.useNSSubject|\.include\.results_link|\.include\.trigger_time|\.include\.view_link|\.message.alert|\.sendresults|\.inline)?>/
+syn match   confSavedSearches /\v<action\.email(\.cc|\.from|\.include\.results_link|\.include\.trigger_time|\.include\.view_link|\.inline|\.mailserver|\.maxresults|\.message.alert|\.message\.report|\.priority|\.reportServerEnabled|\.sendcsv|\.sendresults|\.subject|\.subject.alert|\.subject\.report|\.to|\.useNSSubject)?>/
 syn match   confSavedSearches /\v<action\.name(\.parameter)?>/
 syn match   confSavedSearches /\v<action\.populate_lookup(\.dest)?>/
 syn match   confSavedSearches /\v<action\.script(\.filename)?>/
