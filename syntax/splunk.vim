@@ -1,9 +1,6 @@
 " Vim syntax file
 " Language: Splunk configuration files
 " Maintainer: Colby Williams <colbyw at gmail dot com>
-" Contributor: pi-rho  <https://github.com/pi-rho>
-" Contributor: throck  <https://github.com/throck>
-" Contributor: asealey <https://github.com/asealey>
 
 if version < 600
     syntax clear
