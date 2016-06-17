@@ -233,6 +233,9 @@ syn keyword confIndexes vix.env.HUNK_THIRDPARTY_JARS vix.output.buckets.max.netw
 syn keyword confIndexes enableTsidxReduction tsidxReductionCheckPeriodInSec timePeriodInSecBeforeTsidxReduction
 
 syn match   confIndexes /\v<vix\.(family|mode|command|mapred\.job\.tracker|fs\.default\.name|splunk\.impersonation|provider)>/
+syn match   confIndexes /\v<vix\.mapred\.(job\.(reuse\.jvm\.num\.tasks|queue\.name|(map|reduce)\.memory\.mb))>/
+syn match   confIndexes /\v<vix\.mapred\.(child\.java\.opts|reduce\.tasks)>/
+syn match   confIndexes /\v<vix\.mapreduce\.(job\.(jvm\.numtasks|reduces|queuename)|map\.(java\.opts|memory\.mb)|reduce\.(java\.opts|memory\.mb))>/
 syn match   confIndexes /\v<vix\.command\.arg\.\d+>/
 syn match   confIndexes /\v<vix\.\w+>/
 syn match   confIndexes /\v<vix\.(env|javaprops)\.\S+>/
@@ -244,7 +247,7 @@ syn match   confIndexes /\v<vix\.splunk\.search\.(mixedmode(\.maxstream)?|column
 syn match   confIndexes /\v<vix\.splunk\.setup\.(bundle|package)\.replication>/
 syn match   confIndexes /\v<vix\.kerberos\.(principal|keytab)>/
 syn match   confIndexes /\v<vix\.splunk\.heartbeat(\.path|\.interval|\.threshold)?>/
-syn match   confIndexes /\v<vix\.splunk\.search\.recordreader\.(sequence\.ignore\.key|avro\.regex)>/
+syn match   confIndexes /\v<vix\.splunk\.search\.recordreader\.(sequence\.ignore\.key|(csv|sequence|avro)\.regex)>/
 syn match   confIndexes /\v<vix\.splunk\.search\.splitter\.(parquet\.simplifyresult)>/
 syn match   confIndexes /\v<vix\.splunk\.search\.splitter\.hive\.(ppd|fileformat|(db|table)name|column(names|types))>/
 syn match   confIndexes /\v<vix\.splunk\.search\.splitter\.hive\.(serde(\.properties)?|fileformat\.inputformat)>/
