@@ -20,7 +20,7 @@ syn match confSpecComment /^\s*\*.*/ contains=confTodo oneline display
 syn region confString start=/"/ skip="\\\"" end=/"/ oneline display contains=confNumber,confVar
 syn region confString start=/`/             end=/`/ oneline display contains=confNumber,confVar
 syn region confString start=/'/ skip="\\'"  end=/'/ oneline display contains=confNumber,confVar
-syn match  confNumber /\v[+-]?\d+([ywdhs]|m(on|ins?))(\@([ywdhs]|m(on|ins?))\d*)?>/
+syn match  confNumber /\v[+-]?\d+([ywdhsm]|m(on|ins?))(\@([ywdhs]|m(on|ins?))\d*)?>/
 syn match  confNumber /\v[+-]?\d+(\.\d+)*>/
 syn match  confNumber /\v<\d+[TGMK]B>/
 syn match  confPath   ,\v(^|\s|\=)\zs(file:|https?:|\$\k+)?(/+\k+)+(:\d+)?,
@@ -847,6 +847,126 @@ syn keyword confWorkflowActions type label fields eventtypes display_location di
 syn match   confWorkflowActions /\v<link\.(uri|target|method|postargs\.\d+\.(key|value))>/
 syn match   confWorkflowActions /\v<search\.(search_string|app|view|target|earliest|latest|preserve_timerange)>/
 
+"
+" ITSI-specific configs
+"
+
+" ITSI alert_actions.conf
+syn keyword ITSI_AlertActions drilldown_search subtitle delta drilldown_uri invert inline _name
+syn match   ITSI_AlertActions /\v<param\.(http_token_name|index|sourcetype|event_identifier_fields|search_type|is_use_event_time|host)>/
+syn match   ITSI_AlertActions /\v<param\.(fields|description|protocols|duration|category|limit|verbose)>/
+syn match   ITSI_AlertActions /\v<constraint_(method|fields)>/
+syn match   ITSI_AlertActions /\v<(value|delta)_qual|group\.\d+\.(name|order)|value(_suffix)?>/
+syn match   ITSI_AlertActions /\v<_itsi_(kpi|service)_id>/
+
+" ITSI app_permissions.conf
+syn keyword ITSI_App_Permissions capabilities description display_name messages metadata
+
+" ITSI deep_dive_drilldowns.conf
+syn keyword ITSI_DeepDiveDrilldowns type replace_tokens search add_lane_enabled use_bucket_timerange new_lane_settings uri uri_payload_type
+syn match   ITSI_DeepDiveDrilldowns /\v<entity_(level_only|tokens|activation_rules)>/
+syn match   ITSI_DeepDiveDrilldowns /\v<(metric|kpi|event)_lane_enabled>/
+
+" ITSI drawing_elements.conf
+syn keyword ITSI_DrawingElements bgColor color stroke height width vizType context_id searchSource threshold_eval use_percentage isThresholdEnabled
+syn match   ITSI_DrawingElements /\v<font(Size|Family|Color)>/
+syn match   ITSI_DrawingElements /\v<(start|end)PointDecoratorType>/
+syn match   ITSI_DrawingElements /\v<label(Val|Flag)>/
+syn match   ITSI_DrawingElements /\v<threshold_(field|comparator|values|labels)>/
+syn match   ITSI_DrawingElements /\v<dataModel(Specification|StatOp|WhereClause)>/
+syn match   ITSI_DrawingElements /\v<gauge_(thresholds|colors)>/
+syn match   ITSI_DrawingElements /\v<default(Height|Width)>/
+syn match   ITSI_DrawingElements /\v<search_(aggregate|time_series_aggregate|alert_earliest)>/
+syn match   ITSI_DrawingElements /\v<use(CustomDrilldown|KpiSearchAlertEarliest)>/
+
+syn keyword ITSI_DrawingElements_Constants none simple triangle
+
+" ITSI drilldownsearch_offset.conf
+syn keyword ITSI_DrillDownSearch_Offset timeInSecs
+syn match   ITSI_DrillDownSearch_Offset /\v<(earliest_|latest_)?description>/
+
+" ITSI inputs.conf
+syn keyword ITSI_Inputs default_severity required_ui_severity suppress debug acceleration manual_rebuilds always_exec group execution_order timeout
+syn keyword ITSI_Inputs app_name log_level registered_capabilities import_from_search csv_location search_string selected_services update_type owner
+syn match   ITSI_Inputs /\v<app(s_to_update|(_exclude)?_regex|_include_list)>/
+syn match   ITSI_Inputs /\v<endpoint(_params)?>/
+syn match   ITSI_Inputs /\v<index_(earliest|latest)>/
+syn match   ITSI_Inputs /\v<service_(rel|title_field|description_column)>/
+syn match   ITSI_Inputs /\v<entity_(title_field|service_columns|identifier_fields|description_column|informational_fields|field_mapping)>/
+syn keyword ITSI_Inputs_Constants DEBUG INFO WARN ERROR CRITICAL FATAL
+
+" ITSI itsi_da.conf
+syn keyword ITSI_da description saved_search title
+syn match   ITSI_da /\v<title(_field)?>/
+syn match   ITSI_da /\v<(description|identifier|informational)_fields>/
+syn match   ITSI_da /\v<entity_(source_templates|rules)>/
+syn match   ITSI_da /\v<(recommended|informational|optional)_kpis>/
+
+" ITSI itsi_deep_dive.conf
+syn keyword ITSI_DeepDive focus_id title lane_settings_collection acl mod_time
+syn keyword ITSI_DeepDive description is_named _owner source_itsi_da
+
+" ITSI itsi_glass_table.conf
+syn keyword ITSI_GlassTable latest earliest title description mod_time acl _owner source_itsi_da
+syn match   ITSI_GlassTable /\v<svg_(content|coordinates)>/
+
+" ITSI itsi_kpi_template.conf
+syn keyword ITSI_KPI_Template description title _owner kpis source_itsi_da
+
+" ITSI itsi_module_vis.conf
+syn keyword ITSI_ModuleVis list control_token title extendable_tab activation_rule
+syn match   ITSI_ModuleVis /\v<row\.\d+>/
+
+" ITSI itsi_notable_event_retention.conf
+syn keyword ITSI_Notable_Event_Retention retentionTimeInSec disabled
+
+" ITSI itsi_notable_event_severity.conf
+syn keyword ITSI_Notable_Event_Severity color lightcolor label default
+
+" ITSI itsi_notable_event_status.conf
+syn keyword ITSI_Notable_Event_Status label default description end
+
+" ITSI itsi_service.conf
+syn keyword ITSI_Services description title _owner tags kpis entity_rules
+syn keyword ITSI_Services identifying_name mod_source source_itsi_da
+syn match   ITSI_Services /\v<services_depend(s_on|ing_on_me)>/
+
+" ITSI itsi_settings.conf
+syn keyword ITSI_Settings show_migration_message
+
+" ITSI managed_configurations.conf
+syn keyword ITSI_Managed_Configurations disabled endpoint label description class link lookup_type
+syn match   ITSI_Managed_Configurations /\v<editable(_on_shc)?>/
+syn match   ITSI_Managed_Configurations /\v<attribute(_type)?>/
+syn match   ITSI_Managed_Configurations /\v<(sav|guid)edsearch>/
+
+" ITSI notable_event_actions.conf
+syn keyword ITSI_Notable_Event_Actions disabled
+
+" ITSI postprocess.conf
+syn keyword ITSI_PostProcess disabled savedsearch postprocess
+
+" ITSI savedsearches.conf
+syn match   ITSI_SavedSearches /\v<display\.page\.\w+\.\d+\.(collection_name|title|color|drilldown_uri|order)>/
+syn match   ITSI_SavedSearches /\v<action\.makestreams(\.param\.(fields|description|protocols|duration|category|limit))?>/
+syn match   ITSI_SavedSearches /\v<action\.itsi_event_generator(\.param\.(title|description|owner|status|severity))?>/
+syn match   ITSI_SavedSearches /\v<action\.itsi_event_generator\.param\.drilldown_search_(title|search|(latest|earliest)_offset)>/
+syn match   ITSI_SavedSearches /\v<action\.itsi_event_generator\.param\.(drilldown_(title|uri)|event_identifier_fields|service_ids)>/
+syn match   ITSI_SavedSearches /\v<action\.itsi_event_generator\.param\.(entity_lookup_field|search_type)>/
+syn match   ITSI_SavedSearches /\v<action\.itsi_event_generator\.param\.(meta_data|is_ad_at|ad_at_kpi_ids)>/
+syn keyword ITSI_SavedSearches action.itsi_sample_event_action_ping.param.host
+syn keyword ITSI_SavedSearches_Constants blue red orange yellow purple green
+
+" ITSI service_analyzer_settings.conf
+syn keyword ITSI_Service_Analyzer_Settings ftr_override
+
+" ITSI threshold_labels.conf
+syn keyword ITSI_Threshold_Labels color lightcolor threshold_level
+syn match   ITSI_Threshold_Labels /\v<health_(weight|m(in|ax))>/
+
+" ITSI threshold_periods.conf
+syn keyword ITSI_Threshold_Periods past description relative
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Comment
@@ -1002,3 +1122,31 @@ hi def link confWeb Keyword
 hi def link confWeb_Constants Constant
 hi def link confWmi Keyword
 hi def link confWorkflowActions Keyword
+
+" ITSI
+hi def link ITSI_AlertActions Keyword
+hi def link ITSI_App_Permissions Keyword
+hi def link ITSI_DeepDiveDrilldowns Keyword
+hi def link ITSI_DrawingElements Keyword
+hi def link ITSI_DrawingElements_Constants Constant
+hi def link ITSI_DrillDownSearch_Offset Keyword
+hi def link ITSI_Inputs Keyword
+hi def link ITSI_Inputs_Constants Constant
+hi def link ITSI_da Keyword
+hi def link ITSI_DeepDive Keyword
+hi def link ITSI_GlassTable Keyword
+hi def link ITSI_KPI_Template Keyword
+hi def link ITSI_ModuleVis Keyword
+hi def link ITSI_Notable_Event_Retention Keyword
+hi def link ITSI_Notable_Event_Severity Keyword
+hi def link ITSI_Notable_Event_Status Keyword
+hi def link ITSI_Services Keyword
+hi def link ITSI_Settings Keyword
+hi def link ITSI_Managed_Configurations Keyword
+hi def link ITSI_Notable_Event_Actions Keyword
+hi def link ITSI_PostProcess Keyword
+hi def link ITSI_SavedSearches Keyword
+hi def link ITSI_SavedSearches_Constants Constant
+hi def link ITSI_Service_Analyzer_Settings Keyword
+hi def link ITSI_Threshold_Labels Keyword
+hi def link ITSI_Threshold_Periods Keyword
