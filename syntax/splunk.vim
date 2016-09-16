@@ -299,10 +299,6 @@ syn match   confInputs /\v<ecdhCurve(Name|s)>/
 
 syn keyword confInputs_Constants ip dns
 
-" SPLUNK4JMX inputs.conf
-syn keyword confInputs config_file polling_frequency
-syn keyword confInputs_Constants parsingQueue indexQueue
-
 " instance.cfg
 syn match   confInstanceStanzas contained /\v<general>/
 syn keyword confInstance guid
@@ -967,6 +963,20 @@ syn match   ITSI_Threshold_Labels /\v<health_(weight|m(in|ax))>/
 " ITSI threshold_periods.conf
 syn keyword ITSI_Threshold_Periods past description relative
 
+" JMX Add-on
+
+" inputs.conf
+syn keyword jmxInputs config_file polling_frequency
+syn keyword jmxInputs_Constants parsingQueue indexQueue
+
+" Splunk_TA_okta
+
+" alert_actions.conf
+syn match   oktaAlertActions /\v<param\.(action|user_(id|name)|group_(id|name))>/
+
+" inputs.conf
+syn keyword oktaInputs url token start_date end_date metrics page_size batch_size
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Comment
@@ -1150,3 +1160,11 @@ hi def link ITSI_SavedSearches_Constants Constant
 hi def link ITSI_Service_Analyzer_Settings Keyword
 hi def link ITSI_Threshold_Labels Keyword
 hi def link ITSI_Threshold_Periods Keyword
+
+" JMX Add-on
+hi def link jmxInputs Keyword
+hi def link jmxInputs_Constants Constant
+
+" Splunk_TA_okta
+hi def link oktaAlertActions Keyword
+hi def link oktaInputs Keyword
