@@ -201,6 +201,7 @@ syn match   confEventGenStanzas contained /\v<(default|global)>/
 syn keyword confEventGen spoolDir spoolFile interval count earliest latest breaker token 
 syn keyword confEventGen replacement replacementType outputMode maxIntervalsBeforeFlush
 syn match   confEventGen /\v<token\.\d+\.(token|replacement(Type)?)>/
+syn match   confEventGen /\v<splunk(Host|User|Pass)>/
 
 " eventtypes.conf
 syn match   confEventTypesStanzas contained /\v<(default>|\k+-\%\k+\%)/
@@ -845,6 +846,16 @@ syn match   confWorkflowActions /\v<link\.(uri|target|method|postargs\.\d+\.(key
 syn match   confWorkflowActions /\v<search\.(search_string|app|view|target|earliest|latest|preserve_timerange)>/
 
 "
+" Splunk_TA_f5-bigip
+"
+syn keyword f5BigIPInputs nothing
+
+"
+" Splunk_TA_ibm-was
+"
+syn keyword IBM_WASInputs was_data_input
+
+"
 " ITSI-specific configs
 "
 
@@ -964,10 +975,23 @@ syn match   ITSI_Threshold_Labels /\v<health_(weight|m(in|ax))>/
 " ITSI threshold_periods.conf
 syn keyword ITSI_Threshold_Periods past description relative
 
-" JMX Add-on
+"
+" TA_Azure
+"
 
 " inputs.conf
-syn keyword jmxInputs config_file polling_frequency
+syn keyword AzureInputs storage_account access_key limit pollingInterval
+syn keyword AzureInputs site_diagnostics_container subscription_id api_version token_endpoint
+syn keyword AzureInputs table_name select_string
+syn match   AzureInputs /\v<enableWAD(MetricsPT1(H|M)|(PerformanceCounters|DiagnosticInfrastructureLogs|WindowsEventLogs)Table)>/
+syn match   AzureInputs /\v<client_(id|secret)|dateTime(Column|Start)>/
+
+"
+" Splunk_TA_jmx
+"
+
+" inputs.conf
+syn keyword jmxInputs config_file config_file_dir polling_frequency
 syn keyword jmxInputs_Constants parsingQueue indexQueue
 
 " Splunk_TA_okta
@@ -982,6 +1006,13 @@ syn keyword oktaInputs url token start_date end_date metrics page_size batch_siz
 syn keyword oktaOkta loglevel custom_cmd_enabled
 syn match   oktaOkta /\v<proxy_(enabled|type|rdns|url|port|username|password)>/
 syn match   oktaOkta /\v<okta_server_(url|token)>/
+
+"
+" Splunk_TA_oracle
+"
+
+" database.conf
+syn keyword oracleDatabase database host username password isolation_level port readonly type disabled
 
 " Highlight definitions (generic)
 hi def link confComment Comment
@@ -1139,6 +1170,15 @@ hi def link confWeb_Constants Constant
 hi def link confWmi Keyword
 hi def link confWorkflowActions Keyword
 
+" TA_Azure
+hi def link AzureInputs Keyword
+
+" Splunk_TA_f5
+hi def link f5BigIPInputs Keyword
+
+" Splunk_TA_ibm-was
+hi def link IBM_WASInputs Keyword
+
 " ITSI
 hi def link ITSI_AlertActions Keyword
 hi def link ITSI_App_Permissions Keyword
@@ -1175,3 +1215,6 @@ hi def link jmxInputs_Constants Constant
 hi def link oktaAlertActions Keyword
 hi def link oktaInputs Keyword
 hi def link oktaOkta Keyword
+
+" Splunk_TA_oracle
+hi def link oracleDatabase Keyword
