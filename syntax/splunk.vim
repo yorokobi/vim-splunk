@@ -198,8 +198,9 @@ syn keyword confEventRender eventtype priority template css_class
 
 " eventgen.conf
 syn match   confEventGenStanzas contained /\v<(default|global)>/
-syn keyword confEventGen spoolDir spoolFile interval count earliest latest breaker token replacementType
-syn keyword confEventGen replacement
+syn keyword confEventGen spoolDir spoolFile interval count earliest latest breaker token 
+syn keyword confEventGen replacement replacementType outputMode maxIntervalsBeforeFlush
+syn match   confEventGen /\v<token\.\d+\.(token|replacement(Type)?)>/
 
 " eventtypes.conf
 syn match   confEventTypesStanzas contained /\v<(default>|\k+-\%\k+\%)/
@@ -977,6 +978,11 @@ syn match   oktaAlertActions /\v<param\.(action|user_(id|name)|group_(id|name))>
 " inputs.conf
 syn keyword oktaInputs url token start_date end_date metrics page_size batch_size
 
+" okta.conf
+syn keyword oktaOkta loglevel custom_cmd_enabled
+syn match   oktaOkta /\v<proxy_(enabled|type|rdns|url|port|username|password)>/
+syn match   oktaOkta /\v<okta_server_(url|token)>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Comment
@@ -1168,3 +1174,4 @@ hi def link jmxInputs_Constants Constant
 " Splunk_TA_okta
 hi def link oktaAlertActions Keyword
 hi def link oktaInputs Keyword
+hi def link oktaOkta Keyword
