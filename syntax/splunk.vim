@@ -540,7 +540,7 @@ syn match   confSavedSearchesStanzas contained /\v<(default)>/
 syn keyword confSavedSearches disabled search enableSched cron_schedule max_concurrent dispatchAs embed.enabled
 syn keyword confSavedSearches realtime_schedule counttype relation quantity alert_condition action_rss displayview nextrun
 syn keyword confSavedSearches qualifiedSearch query restart_on_searchpeer_add role run_n_times run_on_startup userid vsid action_email
-syn match   confSavedSearches /\v<action\.email(\.cc|\.from|\.inline|\.mailserver|\.maxresults|\.message.alert|\.message\.report|\.priority|\.reportServerEnabled|\.sendcsv|\.sendpdf|\.sendresults|\.subject|\.subject.alert|\.subject\.report|\.to|\.useNSSubject)?>/
+syn match   confSavedSearches /\v<action\.email(\.cc|\.format|\.from|\.inline|\.mailserver|\.maxresults|\.message.alert|\.message\.report|\.priority|\.reportServerEnabled|\.sendcsv|\.sendpdf|\.sendresults|\.subject|\.subject.alert|\.subject\.report|\.to|\.useNSSubject)?>/
 syn match   confSavedSearches /\v<action\.email\.include\.(results_link|search|trigger(_time)?|view_link)>/
 syn match   confSavedSearches /\v<action\.name(\.parameter)?>/
 syn match   confSavedSearches /\v<action\.populate_lookup(\.dest)?>/
@@ -960,9 +960,11 @@ syn match   ITSI_SavedSearches /\v<action\.makestreams(\.param\.(fields|descript
 syn match   ITSI_SavedSearches /\v<action\.itsi_event_generator(\.param\.(title|description|owner|status|severity))?>/
 syn match   ITSI_SavedSearches /\v<action\.itsi_event_generator\.param\.drilldown_search_(title|search|(latest|earliest)_offset)>/
 syn match   ITSI_SavedSearches /\v<action\.itsi_event_generator\.param\.(drilldown_(title|uri)|event_identifier_fields|service_ids)>/
-syn match   ITSI_SavedSearches /\v<action\.itsi_event_generator\.param\.(entity_lookup_field|search_type)>/
+syn match   ITSI_SavedSearches /\v<action\.itsi_event_generator\.param\.(entity_lookup_field|search_type|editor)>/
 syn match   ITSI_SavedSearches /\v<action\.itsi_event_generator\.param\.(meta_data|is_ad_at|ad_at_kpi_ids)>/
+syn match   ITSI_SavedSearches /\v<action\.indicator(\._itsi_(kpi|service)_id)?>/
 syn keyword ITSI_SavedSearches action.itsi_sample_event_action_ping.param.host
+syn keyword ITSI_SavedSearches action.keyindicator.invert action.makestreams.param.verbose
 syn keyword ITSI_SavedSearches_Constants blue red orange yellow purple green
 
 " ITSI service_analyzer_settings.conf
