@@ -611,6 +611,7 @@ syn match   confSearchbnfStanzas contained /\v<(default|[^-]+\-(command|options)
 syn case ignore
 syn keyword confSearchbnf syntax simplesyntax alias description shortdesc example comment usage tags
 syn keyword confSearchbnf related maintainer appears-in note supports-multivalue optout-in
+syn match   confSearchbnf /\v<(example|comment)\d+>/
 syn case match
 
 syn keyword confSearchbnf_Constants public private deprecated
