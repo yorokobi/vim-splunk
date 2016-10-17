@@ -34,7 +34,7 @@ syn keyword confTodo FIXME NOTE TODO contained
 syn region confStanza matchgroup=confStanzaStart start=/^\[/ matchgroup=confStanzaEnd end=/\]/ oneline transparent contains=@confStanzas
 
 " Group clusters
-syn cluster confStanzas contains=confAlertActionsStanzas,confAppStanzas,confAuditStanzas,confAuthenticationStanzas,confAuthorizeStanzas,confCommandsStanzas,confCrawlStanzas,confDataModelsStanzas,confDefmodeStanzas,confDeployClientStanzas,confDistSearchStanzas,confEventGenStanzas,confEventRenderStanzas,confEventDiscoverStanzas,confEventTypesStanzas,confFieldsStanzas,confIndexesStanzas,confInputsStanzas,confSALDAPStanzas,confSALDAPLoggingStanzas,confSALDAPSSLStanzas,confLimitsStanzas,confLivetailStanzas,confOutputsStanzas,confPDFserverStanzas,confPropsStanzas,confPubsubStanzas,confRegmonFiltersStanzas,confRestmapStanzas,confSavedSearchesStanzas,confSegmenterStanzas,confServerStanzas,confServerClassStanzas,confSourceTypesStanzas,confTenantsStanzas,confTimesStanzas,confTransactionTypesStanzas,confTransformsStanzas,confUIPrefsStanzas,confUITourStanzas,confUserSeedStanzas,confViewStatesStanzas,confWebStanzas,confWmiStanzas,confWorkflowActionsStanzas,confGenericStanzas,confMetaStanzas,confSearchbnfStanzas,confCollectionsStanzas,confDataTypesbnfStanzas,confUserPrefsStanzas,confInstanceStanzas
+syn cluster confStanzas contains=confAlertActionsStanzas,confAppStanzas,confAuditStanzas,confAuthenticationStanzas,confAuthorizeStanzas,confChecklistStanzas,confCommandsStanzas,confCrawlStanzas,confDataModelsStanzas,confDefmodeStanzas,confDeployClientStanzas,confDistSearchStanzas,confEventGenStanzas,confEventRenderStanzas,confEventDiscoverStanzas,confEventTypesStanzas,confFieldsStanzas,confIndexesStanzas,confInputsStanzas,confSALDAPStanzas,confSALDAPLoggingStanzas,confSALDAPSSLStanzas,confLimitsStanzas,confLivetailStanzas,confOutputsStanzas,confPDFserverStanzas,confPropsStanzas,confPubsubStanzas,confRegmonFiltersStanzas,confRestmapStanzas,confSavedSearchesStanzas,confSegmenterStanzas,confServerStanzas,confServerClassStanzas,confSourceTypesStanzas,confTenantsStanzas,confTimesStanzas,confTransactionTypesStanzas,confTransformsStanzas,confUIPrefsStanzas,confUITourStanzas,confUserSeedStanzas,confViewStatesStanzas,confWebStanzas,confWmiStanzas,confWorkflowActionsStanzas,confGenericStanzas,confMetaStanzas,confSearchbnfStanzas,confCollectionsStanzas,confDataTypesbnfStanzas,confUserPrefsStanzas,confInstanceStanzas
 
 syn match confGenericStanzas display contained /\v[^\]]+/
 
@@ -115,6 +115,11 @@ syn match   confAuthorizeCaps /\v<edit_(tcp|udp|token_http|user|view_html|web_se
 syn match   confAuthorizeCaps /\v<list_(deployment_(client|server)|search_scheduler|forwarders|httpauths|inputs|search_head_clustering)>/
 syn match   confAuthorizeCaps /\v<get_(diag|metadata|typeahead)>/
 syn match   confAuthorizeCaps /\v<rest_(apps_(management|view)|properties_(g|s)et)>/
+
+" checklist.conf
+syn match   confChecklistStanzas contained /\v[^\]]+/
+syn keyword confChecklist title category tags description failure_text suggested_action doc_link applicable_to_groups
+syn keyword confChecklist environments_to_exclude disabled search drilldown
 
 " collections.conf
 syn match   confCollectionsStanzas contained /\v[^\]]+/
@@ -609,9 +614,9 @@ syn keyword confSavedSearches_Constants patterns all minmax percent absolute sta
 " searchbnf.conf
 syn match   confSearchbnfStanzas contained /\v<(default|[^-]+\-(command|options))>/
 syn case ignore
-syn keyword confSearchbnf syntax simplesyntax alias description shortdesc example comment usage tags
+syn keyword confSearchbnf syntax simplesyntax alias description shortdesc usage tags
 syn keyword confSearchbnf related maintainer appears-in note supports-multivalue optout-in
-syn match   confSearchbnf /\v<(example|comment)\d+>/
+syn match   confSearchbnf /\v<(example|comment)\d*>/
 syn case match
 
 syn keyword confSearchbnf_Constants public private deprecated
@@ -1065,6 +1070,7 @@ hi def link confAppStanzas Identifier
 hi def link confAuditStanzas Identifier
 hi def link confAuthenticationStanzas Identifier
 hi def link confAuthorizeStanzas Identifier
+hi def link confChecklistStanzas Identifier
 hi def link confCollectionsStanzas Identifier
 hi def link confCommandsStanzas Identifier
 hi def link confCrawlStanzas Identifier
@@ -1124,6 +1130,7 @@ hi def link confAuthentication Keyword
 hi def link confAuthentication_Constants Constant
 hi def link confAuthorize Keyword
 hi def link confAuthorizeCaps Underlined
+hi def link confChecklist Keyword
 hi def link confCollections Keyword
 hi def link confCollections_Constants Constant
 hi def link confCommands Keyword
