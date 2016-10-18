@@ -34,7 +34,7 @@ syn keyword confTodo FIXME NOTE TODO contained
 syn region confStanza matchgroup=confStanzaStart start=/^\[/ matchgroup=confStanzaEnd end=/\]/ oneline transparent contains=@confStanzas
 
 " Group clusters
-syn cluster confStanzas contains=confAlertActionsStanzas,confAppStanzas,confAuditStanzas,confAuthenticationStanzas,confAuthorizeStanzas,confChecklistStanzas,confCommandsStanzas,confCrawlStanzas,confDataModelsStanzas,confDefmodeStanzas,confDeployClientStanzas,confDistSearchStanzas,confEventGenStanzas,confEventRenderStanzas,confEventDiscoverStanzas,confEventTypesStanzas,confFieldsStanzas,confIndexesStanzas,confInputsStanzas,confSALDAPStanzas,confSALDAPLoggingStanzas,confSALDAPSSLStanzas,confLimitsStanzas,confLivetailStanzas,confOutputsStanzas,confPDFserverStanzas,confPropsStanzas,confPubsubStanzas,confRegmonFiltersStanzas,confRestmapStanzas,confSavedSearchesStanzas,confSegmenterStanzas,confServerStanzas,confServerClassStanzas,confSourceTypesStanzas,confTenantsStanzas,confTimesStanzas,confTransactionTypesStanzas,confTransformsStanzas,confUIPrefsStanzas,confUITourStanzas,confUserSeedStanzas,confViewStatesStanzas,confWebStanzas,confWmiStanzas,confWorkflowActionsStanzas,confGenericStanzas,confMetaStanzas,confSearchbnfStanzas,confCollectionsStanzas,confDataTypesbnfStanzas,confUserPrefsStanzas,confInstanceStanzas
+syn cluster confStanzas contains=confAlertActionsStanzas,confAppStanzas,confAuditStanzas,confAuthenticationStanzas,confAuthorizeStanzas,confChecklistStanzas,confCommandsStanzas,confCrawlStanzas,confDataModelsStanzas,confDefmodeStanzas,confDeployClientStanzas,confDistSearchStanzas,confDMCAlertsStanzas,confEventGenStanzas,confEventRenderStanzas,confEventDiscoverStanzas,confEventTypesStanzas,confFieldsStanzas,confIndexesStanzas,confInputsStanzas,confLauncherStanzas,confSALDAPStanzas,confSALDAPLoggingStanzas,confSALDAPSSLStanzas,confLimitsStanzas,confLivetailStanzas,confOutputsStanzas,confPDFserverStanzas,confPropsStanzas,confPubsubStanzas,confRegmonFiltersStanzas,confRestmapStanzas,confSavedSearchesStanzas,confSegmenterStanzas,confServerStanzas,confServerClassStanzas,confSourceTypesStanzas,confMCAssetsStanzas,confTenantsStanzas,confTimesStanzas,confTransactionTypesStanzas,confTransformsStanzas,confUIPrefsStanzas,confUITourStanzas,confUserSeedStanzas,confViewStatesStanzas,confWebStanzas,confWmiStanzas,confWorkflowActionsStanzas,confGenericStanzas,confMetaStanzas,confSearchbnfStanzas,confCollectionsStanzas,confDataTypesbnfStanzas,confUserPrefsStanzas,confInstanceStanzas
 
 syn match confGenericStanzas display contained /\v[^\]]+/
 
@@ -56,6 +56,11 @@ syn match   confAlertActions /\v<subject\.(alert|report)|message\.(report|alert)
 
 syn keyword confAlertActions_Constants logo title description timestamp pagination none csv html plain
 syn keyword confAlertActions_Constants letter legal ledger a2 a3 a4 a5 portrait landscape
+
+" alert_logevent
+" alert_actions.conf
+
+syn match   confAlertActions /\v<param\.(event|host|source(type)?|index)>/
 
 " app.conf
 syn match   confAppStanzas contained /\v<(launcher|package|install|triggers|ui|credentials_settings|credential:[^\]]+)>/
@@ -116,6 +121,7 @@ syn match   confAuthorizeCaps /\v<list_(deployment_(client|server)|search_schedu
 syn match   confAuthorizeCaps /\v<get_(diag|metadata|typeahead)>/
 syn match   confAuthorizeCaps /\v<rest_(apps_(management|view)|properties_(g|s)et)>/
 
+" splunk_monitoring_console
 " checklist.conf
 syn match   confChecklistStanzas contained /\v[^\]]+/
 syn keyword confChecklist title category tags description failure_text suggested_action doc_link applicable_to_groups
@@ -198,6 +204,14 @@ syn match   confDistSearch /\v<(sendRcv|server|connection|status|authToken(Send|
 syn match   confDistSearch /\v<heartbeat(McastAddr|Port|Frequency)>/
 syn match   confDistSearch /\v<replicate\.\S+>/
 syn match   confDistSearch /\v<(receive|send)Timeout>/
+
+" splunk_monitoring_console
+" dmc_alerts.conf
+
+syn match   confDMCAlertsStanzas contained /\v[^\]]+/
+syn keyword confDMCAlerts param_to_search_conversion description_template search_template is_editable
+syn match   confDMCAlerts /\v<parameter_(labels|values|ranges)>/
+syn match   confDMCAlerts /\v<enabled_for_(cloud|light)>/
 
 " eventdiscoverer.conf
 syn match   confEventDiscoverStanzas contained /\v<(default)>/
@@ -319,6 +333,10 @@ syn keyword confInputs_Constants ip dns single multikv
 " instance.cfg
 syn match   confInstanceStanzas contained /\v<general>/
 syn keyword confInstance guid
+
+" launcher.conf
+syn match   confLauncherStanzas contained /\v<settings>/
+syn keyword confLauncher welcome_apps
 
 " ldap.conf from SA-ldapsearch
 syn match   confSALDAPStanzas contained /\v<default>/
@@ -611,6 +629,10 @@ syn keyword confSavedSearches_Constants heatmap highlow stacked default stacked1
 syn keyword confSavedSearches_Constants mapping embed.enabled diameter bubble gaps zero connect ellipsisNone user owner
 syn keyword confSavedSearches_Constants patterns all minmax percent absolute standard inverse marker choropleth sequential divergent categorical block inherit
 
+" alert_logevent
+" savedsearches.conf
+syn match   confSavedSearches /\v<action\.(logevent(\.param\.(event|host|source(type)?|index))|log_event)>/
+
 " searchbnf.conf
 syn match   confSearchbnfStanzas contained /\v<(default|[^-]+\-(command|options))>/
 syn case ignore
@@ -734,6 +756,13 @@ syn keyword confSourceTypes _sourcetype _source
 "syn keyword confSplunkLaunchStanzas
 syn keyword confSplunkLaunch SPLUNK_HOME SPLUNK_DB SPLUNK_BINDIP SPLUNK_IGNORE_SELINUX SPLUNK_SERVER_NAME
 syn keyword confSplunkLaunch SPLUNK_WEB_NAME SPLUNK_OS_USER
+
+" splunk_monitoring_console
+" splunk_monitoring_console_assets.conf
+
+syn match   confMCAssetsStanzas contained /\v<(settings)>/
+syn keyword confMCAssets disabled configuredPeers blackList host host_fqdn
+syn match   confMCAssets /\v<(indexer|searchHead)Clusters>/
 
 " tags.conf
 "syn keyword confTagsStanzas
@@ -1079,6 +1108,7 @@ hi def link confDataTypesbnfStanzas Identifier
 hi def link confDefmodeStanzas Identifier
 hi def link confDeployClientStanzas Identifier
 hi def link confDistSearchStanzas Identifier
+hi def link confDMCAlertsStanzas Identifier
 hi def link confEventDiscoverStanzas Identifier
 hi def link confEventGenStanzas Identifier
 hi def link confEventRenderStanzas Identifier
@@ -1089,6 +1119,7 @@ hi def link confInputsStanzas Identifier
 hi def link confInstanceStanzas Identifier
 hi def link confLimitsStanzas Identifier
 hi def link confLivetailStanzas Identifier
+hi def link confLauncherStanzas Identifier
 hi def link confSALDAPStanzas Identifier
 hi def link confSALDAPSSLStanzas Identifier
 hi def link confSALDAPLoggingStanzas Identifier
@@ -1105,6 +1136,7 @@ hi def link confSegmenterStanzas Identifier
 hi def link confServerClassStanzas Identifier
 hi def link confServerStanzas Identifier
 hi def link confSourceTypesStanzas Identifier
+hi def link confMCAssetsStanzas Identifier
 hi def link confTenantsStanzas Identifier
 hi def link confTimesStanzas Identifier
 hi def link confTransactionTypesStanzas Identifier
@@ -1143,6 +1175,7 @@ hi def link confDefmode Keyword
 hi def link confDeployClient Keyword
 hi def link confDeployClient_Constants Constant
 hi def link confDistSearch Keyword
+hi def link confDMCAlerts Keyword
 hi def link confEventRender Keyword
 hi def link confEventDiscover Keyword
 hi def link confEventGen Keyword
@@ -1153,6 +1186,7 @@ hi def link confIndexes_Constants Constant
 hi def link confInputs Keyword
 hi def link confInputs_Constants Constant
 hi def link confInstance Keyword
+hi def link confLauncher Keyword
 hi def link confSALDAP Keyword
 hi def link confSALDAPLogging Keyword
 hi def link confSALDAPLogging_Constants Constant
@@ -1190,6 +1224,7 @@ hi def link confServerClass Keyword
 hi def link confSourceClass Keyword
 hi def link confSourceTypes Keyword
 hi def link confSplunkLaunch Keyword
+hi def link confMCAssets Keyword
 hi def link confTags Keyword
 hi def link confTelemetry Keyword
 hi def link confTenants Keyword
