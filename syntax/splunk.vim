@@ -906,6 +906,56 @@ syn match   confWorkflowActions /\v<link\.(uri|target|method|postargs\.\d+\.(key
 syn match   confWorkflowActions /\v<search\.(search_string|app|view|target|earliest|latest|preserve_timerange)>/
 
 "
+" splunk_app_db_connect
+"
+
+" app-migration.conf
+syn keyword confAppMigration STATE DEST_CONF
+
+"
+" db_connections.conf
+"
+syn keyword confDBConnections serviceClass testQuery database connection_type identity isolation_level
+syn keyword confDBConnections readonly username password host port informixserver useConnectionPool fetch_size
+syn keyword confDBConnections enable_query_wrapping cwallet_location sslConnectionType oracle_cipher_suites
+syn match   confDBConnections /\v<max((Idle|Total)Conn|(ConnLifetime|Wait)Millis)>/
+syn match   confDBConnections /\v<jdbc(Url(SSL)?Format|UseSSL|DriverClass)>/
+
+"
+" db_connection_types.conf
+"
+syn keyword confDBConnectionTypes serviceClass displayName database port useConnectionPool cwallet_location sslConnectionType oracle_cipher_suites
+syn match   confDBConnectionTypes /\v<ui_default_(catalog|schema)>/
+syn match   confDBConnectionTypes /\v<supported(Major|Minor)?Version(s)?|jdbc(Url(SSL)?Format|UseSSL|DriverClass)|max((Idle|Total)Conn|(ConnLifetime|Wait)Millis)>/
+
+"
+" healthlog.conf
+"
+syn keyword confHealthlog hiddens loggers
+
+"
+" identities.conf
+"
+syn keyword confIdentities username password domain_name use_win_auth
+
+"
+" inputs.conf
+"
+
+syn match   confInputsStanzas contained /\v<(mi_output)>/
+syn keyword confInputs policy connection key_pattern javahome options port bindIP proc_pid
+syn keyword confInputs useSSL keystore_password Exception cert_file cert_validity 
+syn keyword confInputs output_timestamp_format resource_pool auto_disable max_retries
+syn keyword confInputs user description mode connection query query_timeout max_rows
+syn keyword confInputs search is_saved_search time_out transactional customized_mappings
+syn match   confInputs /\v<(lookup|update|reload)SQL|(input|output)_fields>/
+syn match   confInputs /\v<ui_(query_(mode|catalog|schema|table)|input_((spl|saved)_search)|use_saved_search|is_auto_lookup|query_result_columns|column_output_map|field_column_map|auto_lookup_conditions|mappings|selected_fields|saved_search_str|query_sql)>/
+syn match   confInputs /\v<tail_(follow_only|rising_column_(name|number|checkpoint_value))>/
+syn match   confInputs /\v<input_timestamp_(format|column_(name|number))>/
+
+syn keyword confInputs_Constants reload update simple advanced
+
+"
 " Splunk_TA_f5-bigip
 "
 syn keyword f5BigIPInputs nothing
@@ -1244,6 +1294,13 @@ hi def link confWeb Keyword
 hi def link confWeb_Constants Constant
 hi def link confWmi Keyword
 hi def link confWorkflowActions Keyword
+
+" splunk_app_db_connect
+hi def link confAppMigration Keyword
+hi def link confDBConnections Keyword
+hi def link confDBConnectionTypes Keyword
+hi def link confHealthlog Keyword
+hi def link confIdentities Keyword
 
 " TA_Azure
 hi def link AzureInputs Keyword
