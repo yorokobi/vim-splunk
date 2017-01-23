@@ -1106,6 +1106,11 @@ syn match   AzureInputs /\v<client_(id|secret)|dateTime(Column|Start)>/
 syn keyword jmxInputs config_file config_file_dir polling_frequency
 syn keyword jmxInputs_Constants parsingQueue indexQueue
 
+" Machine Learning Toolkit
+syn keyword mltkMlspl use_sampling handle_new_cat streaming_apply
+syn match   mltkMlspl /\v<max_(inputs|fit_time|(memory_usage|model_size)_mb)>/
+syn match   mltkMlspl /\v<summary_(depth_limit|return_json)>/
+
 " Splunk_TA_okta
 
 " alert_actions.conf
@@ -1342,6 +1347,9 @@ hi def link ITSI_Threshold_Periods Keyword
 " JMX Add-on
 hi def link jmxInputs Keyword
 hi def link jmxInputs_Constants Constant
+
+" Machine Learning Toolkit
+hi def link mltkMlspl Keyword
 
 " Splunk_TA_okta
 hi def link oktaAlertActions Keyword
