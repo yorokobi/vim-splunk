@@ -563,7 +563,7 @@ syn keyword confRestmap xsl script output_modes members showInDirSvc desc dynami
 syn keyword confRestmap includeInAccessLog authKeyStanza defaultRestReplayStanza passSystemAuth destination
 syn keyword confRestmap filternodes
 syn match   confRestmap /\v<allow(GetAuth|RestReplay)>/
-syn match   confRestmap /\v<capability\.(delete|get|post|put)>/
+syn match   confRestmap /\v<capability\.(delete|get|post|put|read|write)>/
 syn match   confRestmap /\v<handler(actions|file|persistentmode|type)?>/
 syn match   confRestmap /\v<node(s|lists)>/
 syn match   confRestmap /\v<restReplay(Stanza)?>/
@@ -694,7 +694,7 @@ syn match   confServer /\v<captain_(is_adhoc_searchhead|uri)>/
 syn match   confServer /\v<cntr_\d_lookback_time>/
 syn match   confServer /\v<collection(StatsCollection)?PeriodInSecs>/
 syn match   confServer /\v<conf_deploy_(concerning_file_size|fetch_(mode|url)|repository|staging)>/
-syn match   confServer /\v<conf_replication_(include\.\w+|max_(pull|push)_count|period|purge\.(eligibile_(age|count)|period))>/
+syn match   confServer /\v<conf_replication_(include\.(ui\-metrics\-collector|\w+|max_(pull|push)_count|period|purge\.(eligibile_(age|count)|period)))>/
 syn match   confServer /\v<conf_replication_summary\.((black|white)list\.\w+|concerning_file_size|period)>/
 syn match   confServer /\v<cookieAuth(HttpOnly|Secure)>/
 syn match   confServer /\v<cxn_timeout(_raft)?>/
@@ -912,22 +912,46 @@ syn match   confWorkflowActions /\v<search\.(search_string|app|view|target|earli
 " app-migration.conf
 syn keyword confAppMigration STATE DEST_CONF
 
-"
 " db_connections.conf
-"
 syn keyword confDBConnections serviceClass testQuery database connection_type identity isolation_level
 syn keyword confDBConnections readonly username password host port informixserver useConnectionPool fetch_size
 syn keyword confDBConnections enable_query_wrapping cwallet_location sslConnectionType oracle_cipher_suites
+syn keyword confDBConnections customizedJdbcUrl
 syn match   confDBConnections /\v<max((Idle|Total)Conn|(ConnLifetime|Wait)Millis)>/
 syn match   confDBConnections /\v<jdbc(Url(SSL)?Format|UseSSL|DriverClass)>/
 
-"
 " db_connection_types.conf
-"
-syn keyword confDBConnectionTypes serviceClass displayName database port useConnectionPool cwallet_location sslConnectionType oracle_cipher_suites
+syn keyword confDBConnectionTypes serviceClass displayName database port useConnectionPool cwallet_location sslConnectionType oracle_cipher_suites connection_properties
 syn match   confDBConnectionTypes /\v<ui_default_(catalog|schema)>/
 syn match   confDBConnectionTypes /\v<supported(Major|Minor)?Version(s)?|jdbc(Url(SSL)?Format|UseSSL|DriverClass)|max((Idle|Total)Conn|(ConnLifetime|Wait)Millis)>/
 
+" db_inputs.conf
+syn keyword confDBInputsConstants batch advanced
+syn keyword confDBInputs batch_upload_size
+
+" db_lookups.conf
+" TODO: grab the relevant bits for this file and place them here rather
+" than let them live in other confXXX settings.
+
+" db_outputs.conf
+syn keyword confDBOutputs using_upsert unique_key
+
+" savedsearches.conf
+syn match   confSavedSearches /\v<action\.alert_output(\.param\.output)?>/
+
+" dbx_logging.conf
+syn keyword confDBXLogging keys level handlers propagate qualname class formatter args
+
+" dbx_settings.conf
+syn match   confDBXSettings /\v<db(xquery|xoutput|xlookup|(in|out)put)>/
+syn keyword confDBXSettings connector
+
+" settings.conf
+syn keyword confSettings java_home jvm_options app_id mode interval_system
+syn match   confSettings /\v<interval_\S+>/
+
+" ui-metrics-collector.conf
+syn keyword confUIMetricsCollector mode
 "
 " healthlog.conf
 "
@@ -947,11 +971,11 @@ syn keyword confInputs policy connection key_pattern javahome options port bindI
 syn keyword confInputs useSSL keystore_password Exception cert_file cert_validity 
 syn keyword confInputs output_timestamp_format resource_pool auto_disable max_retries
 syn keyword confInputs user description mode connection query query_timeout max_rows
-syn keyword confInputs search is_saved_search time_out transactional customized_mappings
+syn keyword confInputs search is_saved_search time_out transactional customized_mappings max_single_checkpoint_file_size
 syn match   confInputs /\v<(lookup|update|reload)SQL|(input|output)_fields>/
 syn match   confInputs /\v<ui_(query_(mode|catalog|schema|table)|input_((spl|saved)_search)|use_saved_search|is_auto_lookup|query_result_columns|column_output_map|field_column_map|auto_lookup_conditions|mappings|selected_fields|saved_search_str|query_sql)>/
-syn match   confInputs /\v<tail_(follow_only|rising_column_(name|number|checkpoint_value))>/
-syn match   confInputs /\v<input_timestamp_(format|column_(name|number))>/
+syn match   confInputs /\v<tail_(follow_only|rising_column_((full)?name|number|checkpoint_value))>/
+syn match   confInputs /\v<input_timestamp_(format|column_((full)?name|number))>/
 
 syn keyword confInputs_Constants reload update simple advanced
 
@@ -1304,6 +1328,13 @@ hi def link confWorkflowActions Keyword
 hi def link confAppMigration Keyword
 hi def link confDBConnections Keyword
 hi def link confDBConnectionTypes Keyword
+hi def link confDBInputs Keyword
+hi def link confDBInputsConstants Constant
+hi def link confDBOutputs Keyword
+hi def link confDBXLogging Keyword
+hi def link confDBXSettings Keyword
+hi def link confSettings Keyword
+hi def link confUIMetricsCollector Keyword
 hi def link confHealthlog Keyword
 hi def link confIdentities Keyword
 
