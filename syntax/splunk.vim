@@ -14,8 +14,8 @@ setlocal iskeyword+=-
 
 syn case match
 
-syn match confComment /^#.*/ contains=confTodo oneline display
-syn match confSpecComment /^\s*\*.*/ contains=confTodo oneline display
+syn match confComment /^[#|\*].*/ contains=confTodo oneline display skipwhite
+syn match confSpecComment /^\s\*\*.*/ contains=confTodo oneline display
 
 syn region confString start=/"/ skip="\\\"" end=/"/ oneline display contains=confNumber,confVar
 syn region confString start=/`/             end=/`/ oneline display contains=confNumber,confVar
@@ -39,20 +39,20 @@ syn cluster confStanzas contains=confAlertActionsStanzas,confAppStanzas,confAudi
 syn match confGenericStanzas display contained /\v[^\]]+/
 
 " admon.conf
-syn keyword confADmon targetDc startingNode monitorSubtree disabled index
+syn match   confADmon /\v<^(targetDc|startingNode|monitorSubtree|disabled|index)>/
 
 " alert_actions.conf
 syn match   confAlertActionsStanzas contained /\v<(default|email|rss|script|summary_index|populate_lookup)>/
-syn keyword confAlertActions maxresults hostname ttl maxtime track_alert command
-syn keyword confAlertActions from to cc bcc subject format sendresults inline
-syn keyword confAlertActions sendpdf pdfview useNSSubject mailserver
-syn keyword confAlertActions width_sort_columns preprocess_results items_count filename _name dest
-syn keyword confAlertActions sendcsv priority inline is_custom payload_format icon_path content_type icon_path
-syn match   confAlertActions /\v<use_(ssl|tls)|auth_(username|password)>/
-syn match   confAlertActions /\v<report(Paper(Size|Orientation)|Server(Enabled|URL)|IncludeSplunkLogo|CIDFontList|FileName)>/
-syn match   confAlertActions /\v<pdf\.(logo_path|html_image_rendering|(footer|header)_(enabled|center|left|right))>/
-syn match   confAlertActions /\v<alert\.execute\.cmd(\.arg\.\S+)?>/
-syn match   confAlertActions /\v<subject\.(alert|report)|message\.(report|alert)|footer\.text|include\.((results|view)_link|search|trigger|trigger_time)>/
+syn match   confAlertActions /\v<^(maxresults|hostname|ttl|maxtime|track_alert|command)>/
+syn match   confAlertActions /\v<^(from|to|cc|bcc|subject|format|sendresults|inline)>/
+syn match   confAlertActions /\v<^(sendpdf|pdfview|useNSSubject|mailserver|append)>/
+syn match   confAlertActions /\v<^(width_sort_columns|preprocess_results|items_count|filename|_name|dest)>/
+syn match   confAlertActions /\v<^(sendcsv|priority|inline|is_custom|payload_format|icon_path|content_type|icon_path)>/
+syn match   confAlertActions /\v<^(use_(ssl|tls)|auth_(username|password))>/
+syn match   confAlertActions /\v<^(report(Paper(Size|Orientation)|Server(Enabled|URL)|IncludeSplunkLogo|CIDFontList|FileName))>/
+syn match   confAlertActions /\v<^(pdf\.(logo_path|html_image_rendering|(footer|header)_(enabled|center|left|right)))>/
+syn match   confAlertActions /\v<^(alert\.execute\.cmd(\.arg\.\S+)?)>/
+syn match   confAlertActions /\v<^(subject\.(alert|report)|message\.(report|alert)|footer\.text|include\.((results|view)_link|search|trigger|trigger_time))>/
 
 syn keyword confAlertActions_Constants logo title description timestamp pagination none csv html plain
 syn keyword confAlertActions_Constants letter legal ledger a2 a3 a4 a5 portrait landscape
@@ -60,150 +60,144 @@ syn keyword confAlertActions_Constants letter legal ledger a2 a3 a4 a5 portrait 
 " alert_logevent
 " alert_actions.conf
 
-syn match   confAlertActions /\v<param\.(event|host|source(type)?|index)>/
+syn match   confAlertActions /\v<^(param\.(event|host|source(type)?|index))>/
 
 " app.conf
 syn match   confAppStanzas contained /\v<(launcher|package|install|triggers|ui|credentials_settings|credential:[^\]]+)>/
-syn keyword confApp remote_tab version description author id check_for_updates docs_section_override
-syn keyword confApp state state_change_requires_restart is_configured build allows_disable
-syn keyword confApp is_visible is_manageable label verify_script password default_gather_lookups
-syn keyword confApp install_source_checksum docs_section_override show_in_nav
-syn keyword confApp attribution_link data_limit extension_script setup_view
-syn match   confApp /\v<reload\.\S+>/
+syn match   confApp /\v<^(remote_tab|version|description|author|id|check_for_updates|docs_section_override)>/
+syn match   confApp /\v<^(state(_change_requires_restart)?|is_configured|build|allows_disable)>/
+syn match   confApp /\v<^(is_visible|is_manageable|label|verify_script|password|default_gather_lookups)>/
+syn match   confApp /\v<^(install_source_checksum|docs_section_override|show_in_nav|email|company)>/
+syn match   confApp /\v<^(attribution_link|data_limit|extension_script|setup_view)>/
+syn match   confApp /\v<^(reload\.\S+)>/
 
 syn keyword confApp_Constants simple rest_endpoints access_endpoints http_get http_post
 
 " audit.conf
 syn match   confAuditStanzas contained /\v<(event(Hash|Sign)ing|auditTrail|filterSpec:[^\]]+)>/
-syn keyword confAudit filters all source host sourcetype privateKey publicKey queueing
+syn match   confAudit /\v<^(filters|all|source|host|sourcetype|privateKey|publicKey|queueing)>/
 
 " authentication.conf
-syn match   confAuthenticationStanzas contained /\v<(authentication|cacheTiming|splunk_auth|roleMap_[^\]]+)>/
-syn keyword confAuthentication admin authType authSettings host SSLEnabled port bindDN bindDNpassword
-syn keyword confAuthentication userBaseDN userBaseFilter userNameAttribute realNameAttribute
-syn keyword confAuthentication groupMappingAttribute groupBaseDN groupBaseFilter dynamicGroupFilter
-syn keyword confAuthentication dynamicMemberAttribute groupNameAttribute groupMemberAttribute
-syn keyword confAuthentication nestedGroups charset anonymous_referrals sizelimit timelimit
-syn keyword confAuthentication network_timeout scriptPath Scripted scriptSearchFilters user userLoginTTL
-syn keyword confAuthentication getUserInfoTTL getUsersTTL passwordHashAlgorithm power emailAttribute
-syn keyword confAuthentication minPasswordLength fqdn redirectPort idpSSOUrl idpAttributeQueryUrl
-syn keyword confAuthentication idpCertPath idpSLOUrl entityId signAuthnRequest signedAssertion
-syn keyword confAuthentication attributeQuerySoapPassword attributeQuerySoapUsername signatureAlgorithm
-syn keyword confAuthentication attributeQueryRequestSigned attributeQueryResponseSigned
-syn keyword confAuthentication redirectAfterLogoutToUrl defaultRoleIfMissing clientCert
-syn keyword confAuthentication skipAttributeQueryRequestForUsers maxAttributeQueryThreads
-syn keyword confAuthentication maxAttributeQueryQueueSize attributeQueryTTL nameIdFormat role mail realName blacklistedAutoMappedRoles blacklistedUsers
-syn keyword confAuthentication apiHostname failOpen
-syn match   confAuthentication /\v<(appSecret|integration|secret)Key>/
-syn match   confAuthentication /\v<ecdhCurve(s|Name)|errorUrl(Label)?>/
-syn match   confAuthentication /\v<externalTwoFactorAuth(Settings|Vendor)>/
-syn match   confAuthentication /\v<(sso|slo)Binding>/
+syn match   confAuthenticationStanzas contained /\v<(authentication(ResponsAttrMap_SAML)?|cacheTiming|splunk_auth|roleMap_[^\]]+)>/
+syn match   confAuthenticationStanzas contained /\v<(proxysso-authsettings-key|secrets|userToRoleMap_[^\\]+)>/
+syn match   confAuthentication /\v<^(allowSslCompression|anonymous_referrals|apiHostname|appSecretKey)>/
+syn match   confAuthentication /\v<^(attributeQuery((Request|Response)Signed|Soap(Password|Username)|TTL))>/
+syn match   confAuthentication /\v<^(auth(Settings|Type)|bindDN(password)?|ca(CertFile|Path)|defaultRoleIfMissing)>/
+syn match   confAuthentication /\v<^(blacklisted(AutoMappedRoles|Users)|charset|cipherSuite|clientCert|disabled)>/
+syn match   confAuthentication /\v<^(dynamic(GroupFilter|MemberAttribute)|externalTwoFactorAuth(Settings|Vendor))>/
+syn match   confAuthentication /\v<^(ecdhCurve(Name|s)|emailAttribute|(entity|issuer)Id|errorUrl(Label)?)>/
+syn match   confAuthentication /\v<^(failOpen|filename|fqdn|getUser(InfoTTL|sTTL)|host|integrationKey|mail)>/
+syn match   confAuthentication /\v<^(groupBase(DN|Filter)|group(Mapping|Member|Name)Attribute|minPasswordLength)>/
+syn match   confAuthentication /\v<^(idp(AttributeQueryUrl|CertPath|S(L|S)OUrl)|maxAttributeQuery(QueueSize|Threads))>/
+syn match   confAuthentication /\v<^(name(IdFormat|space)|nestedGroups|network_timeout|passwordHashAlgorithm|port)>/
+syn match   confAuthentication /\v<^(realName(Attribute)?|redirect(AfterLogoutToUrl|Port)|replicateCertificates)>/
+syn match   confAuthentication /\v<^(script(Path|SearchFilters)|secretKey|sizelimit|skipAttributeQueryRequestForUsers)>/
+syn match   confAuthentication /\v<^(sign(AuthnRequest|atureAlgorithm|edAssertion)|sloBinding|SSLEnabled)>/
+syn match   confAuthentication /\v<^(ssl((Alt|Common)NameToCheck|Keysfile(Password)?|Password|RootCAPath|VerifyServerCert|Versions))>/
+syn match   confAuthentication /\v<^(ssoBinding|time(limit|out)|use(ClientSSLCompression|rBase(DN|Filter)|rLoginTTL|rNameAttribute))>/
+"syn match   confAuthentication /\v<^()>/
 
 syn keyword confAuthentication_Constants Splunk LDAP Scripted SAML
-syn match   confAuthentication_Constants /\v<SHA(256|512)-crypt(-\d+)?|MD5-crypt|RSA-SHA\d+>/
+syn match   confAuthentication_Constants /\v<^(SHA(256|512)-crypt(-\d+)?|MD5-crypt|RSA-SHA\d+)>/
 
 " authorize.conf
 syn match   confAuthorizeStanzas contained /\v<(default|(capability::|role_)[^\]]+)>/
-syn keyword confAuthorize importRoles grantableRoles srchFilter srchTimeWin srchDiskQuota srchJobsQuota
-syn keyword confAuthorize rtSrchJobsQuota srchMaxTime srchIndexesDefault srchIndexesAllowed
-syn keyword confAuthorize cumulativeSrchJobsQuota cumulativeRTSrchJobsQuota rtsearch schedule_rtsearch
-syn keyword confAuthorize srchFilterSelecting deleteIndexesAllowed
+syn match   confAuthorize /\v<^((import|grantable)Roles|srch(Filter(Selecting)?|TimeWin|DiskQuota|JobsQuota|MaxTime|Indexes(Default|Allowed)))>/
+syn match   confAuthorize /\v<^(rtSrchJobsQuota|cumulative(RT)?SrchJobsQuota|rtsearch|schedule_rtsearch)>/
+syn match   confAuthorize /\v<^(deleteIndexesAllowed)>/
 " capabilities
 syn keyword confAuthorizeCaps admin_all_objects delete_by_keyword input_file indexes_edit license_tab output_file request_remote_tok
 syn keyword confAuthorizeCaps restart_splunkd rtsearch run_debug_commands schedule_search schedule_rtsearch search use_file_operator
 syn keyword confAuthorizeCaps web_debug
-syn match   confAuthorizeCaps /\v<accelerate_(search|datamodel)>/
-syn match   confAuthorizeCaps /\v<change_(authentication|own_password)>/
-syn match   confAuthorizeCaps /\v<edit_(deployment_(client|server)|dist_peer|forwarders|httpauths|input_defaults|monitor|roles)>/
-syn match   confAuthorizeCaps /\v<edit_(scripted|search|search_(head_clustering|scheduler|server)|server|sourcetypes|splunktcp(_ssl)?)>/
-syn match   confAuthorizeCaps /\v<edit_(tcp|udp|token_http|user|view_html|web_settings)>/
-syn match   confAuthorizeCaps /\v<list_(deployment_(client|server)|search_scheduler|forwarders|httpauths|inputs|search_head_clustering)>/
-syn match   confAuthorizeCaps /\v<get_(diag|metadata|typeahead)>/
-syn match   confAuthorizeCaps /\v<rest_(apps_(management|view)|properties_(g|s)et)>/
+syn match   confAuthorizeCaps /\v<^(accelerate_(search|datamodel))>/
+syn match   confAuthorizeCaps /\v<^(change_(authentication|own_password))>/
+syn match   confAuthorizeCaps /\v<^(edit_(deployment_(client|server)|dist_peer|forwarders|httpauths|input_defaults|monitor|roles))>/
+syn match   confAuthorizeCaps /\v<^(edit_(scripted|search|search_(head_clustering|scheduler|server)|server|sourcetypes|splunktcp(_ssl)?))>/
+syn match   confAuthorizeCaps /\v<^(edit_(tcp|udp|token_http|user|view_html|web_settings))>/
+syn match   confAuthorizeCaps /\v<^(list_(deployment_(client|server)|search_scheduler|forwarders|httpauths|inputs|search_head_clustering))>/
+syn match   confAuthorizeCaps /\v<^(get_(diag|metadata|typeahead))>/
+syn match   confAuthorizeCaps /\v<^(rest_(apps_(management|view)|properties_(g|s)et))>/
 
 " splunk_monitoring_console
 " checklist.conf
 syn match   confChecklistStanzas contained /\v[^\]]+/
 syn keyword confChecklist title category tags description failure_text suggested_action doc_link applicable_to_groups
-syn keyword confChecklist environments_to_exclude disabled search drilldown
+syn match   confChecklist /\v<^(environments_to_exclude|disabled|search|drilldown)>/
 
 " collections.conf
 syn match   confCollectionsStanzas contained /\v[^\]]+/
-syn keyword confCollections enforceTypes profilingEnabled profilingThresholdMs
-syn keyword confCollections replicate replication_dump_strategy replication_dump_maximum_file_size
-syn match   confCollections /\v<field\.\S+|accelerated_fields\.\S+>/
+syn match   confCollections /\v<^(enforceTypes|profiling(Enabled|ThresholdMs))>/
+syn match   confCollections /\v<^(replicate|replication_dump_(strategy|maximum_file_size))>/
+syn match   confCollections /\v<^(field\.\S+|accelerated_fields\.\S+)>/
 
 syn keyword confCollections_Constants one_file auto internal_cache undefined
 
 " commands.conf
 syn match   confCommandsStanzas contained /\v<(default)>/
-"syntax case ignore
-syn keyword confCommands type filename local perf_warn_limit streaming maxinputs passauth
-syn keyword confCommands run_in_preview enableheader retainsevents generating generates_timeorder
-syn keyword confCommands overrides_timeorder requires_preop streaming_preop required_fields
-syn keyword confCommands undo_scheduler_escaping
-syn keyword confCommands requires_srinfo needs_empty_results changes_colorder clear_required_fields
-syn keyword confCommands stderr_dest outputheader chunked maxwait maxchunksize
-syn match   confCommands /\v<supports_(multivalues|getinfo|rawargs)>/
-syn match   confCommands /\v<command\.\w+\.\d+>/
-syn match   confCommands /\v<is_(order_sensitive|risky)>/
-"syntax case match
+syn match   confCommands /\v<^(type|filename|local|perf_warn_limit|streaming|maxinputs|passauth)>/
+syn match   confCommands /\v<^(run_in_preview|enableheader|retainsevents|generat(ing|es_timeorder))>/
+syn match   confCommands /\v<^(overrides_timeorder|(requires|streaming)_preop|required_fields)>/
+syn match   confCommands /\v<^(undo_scheduler_escaping|requires_srinfo|needs_empty_results|changes_colorder|clear_required_fields)>/
+syn match   confCommands /\v<^(stderr_dest|outputheader|chunked|max(wait|chunksize))>/
+syn match   confCommands /\v<^(supports_(multivalues|getinfo|rawargs))>/
+syn match   confCommands /\v<^(command\.\w+\.\d+)>/
+syn match   confCommands /\v<^(is_(order_sensitive|risky))>/
 
 syn keyword confCommands_Constants log message none
 
 " crawl.conf
 syn match   confCrawlStanzas contained /\v<(default|files|network)>/
-syn keyword confCrawl collapse_threshold big_dir_filecount index max_badfiles_per_dir
-syn keyword confCrawl host subnet root
-syn match   confCrawl /\v<bad_(directories|extensions|file_matches)_list>/
-syn match   confCrawl /\v<(packed_extensions|days_sizek_pairs)_list>/
+syn match   confCrawl /\v<^(collapse_threshold|big_dir_filecount|index|max_badfiles_per_dir)>/
+syn match   confCrawl /\v<^(host|subnet|root)>/
+syn match   confCrawl /\v<^(bad_(directories|extensions|file_matches)_list)>/
+syn match   confCrawl /\v<^((packed_extensions|days_sizek_pairs)_list)>/
 
 " datamodels.conf
 syn match   confDataModelsStanzas contained /\v<(default)>/
-syn keyword confDataModels acceleration 
-syn match   confDataModels /\v<acceleration\.((earliest|backfill|max)_time|cron_schedule|manual_rebuilds|max_concurrent|schedule_priority)>/
-syn match   confDataModels /\v<acceleration\.hunk\.(compression_codec|dfs_block_size|file_format)>/
-syn match   confDataModels /\v<dataset\.(description|type|commands|fields|display\.(diversity|sample_ratio|limiting|currentCommand|mode|datasummary\.((earliest|latest)Time)))>/
+syn match   confDataModels /\v<^(acceleration|tags_whitelist)>/
+syn match   confDataModels /\v<^(acceleration\.((earliest|backfill|max)_time|cron_schedule|manual_rebuilds|max_concurrent|schedule_priority|poll_buckets_until_maxtime))>/
+syn match   confDataModels /\v<^(acceleration\.hunk\.(compression_codec|dfs_block_size|file_format))>/
+syn match   confDataModels /\v<^(dataset\.(description|type|commands|fields|display\.(diversity|sample_ratio|limiting|currentCommand|mode|datasummary\.((earliest|latest)Time))))>/
 
-syn keyword confDataModelsConstants default higher highest datasummary table
+syn match   confDataModelsConstants /\v<(data(model|summary)|default|diverse|highe(r|st)|latest|random|rare|table)$>/ skipwhite
 
 " datatypesbnf.conf
 syn match   confDataTypesbnfStanzas contained /\v[^\]]+/
-syn keyword confDataTypesbnf syntax
+syn match   confDataTypesbnf /\v<^(syntax)>/
 
 " default-mode.conf
 syn match   confDefModeStanzas contained /\v<(pipeline:[^\]]+)>/
-syn keyword confDefMode disabled disabled_processors
+syn match   confDefMode /\v<^(disabled(_processors)?)>/
 
 " deployment.conf
 " placeholder, file not used
 
 " deploymentclient.conf
 syn match   confDeployClientStanzas contained /\v<(default|deployment-client|target-broker:deploymentServer)>/
-syn keyword confDeployClient disabled clientName workingDir repositoryLocation
-syn keyword confDeployClient reloadDSOnAppInstall targetUri endpoint
-syn match   confDeployClient /\v<(phoneHome|appEventsResync)IntervalInSecs>/
-syn match   confDeployClient /\v<handshake(ReplySubscriptionRetry|RetryIntervalInSecs)>/
-syn match   confDeployClient /\v<(server(RepositoryLocation|Endpoint)Policy)>/
+syn match   confDeployClient /\v<^(disabled|clientName|workingDir|repositoryLocation)>/
+syn match   confDeployClient /\v<^(reloadDSOnAppInstall|targetUri|endpoint)>/
+syn match   confDeployClient /\v<^((phoneHome|appEventsResync)IntervalInSecs)>/
+syn match   confDeployClient /\v<^(handshake(ReplySubscriptionRetry|RetryIntervalInSecs))>/
+syn match   confDeployClient /\v<^((server(RepositoryLocation|Endpoint)Policy))>/
 
-syn keyword confDeployClient_Constants acceptSplunkHome acceptAlways rejectAlways
+syn match   confDeployClient_Constants /\v<(accept(SplunkHome|Always)|rejectAlways)$>/ skipwhite
 
 " distsearch.conf
 syn match   confDistSearchStanzas contained /\v<(default|distributedSearch(:[^\]]+)?|tokenExchKeys|searchhead:[^\]]+)>/
 syn match   confDistSearchStanzas contained /\v<replication(Settings(:refineConf)?|(White|Black)list)>/
 syn match   confDistSearchStanzas contained /\v<bundleEnforcer(White|Black)list>/
-syn keyword confDistSearch disabled ttl shareBundles useSHPBundleReplication
-syn keyword confDistSearch autoAddServers bestEffortSearch skipOurselves servers disabled_servers
-syn keyword confDistSearch certDir publicKey privateKey genKeyScript quarantined_servers
-syn keyword confDistSearch replicationThreads maxMemoryBundleSize defaultUriScheme
-syn keyword confDistSearch maxBundleSize concerningReplicatedFileSize
-syn keyword confDistSearch mounted_bundles bundles_location trySSLFirst peerResolutionThreads
-syn keyword confDistSearch servers default allConf sanitizeMetaFiles excludeReplicatedLookupSize
-syn match   confDistSearch /\v<allow(SkipEncoding|(Delta|Stream)Upload)>/
-syn match   confDistSearch /\v<(sendRcv|server|connection|status|authToken(Send|Receive|Connection))Timeout|(removed|check)TimedOutServers(Frequency)?>/
-syn match   confDistSearch /\v<heartbeat(McastAddr|Port|Frequency)>/
-syn match   confDistSearch /\v<replicate\.\S+>/
-syn match   confDistSearch /\v<(receive|send)Timeout>/
+syn match   confDistSearch /\v<^(disabled(_servers)?|ttl|shareBundles|useSHPBundleReplication)>/
+syn match   confDistSearch /\v<^(autoAddServers|bestEffortSearch|skipOurselves|servers)>/
+syn match   confDistSearch /\v<^(certDir|(public|private)Key|genKeyScript|quarantined_servers)>/
+syn match   confDistSearch /\v<^(replicationThreads|maxMemoryBundleSize|defaultUriScheme)>/
+syn match   confDistSearch /\v<^(maxBundleSize|concerningReplicatedFileSize)>/
+syn match   confDistSearch /\v<^(mounted_bundles|bundles_location|trySSLFirst|peerResolutionThreads)>/
+syn match   confDistSearch /\v<^(servers|default|allConf|sanitizeMetaFiles|excludeReplicatedLookupSize)>/
+syn match   confDistSearch /\v<^(allow(SkipEncoding|(Delta|Stream)Upload))>/
+syn match   confDistSearch /\v<^((sendRcv|server|connection|status|authToken(Send|Receive|Connection))Timeout|(removed|check)TimedOutServers(Frequency)?)>/
+syn match   confDistSearch /\v<^(heartbeat(McastAddr|Port|Frequency))>/
+syn match   confDistSearch /\v<^(replicate\.\S+)>/
+syn match   confDistSearch /\v<^((receive|send)Timeout)>/
 
 " splunk_monitoring_console
 " dmc_alerts.conf
@@ -224,14 +218,14 @@ syn keyword confEventRender eventtype priority template css_class
 
 " eventgen.conf
 syn match   confEventGenStanzas contained /\v<(default|global)>/
-syn keyword confEventGen spoolDir spoolFile interval count earliest latest breaker token 
-syn keyword confEventGen replacement replacementType outputMode maxIntervalsBeforeFlush
+syn match   confEventGen /\v<^(spoolDir|spoolFile|interval|count|earliest|latest|breaker|token)>/
+syn match   confEventGen /\v<^(replacement(Type)?|outputMode|maxIntervalsBeforeFlus)>/
 syn match   confEventGen /\v<token\.\d+\.(token|replacement(Type)?)>/
 syn match   confEventGen /\v<splunk(Host|User|Pass)>/
 
 " eventtypes.conf
 syn match   confEventTypesStanzas contained /\v<(default>|\k+-\%\k+\%)/
-syn keyword confEventTypes disabled search priority description tags color
+syn match   confEventTypes /\v<^(disabled|search|priority|description|tags|color)>/
 
 " fields.conf
 syn match   confFieldsStanzas contained /\v<(default)>/
@@ -243,7 +237,7 @@ syn keyword confIndexes sync defaultDatabase queryLanguageDefinition blockSignat
 syn keyword confIndexes memPoolMB indexThreads assureUTF8 enableRealtimeSearch suppressBannerList
 syn keyword confIndexes maxRunningProcessGroups maxRunningProcessGroupsLowPriority bucketRebuildMemoryHint
 syn keyword confIndexes serviceOnlyAsNeeded serviceSubtaskTimingPeriod maxBucketSizeCacheEntries
-syn keyword confIndexes tsidxStatsHomePath disabled deleted homePath coldPath thawedPath
+syn match   confIndexes /\v<^(tsidxStatsHomePath|disabled|deleted|(home|cold|thawed)Path)>/
 syn keyword confIndexes bloomHomePath createBloomfilter summaryHomePath maxBloomBackfillBucketAge
 syn keyword confIndexes enableOnlineBucketRepair maxWarmDBCount maxTotalDataSizeMB
 syn keyword confIndexes rotatePeriodInSecs frozenTimePeriodInSecs warmToColdScript
@@ -296,37 +290,37 @@ syn keyword confIndexes_Constants stream report infinite
 " inputs.conf
 syn match   confInputsStanzas contained /\v<(tcp(-ssl)?|splunktcp(-ssl)?|monitor|batch|udp|fifo|script|fschange|filter|WinEventLog|(ad|perf)mon):[^\]]+>/
 syn match   confInputsStanzas contained /\v<(default|SSL|splunktcp)>/
-syn keyword confInputs host index source sourcetype queue _raw _meta _time
+syn match   confInputs /\v<^(host|index|source|sourcetype|queue|_raw|_meta|_time)>/
 syn keyword confInputs crcSalt initCrcLength ignoreOlderThan
 syn keyword confInputs alwaysOpenFile recursive dedicatedFD
 syn keyword confInputs move_policy connection_host queueSize persistentQueueSize
 syn keyword confInputs requireHeader listenOnIPv6 acceptFrom rawTcpDoneTimeout route compressed
 syn keyword confInputs enableS2SHeartbeat s2sHeartbeatTimeout inputShutdownTimeout
-syn keyword confInputs serverCert password rootCA requireClientCert supportSSLV3Only cipherSuite
+syn match   confInputs /\v<^(serverCert|password|rootCA|requireClientCert|supportSSLV3Only|cipherSuite)>/
 syn keyword confInputs _rcvbuf no_priority_stripping no_appending_timestamp interval passAuth
 syn keyword confInputs signedaudit filters recurse followLinks pollPeriod hashMaxSize fullEvent
-syn keyword confInputs sendEventMaxSize filesPerDelay delayInMills regex
-syn keyword confInputs disabled start_from current_only checkpointInterval evt_resolve_ad_obj
+syn match   confInputs /\v<^(sendEventMaxSize|filesPerDelay|delayInMills|regex)>/
+syn match   confInputs /\v<^(disabled|start_from|current_only|checkpointInterval|evt_resolve_ad_obj)>/
 syn keyword confInputs negotiateNewProtocol concurrentChannelLimit batch_size
-syn keyword confInputs start_by_shell object counters instances samplingInterval stats showZeroValue
+syn match   confInputs /\v<^(start_by_shell|object|counters|instances|samplingInterval|stats|showZeroValue)>/
 syn keyword confInputs suppress_text printSchema remoteAddress process user addressFamily packetType direction
-syn keyword confInputs protocol readInterval multikvMaxEventCount multikvMaxTimeMs table
-syn keyword confInputs stopAcceptorAfterQBlock sslVersions sslQuietShutdown send_index_as_argument_for_path
+syn match   confInputs /\v<^(protocol|readInterval|multikvMax(EventCount|TimeMs)|table)>/
+syn match   confInputs /\v<^(stopAcceptorAfterQBlock|ssl(Versions|QuietShutdown)|send_index_as_argument_for_path)>/
 syn keyword confInputs mode useEnglishOnly renderXml targetDc startingNode monitorSubtree printSchema baseline proc
-syn keyword confInputs hive type baseline_interval multiline_event_extra_waittime dhfile outputgroup enableSSL
+syn match   confInputs /\v<^(hive|type|baseline_interval|multiline_event_extra_waittime|dhfile|outputgroup|enableSSL)>/
 syn keyword confInputs useDeploymentServer indexes formatString evt_resolve_ad_ds 
 syn keyword confInputs ackIdleCleanup maxIdleTime channel_cookie
-syn match   confInputs /\v<_(TCP|SYSLOG|INDEX_AND_FORWARD)_ROUTING>/
-syn match   confInputs /\v<host_(regex|segment)>/
-syn match   confInputs /\v<(white|black)list|_(white|black)list>/
-syn match   confInputs /\v<follow(Tail|Symlink)>/
-syn match   confInputs /\v<(driver|user)BufferSize>/
-syn match   confInputs /\v<output\.(format|timestamp(\.column|\.format)?)>/
-syn match   confInputs /\v<(white|black)list[1-9]>/
-syn match   confInputs /\v<evt_(ad|sid)_cache_(disabled|exp(_neg)?|max_entries)>/
-syn match   confInputs /\v<evt_(dns|dc)_name>/
-syn match   confInputs /\v<sid_cache_(disabled|exp(_neg)?|max_entries)>/
-syn match   confInputs /\v<ecdhCurve(Name|s)>/
+syn match   confInputs /\v<^(_(TCP|SYSLOG|INDEX_AND_FORWARD)_ROUTING)>/
+syn match   confInputs /\v<^(host_(regex|segment))>/
+syn match   confInputs /\v<^((white|black)list|_(white|black)list)>/
+syn match   confInputs /\v<^(follow(Tail|Symlink))>/
+syn match   confInputs /\v<^((driver|user)BufferSize)>/
+syn match   confInputs /\v<^(output\.(format|timestamp(\.column|\.format)?))>/
+syn match   confInputs /\v<^((white|black)list[1-9])>/
+syn match   confInputs /\v<^(evt_(ad|sid)_cache_(disabled|exp(_neg)?|max_entries))>/
+syn match   confInputs /\v<^(evt_(dns|dc)_name)>/
+syn match   confInputs /\v<^(sid_cache_(disabled|exp(_neg)?|max_entries))>/
+syn match   confInputs /\v<^(ecdhCurve(Name|s))>/
 
 syn keyword confInputs_Constants ip dns single multikv
 
@@ -349,7 +343,7 @@ syn keyword confSALDAPLogging_Constants critical error warning info debug notset
 
 " ssl.conf from SA-ldapsearch
 syn match   confSALDAPSSLStanzas contained /\v<sslConfig>/
-syn keyword confSALDAPSSL sslVersions sslVerifyServerCert caCertFile caPath
+syn match   confSALDAPSSL /\v<^(ssl(Versions|VerifyServerCert)|ca(CertFile|Path))>/
 
 " limits.conf
 syn match   confLimitsStanzas contained /\v<(anomalousvalue|associate|authtokens|auto_summarizer|autoregress|concurrency)>/
@@ -358,7 +352,7 @@ syn match   confLimitsStanzas contained /\v<(input(_channels|csv|proc)|join|jour
 syn match   confLimitsStanzas contained /\v<(metadata|metrics|pdf|rare|realtime|restapi|reversedns|sample|scheduler)>/
 syn match   confLimitsStanzas contained /\v<(search(results)?|set|show_source|sistats|slc|sort|spath|stats|subsearch)>/
 syn match   confLimitsStanzas contained /\v<(summarize|thruput|top|transactions|tscollect|typeahead|typer|viewstates)>/
-syn keyword confLimits perf_warn_limit mkdir_max_retries ttl DelayArchiveProcessorShutdown
+syn match   confLimits /\v<^(perf_warn_limit|mkdir_max_retries|ttl|DelayArchiveProcessorShutdown)>/
 syn keyword confLimits soft_preview_queue_size suppress_derived_info limit
 syn keyword confLimits batch_index_query aggregate_metrics summary_mode 
 syn keyword confLimits batch_response_limit interval jobscontentmaxcount
@@ -481,21 +475,21 @@ syn keyword confMultikv _chop_ _tokenize_ _align_ _token_list_ _regex_ _all_ _no
 
 " outputs.conf
 syn match   confOutputsStanzas contained /\v<(default|tcpout((-server)?:[^\]]+)?|syslog(:[^\]]+)?|indexAndForward)>/
-syn keyword confOutputs defaultGroup indexAndForward server sendCookedData heartbeatFrequency
+syn match   confOutputs /\v<^(defaultGroup|indexAndForward|server|sendCookedData|heartbeatFrequency)>/
 syn keyword confOutputs blockOnCloning compressed dnsResolutionInterval tlsHostname
-syn keyword confOutputs forceTimebasedAutoLB .whitelist .blacklist tcpSendBufSz
+syn match   confOutputs /\v<^(forceTimebasedAutoLB|\.whitelist|\.blacklist|tcpSendBufSz)>/
 syn keyword confOutputs forwardedindex.filter.disable ackTimeoutOnShutdown useClientSSLCompression
-syn keyword confOutputs useACK type priority syslogSourceType timestampformat selectiveIndexing
+syn match   confOutputs /\v<^(useACK|type|priority|syslogSourceType|timestampformat|selectiveIndexing)>/
 syn keyword confOutputs masterUri blockWarnThreshold negotiateNewProtocol 
 syn keyword confOutputs backoffOnFailure indexerDiscovery secsInFailureInterval 
 syn match   confOutputs /\v<autoLB(Frequency)?>/
 syn match   confOutputs /\v<channel(TTL|Reap(Interval|Lowater))>/
-syn match   confOutputs /\v<(connection|read|write)Timeout>/
+syn match   confOutputs /\v<^((connection|read|write)Timeout)>/
 syn match   confOutputs /\v<drop((Cloned)?Events)OnQueueFull>/
-syn match   confOutputs /\v<forwardedindex\.\d\.(whitelist|blacklist)>/
+syn match   confOutputs /\v<^(forwardedindex\.\d\.(whitelist|blacklist))>/
 syn match   confOutputs /\v<max((Event|Queue)Size|ConnectionsPerIndexer|FailuresPerInterval)>/
 syn match   confOutputs /\v<socks(Server|Username|Password|ResolveDNS)>/
-syn match   confOutputs /\v<ssl(Password|(Cert|RootCA)Path|Cipher|VerifyServerCert|(Common|Alt)NameToCheck|QuietShutdown)>/
+syn match   confOutputs /\v<^(ssl(Password|(Cert|RootCA)Path|Cipher|VerifyServerCert|(Common|Alt)NameToCheck|QuietShutdown))>/
 
 syn keyword confOutputs_Constants NO_PRI tcp udp local
 
@@ -518,28 +512,28 @@ syn match   confPDFserver /\v<tools\.(sessions\.(on|timeout|storage_(type|path))
 
 " procmon-filters.conf
 "syn keyword confProcmonFiltersStanzas
-syn keyword confProcmonFilters proc type hive
+syn match   confProcmonFilters /\v<^(proc|type|hive)>/
 
 " props.conf
 syn match   confPropsStanzas contained /\v<(default|(rule|source|delayedrule|host)::[^\]]+)>/
-syn keyword confProps host source sourcetype CHARSET TRUNCATE LINE_BREAKER LINE_BREAKER_LOOKBEHIND
-syn keyword confProps NO_BINARY_CHECK SEGMENTATION DATETIME_CONFIG SHOULD_LINEMERGE MUST_BREAK_AFTER
-syn keyword confProps initCrcLength PREFIX_SOURCETYPE sourcetype rename invalid_cause is_valid
-syn keyword confProps LEARN_SOURCETYPE LEARN_MODEL maxDist 
-syn keyword confProps ANNOTATE_PUNCT HEADER_MODE _actions pulldown_type
-syn keyword confProps given_type INDEXED_EXTRACTIONS PREAMBLE_REGEX 
-syn keyword confProps TIMESTAMP_FIELDS detect_trailing_nulls
-syn keyword confProps category MISSING_VALUE_REGEX AUTO_KV_JSON JSON_TRIM_BRACES_IN_ARRAY_NAMES
-syn match   confProps /\v<BREAK_ONLY_BEFORE(_DATE)?|EVENT_BREAKER(_ENABLE)?>/
-syn match   confProps /\v<CHECK_(FOR_HEADER|METHOD)>/
-syn match   confProps /\v<FIELD_(DELIMITER|HEADER_REGEX|NAMES|QUOTE)>/
-syn match   confProps /\v<HEADER_FIELD_(LINE_NUMBER|DELIMITER|QUOTE)>/
-syn match   confProps /\v<KV_(MODE|TRIM_SPACES)>/
-syn match   confProps /\v<MAX_(DAYS_(AGO|HENCE)|DIFF_SECS_(AGO|HENCE)|EVENTS|TIMESTAMP_LOOKAHEAD)>/
-syn match   confProps /\v<MUST_NOT_BREAK_(AFTER|BEFORE)>/
-syn match   confProps /\v<TIME_(FORMAT|PREFIX)>/
-syn match   confProps /\v<TZ(_ALIAS)?>/
-syn match   confProps /\v<unarchive_(cmd|sourcetype)>/
+syn match   confProps /\v<^(host|source(type)?|CHARSET|TRUNCATE|LINE_BREAKER(_LOOKBEHIND)?)>/
+syn match   confProps /\v<^(NO_BINARY_CHECK|SEGMENTATION|DATETIME_CONFIG|SHOULD_LINEMERGE|MUST_BREAK_AFTER)>/
+syn match   confProps /\v<^(initCrcLength|PREFIX_SOURCETYPE|rename|invalid_cause|is_valid)>/
+syn match   confProps /\v<^(LEARN_(SOURCETYPE|_MODEL)|maxDist)>/
+syn match   confProps /\v<^(ANNOTATE_PUNCT|HEADER_MODE|_actions|pulldown_type)>/
+syn match   confProps /\v<^(given_type|INDEXED_EXTRACTIONS|PREAMBLE_REGEX)>/
+syn match   confProps /\v<^(TIMESTAMP_FIELDS|detect_trailing_nulls)>/
+syn match   confProps /\v<^(category|MISSING_VALUE_REGEX|AUTO_KV_JSON|JSON_TRIM_BRACES_IN_ARRAY_NAMES)>/
+syn match   confProps /\v<^(BREAK_ONLY_BEFORE(_DATE)?|EVENT_BREAKER(_ENABLE)?)>/
+syn match   confProps /\v<^(CHECK_(FOR_HEADER|METHOD))>/
+syn match   confProps /\v<^(FIELD_(DELIMITER|HEADER_REGEX|NAMES|QUOTE))>/
+syn match   confProps /\v<^(HEADER_FIELD_(LINE_NUMBER|DELIMITER|QUOTE))>/
+syn match   confProps /\v<^(KV_(MODE|TRIM_SPACES))>/
+syn match   confProps /\v<^(MAX_(DAYS_(AGO|HENCE)|DIFF_SECS_(AGO|HENCE)|EVENTS|TIMESTAMP_LOOKAHEAD))>/
+syn match   confProps /\v<^(MUST_NOT_BREAK_(AFTER|BEFORE))>/
+syn match   confProps /\v<^(TIME_(FORMAT|PREFIX))>/
+syn match   confProps /\v<^(TZ(_ALIAS)?)>/
+syn match   confProps /\v<^(unarchive_(cmd|sourcetype))>/
 
 syn keyword confProps_Constants none auto auto_escaped multi json xml firstline CSV W3C TSV PSV JSON
 syn keyword confProps_Constants endpoint_md5 entire_md5 modtime AS OUTPUT OUTPUTNEW
@@ -549,12 +543,12 @@ syn match confComplex /\v<(MORE|LESS)_THAN_\d+>/
 
 " pubsub.conf
 syn match   confPubsubStanzas contained /\v<(default|pubsub-server:[^\]]+)>/
-syn keyword confPubsub disabled targetUri
+syn match   confPubsub /\v<^(disabled|targetUri)>/
 syn keyword confPubsub_Constants direct
 
 " regmon-filters.conf
 syn match   confRegmonFiltersStanzas contained /\v<(default)>/
-syn keyword confRegmonFilters proc hive type baseline baseline_interval disabled index
+syn match   confRegmonFilters /\v<^(proc|hive|type|baseline(_interval)|disabled|index)>/
 
 " restmap.conf
 syn match   confRestmapStanzas contained /\v<(global|(script|admin|validation|eai|input|peerupload):[^\]]+)>/
@@ -573,7 +567,7 @@ syn match   confRestmap /\v<pass(Conf|Payload|Session|Http(Headers|Cookies))>/
 
 " savedsearches.conf
 syn match   confSavedSearchesStanzas contained /\v<(default)>/
-syn keyword confSavedSearches disabled search enableSched cron_schedule max_concurrent dispatchAs embed.enabled
+syn match   confSavedSearches /\v<^(disabled|search|enableSched|cron_schedule|max_concurrent|dispatchAs|embed\.enabled)>/
 syn keyword confSavedSearches realtime_schedule counttype relation quantity alert_condition action_rss displayview nextrun
 syn keyword confSavedSearches qualifiedSearch query restart_on_searchpeer_add role run_n_times run_on_startup userid vsid action_email
 syn match   confSavedSearches /\v<action\.email(\.cc|\.format|\.from|\.inline|\.mailserver|\.maxresults|\.message.alert|\.message\.report|\.priority|\.reportServerEnabled|\.sendcsv|\.sendpdf|\.sendresults|\.subject|\.subject.alert|\.subject\.report|\.to|\.useNSSubject)?>/
@@ -624,10 +618,10 @@ syn match   confSavedSearches /\v<display\.visualizations\.singlevalue\.use(Colo
 syn match   confSavedSearches /\v<request\.ui_dispatch_(app|view)>/
 syn match   confSavedSearches /\v<schedule(_window|_priority)?>/
 
-syn keyword confSavedSearches_Constants fast smart verbose hidden compact full linear log events statistics visualizations
-syn keyword confSavedSearches_Constants heatmap highlow stacked default stacked100 right bottom top left visible collapsed
-syn keyword confSavedSearches_Constants mapping embed.enabled diameter bubble gaps zero connect ellipsisNone user owner
-syn keyword confSavedSearches_Constants patterns all minmax percent absolute standard inverse marker choropleth sequential divergent categorical block inherit
+syn match   confSavedSearches_Constants /\v<(fast|smart|verbose|hidden|compact|full|linear|log|events|statistics|visualizations)$>/
+syn match   confSavedSearches_Constants /\v<(heatmap|highlow|stacked|default|stacked100|right|bottom|top|left|visible|collapsed)$>/
+syn match   confSavedSearches_Constants /\v<(mapping|embed\.enabled|diameter|bubble|gaps|zero|connect|ellipsisNone|user|owner)$>/
+syn match   confSavedSearches_Constants /\v<(patterns|all|minmax|percent|absolute|standard|inverse|marker|choropleth|sequential|divergent|categorical|block|inherit)$>/
 
 " alert_logevent
 " savedsearches.conf
@@ -636,9 +630,9 @@ syn match   confSavedSearches /\v<action\.(logevent(\.param\.(event|host|source(
 " searchbnf.conf
 syn match   confSearchbnfStanzas contained /\v<(default|[^-]+\-(command|options))>/
 syn case ignore
-syn keyword confSearchbnf syntax simplesyntax alias description shortdesc usage tags
-syn keyword confSearchbnf related maintainer appears-in note supports-multivalue optout-in
-syn match   confSearchbnf /\v<(example|comment)\d*>/
+syn match   confSearchbnf /\v<^((simple)?syntax|alias|description|shortdesc|usage|tags)>/
+syn match   confSearchbnf /\v<^(related|maintainer|appears\-in|note|supports\-multivalue|optout\-in)>/
+syn match   confSearchbnf /\v<^((example|comment)\d*)>/
 syn case match
 
 syn keyword confSearchbnf_Constants public private deprecated
@@ -656,7 +650,7 @@ syn match   confServerStanzas contained /\v<(mimetype-extension-map|pooling|pubs
 syn match   confServerStanzas contained /\v<(replication_port(-ssl)?|scripts|sslConfig)>/
 syn keyword confServer sessionTimeout trustedIP pass4SymmKey listenOnIPv6
 syn keyword confServer connectUsingIpVersion guid supportSSLV3Only 
-syn keyword confServer requireClientCert cipherSuite components 
+syn match   confServer /\v<^(requireClientCert|cipherSuite|components)>/
 syn keyword confServer certCreateScript atomFeedStylesheet
 syn keyword confServer max-age follow-symlinks acceptFrom streamInWriteTimeout
 syn keyword confServer ssl url detailsUrl mode requireBootPassphrase
@@ -688,17 +682,17 @@ syn keyword confServer rolling_restart_with_captaincy_exchange csv_journal_rows_
 syn keyword confServer artifact_status_fields encrypt_fields shcluster_label 
 syn keyword confServer indexerWeightByDiskCapacity notify_scan_period replicate_search_peers
 syn match   confServer /\v<access_logging_for_(heartbeats|phonehome)>/
-syn match   confServer /\v<allow((Basic|Cookie|EmbedToken)Auth|InternetAccess|RemoteLogin|Ssl(Compression|Renegotiation))>/
-syn match   confServer /\v<ca(Cert(File|Path)|Path)>/
+syn match   confServer /\v<^(allow((Basic|Cookie|EmbedToken)Auth|InternetAccess|RemoteLogin|Ssl(Compression|Renegotiation)))>/
+syn match   confServer /\v<^(ca(Cert(File|Path)|Path))>/
 syn match   confServer /\v<captain_(is_adhoc_searchhead|uri)>/
 syn match   confServer /\v<cntr_\d_lookback_time>/
 syn match   confServer /\v<collection(StatsCollection)?PeriodInSecs>/
 syn match   confServer /\v<conf_deploy_(concerning_file_size|fetch_(mode|url)|repository|staging)>/
 syn match   confServer /\v<conf_replication_(include\.(ui\-metrics\-collector|\w+|max_(pull|push)_count|period|purge\.(eligibile_(age|count)|period)))>/
-syn match   confServer /\v<conf_replication_summary\.((black|white)list\.\w+|concerning_file_size|period)>/
+syn match   confServer /\v<^(conf_replication_summary\.((black|white)list\.\w+|concerning_file_size|period))>/
 syn match   confServer /\v<cookieAuth(HttpOnly|Secure)>/
 syn match   confServer /\v<cxn_timeout(_raft)?>/
-syn match   confServer /\v<disable(d|DefaultPort)>/
+syn match   confServer /\v<^(disable(d|DefaultPort))>/
 syn match   confServer /\v<election(_timeout_(ms|2_hb_ratio))?>/
 syn match   confServer /\v<enable(_jobs_data_lite|S2SHeartbeat|SplunkdSSL)>/
 syn match   confServer /\v<heartbeat_(period|timeout)>/
@@ -708,7 +702,7 @@ syn match   confServer /\v<log(_age|_heartbeat_append_entries|inUrl)>/
 syn match   confServer /\v<max_(content_length|peer_(build|(sum_)?rep)_load|replication_errors)>/
 syn match   confServer /\v<max((File)?Size|Sockets|Threads)>/
 syn match   confServer /\v<modifications(MaxReadSec|ReadIntervalMillisec)>/
-syn match   confServer /\v<poll\.(blacklist\.\w+|interval\.(check|rebuild))>/
+syn match   confServer /\v<^(poll\.(blacklist\.\w+|interval\.(check|rebuild)))>/
 syn match   confServer /\v<polling((Timer)?Frequency|_rate)>/
 syn match   confServer /\v<rcv_timeout(_raft)?>/
 syn match   confServer /\v<register_(forwarder|replication|search)_address>/
@@ -719,9 +713,8 @@ syn match   confServer /\v<send_timeout(_raft)?>/
 syn match   confServer /\v<server(Cert|Name|s_list|StatsCollectionPeriodInSecs)>/
 syn match   confServer /\v<service_(interval|jobs_msec)>/
 syn match   confServer /\v<site(_(replication|search)_factor)?>/
-syn match   confServer /\v<ssl(AltNameToCheck|CommonName(List|ToCheck)|CRLPath|Keys(file(Password)?|Password|Path|VerifyServerCert))>/
-syn match   confServer /\v<sslVersions(ForClient)?>/
-syn match   confServer /\v<state(IntervalInSecs)?>/
+syn match   confServer /\v<^(ssl(AltNameToCheck|CommonName(List|ToCheck)|CRLPath|Keys(file(Password)?|Password|Path|VerifyServerCert)))>/
+syn match   confServer /\v<^(sslVersions(ForClient)?|state(IntervalInSecs)?)>/
 syn match   confServer /\v<summary_(wait_time|replication)>/
 syn match   confServer /\v<update(Host|Path|Timeout)>/
 syn match   confServer /\v<use(_batch_mask_changes|(ClientSSL|HTTP(Client|Server))Compression|ragent|SplunkdClientSSLCompression)>/
@@ -736,13 +729,13 @@ syn match confComplex /\v<EXCLUDE-\k+/
 " serverclass.conf
 syn match   confServerClassStanzas contained /\v<(global|serverClass:[^\]]+)>/
 syn keyword confServerClass tmpFolder continueMatching stateOnClient appFile excludeFromUpdate restartIfNeeded
-syn keyword confServerClass endpoint filterType crossServerChecksum issueReload precompressBundles
+syn match   confServerClass /\v<^(endpoint|filterType|crossServerChecksum|issueReload|precompressBundles)>/
 syn match   confServerClass /\v<(repository|target)RepositoryLocation>/
 syn match   confServerClass /\v<machineTypes(Filter)?>/
 syn match   confServerClass /\v<restartSplunk(d|Web)>/
 
-syn match   confComplex /\v<(white|black)list\.\d+>/
-syn match   confComplex /\v<(white|black)list\.(from_\k+|(select|where)_field|where_equals)>/
+syn match   confComplex /\v<^((white|black)list\.\d+)>/
+syn match   confComplex /\v<^((white|black)list\.(from_\k+|(select|where)_field|where_equals))>/
 
 " source-classifier.conf
 "syn keyword confSourceClassStanzas
@@ -761,8 +754,8 @@ syn keyword confSplunkLaunch SPLUNK_WEB_NAME SPLUNK_OS_USER
 " splunk_monitoring_console_assets.conf
 
 syn match   confMCAssetsStanzas contained /\v<(settings)>/
-syn keyword confMCAssets disabled configuredPeers blackList host host_fqdn
-syn match   confMCAssets /\v<(indexer|searchHead)Clusters>/
+syn match   confMCAssets /\v<^(disabled|configuredPeers|blackList|host(_fqdn)?)>/
+syn match   confMCAssets /\v<^((indexer|searchHead)Clusters)>/
 
 " tags.conf
 "syn keyword confTagsStanzas
@@ -774,7 +767,7 @@ syn match   confTelemetry /\v<send(License|Anonymized)Usage|precheckSend(License
 
 " tenants.conf
 syn match   confTenantsStanzas contained /\v<(default|tenant:[^\]]+)>/
-syn keyword confTenants filterType whitelist. blacklist. phoneHomeTopic
+syn match   confTenants /\v<^(filterType|whitelist\.|blacklist\.|phoneHomeTopic)>/
 
 " times.conf
 syn match   confTimesStanzas contained /\v<(default)>/
@@ -788,11 +781,11 @@ syn match   confTransactionTypes /\v<max(span|pause|events|open(events|txn))>/
 
 " transforms.conf
 syn match   confTransformsStanzas contained /\v<(default|accepted_keys)>/
-syn keyword confTransforms REGEX FORMAT LOOKAHEAD WRITE_META DEST_KEY DEFAULT_VALUE SOURCE_KEY
-syn keyword confTransforms REPEAT_MATCH DELIMS FIELDS MV_ADD CLEAN_KEYS KEEP_EMPTY_VALS CAN_OPTIMIZE
-syn keyword confTransforms filename default_match case_sensitive_match batch_index_query allow_caching
-syn keyword confTransforms match_type external_cmd fields_list external_type time_field time_format
-syn keyword confTransforms CLONE_SOURCETYPE collection max_ext_batch filter feature_id_element
+syn match   confTransforms /\v<^(REGEX|FORMAT|LOOKAHEAD|WRITE_META|DEST_KEY|DEFAULT_VALUE|SOURCE_KEY)>/
+syn match   confTransforms /\v<^(REPEAT_MATCH|DELIMS|FIELDS|MV_ADD|CLEAN_KEYS|KEEP_EMPTY_VALS|CAN_OPTIMIZE)>/
+syn match   confTransforms /\v<^(filename|default_match|case_sensitive_match|batch_index_query|allow_caching)>/
+syn match   confTransforms /\v<^(match_type|external_cmd|fields_list|external_type time_f(ield|ormat))>/
+syn match   confTransforms /\v<^(CLONE_SOURCETYPE|collection|max_ext_batch|filter|feature_id_element)>/
 syn match   confTransforms /\v<(max|min)_matches>/
 syn match   confTransforms /\v<(max|min)_offset_secs>/
 
@@ -814,14 +807,14 @@ syn match   confUIPrefs /\v<display\.prefs\.(searchContext|showDataSummary|stati
 syn match   confUIPrefs /\v<display\.statistics\.(drilldown|rowNumbers|wrap)>/
 syn match   confUIPrefs /\v<display\.visualizations\.charting\.(chart(\.style)?|legend\.labelStyle\.ovelflowMode)>/
 
-syn keyword confUIPrefs_Constants none app owner raw list table inner outer full row cell charting singlevalue line area column bar pie
+"syn keyword confUIPrefs_Constants none app owner raw list table inner outer full row cell charting singlevalue line area column bar pie
 syn keyword confUIPrefs_Constants minimal shiny fast smart hidden compact full linear log tiles scatter verbose
 syn match   confUIPrefs_Constants /\v<(filler|marker|radial)Gauge>/
 syn match   confUIPrefs_Constants /\v<ellipsis(End|Middle|Start)>/
 
 " ui-tour.conf
 syn match   confUITourStanzas contained /\v<()>/
-syn keyword confUITour intro type label tourPage viewed imgPath context urlData 
+syn match   confUITour /\v<^(intro|type|label|tourPage|viewed|imgPath|context|urlData)>/
 syn match   confUITour /\v<(next|use)Tour>/
 syn match   confUITour /\v<image(Caption|Name)>/
 syn match   confUITour /\v<step(Click(Element|Event)|Element|Position|Text)\d>/
@@ -850,7 +843,7 @@ syn keyword confVisualizations allow_user_selection default_height search_fragme
 syn match   confWebStanzas contained /\v<(settings|endpoint:[^\]]+)>/
 syn keyword confWeb startwebserver httpport mgmtHostPort privKeyPath caCertPath
 syn keyword confWeb serviceFormPostURL userRegistrationURL updateCheckerBaseURL docsCheckerBaseURL
-syn keyword confWeb login_content supportSSLV3Only cipherSuite root_endpoint
+syn match   confWeb /\v<^(login_content|supportSSLV3Only|cipherSuite|root_endpoint)>/
 syn keyword confWeb template_dir module_dir use_future_expires trustedIP 
 syn keyword confWeb js_logger_mode ui_inactivity_timeout js_no_cache
 syn keyword confWeb trap_module_exceptions listenOnIPv6 engine.autoreload_on 
@@ -858,14 +851,14 @@ syn keyword confWeb jschart_test_mode version_label_format SSOMode rss_endpoint
 syn keyword confWeb enabled_decomposers trustedIP SSOMode request.show_tracebacks
 syn keyword confWeb splunkConnectionTimeout pdfgen_is_available auto_refresh_views
 syn keyword confWeb x_frame_options_sameorigin response.timeout verifyCookiesWorkDuringLogin
-syn keyword confWeb splunkdConnectionTimeout sslVersions allowSsoWithoutChangingServerConf
+syn match   confWeb /\v<^(splunkdConnectionTimeout|sslVersions|allowSsoWithoutChangingServerConf)>/
 syn keyword confWeb pivot_adhoc_acceleration_mode jschart_trunctation_limit
 syn keyword confWeb override_JSON_MIME_type_with_text_plain customFavicon
 syn keyword confWeb dedicatedIoThreads methods pattern skipCSRFProtection oidEnabled export_timeout
 syn keyword confWeb jschart_truncation_limit showProductMenu tools.staticdir.generate_indexes
 syn keyword confWeb showUserMenuProfile termsOfServiceDirectory dashboard_html_allow_inline_styles
 syn keyword confWeb enableWebDebug ssoAuthFailureRedirect allowableTemplatePaths
-syn match   confWeb /\v<allowSsl(Compression|Renegotiation)>/
+syn match   confWeb /\v<^(allowSsl(Compression|Renegotiation))>/
 syn match   confWeb /\v<appServer(Ports|ProcessShutdownTimeout)>/
 syn match   confWeb /\v<cache(Bytes|Entries)Limit>/
 syn match   confWeb /\v<django_((force_)?enable|path)>/
@@ -895,15 +888,15 @@ syn keyword confWeb_Constants None Firebug Server permissive strict no yes only
 
 " wmi.conf
 syn match   confWmiStanzas contained /\v<(settings|WMI:[^\]]+)>/
-syn keyword confWmi initial_backoff max_backoff max_retries_at_max_backoff checkpoint_sync_interval
-syn keyword confWmi server interval disabled hostname current_only index event_log_file
-syn keyword confWmi disable_hostname_normalization wql namespace
+syn match   confWmi /\v<^(initial_backoff|max_(backoff|retries_at_max_backoff)|checkpoint_sync_interval)>/
+syn match   confWmi /\v<^(server|interval|disabled|hostname|current_only|index|event_log_file)>/
+syn match   confWmi /\v<^(disable_hostname_normalization|wql|namespace)>/
 
 " workflow_actions.conf
 syn match   confWorkflowActionsStanzas contained /\v<(default)>/
-syn keyword confWorkflowActions type label fields eventtypes display_location disabled
-syn match   confWorkflowActions /\v<link\.(uri|target|method|postargs\.\d+\.(key|value))>/
-syn match   confWorkflowActions /\v<search\.(search_string|app|view|target|earliest|latest|preserve_timerange)>/
+syn match   confWorkflowActions /\v<^(type|label|fields|eventtypes|display_location|disabled)>/
+syn match   confWorkflowActions /\v<^(link\.(uri|target|method|postargs\.\d+\.(key|value)))>/
+syn match   confWorkflowActions /\v<^(search\.(search_string|app|view|target|earliest|latest|preserve_timerange))>/
 
 "
 " splunk_app_db_connect
@@ -913,12 +906,12 @@ syn match   confWorkflowActions /\v<search\.(search_string|app|view|target|earli
 syn keyword confAppMigration STATE DEST_CONF
 
 " db_connections.conf
-syn keyword confDBConnections serviceClass testQuery database connection_type identity isolation_level
-syn keyword confDBConnections readonly username password host port informixserver useConnectionPool fetch_size
-syn keyword confDBConnections enable_query_wrapping cwallet_location sslConnectionType oracle_cipher_suites
-syn keyword confDBConnections customizedJdbcUrl
-syn match   confDBConnections /\v<max((Idle|Total)Conn|(ConnLifetime|Wait)Millis)>/
-syn match   confDBConnections /\v<jdbc(Url(SSL)?Format|UseSSL|DriverClass)>/
+syn match   confDBConnections /\v<^(serviceClass|testQuery|database|connection_type|identity|isolation_level)>/
+syn match   confDBConnections /\v<^(readonly|username|password|host|port|informixserver|useConnectionPool|fetch_size)>/
+syn match   confDBConnections /\v<^(enable_query_wrapping|cwallet_location|sslConnectionType|oracle_cipher_suites)>/
+syn match   confDBConnections /\v<^(customizedJdbcUrl)>/
+syn match   confDBConnections /\v<^(max((Idle|Total)Conn|(ConnLifetime|Wait)Millis))>/
+syn match   confDBConnections /\v<^(jdbc(Url(SSL)?Format|UseSSL|DriverClass))>/
 
 " db_connection_types.conf
 syn keyword confDBConnectionTypes serviceClass displayName database port useConnectionPool cwallet_location sslConnectionType oracle_cipher_suites connection_properties
@@ -995,17 +988,17 @@ syn keyword IBM_WASInputs was_data_input
 
 " ITSI alert_actions.conf
 syn keyword ITSI_AlertActions drilldown_search subtitle delta drilldown_uri invert inline _name
-syn match   ITSI_AlertActions /\v<param\.(http_token_name|index|sourcetype|event_identifier_fields|search_type|is_use_event_time|host)>/
-syn match   ITSI_AlertActions /\v<param\.(fields|description|protocols|duration|category|limit|verbose)>/
-syn match   ITSI_AlertActions /\v<constraint_(method|fields)>/
-syn match   ITSI_AlertActions /\v<(value|delta)_qual|group\.\d+\.(name|order)|value(_suffix)?>/
-syn match   ITSI_AlertActions /\v<_itsi_(kpi|service)_id>/
+syn match   ITSI_AlertActions /\v<^(param\.(http_token_name|index|sourcetype|event_identifier_fields|search_type|is_use_event_time|host))>/
+syn match   ITSI_AlertActions /\v<^(param\.(fields|description|protocols|duration|category|limit|verbose))>/
+syn match   ITSI_AlertActions /\v<^(constraint_(method|fields))>/
+syn match   ITSI_AlertActions /\v<^((value|delta)_qual|group\.\d+\.(name|order)|value(_suffix)?)>/
+syn match   ITSI_AlertActions /\v<^(_itsi_(kpi|service)_id)>/
 
 " ITSI app_permissions.conf
 syn keyword ITSI_App_Permissions capabilities description display_name messages metadata
 
 " ITSI deep_dive_drilldowns.conf
-syn keyword ITSI_DeepDiveDrilldowns type replace_tokens search add_lane_enabled use_bucket_timerange new_lane_settings uri uri_payload_type
+syn match   ITSI_DeepDiveDrilldowns /\v<^(type|replace_tokens|search|add_lane_enabled|use_bucket_timerange|new_lane_settings|uri(_payload_type)?)>/
 syn match   ITSI_DeepDiveDrilldowns /\v<entity_(level_only|tokens|activation_rules)>/
 syn match   ITSI_DeepDiveDrilldowns /\v<(metric|kpi|event)_lane_enabled>/
 
@@ -1028,13 +1021,13 @@ syn keyword ITSI_DrillDownSearch_Offset timeInSecs
 syn match   ITSI_DrillDownSearch_Offset /\v<(earliest_|latest_)?description>/
 
 " ITSI inputs.conf
-syn keyword ITSI_Inputs default_severity required_ui_severity suppress debug acceleration manual_rebuilds always_exec group execution_order timeout
-syn keyword ITSI_Inputs app_name log_level registered_capabilities import_from_search csv_location search_string selected_services update_type owner
-syn match   ITSI_Inputs /\v<app(s_to_update|(_exclude)?_regex|_include_list)>/
-syn match   ITSI_Inputs /\v<endpoint(_params)?>/
-syn match   ITSI_Inputs /\v<index_(earliest|latest)>/
-syn match   ITSI_Inputs /\v<service_(rel|title_field|description_column)>/
-syn match   ITSI_Inputs /\v<entity_(title_field|service_columns|identifier_fields|description_column|informational_fields|field_mapping)>/
+syn match   ITSI_Inputs /\v<^(default_severity|required_ui_severity|suppress|debug|acceleration|manual_rebuilds|always_exec|group|execution_order|timeout)>/
+syn match   ITSI_Inputs /\v<^(log_level|registered_capabilities|import_from_search|csv_location|search_string|selected_services|update_type|owner)>/
+syn match   ITSI_Inputs /\v<^(app(_name|s_to_update|(_exclude)?_regex|_include_list))>/
+syn match   ITSI_Inputs /\v<^(endpoint(_params)?)>/
+syn match   ITSI_Inputs /\v<^(index_(earliest|latest))>/
+syn match   ITSI_Inputs /\v<^(service_(rel|title_field|description_column))>/
+syn match   ITSI_Inputs /\v<^(entity_(title_field|service_columns|identifier_fields|description_column|informational_fields|field_mapping))>/
 syn keyword ITSI_Inputs_Constants DEBUG INFO WARN ERROR CRITICAL FATAL
 
 " ITSI itsi_da.conf
@@ -1049,24 +1042,24 @@ syn keyword ITSI_DeepDive focus_id title lane_settings_collection acl mod_time
 syn keyword ITSI_DeepDive description is_named _owner source_itsi_da
 
 " ITSI itsi_glass_table.conf
-syn keyword ITSI_GlassTable latest earliest title description mod_time acl _owner source_itsi_da
-syn match   ITSI_GlassTable /\v<svg_(content|coordinates)>/
+syn match   ITSI_GlassTable /\v<^(latest|earliest|title|description|mod_time|acl|_owner|source_itsi_da)>/
+syn match   ITSI_GlassTable /\v<^(svg_(content|coordinates))>/
 
 " ITSI itsi_kpi_template.conf
 syn keyword ITSI_KPI_Template description title _owner kpis source_itsi_da
 
 " ITSI itsi_module_vis.conf
-syn keyword ITSI_ModuleVis list control_token title extendable_tab activation_rule
-syn match   ITSI_ModuleVis /\v<row\.\d+>/
+syn match   ITSI_ModuleVis /\v<^(list|control_token|title|extendable_tab|activation_rule)>/
+syn match   ITSI_ModuleVis /\v<^(row\.\d+)>/
 
 " ITSI itsi_notable_event_retention.conf
-syn keyword ITSI_Notable_Event_Retention retentionTimeInSec disabled
+syn match   ITSI_Notable_Event_Retention /\v<^(retentionTimeInSec|disabled)>/
 
 " ITSI itsi_notable_event_severity.conf
-syn keyword ITSI_Notable_Event_Severity color lightcolor label default
+syn match   ITSI_Notable_Event_Severity /\v<^(color|lightcolor|label|default)>/
 
 " ITSI itsi_notable_event_status.conf
-syn keyword ITSI_Notable_Event_Status label default description end
+syn match   ITSI_Notable_Event_Status /\v<^(label|default|description|end)>/
 
 " ITSI itsi_service.conf
 syn keyword ITSI_Services description title _owner tags kpis entity_rules
@@ -1077,16 +1070,16 @@ syn match   ITSI_Services /\v<services_depend(s_on|ing_on_me)>/
 syn keyword ITSI_Settings show_migration_message
 
 " ITSI managed_configurations.conf
-syn keyword ITSI_Managed_Configurations disabled endpoint label description class link lookup_type
-syn match   ITSI_Managed_Configurations /\v<editable(_on_shc)?>/
-syn match   ITSI_Managed_Configurations /\v<attribute(_type)?>/
-syn match   ITSI_Managed_Configurations /\v<(sav|guid)edsearch>/
+syn match   ITSI_Managed_Configurations /\v<^(disabled|endpoint|label|description|class|link|lookup_type)>/
+syn match   ITSI_Managed_Configurations /\v<^(editable(_on_shc)?)>/
+syn match   ITSI_Managed_Configurations /\v<^(attribute(_type)?)>/
+syn match   ITSI_Managed_Configurations /\v<^((sav|guid)edsearch)>/
 
 " ITSI notable_event_actions.conf
-syn keyword ITSI_Notable_Event_Actions disabled
+syn match   ITSI_Notable_Event_Actions /\v<^(disabled)>/
 
 " ITSI postprocess.conf
-syn keyword ITSI_PostProcess disabled savedsearch postprocess
+syn match   ITSI_PostProcess /\v<^(disabled|savedsearch|postprocess)>/
 
 " ITSI savedsearches.conf
 syn match   ITSI_SavedSearches /\v<display\.page\.\w+\.\d+\.(collection_name|title|color|drilldown_uri|order)>/
@@ -1153,7 +1146,7 @@ syn match   oktaOkta /\v<okta_server_(url|token)>/
 "
 
 " database.conf
-syn keyword oracleDatabase database host username password isolation_level port readonly type disabled
+syn match oracleDatabase /\v<^(database|host|username|password|isolation_level|port|readonly|type|disabled)>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment
