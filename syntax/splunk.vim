@@ -895,7 +895,7 @@ syn keyword confWeb enableWebDebug ssoAuthFailureRedirect allowableTemplatePaths
 syn keyword confWeb jschart_series_limit jschart_results_limit choropleth_shape_limit
 syn match   confWeb /\v<allowSsl(Compression|Renegotiation)>/
 syn match   confWeb /\v<appServer(Ports|ProcessShutdownTimeout)>/
-syn match   confWeb /\v<cache(Bytes|Entries)Limit>/
+syn match   confWeb /\v<cache(Bytes|Entries)Limit|login(FooterText|DocumentTitle(Option|Text)|PasswordHint)>/
 syn match   confWeb /\v<django_((force_)?enable|path)>/
 syn match   confWeb /\v<embed_(footer|uri)|login(BackgroundImageOption|CustomBackgroundImage)>/
 syn match   confWeb /\v<enable_(autocomplete_login|gzip|insecure_login|pivot_adhoc_acceleration|proxy_write|risky_command_check)>/
