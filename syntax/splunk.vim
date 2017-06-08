@@ -62,6 +62,11 @@ syn keyword confAlertActions_Constants letter legal ledger a2 a3 a4 a5 portrait 
 
 syn match   confAlertActions /\v<param\.(event|host|source(type)?|index)>/
 
+" alert_webhook
+" alert_actions.conf
+
+syn keyword confAlertActions param.user_agent
+
 " app.conf
 syn match   confAppStanzas contained /\v<(launcher|package|install|triggers|ui|credentials_settings|credential:[^\]]+)>/
 syn keyword confApp remote_tab version description author id check_for_updates docs_section_override
@@ -125,7 +130,7 @@ syn match   confAuthorizeCaps /\v<rest_(apps_(management|view)|properties_(g|s)e
 " checklist.conf
 syn match   confChecklistStanzas contained /\v[^\]]+/
 syn keyword confChecklist title category tags description failure_text suggested_action doc_link applicable_to_groups
-syn keyword confChecklist environments_to_exclude disabled search drilldown
+syn keyword confChecklist environments_to_exclude disabled search drilldown doc_title
 
 " collections.conf
 syn match   confCollectionsStanzas contained /\v[^\]]+/
@@ -639,6 +644,15 @@ syn keyword confSavedSearches_Constants patterns all minmax percent absolute sta
 " alert_logevent
 " savedsearches.conf
 syn match   confSavedSearches /\v<action\.(logevent(\.param\.(event|host|source(type)?|index))|log_event)>/
+
+" alert_webhook
+" savedsearches.conf
+syn match   confSavedSearches /\v<action\.webhook(\.param\.url)?>/
+
+" splunk_monitoring_console
+" savedsearches.conf
+syn match   confSavedSearches 
+\ /\v<display\.visualizations\.custom\.splunk_monitoring_console\.heatmap\.(baseColor|legendTitle|showLegend|showTooltip|(show)?([XxYy])Axis)>/
 
 " searchbnf.conf
 syn match   confSearchbnfStanzas contained /\v<(default|[^-]+\-(command|options))>/
