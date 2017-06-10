@@ -104,7 +104,7 @@ syn match   confAuthentication /\v<ecdhCurve(s|Name)|errorUrl(Label)?>/
 syn match   confAuthentication /\v<externalTwoFactorAuth(Settings|Vendor)>/
 syn match   confAuthentication /\v<(sso|slo)Binding>/
 
-syn keyword confAuthentication_Constants Splunk LDAP Scripted SAML
+syn keyword confAuthentication_Constants Splunk LDAP Scripted SAML ProxySSO
 syn match   confAuthentication_Constants /\v<SHA(256|512)-crypt(-\d+)?|MD5-crypt|RSA-SHA\d+>/
 
 " authorize.conf
@@ -170,7 +170,7 @@ syn match   confDataModels /\v<acceleration\.((earliest|backfill|max)_time|cron_
 syn match   confDataModels /\v<acceleration\.hunk\.(compression_codec|dfs_block_size|file_format)>/
 syn match   confDataModels /\v<dataset\.(description|type|commands|fields|display\.(diversity|sample_ratio|limiting|currentCommand|mode|datasummary\.((earliest|latest)Time)))>/
 
-syn keyword confDataModelsConstants default higher highest datasummary table
+syn keyword confDataModelsConstants default higher highest datasummary table datamodel random diverse rare latest
 
 " datatypesbnf.conf
 syn match   confDataTypesbnfStanzas contained /\v[^\]]+/
@@ -209,6 +209,8 @@ syn match   confDistSearch /\v<(sendRcv|server|connection|status|authToken(Send|
 syn match   confDistSearch /\v<heartbeat(McastAddr|Port|Frequency)>/
 syn match   confDistSearch /\v<replicate\.\S+>/
 syn match   confDistSearch /\v<(receive|send)Timeout>/
+
+syn keyword confDistSearchConstants http https
 
 " splunk_monitoring_console
 " dmc_alerts.conf
@@ -336,7 +338,7 @@ syn match   confInputs /\v<sid_cache_(disabled|exp(_neg)?|max_entries)>/
 syn match   confInputs /\v<ecdhCurve(Name|s)|(busyK|k)eepAliveIdleTimeout>/
 syn match   confInputs /\v<^(suppress_(checkpoint|sourcename|keywords|type|task|opcode))>/
 
-syn keyword confInputs_Constants ip dns single multikv
+syn keyword confInputs_Constants ip dns single multikv sinkhole
 
 " instance.cfg
 syn match   confInstanceStanzas contained /\v<general>/
@@ -465,7 +467,7 @@ syn match   confLimits /\v<use_(bloomfilter|cache|dispatchtmp_dir)>/
 syn match   confLimits /\v<status_(period_ms|cache_(size|in_memory_ttl)|buckets)>/
 syn match   confLimits /\v<subsearch_(max(out|time)|timeout)>/
 syn match   confLimits /\v<zl_0_gridcell_(lat|long)span|search_keepalive_(frequency|max)>/
-syn match   confLimits /\v<^(bucket_(predictor|localize_(status_check_period_ms|max_(timeout_sec|lookahead))))>/
+syn match   confLimits /\v<bucket_(predictor|localize_(status_check_period_ms|max_(timeout_sec|lookahead)))>/
 
 syn keyword confLimits_Constants DEBUG INFO WARN ERROR traditional debug nearest-rank interpolated splunk_server disabledSavedSearches log_only
 
@@ -1296,6 +1298,7 @@ hi def link confDefmode Keyword
 hi def link confDeployClient Keyword
 hi def link confDeployClient_Constants Constant
 hi def link confDistSearch Keyword
+hi def link confDistSearchConstants Constant
 hi def link confDMCAlerts Keyword
 hi def link confEventRender Keyword
 hi def link confEventDiscover Keyword
