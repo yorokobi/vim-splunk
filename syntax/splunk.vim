@@ -587,7 +587,7 @@ syn match   confSavedSearchesStanzas contained /\v<(default)>/
 syn keyword confSavedSearches disabled search enableSched cron_schedule max_concurrent dispatchAs embed.enabled allow_skew
 syn keyword confSavedSearches realtime_schedule counttype relation quantity alert_condition action_rss displayview nextrun
 syn keyword confSavedSearches qualifiedSearch query restart_on_searchpeer_add role run_n_times run_on_startup userid vsid action_email
-syn match   confSavedSearches /\v<action\.email(\.cc|\.format|\.from|\.inline|\.mailserver|\.maxresults|\.message.alert|\.message\.report|\.priority|\.reportServerEnabled|\.sendcsv|\.sendpdf|\.sendresults|\.subject|\.subject.alert|\.subject\.report|\.to|\.useNSSubject)?>/
+syn match   confSavedSearches /\v<action\.email(\.(b)?cc|\.format|\.from|\.inline|\.mailserver|\.maxresults|\.message.alert|\.message\.report|\.priority|\.reportServerEnabled|\.sendcsv|\.sendpdf|\.sendresults|\.subject|\.subject.alert|\.subject\.report|\.to|\.useNSSubject)?>/
 syn match   confSavedSearches /\v<action\.email\.include\.(results_link|search|trigger(_time)?|view_link)>/
 syn match   confSavedSearches /\v<action\.name(\.parameter)?|action\.lookup(\.filename|\.append)?>/
 syn match   confSavedSearches /\v<action\.populate_lookup(\.dest)?>/
