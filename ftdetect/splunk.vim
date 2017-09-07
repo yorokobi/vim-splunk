@@ -1,3 +1,214 @@
 augroup filetypedetect
-    autocmd BufNewFile,BufRead admon.conf,alert_actions.conf,app.conf,audit.conf,authentication.conf,authorize.conf,checklist.conf,collections.conf,commands.conf,crawl.conf,datamodels.conf,datatypesbnf.conf,default-mode.conf,default.meta,deployment.conf,deploymentclient.conf,distsearch.conf,dmc_alerts.conf,event_renderers.conf,eventdiscoverer.conf,eventgen.conf,eventtypes.conf,fields.conf,indexes.conf,inputs.conf,launcher.conf,ldap.conf,logging.conf,limits.conf,livetail.conf,literals.conf,local.meta,macros.conf,messages.conf,multikv.conf,outputs.conf,passwords.conf,pdf_server.conf,perfmon.conf,procmon-filters.conf,props.conf,pubsub.conf,regmon-filters.conf,restmap.conf,savedsearches.conf,searchbnf.conf,segmenters.conf,server.conf,serverclass.conf,ssl.conf,source-classifier.conf,sourcetypes.conf,splunk-launch.conf,splunk_monitoring_console_assets.conf,tags.conf,telemetry.conf,tenants.conf,times.conf,transactiontypes.conf,transforms.conf,tsidx_retention.conf,ui-prefs.conf,user-prefs.conf,user-seed.conf,viewstates.conf,visualizations.conf,web.conf,wmi.conf,workflow_actions.conf,instance.cfg,ui-tour.conf,app_permissions.conf,deep_dive_drilldowns.conf,drawing_elements.conf,drilldownsearch_offset.conf,itsi_da.conf,itsi_deep_dive.conf,itsi_glass_table.conf,itsi_kpi_template.conf,itsi_module_viz.conf,itsi_notable_event_retention.conf,itsi_notable_event_severity.conf,itsi_notable_event_status.conf,itsi_service.conf,itsi_settings.conf,managed_configurations.conf,notable_event_actions.conf,postprocess.conf,service_analyzer_settings.conf,threshold_labels.conf,threshold_periods.conf,okta.conf,database.conf,db_connections.conf,db_connection_types.conf,db_inputs.conf,db_lookups.conf,db_outputs.conf,dbx_logging.conf,dbx_settings.conf,healthlog.conf,settings.conf,app-migration.conf,identities.conf,mlspl.conf,ui-metrics-collector.conf setf splunk
+    autocmd BufNewFile,BufRead checklist.conf,crawl.conf,default.meta,deployment.conf,dmc_alerts.conf,eventgen.conf,launcher.conf,ldap.conf,logging.conf,local.meta,pdf_server.conf,perfmon.conf,regmon-filters.conf,ssl.conf,splunk_monitoring_console_assets.conf,telemetry.conf,tenants.conf,tsidx_retention.conf,instance.cfg,app_permissions.conf,deep_dive_drilldowns.conf,drawing_elements.conf,drilldownsearch_offset.conf,itsi_da.conf,itsi_deep_dive.conf,itsi_glass_table.conf,itsi_kpi_template.conf,itsi_module_viz.conf,itsi_notable_event_retention.conf,itsi_notable_event_severity.conf,itsi_notable_event_status.conf,itsi_service.conf,itsi_settings.conf,managed_configurations.conf,notable_event_actions.conf,postprocess.conf,service_analyzer_settings.conf,threshold_labels.conf,threshold_periods.conf,okta.conf,database.conf,db_connections.conf,db_connection_types.conf,db_inputs.conf,db_lookups.conf,db_outputs.conf,dbx_logging.conf,dbx_settings.conf,healthlog.conf,settings.conf,app-migration.conf,identities.conf,mlspl.conf,ui-metrics-collector.conf setf splunk
+augroup END
+
+" Deprecated by Splunk 6.0+
+" Support for Splunk 5.x (and earlier) expired 30 Nov 2017
+" http://docs.splunk.com/Documentation/Splunk/6.0/Installation/Aboutupgradingto6.0READTHISFIRST
+augroup filetypedetect
+    autocmd BufNewFile,BufRead admon.conf setf spl_admon
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead alert_actions.conf setf spl_alert_actions
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead app.conf setf spl_app
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead audit.conf setf spl_audit
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead authentication.conf setf spl_authentication
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead authorize.conf setf spl_authorize
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead collections.conf setf spl_collections
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead commands.conf setf spl_commands
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead datamodels.conf setf spl_datamodels
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead datatypesbnf.conf setf spl_datatypesbnf
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead default-mode.conf setf spl_default-mode
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead deploymentclient.conf setf spl_deploymentclient
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead distsearch.conf setf spl_distsearch
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead event_renderers.conf setf spl_event_renderers
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead eventdiscoverer.conf setf spl_eventdiscoverer
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead eventtypes.conf setf spl_eventtypes
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead fields.conf setf spl_fields
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead indexes.conf setf spl_indexes
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead inputs.conf setf spl_inputs
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead limits.conf setf spl_limits
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead literals.conf setf spl_literals
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead livetail.conf setf spl_livetail
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead macros.conf setf spl_macros
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead messages.conf setf spl_messages
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead multikv.conf setf spl_multikv
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead outputs.conf setf spl_outputs
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead passwords.conf setf spl_passwords
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead procmon-filters.conf setf spl_procmon-filters
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead props.conf setf spl_props
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead pubsub.conf setf spl_pubsub
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead restmap.conf setf spl_restmap
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead savedsearches.conf setf spl_savedsearches
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead searchbnf.conf setf spl_searchbnf
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead segmenters.conf setf spl_segmenters
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead server.conf setf spl_server
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead serverclass.conf setf spl_serverclass
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead source-classifier.conf setf spl_source-classifier
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead sourcetypes.conf setf spl_sourcetypes
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead splunk-launch.conf setf spl_splunk-launch
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead tags.conf setf spl_tags
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead times.conf setf spl_times
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead transactiontypes.conf setf spl_transactiontypes
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead transforms.conf setf spl_transforms
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead ui-prefs.conf setf spl_ui-prefs
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead ui-tour.conf setf spl_ui-tour
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead user-prefs.conf setf spl_user-prefs
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead user-seed.conf setf spl_user-seed
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead viewstates.conf setf spl_viewstates
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead visualizations.conf setf spl_visualizations
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead web.conf setf spl_web
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead wmi.conf setf spl_wmi
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead workflow_actions.conf setf spl_workflow_actions
 augroup END
