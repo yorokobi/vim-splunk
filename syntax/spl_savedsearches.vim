@@ -45,7 +45,7 @@ syn cluster confStanzas contains=confSavedSearchesStanzas,confGenericStanzas
 syn match   confSavedSearchesStanzas contained /\v<(default)>/
 syn match   confSavedSearches /\v<^(action\.email(\.(from|include\.(results_link|search|trigger(_time)?|view_link)|inline|mailserver|maxresults|send(csv|pdf|results)|subject|to|(b)cc))?)>/
 syn match   confSavedSearches /\v<^(action\.lookup(\.(append|filename))?|action\.populate_lookup(\.dest)?|action\.script(\.filename)?)>/
-syn match   confSavedSearches /\v<^(action\.summary_index(\.(_name|inline|[^\ |\=]+))?|action_(email|rss)|allow_skew)>/
+syn match   confSavedSearches /\v<^(action\.summary_index(\.(_name|inline|[^\ |\=]+))?|action\.rss|allow_skew)>/
 syn match   confSavedSearches /\v<^(alert\.(digest_mode|display_view|expires|managedBy|severity|suppress(\.fields|\.period)?|track)|alert_condition)>/
 syn match   confSavedSearches /\v<^(auto_summarize(\.(command|cron_schedule|dispatch\.[^\ |\=]+|hash|max_(concurrent|disabled_buckets|summary_(ratio|size)|time)))?)>/
 syn match   confSavedSearches /\v<^(auto_summarize\.(normalized_hash|suspend_period|timespan)|counttype|cron_schedule|description|disabled)>/
@@ -54,7 +54,7 @@ syn match   confSavedSearches /\v<^(dispatch(\.(lookups|max_(count|time)|reduce_
 syn match   confSavedSearches /\v<^(display\.events\.(fields|(list|table)\.(drilldown|wrap)|maxLines|raw\.drilldown|rowNumbers|type))>/
 syn match   confSavedSearches /\v<^(display\.general\.(enablePreview|locale|migratedFromViewState|timeRangePicker\.show|type))>/
 syn match   confSavedSearches /\v<^(display\.page\.(pivot\.dataModel|search\.(mode|patterns\.sensitivity|showFields|tab|timeline\.(format|scale))))>/
-syn match   confSavedSearches /\v<^(display\.statistics\.drilldown)>/
+syn match   confSavedSearches /\v<^(display\.statistics\.drilldown|action_(email|rss))>/
 syn match   confSavedSearches /\v<^(display\.statistics\.format\.([^\ |\=|\.]+)(\.colorPalette(\.(colors|interpolate|(max|mid|min)Color|rule))?)?)>/
 syn match   confSavedSearches /\v<^(display\.statistics\.format\.([^\.]+)\.(field(s)?|precision|scale(\.(base|categories|(max|mid|min)(Type|Value)|thresholds))?))>/
 syn match   confSavedSearches /\v<^(display\.statistics\.format\.([^\.]+)\.(unit(Position)?|useThousandSeparators))>/
@@ -94,6 +94,33 @@ syn match   confSavedSearchesConstants /\v<(inherit|(filler|marker|radial)Gauge|
 syn match   confSavedSearchesConstants /\v<(stacked(100)?|minimal|shiny|standard|seriesCompare|right|bottom(right)?|top|left|sequential|divergent)$>/
 syn match   confSavedSearchesConstants /\v<(marker|choropleth|value|trend|block|inverse|absolute|large|medium|small|custom|mapping|singlevalue|charting)$>/
 syn match   confSavedSearchesConstants /\v<((greater|less)\ than|(not\ )?equal\ to|(drops|rises)\ by|high(er|est))$>/
+
+" alert_logevent
+" etc/apps/alert_logevent/README/savedsearches.conf.spec
+syn match   confSavedSearches /\v<action\.(logevent(\.param\.(event|host|source(type)?|index))|log_event)>/
+
+" alert_webhook
+" etc/apps/alert_webhook/README/savedsearches.conf.spec
+syn match   confSavedSearches /\v<action\.webhook(\.param\.url)?>/
+
+" splunk_monitoring_console
+" etc/apps/splunk_monitoring_console/README/savedsearches.conf.spec
+syn match   confSavedSearches /\v<display\.visualizations\.custom\.splunk_monitoring_console\.heatmap\.(baseColor|legendTitle|showLegend|showTooltip|(show)?([XxYy])Axis)>/
+
+" Splunk DB Connect
+syn match   confSavedSearches /\v<^(action\.alert_output(\.param\.output)?)>/
+
+" ITSI
+syn match   confSavedSearches /\v<^(display\.page\.\w+\.\d+\.(collection_name|title|color|drilldown_uri|order))>/
+syn match   confSavedSearches /\v<^(action\.makestreams(\.param\.(fields|description|protocols|duration|category|limit))?)>/
+syn match   confSavedSearches /\v<^(action\.itsi_event_generator(\.param\.(title|description|owner|status|severity))?)>/
+syn match   confSavedSearches /\v<^(action\.itsi_event_generator\.param\.drilldown_search_(title|search|(latest|earliest)_offset))>/
+syn match   confSavedSearches /\v<^(action\.itsi_event_generator\.param\.(drilldown_(title|uri)|event_identifier_fields|service_ids))>/
+syn match   confSavedSearches /\v<^(action\.itsi_event_generator\.param\.(entity_lookup_field|search_type|editor))>/
+syn match   confSavedSearches /\v<^(action\.itsi_event_generator\.param\.(meta_data|is_ad_at|ad_at_kpi_ids))>/
+syn match   confSavedSearches /\v<^(action\.indicator(\._itsi_(kpi|service)_id)?)>/
+syn match   confSavedSearches /\v<^(action\.itsi_sample_event_action_ping\.param\.host|action\.keyindicator\.invert|action\.makestreams\.param\.verbose)>/
+syn match   confSavedSearchesConstants /\v<(blue|red|orange|yellow|purple|green)$>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment

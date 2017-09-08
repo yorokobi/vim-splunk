@@ -39,21 +39,13 @@ syn match confGenericStanzas display contained /\v[^\]]+/
 syn region confStanza matchgroup=confStanzaStart start=/^\[/ matchgroup=confStanzaEnd end=/\]/ oneline transparent contains=@confStanzas
 
 " Group clusters
-syn cluster confStanzas contains=confUIPrefsStanzas,confGenericStanzas
+syn cluster confStanzas contains=confDMCAlertsStanzas,confGenericStanzas
 
-" ui-prefs.conf
-syn match   confUIPrefsStanzas contained /\v<(default)>/
+" dmc_alerts.conf
+syn match   confDMCAlerts /\v<^(param_to_search_conversion|(description|search)_template|is_editable|parameter_(labels|values|ranges))>/
+syn match   confDMCAlerts /\v<^(enabled_for_(cloud|light))>/
 
-syn match   confUIPrefs /\v<^(dispatch\.(earliest|latest)_time|countPerPage|display\.general\.enablePreview|display\.statistics\.(rowNumbers|wrap|drilldown))>/
-syn match   confUIPrefs /\v<^(display\.prefs\.(autoOpenSearchAssistant|timeline\.(height|minimized|minimalMode)|(acl|app)Filter|listMode|searchContext|events\.count))>/
-syn match   confUIPrefs /\v<^(display\.prefs\.(statistics\.count|fieldCoverage|enableMetaData|showDataSummary|customSampleRatio|showSPL|livetail))>/
-syn match   confUIPrefs /\v<^(display\.events\.(fields|type|rowNumbers|maxLines|(raw|list|table)\.drilldown|(list|table)\.wrap))>/
-syn match   confUIPrefs /\v<^(display\.visualizations\.((custom\.)?type|chartHeight|charting\.(chart(\.(style))?|legend\.labelStyle\.overflowMode)))>/
-syn match   confUIPrefs /\v<^(display\.page\.search\.patterns\.sensitivity|display\.page\.home\.showGettingStarted)>/
-syn match   confUIPrefs /\v<^(display\.page\.search\.(mode|timeline(\.format|\.scale)|showFields|searchHistory(TimeFilter|Count)))>/
-
-syn match   confUIPrefsConstants /\v<(none|app|owner|tiles|table|raw|list|inner|outer|full|row|cell|charting|singlevalue|fast|smart|verbose|compact|hidden)$>/
-syn match   confUIPrefsConstants /\v<(line|area|column|bar|pie|scatter|(radial|filler|marker)Gauge|minimal|shiny|ellipsis(End|Middle|Start)|log|linear)$>/
+"syn match   confDMCAlertsConstants /\v<()$>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment
@@ -73,6 +65,6 @@ hi def link confstanzaEnd Delimiter
 " Highlight for stanzas
 hi def link confStanza Function
 hi def link confGenericStanzas Constant
-hi def link confUIPrefsStanzas Identifier
-hi def link confUIPrefs Keyword
-hi def link confUIPrefsConstants Constant
+hi def link confDMCAlertsStanzas Identifier
+hi def link confDMCAlerts Keyword
+"hi def link confDMCAlertsConstants Constant

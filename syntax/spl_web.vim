@@ -57,7 +57,7 @@ syn match   confWeb /\v<^(login(BackgroundImageOption|Custom(BackgroundImage|Log
 syn match   confWeb /\v<^(max(Sockets|Threads|_(upload|view_cache)_size)|methods|mgmtHostPort|minify_(css|js)|module_dir|oidEnabled|override_JSON_MIME_type_with_text_plain)>/
 syn match   confWeb /\v<^(pattern|pdfgen_is_available|pid_path|pivot_adhoc_acceleration_mode|privKeyPath|productMenu(Label|UriPrefix)|remoteGroups(MatchExact|Quoted)?)>/
 syn match   confWeb /\v<^(remoteUser(MatchExact)?|replyHeader\.[^\ |\=]+|request\.show_tracebacks|requireClientCert|response\.timeout|(root|rss)_endpoint)>/
-syn match   confWeb /\v<^(sendStrictTransportSecurityHeader|server\.(socket_(host|timeout)|thread_pool_(max(_spare)?|min_spare)))>/
+syn match   confWeb /\v<^(sendStrictTransportSecurityHeader|server\.(socket_(host|timeout)|thread_(pool(_(max(_spare)?|min_spare))?)))>/
 syn match   confWeb /\v<^(serverCert|serviceFormPostURL|show(ProductMenu|UserMenuProfile)|simple_(error_page|xml_perf_debug)|skipCSRFProtection|splunkdConnectionTimeout)>/
 syn match   confWeb /\v<^(ssl((Alt|Common)NameToCheck|Password|Versions)|ssoAuthFailureRedirect|startwebserver|static(CompressionLevel|_(dir|endpoint))|supportSSLV3Only)>/
 syn match   confWeb /\v<^(template_dir|termsOfServiceDirectory|testing_(dir|endpoint))>/

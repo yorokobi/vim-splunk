@@ -2,6 +2,9 @@
 " Language: Splunk configuration files
 " Maintainer: Colby Williams <colbyw at gmail dot com>
 
+" There's a fair chance some other highlighting scheme will take precendence
+" over this one due to the .cfg file extension. ¯\_(ツ)_/¯
+
 if version < 600
     syntax clear
 elseif exists("b:current_syntax")
@@ -39,21 +42,13 @@ syn match confGenericStanzas display contained /\v[^\]]+/
 syn region confStanza matchgroup=confStanzaStart start=/^\[/ matchgroup=confStanzaEnd end=/\]/ oneline transparent contains=@confStanzas
 
 " Group clusters
-syn cluster confStanzas contains=confUIPrefsStanzas,confGenericStanzas
+syn cluster confStanzas contains=confInstanceCfgStanzas,confGenericStanzas
 
-" ui-prefs.conf
-syn match   confUIPrefsStanzas contained /\v<(default)>/
+" instance.cfg
+syn match   confInstanceCfgStanzas contained /\v<(general)>/
+syn match   confInstanceCfg /\v<^(guid)>/
 
-syn match   confUIPrefs /\v<^(dispatch\.(earliest|latest)_time|countPerPage|display\.general\.enablePreview|display\.statistics\.(rowNumbers|wrap|drilldown))>/
-syn match   confUIPrefs /\v<^(display\.prefs\.(autoOpenSearchAssistant|timeline\.(height|minimized|minimalMode)|(acl|app)Filter|listMode|searchContext|events\.count))>/
-syn match   confUIPrefs /\v<^(display\.prefs\.(statistics\.count|fieldCoverage|enableMetaData|showDataSummary|customSampleRatio|showSPL|livetail))>/
-syn match   confUIPrefs /\v<^(display\.events\.(fields|type|rowNumbers|maxLines|(raw|list|table)\.drilldown|(list|table)\.wrap))>/
-syn match   confUIPrefs /\v<^(display\.visualizations\.((custom\.)?type|chartHeight|charting\.(chart(\.(style))?|legend\.labelStyle\.overflowMode)))>/
-syn match   confUIPrefs /\v<^(display\.page\.search\.patterns\.sensitivity|display\.page\.home\.showGettingStarted)>/
-syn match   confUIPrefs /\v<^(display\.page\.search\.(mode|timeline(\.format|\.scale)|showFields|searchHistory(TimeFilter|Count)))>/
-
-syn match   confUIPrefsConstants /\v<(none|app|owner|tiles|table|raw|list|inner|outer|full|row|cell|charting|singlevalue|fast|smart|verbose|compact|hidden)$>/
-syn match   confUIPrefsConstants /\v<(line|area|column|bar|pie|scatter|(radial|filler|marker)Gauge|minimal|shiny|ellipsis(End|Middle|Start)|log|linear)$>/
+"syn match   confInstanceCfgConstants /\v<()$>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment
@@ -73,6 +68,6 @@ hi def link confstanzaEnd Delimiter
 " Highlight for stanzas
 hi def link confStanza Function
 hi def link confGenericStanzas Constant
-hi def link confUIPrefsStanzas Identifier
-hi def link confUIPrefs Keyword
-hi def link confUIPrefsConstants Constant
+hi def link confInstanceCfgStanzas Identifier
+hi def link confInstanceCfg Keyword
+"hi def link confInstanceCfgConstants Constant

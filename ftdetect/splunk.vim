@@ -1,5 +1,5 @@
 augroup filetypedetect
-    autocmd BufNewFile,BufRead checklist.conf,crawl.conf,default.meta,deployment.conf,dmc_alerts.conf,eventgen.conf,launcher.conf,ldap.conf,logging.conf,local.meta,pdf_server.conf,perfmon.conf,regmon-filters.conf,ssl.conf,splunk_monitoring_console_assets.conf,telemetry.conf,tenants.conf,tsidx_retention.conf,instance.cfg,app_permissions.conf,deep_dive_drilldowns.conf,drawing_elements.conf,drilldownsearch_offset.conf,itsi_da.conf,itsi_deep_dive.conf,itsi_glass_table.conf,itsi_kpi_template.conf,itsi_module_viz.conf,itsi_notable_event_retention.conf,itsi_notable_event_severity.conf,itsi_notable_event_status.conf,itsi_service.conf,itsi_settings.conf,managed_configurations.conf,notable_event_actions.conf,postprocess.conf,service_analyzer_settings.conf,threshold_labels.conf,threshold_periods.conf,okta.conf,database.conf,db_connections.conf,db_connection_types.conf,db_inputs.conf,db_lookups.conf,db_outputs.conf,dbx_logging.conf,dbx_settings.conf,healthlog.conf,settings.conf,app-migration.conf,identities.conf,mlspl.conf,ui-metrics-collector.conf setf splunk
+    autocmd BufNewFile,BufRead eventgen.conf,ldap.conf,logging.conf,pdf_server.conf,perfmon.conf,regmon-filters.conf,ssl.conf,tenants.conf,tsidx_retention.conf,app_permissions.conf,deep_dive_drilldowns.conf,drawing_elements.conf,drilldownsearch_offset.conf,itsi_da.conf,itsi_deep_dive.conf,itsi_glass_table.conf,itsi_kpi_template.conf,itsi_module_viz.conf,itsi_notable_event_retention.conf,itsi_notable_event_severity.conf,itsi_notable_event_status.conf,itsi_service.conf,itsi_settings.conf,managed_configurations.conf,notable_event_actions.conf,postprocess.conf,service_analyzer_settings.conf,threshold_labels.conf,threshold_periods.conf,okta.conf,database.conf,db_connections.conf,db_connection_types.conf,db_inputs.conf,db_lookups.conf,db_outputs.conf,dbx_logging.conf,dbx_settings.conf,healthlog.conf,settings.conf,app-migration.conf,identities.conf,mlspl.conf,ui-metrics-collector.conf setf splunk
 augroup END
 
 " Deprecated by Splunk 6.0+
@@ -211,4 +211,36 @@ augroup END
 
 augroup filetypedetect
     autocmd BufNewFile,BufRead workflow_actions.conf setf spl_workflow_actions
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead splunk_monitoring_console_assets.conf setf spl_monitoring_console_assets
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead checklist.conf setf spl_checklist
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead dmc_alerts.conf setf spl_dmc_alerts
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead launcher.conf setf spl_launcher
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead instance.cfg setf spl_instance_cfg
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead crawl.conf setf spl_crawl
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead default.meta,local.meta setf spl_dotmeta
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead telemetry.conf setf spl_telemetry
 augroup END

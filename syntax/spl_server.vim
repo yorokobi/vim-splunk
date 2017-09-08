@@ -91,7 +91,7 @@ syn match   confServerConstants /\v<(Enterprise|Trial|Forwarder|Free|always|neve
 syn match   confServerConstants /\v<((4|6)-(first|only)|full|manifests|light|no|yes|only|on_ports_enabled|self|(dis|en)abled|searchhead|slave|master|MAX)$>/
 syn match   confServerConstants /\v<((gnu|us)tar|on-http(s)?)$>/
 
-syn match   confComplex /\v<^((EXCLUDE|SEARCHFILTER(LUHN|SIMPLE))-[^\ |\=]+)>/
+syn match   confComplex /\v<^((EXCLUDE|SEARCHFILTER(LUHN|SIMPLE))-\w+)>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment

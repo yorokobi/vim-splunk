@@ -58,14 +58,23 @@ syn match   confAlertActions /\v<^(cipherSuite|ssl((Alt|Common)NameToCheck|Verif
 syn match   confAlertActions_Constants /\v<(table|raw|logo|title|timestamp|pagination|none|csv|xml|json|description)$>/
 syn match   confAlertActions_Constants /\v<(html|plain|portrait|landscape|letter|legal|ledger|a(2|3|4|5))$>/
 
-" etc/apps/alert_logevent
+" etc/apps/alert_logevent/README/alert_actions.conf.spec
 syn match   confAlertActionsStanzas contained /\v<logevent>/
 syn match   confAlertActions /\v<param\.(event|host|source(type)?|index)>/
 
-" etc/apps/alert_webhook
+" etc/apps/alert_webhook/README/alert_actions.conf.spec
 syn match   confAlertActionsStanzas contained /\v<webhook>/
 syn keyword confAlertActions param.user_agent
 
+" Splunk_TA_okta
+syn match   confAlertActions /\v<^(param\.(action|user_(id|name)|group_(id|name)))>/
+
+" ITSI
+syn match   confAlertActions /\v<^(drilldown_(search|uri)|subtitle|delta|in(vert|line)|_name)>/
+syn match   confAlertActions /\v<^(param\.(http_token_name|index|sourcetype|event_identifier_fields|search_type|is_use_event_time|host))>/
+syn match   confAlertActions /\v<^(param\.(fields|description|protocols|duration|category|limit|verbose))>/
+syn match   confAlertActions /\v<^(constraint_(method|fields)|_itsi_(kpi|service)_id)>/
+syn match   confAlertActions /\v<^((value|delta)_qual|group\.\d+\.(name|order)|value(_suffix)?)>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment
