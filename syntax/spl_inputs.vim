@@ -99,7 +99,7 @@ syn match   confInputs /\v<^(nothing)>/
 " Splunk_TA_ibm-was
 syn match   confInputs /\v<^(was_data_input)>/
 
-" Splunk DB Connect 2.4.0
+" Splunk DB Connect 3.1.1
 syn match   confInputsStanzas contained /\v<(server:\/\/[^]]+)>/
 syn match   confInputs /\v<^(config_file|keystore_password|interval)>/
 "syn match   confInputsStanzas contained /\v<(mi_output)>/
