@@ -107,7 +107,7 @@ syn match   confSavedSearches /\v<action\.webhook(\.param\.url)?>/
 " etc/apps/splunk_monitoring_console/README/savedsearches.conf.spec
 syn match   confSavedSearches /\v<display\.visualizations\.custom\.splunk_monitoring_console\.heatmap\.(baseColor|legendTitle|showLegend|showTooltip|(show)?([XxYy])Axis)>/
 
-" Splunk DB Connect
+" Splunk DB Connect 2.4.0
 syn match   confSavedSearches /\v<^(action\.alert_output(\.param\.output)?)>/
 
 " ITSI

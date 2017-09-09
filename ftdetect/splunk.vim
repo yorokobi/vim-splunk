@@ -1,5 +1,5 @@
 augroup filetypedetect
-    autocmd BufNewFile,BufRead eventgen.conf,ldap.conf,logging.conf,pdf_server.conf,perfmon.conf,regmon-filters.conf,ssl.conf,tenants.conf,tsidx_retention.conf,app_permissions.conf,deep_dive_drilldowns.conf,drawing_elements.conf,drilldownsearch_offset.conf,itsi_da.conf,itsi_deep_dive.conf,itsi_glass_table.conf,itsi_kpi_template.conf,itsi_module_viz.conf,itsi_notable_event_retention.conf,itsi_notable_event_severity.conf,itsi_notable_event_status.conf,itsi_service.conf,itsi_settings.conf,managed_configurations.conf,notable_event_actions.conf,postprocess.conf,service_analyzer_settings.conf,threshold_labels.conf,threshold_periods.conf,okta.conf,database.conf,db_connections.conf,db_connection_types.conf,db_inputs.conf,db_lookups.conf,db_outputs.conf,dbx_logging.conf,dbx_settings.conf,healthlog.conf,settings.conf,app-migration.conf,identities.conf,mlspl.conf,ui-metrics-collector.conf setf splunk
+    autocmd BufNewFile,BufRead eventgen.conf,ldap.conf,logging.conf,pdf_server.conf,perfmon.conf,regmon-filters.conf,ssl.conf,tenants.conf,tsidx_retention.conf,app_permissions.conf,deep_dive_drilldowns.conf,drawing_elements.conf,drilldownsearch_offset.conf,itsi_da.conf,itsi_deep_dive.conf,itsi_glass_table.conf,itsi_kpi_template.conf,itsi_module_viz.conf,itsi_notable_event_retention.conf,itsi_notable_event_severity.conf,itsi_notable_event_status.conf,itsi_service.conf,itsi_settings.conf,managed_configurations.conf,notable_event_actions.conf,postprocess.conf,service_analyzer_settings.conf,threshold_labels.conf,threshold_periods.conf,okta.conf,database.conf,healthlog.conf,settings.conf setf splunk
 augroup END
 
 " Deprecated by Splunk 6.0+
@@ -244,3 +244,44 @@ augroup END
 augroup filetypedetect
     autocmd BufNewFile,BufRead telemetry.conf setf spl_telemetry
 augroup END
+
+" Splunk Machine Learning Toolkit 2.4.0
+augroup filetypedetect
+    autocmd BufNewFile,BufRead algos.conf setf spl_algos
+augroup END
+augroup filetypedetect
+    autocmd BufNewFile,BufRead mlspl.conf setf spl_mlspl
+augroup END
+
+" Splunk DB Connect 3.1.1
+augroup filetypedetect
+    autocmd BufNewFile,BufRead db_connections.conf setf spl_db_connections
+augroup END
+augroup filetypedetect
+    autocmd BufNewFile,BufRead db_connection_types.conf setf spl_db_connection_types
+augroup END
+augroup filetypedetect
+    autocmd BufNewFile,BufRead db_input_templates.conf setf spl_db_input_templates
+augroup END
+augroup filetypedetect
+    autocmd BufNewFile,BufRead db_inputs.conf setf spl_db_inputs
+augroup END
+augroup filetypedetect
+    autocmd BufNewFile,BufRead db_lookups.conf setf spl_db_lookups
+augroup END
+augroup filetypedetect
+    autocmd BufNewFile,BufRead db_outputs.conf setf spl_db_outputs
+augroup END
+augroup filetypedetect
+    autocmd BufNewFile,BufRead app-migration.conf setf spl_db_app-migration
+augroup END
+augroup filetypedetect
+    autocmd BufNewFile,BufRead identities.conf setf spl_db_identities
+augroup END
+augroup filetypedetect
+    autocmd BufNewFile,BufRead ui-metrics-collector.conf setf spl_db_ui-metrics-collector
+augroup END
+augroup filetypedetect
+    autocmd BufNewFile,BufRead dbx_settings.conf setf spl_db_dbx_settings
+augroup END
+

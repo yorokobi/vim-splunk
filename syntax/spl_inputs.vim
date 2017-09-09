@@ -99,17 +99,18 @@ syn match   confInputs /\v<^(nothing)>/
 " Splunk_TA_ibm-was
 syn match   confInputs /\v<^(was_data_input)>/
 
-" splunk_app_db_connect
-syn match   confInputsStanzas contained /\v<(mi_output)>/
-syn match   confInputs /\v<^(policy|connection|key_pattern|javahome|options|port|bindIP|proc_pid|useSSL|keystore_password|Exception|cert_(file|validity))>/
-syn match   confInputs /\v<^(output_timestamp_format|resource_pool|auto_disable|max_retries|syn|match|confInputs|user|description|mode|connection|query(_timeout))>/
-syn match   confInputs /\v<^(max_rows|(is_saved_)?search|time_out|transactional|customized_mappings|max_single_checkpoint_file_size)>/
-syn match   confInputs /\v<^((lookup|update|reload)SQL|(input|output)_fields)>/
-syn match   confInputs /\v<^(ui_(query_(mode|catalog|schema|table)|input_((spl|saved)_search)|use_saved_search|is_auto_lookup|query_result_columns|column_output_map|field _column_map|auto_lookup_conditions|mappings|selected_fields|saved_search_str|query_sql))>/
-syn match   confInputs /\v<^(tail_(follow_only|rising_column_((full)?name|number|checkpoint_value)))>/
-syn match   confInputs /\v<^(input_timestamp_(format|column_((full)?name|number)))>/
-
-syn match   confInputsConstants /\v<(reload|update|simple|advanced)>/
+" Splunk DB Connect 2.4.0
+syn match   confInputsStanzas contained /\v<(server:\/\/[^]]+)>/
+syn match   confInputs /\v<^(config_file|keystore_password|interval)>/
+"syn match   confInputsStanzas contained /\v<(mi_output)>/
+"syn match   confInputs /\v<^(policy|connection|key_pattern|javahome|options|port|bindIP|proc_pid|useSSL|keystore_password|Exception|cert_(file|validity))>/
+"syn match   confInputs /\v<^(output_timestamp_format|resource_pool|auto_disable|max_retries|syn|match|confInputs|user|description|mode|connection|query(_timeout))>/
+"syn match   confInputs /\v<^(max_rows|(is_saved_)?search|time_out|transactional|customized_mappings|max_single_checkpoint_file_size)>/
+"syn match   confInputs /\v<^((lookup|update|reload)SQL|(input|output)_fields)>/
+"syn match   confInputs /\v<^(ui_(query_(mode|catalog|schema|table)|input_((spl|saved)_search)|use_saved_search|is_auto_lookup|query_result_columns|column_output_map|field _column_map|auto_lookup_conditions|mappings|selected_fields|saved_search_str|query_sql))>/
+"syn match   confInputs /\v<^(tail_(follow_only|rising_column_((full)?name|number|checkpoint_value)))>/
+"syn match   confInputs /\v<^(input_timestamp_(format|column_((full)?name|number)))>/
+"syn match   confInputsConstants /\v<(reload|update|simple|advanced)>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment
