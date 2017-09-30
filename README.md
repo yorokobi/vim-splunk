@@ -5,7 +5,7 @@ This project is public domain. Feel free to create your own branch and submit a 
 
 Thanks to the many contributors to this project.
 
-The 7.0 branch utilizes pattern matching to ensure proper keyword spelling and placement. In an effort to reduce CPU overhead, the majority of .conf file associations were moved from a monolithic .vim file to a set of federated .vim files, one .vim per .conf(.spec).
+Starting with the 7.0 branch and master commit `cbe67eb437e8f8fb0b0db829adf18bb5d4679821`, vim-splunk utilizes pattern matching to ensure proper keyword spelling and placement. In an effort to reduce CPU overhead, the majority of .conf file associations were moved from a monolithic .vim file to a set of federated .vim files, one .vim per .conf(.spec).
 
 ![props.conf example with solarized colour scheme](http://i.imgur.com/F0rVkzt.png)
 
