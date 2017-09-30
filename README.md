@@ -5,6 +5,8 @@ This project is public domain. Feel free to create your own branch and submit a 
 
 Thanks to the many contributors to this project.
 
+The 7.0 branch utilizes pattern matching to ensure proper keyword spelling and placement. In an effort to reduce CPU overhead, the majority of .conf file associations were moved from a monolithic .vim file to a set of federated .vim files, one .vim per .conf(.spec).
+
 ![props.conf example with solarized colour scheme](http://i.imgur.com/F0rVkzt.png)
 
 Installation Instructions
@@ -20,8 +22,14 @@ git clone git@github.com:yorokobi/vim-splunk.git
 ln -s git-projects/vim-splunk/ftdetect/splunk.vim ~/.vim/ftdetect/splunk.vim
 ln -s git-projects/vim-splunk/syntax/splunk.vim ~/.vim/syntax/splunk.vim
 ```
-Submodule/Bundle instructions:
+Bundle instructions:
 ```
 cd ~/.vim/bundle
 git clone git@github.com:yorokobi/vim-splunk.git
+```
+Submodule instructions:
+```
+cd ~/your/vim/bundle/repo
+git submodule add git@github.com:yorokobi/vim-splunk.git
+git commit -am "Added vim-splunk as a submodule"
 ```
