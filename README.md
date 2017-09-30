@@ -22,8 +22,14 @@ git clone git@github.com:yorokobi/vim-splunk.git
 ln -s git-projects/vim-splunk/ftdetect/splunk.vim ~/.vim/ftdetect/splunk.vim
 ln -s git-projects/vim-splunk/syntax/splunk.vim ~/.vim/syntax/splunk.vim
 ```
-Submodule/Bundle instructions:
+Bundle instructions:
 ```
 cd ~/.vim/bundle
 git clone git@github.com:yorokobi/vim-splunk.git
+```
+Submodule instructions:
+```
+cd ~/your/vim/bundle/repo
+git submodule add git@github.com:yorokobi/vim-splunk.git
+git commit -am "Added vim-splunk as a submodule"
 ```
