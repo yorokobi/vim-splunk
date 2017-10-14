@@ -34,40 +34,33 @@ syn keyword confTodo FIXME NOTE TODO contained
 syn region confStanza matchgroup=confStanzaStart start=/^\[/ matchgroup=confStanzaEnd end=/\]/ oneline transparent contains=@confStanzas
 
 " Group clusters
-syn cluster confStanzas contains=confCrawlStanzas,confEventGenStanzas,confSALDAPStanzas,confSALDAPLoggingStanzas,confSALDAPSSLStanzas,confPDFserverStanzas,confRegmonFiltersStanzas,confTenantsStanzas,confGenericStanzas,confMetaStanzas,confInstanceStanzas
+syn cluster confStanzas contains=confEventGenStanzas,confSALDAPStanzas,confSALDAPLoggingStanzas,confSALDAPSSLStanzas,confPDFserverStanzas,confRegmonFiltersStanzas,confTenantsStanzas,confGenericStanzas,confMetaStanzas,confInstanceStanzas
 
 syn match confGenericStanzas display contained /\v[^\]]+/
 
-" crawl.conf
-syn match   confCrawlStanzas contained /\v<(default|files|network)>/
-syn keyword confCrawl collapse_threshold big_dir_filecount index max_badfiles_per_dir
-syn keyword confCrawl host subnet root
-syn match   confCrawl /\v<bad_(directories|extensions|file_matches)_list>/
-syn match   confCrawl /\v<(packed_extensions|days_sizek_pairs)_list>/
-
 " eventgen.conf
 syn match   confEventGenStanzas contained /\v<(default|global)>/
-syn keyword confEventGen spoolDir spoolFile interval count earliest latest breaker token 
-syn keyword confEventGen replacement replacementType outputMode maxIntervalsBeforeFlush
-syn match   confEventGen /\v<token\.\d+\.(token|replacement(Type)?)>/
-syn match   confEventGen /\v<splunk(Host|User|Pass)>/
+syn match   confEventGen /\v<^(spool(Dir|File)|interval|count|earliest|latest|breaker|token)>/
+syn match   confEventGen /\v<^(replacement(Type)?|outputMode|maxIntervalsBeforeFlush)>/
+syn match   confEventGen /\v<^(token\.\d+\.(token|replacement(Type)?))>/
+syn match   confEventGen /\v<^(splunk(Host|User|Pass))>/
 
 " instance.cfg
 syn match   confInstanceStanzas contained /\v<general>/
-syn keyword confInstance guid
+syn match   confInstance /\v<^(guid)>/
 
 " ldap.conf from SA-ldapsearch
 syn match   confSALDAPStanzas contained /\v<default>/
-syn keyword confSALDAP alternatedomain basedn server ssl port binddn password decode paged_size
+syn match   confSALDAP /\v<^(alternatedomain|b(ind|ase)dn|server|ssl|port|password|decode|paged_size)>/
 
 " logging.conf from SA-ldapsearch
-syn match   confSALDAPLoggingStanzas contained /\v<loggers|logger_root|handlers|formatters|handler_(\S+)|formatter_(\S+)>/
-syn keyword confSALDAPLogging keys level handlers qualname propagate args class formatter datefmt format
-syn keyword confSALDAPLogging_Constants critical error warning info debug notset
+syn match   confSALDAPLoggingStanzas contained /\v<(logger(s|_root)|handlers|formatters|handler_(\S+)|formatter_(\S+))>/
+syn match   confSALDAPLogging /\v<^(keys|level|handlers|qualname|propagate|args|class|format(ter)?|datefmt)>/
+syn match   confSALDAPLogging_Constants /\v<(critical|error|warning|info|debug|notset)$>/
 
 " ssl.conf from SA-ldapsearch
 syn match   confSALDAPSSLStanzas contained /\v<sslConfig>/
-syn keyword confSALDAPSSL sslVersions sslVerifyServerCert caCertFile caPath
+syn match   confSALDAPSSL /\v<^(ssl(Versions|VerifyServerCert)|ca(CertFile|Path))>/
 
 " *.meta
 syn match confMetaStanzas contained /\v<(views(\/[^\]]+)?|transforms|exports|savedsearches|macros|eventtypes)>/
@@ -146,96 +139,6 @@ syn match   confInputs /\v<^(nothing)>/
 " Splunk_TA_ibm-was
 syn match   confInputs /\v<^(was_data_input)>/
 
-"
-" ITSI-specific configs
-"
-
-" ITSI app_permissions.conf
-syn keyword ITSI_App_Permissions capabilities description display_name messages metadata
-
-" ITSI deep_dive_drilldowns.conf
-syn keyword ITSI_DeepDiveDrilldowns type replace_tokens search add_lane_enabled use_bucket_timerange new_lane_settings uri uri_payload_type
-syn match   ITSI_DeepDiveDrilldowns /\v<entity_(level_only|tokens|activation_rules)>/
-syn match   ITSI_DeepDiveDrilldowns /\v<(metric|kpi|event)_lane_enabled>/
-
-" ITSI drawing_elements.conf
-syn keyword ITSI_DrawingElements bgColor color stroke height width vizType context_id searchSource threshold_eval use_percentage isThresholdEnabled
-syn match   ITSI_DrawingElements /\v<font(Size|Family|Color)>/
-syn match   ITSI_DrawingElements /\v<(start|end)PointDecoratorType>/
-syn match   ITSI_DrawingElements /\v<label(Val|Flag)>/
-syn match   ITSI_DrawingElements /\v<threshold_(field|comparator|values|labels)>/
-syn match   ITSI_DrawingElements /\v<dataModel(Specification|StatOp|WhereClause)>/
-syn match   ITSI_DrawingElements /\v<gauge_(thresholds|colors)>/
-syn match   ITSI_DrawingElements /\v<default(Height|Width)>/
-syn match   ITSI_DrawingElements /\v<search_(aggregate|time_series_aggregate|alert_earliest)>/
-syn match   ITSI_DrawingElements /\v<use(CustomDrilldown|KpiSearchAlertEarliest)>/
-
-syn keyword ITSI_DrawingElements_Constants none simple triangle
-
-" ITSI drilldownsearch_offset.conf
-syn keyword ITSI_DrillDownSearch_Offset timeInSecs
-syn match   ITSI_DrillDownSearch_Offset /\v<(earliest_|latest_)?description>/
-
-" ITSI itsi_da.conf
-syn keyword ITSI_da description saved_search title
-syn match   ITSI_da /\v<title(_field)?>/
-syn match   ITSI_da /\v<(description|identifier|informational)_fields>/
-syn match   ITSI_da /\v<entity_(source_templates|rules)>/
-syn match   ITSI_da /\v<(recommended|informational|optional)_kpis>/
-
-" ITSI itsi_deep_dive.conf
-syn keyword ITSI_DeepDive focus_id title lane_settings_collection acl mod_time
-syn keyword ITSI_DeepDive description is_named _owner source_itsi_da
-
-" ITSI itsi_glass_table.conf
-syn keyword ITSI_GlassTable latest earliest title description mod_time acl _owner source_itsi_da
-syn match   ITSI_GlassTable /\v<svg_(content|coordinates)>/
-
-" ITSI itsi_kpi_template.conf
-syn keyword ITSI_KPI_Template description title _owner kpis source_itsi_da
-
-" ITSI itsi_module_vis.conf
-syn keyword ITSI_ModuleVis list control_token title extendable_tab activation_rule
-syn match   ITSI_ModuleVis /\v<row\.\d+>/
-
-" ITSI itsi_notable_event_retention.conf
-syn keyword ITSI_Notable_Event_Retention retentionTimeInSec disabled
-
-" ITSI itsi_notable_event_severity.conf
-syn keyword ITSI_Notable_Event_Severity color lightcolor label default
-
-" ITSI itsi_notable_event_status.conf
-syn keyword ITSI_Notable_Event_Status label default description end
-
-" ITSI itsi_service.conf
-syn keyword ITSI_Services description title _owner tags kpis entity_rules
-syn keyword ITSI_Services identifying_name mod_source source_itsi_da
-syn match   ITSI_Services /\v<services_depend(s_on|ing_on_me)>/
-
-" ITSI itsi_settings.conf
-syn keyword ITSI_Settings show_migration_message
-
-" ITSI managed_configurations.conf
-syn keyword ITSI_Managed_Configurations disabled endpoint label description class link lookup_type
-syn match   ITSI_Managed_Configurations /\v<editable(_on_shc)?>/
-syn match   ITSI_Managed_Configurations /\v<attribute(_type)?>/
-syn match   ITSI_Managed_Configurations /\v<(sav|guid)edsearch>/
-
-" ITSI notable_event_actions.conf
-syn keyword ITSI_Notable_Event_Actions disabled
-
-" ITSI postprocess.conf
-syn keyword ITSI_PostProcess disabled savedsearch postprocess
-
-" ITSI service_analyzer_settings.conf
-syn keyword ITSI_Service_Analyzer_Settings ftr_override
-
-" ITSI threshold_labels.conf
-syn keyword ITSI_Threshold_Labels color lightcolor threshold_level
-syn match   ITSI_Threshold_Labels /\v<health_(weight|m(in|ax))>/
-
-" ITSI threshold_periods.conf
-syn keyword ITSI_Threshold_Periods past description relative
 
 " Machine Learning Toolkit
 syn match   mltkMlspl /\v<^(use_sampling|handle_new_cat|streaming_apply|max_(inputs|fit_time|(memory_usage|model_size)_mb)|summary_(depth_limit|return_json))>/
@@ -276,7 +179,6 @@ hi def link confAuthorizeStanzas Identifier
 hi def link confChecklistStanzas Identifier
 hi def link confCollectionsStanzas Identifier
 hi def link confCommandsStanzas Identifier
-hi def link confCrawlStanzas Identifier
 hi def link confDataModelsStanzas Identifier
 hi def link confDataTypesbnfStanzas Identifier
 hi def link confDefmodeStanzas Identifier
@@ -341,7 +243,6 @@ hi def link confCollections Keyword
 hi def link confCollections_Constants Constant
 hi def link confCommands Keyword
 hi def link confCommands_Constants Constant
-hi def link confCrawl Keyword
 hi def link confDataTypesbnf Keyword
 hi def link confDataModels Keyword
 hi def link confDataModelsConstants Constant
@@ -442,34 +343,6 @@ hi def link f5BigIPInputs Keyword
 
 " Splunk_TA_ibm-was
 hi def link IBM_WASInputs Keyword
-
-" ITSI
-hi def link ITSI_AlertActions Keyword
-hi def link ITSI_App_Permissions Keyword
-hi def link ITSI_DeepDiveDrilldowns Keyword
-hi def link ITSI_DrawingElements Keyword
-hi def link ITSI_DrawingElements_Constants Constant
-hi def link ITSI_DrillDownSearch_Offset Keyword
-hi def link ITSI_Inputs Keyword
-hi def link ITSI_Inputs_Constants Constant
-hi def link ITSI_da Keyword
-hi def link ITSI_DeepDive Keyword
-hi def link ITSI_GlassTable Keyword
-hi def link ITSI_KPI_Template Keyword
-hi def link ITSI_ModuleVis Keyword
-hi def link ITSI_Notable_Event_Retention Keyword
-hi def link ITSI_Notable_Event_Severity Keyword
-hi def link ITSI_Notable_Event_Status Keyword
-hi def link ITSI_Services Keyword
-hi def link ITSI_Settings Keyword
-hi def link ITSI_Managed_Configurations Keyword
-hi def link ITSI_Notable_Event_Actions Keyword
-hi def link ITSI_PostProcess Keyword
-hi def link ITSI_SavedSearches Keyword
-hi def link ITSI_SavedSearches_Constants Constant
-hi def link ITSI_Service_Analyzer_Settings Keyword
-hi def link ITSI_Threshold_Labels Keyword
-hi def link ITSI_Threshold_Periods Keyword
 
 " JMX Add-on
 hi def link jmxInputs Keyword

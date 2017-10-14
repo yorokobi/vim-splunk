@@ -55,7 +55,7 @@ syn match   confAuthorizeStanzas contained /\v<((role_|capability::)(export_resu
 syn match   confAuthorizeStanzas contained /\v<((role_|capability::)list_(deployment_(client|server)|forwarders|httpauths|indexer(_cluster|discovery)|inputs))>/
 syn match   confAuthorizeStanzas contained /\v<((role_|capability::)list_(introspection|search_(head_clustering|scheduler)|settings|storage_passwords))>/
 syn match   confAuthorizeStanzas contained /\v<((role_|capability::)(output_file|request_remote_tok|rest_(apps_(management|view)|properties_(g|s)et)|restart_splunkd))>/
-syn match   confAuthorizeStanzas contained /\v<((role_|capability::)(rtsearch|run_debug_commands|schedule_(rt)?search|search(_process_config_refresh)?|use_file_operator))>/
+syn match   confAuthorizeStanzas contained /\v<((role_|capability::)(rtsearch|run_debug_commands|schedule_(rt)?search|search(_process_config_refresh)?|use_file_operator|extra_x509_validation))>/
 syn match   confAuthorize /\v<^(srch(Filter(Selecting)?|TimeWin|(Disk|Jobs)Quota|MaxTime|Indexes(Default|Allowed)))>/
 syn match   confAuthorize /\v<^(rtSrchJobsQuota|(import|grantable)Roles|deleteIndexesAllowed|cumulative(Srch|RTSrch)JobsQuota)>/
 syn match   confAuthorizeCaps /\v<^((accelerate_(datamodel|search)|admin_all_objects|change_(authentication|own_password)))>/
