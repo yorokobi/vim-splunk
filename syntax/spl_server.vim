@@ -89,7 +89,7 @@ syn match   confServer /\v<^(x_frame_options_sameorigin)>/
 
 syn match   confServerConstants /\v<(Enterprise|Trial|Forwarder|Free|always|never|requireSetPassword|silent|primaries(_and_hot)?|all|auto|replace|none)$>/
 syn match   confServerConstants /\v<((4|6)-(first|only)|full|manifests|light|no|yes|only|on_ports_enabled|self|(dis|en)abled|searchhead|slave|master|MAX)$>/
-syn match   confServerConstants /\v<((gnu|us)tar|on-http(s)?)$>/
+syn match   confServerConstants /\v<((gnu|us)tar|on-http(s)?|site([1-5]?[0-9]|6[0-3]))$>/
 
 syn match   confComplex /\v<^((EXCLUDE|SEARCHFILTER(LUHN|SIMPLE))-\w+)>/
 
