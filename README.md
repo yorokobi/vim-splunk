@@ -18,18 +18,18 @@ Symlink instructions:
 ```
 mkdir ~/git-projects
 cd git-projects
-git clone https://github.com:yorokobi/vim-splunk.git
+git clone https://github.com/yorokobi/vim-splunk.git
 ln -s git-projects/vim-splunk/ftdetect/splunk.vim ~/.vim/ftdetect/splunk.vim
 ln -s git-projects/vim-splunk/syntax/splunk.vim ~/.vim/syntax/splunk.vim
 ```
 Bundle instructions:
 ```
 cd ~/.vim/bundle
-git clone https://github.com:yorokobi/vim-splunk.git
+git clone https://github.com/yorokobi/vim-splunk.git
 ```
 Submodule instructions:
 ```
 cd ~/your/vim/bundle/repo
-git submodule add https://github.com:yorokobi/vim-splunk.git
+git submodule add https://github.com/yorokobi/vim-splunk.git
 git commit -am "Added vim-splunk as a submodule"
 ```
