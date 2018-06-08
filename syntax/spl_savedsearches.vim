@@ -87,6 +87,11 @@ syn match   confSavedSearches /\v<^(displayview|embed\.enabled|enableSched|is_vi
 syn match   confSavedSearches /\v<^(quantity|query|realtime_schedule|relation|restart_on_searchpeer_add|role|run_(n_times|on_startup)|schedule(_window|_priority)?)>/
 syn match   confSavedSearches /\v<^(search|sendresults|(user|vs)id)>/
 
+" ----------
+"  7.1
+" ----------
+syn match   confSavedSearches /\v<^(defer_scheduled_searchable_idxc)>/
+
 syn match   confSavedSearchesConstants /\v<(user|owner|inner|outer|full|none|raw|list|table|events|statistics|visualizations|fast|smart|verbose|patterns)$>/
 syn match   confSavedSearchesConstants /\v<(hidden|compact|full|line(ar)?|log|row|cell|color|number|expression|map|minMidMax|shared(Category|List)|auto)$>/
 syn match   confSavedSearchesConstants /\v<(categor(y|ical)|threshold|number|percent(ile)?|before|after|heatmap|highlow|ellipsis(Middle|None|End|Middle|Start)|visible|collapsed|all)$>/

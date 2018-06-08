@@ -52,6 +52,11 @@ syn match   confInputsStanzas contained /\v<(SSL|fschange:[^]]+|filter:(white|bl
 " ------------------------
 syn match   confInputsStanzas contained /\v<(filter:[^:]+:[^\]]+)>/
 
+" -----------------------
+"  Splunk 7.1
+" -----------------------
+syn match   confInputsStanzas contained /\v<(remote_queue:[^\]]+)>/
+
 syn match   confInputs /\v<^(host(_regex|_segment)?|index(es)?|source(type)?|queue|_(raw|meta|time|(TCP|SYSLOG|INDEX_AND_FORWARD)_ROUTING|rcvbuf))>/
 syn match   confInputs /\v<^((_)?(white|black)list(\d+)?|crcSalt|initCrcLength|ignoreOlderThan|followTail|alwaysOpenFile|time_before_close)>/
 syn match   confInputs /\v<^(multiline_event_extra_waittime|recursive|followSymlink|move_policy|connection_host|(persistentQ|q)?ueueSize)>/
@@ -69,6 +74,15 @@ syn match   confInputs /\v<^(counters|current_only|direction|driverBufferSize|fo
 syn match   confInputs /\v<^(evt_((ad|sid)_cache_(disabled|exp(_neg)?|max_entries)|(dc|dns)_name|resolve_ad_(ds|obj))|multikvMax(EventCount|TimeMs))>/
 syn match   confInputs /\v<^(printSchema|pro(c(ess)?|tocol)|remoteAddress|renderXml|schedule|script|showZeroValue|sid_cache_(disabled|exp(_neg)?|max_entries))>/
 syn match   confInputs /\v<^(suppress_(checkpoint|keywords|opcode|sourcename|task|text|type)|targetDc|thread_wait_time_msec|type)>/
+
+" -----------------------
+"  Splunk 7.1
+" -----------------------
+syn match   confInputs /\v<^(remote_queue\.sqs\.((access|secret)_key|auth_region|endpoint|max_connections))>/
+syn match   confInputs /\v<^(remote_queue\.sqs\.(message_group_id|retry_policy|max_count\.max_retries_per_part))>/
+syn match   confInputs /\v<^(remote_queue\.sqs\.(timeout\.(connect|read|write|receive_message|visibility)))>/
+syn match   confInputs /\v<^(remote_queue\.sqs\.(buffer\.visibility|min_pending_messages|large_message_store\.(endpoint|path)))>/
+syn match   confInputs /\v<^(channel(TTL|Reap(Interval|Lowater)))>/
 
 syn match   confInputsConstants /\v<((parsing|index)Queue|auto|never|always|yes|no|only|(proxied_)?ip|dns|none|PDC|single|multikv|sinkhole)$>/
 syn match   confInputsconstants /\v<(connect|accept|transport|tcp|udp|has_key|absent_key:[^:]+:[^\ |\=]+|ipv(4|6)|(in|out)bound)$>/

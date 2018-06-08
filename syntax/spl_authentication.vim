@@ -44,15 +44,15 @@ syn cluster confStanzas contains=confAuthenticationStanzas,confGenericStanzas
 " authentication.conf
 syn match  confAuthenticationStanzas contained /\v<(default|authentication|roleMap_[^]]+|cacheTiming|splunk_auth|userToRoleMap_[^]]+)>/
 syn match  confAuthenticationStanzas contained /\v<(authenticationResponseAttrMap_SAML|proxysso-authsettings-key|secrets|duo-externalTwoFactorAuthSettings-key)>/
-syn match  confAuthentication /\v<^(auth(Type|Settings)|passwordHashAlgorithm|externalTwoFactorAuth(Vendor|Settings)|host|SSLEnabled|port|bindDN(password)?)>/
-syn match  confAuthentication /\v<^((user|group)Base(DN|Filter)|((user|real)Name|email|group(Name|Mapping|Member))Attribute|network_timeout)>/
-syn match  confAuthentication /\v<^(dynamic(GroupFilter|MemberAttribute)|nestedGroups|charset|anonymous_referrals|(size|time)limit)>/
-syn match  confAuthentication /\v<^(script(Path|SearchFilters)|(userLogin|getUser(s|Info)|attributeQuery)TTL|minPasswordLength|fqdn|redirectPort)>/
+syn match  confAuthentication /\v<^(auth(Type|Settings)|passwordHashAlgorithm|externalTwoFactorAuth(Vendor|Settings)|host|SSLEnabled|port|bindDN(password)?|enablePasswordHistory|passwordHistoryCount|constantLoginTime)>/
+syn match  confAuthentication /\v<^((user|group)Base(DN|Filter)|((user|real)Name|email|group(Name|Mapping|Member))Attribute|network_timeout|forceWeakPasswordChange|lockout(Users|(Threshold)?Mins|Attempts))>/
+syn match  confAuthentication /\v<^(dynamic(GroupFilter|MemberAttribute)|nestedGroups|charset|anonymous_referrals|(size|time)limit|expire((Password|Alert)Days|UserAccounts))>/
+syn match  confAuthentication /\v<^(script(Path|SearchFilters)|(userLogin|getUser(s|Info)|attributeQuery)TTL|minPassword(Length|(Upper|Lower)case|Digit|Special)|fqdn|redirectPort)>/
 syn match  confAuthentication /\v<^(idp((SSO|SLO|AttributeQuery)Url|CertPath)|errorUrl(Label)?|(entity|issuer)Id|sign(AuthnRequest|edAssertion))>/
 syn match  confAuthentication /\v<^(attributeQuery(Soap(Password|Username)|(Request|Response)Signed)|redirectAfterLogoutToUrl|defaultRoleIfMissing)>/
 syn match  confAuthentication /\v<^(skipAttributeQueryRequestForUsers|maxAttributeQuery(Threads|QueueSize)|allowSslCompression|cipherSuite)>/
 syn match  confAuthentication /\v<^(clientCert|ssl(RootCAPath|VerifyServerCert|Versions|(Alt|Common)NameToCheck|Keysfile(Password)?|Password)|ecdhCurve(s|Name))>/
-syn match  confAuthentication /\v<^(ca(CertFile|Path)|blacklisted(AutoMappedRoles|Users)|nameIdFormat|(sso|slo)Binding|signatureAlgorithm)>/
+syn match  confAuthentication /\v<^(ca(CertFile|Path)|blacklisted(AutoMappedRoles|Users)|nameIdFormat|(sso|slo)Binding|(inboundS|s)ignatureAlgorithm)>/
 syn match  confAuthentication /\v<^(replicateCertificates|role|realName|mail|disabled|filename|namespace|apiHostname|integrationKey|(appS|s)ecretKey)>/
 syn match  confAuthentication /\v<^(failOpen|timeout|useClientSSLCompression)>/
 

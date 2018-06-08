@@ -44,7 +44,7 @@ syn cluster confStanzas contains=confDatamodelsStanzas,confGenericStanzas
 " datamodels.conf
 syn match   confDatamodelsStanzas contained /\v<(default)>/
 syn match   confDatamodels /\v<^(acceleration(\.(earliest|backfill|max)_time|\.poll_buckets_until_maxtime|\.cron_schedule|\.manual_rebuilds)?)>/
-syn match   confDatamodels /\v<^(acceleration\.(max_concurrent|schedule_priority|hunk\.(compression_codec|dfs_block_size|file_format)))>/
+syn match   confDatamodels /\v<^(acceleration\.(max_concurrent|schedule_priority|hunk\.(compression_codec|dfs_block_size|file_format)|allow_skew))>/
 syn match   confDatamodels /\v<^(dataset\.(description|type|commands|fields|display\.(diversity|sample_ratio|limiting|currentCommand|mode)))>/
 syn match   confDatamodels /\v<^(dataset\.display\.datasummary\.(earliest|latest)Time|tags_whitelist)>/
 

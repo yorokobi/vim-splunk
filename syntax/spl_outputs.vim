@@ -42,7 +42,8 @@ syn region confStanza matchgroup=confStanzaStart start=/^\[/ matchgroup=confStan
 syn cluster confStanzas contains=confOutputsStanzas,confGenericStanzas
 
 " outputs.conf
-syn match   confOutputsStanzas contained /\v<(default|indexAndForward|indexer_discovery:[^]]+|syslog(:[^]]+)?|tcpout(-server:\/\/\S+:\d+|:[^]]+)?)>/
+syn match   confOutputsStanzas contained /\v<(default|indexAndForward|indexer_discovery:[^]]+|syslog(:[^]]+)?|tcpout(-server:\/\/\S+:\d+|:[^]]+)?|remote_queue:\S+)>/
+
 syn match   confOutputs /\v<^(ackTimeoutOnShutdown|autoLB(Frequency|Volume)|backoffOnFailure|block(OnCloning|WarnThreshold)|channel(Reap(Interval|Lowater)|TTL))>/
 syn match   confOutputs /\v<^(cipherSuite|clientCert|compressed|(connection|read|write)Timeout|(cxn|rcv|send)_timeout|defaultGroup|(dnsResolution|secsInFailure)Interval|drop(Cloned)?EventsOnQueueFull)>/
 syn match   confOutputs /\v<^(ecdhCurves|forceTimebasedAutoLB|forwardedindex\.(\d+\.(black|white)list|filter\.disable)|heartbeatFrequency|index(AndForward|erDiscovery)?)>/
@@ -50,6 +51,13 @@ syn match   confOutputs /\v<^(master_uri|max(ConnectionsPerIndexer|(Event|Queue)
 syn match   confOutputs /\v<^(priority|selectiveIndexing|sendCookedData|server|socks(Password|ResolveDNS|Server|Username)|syslogSourceType|tcpSendBufSz)>/
 syn match   confOutputs /\v<^(ssl((Alt|Common)NameToCheck|(Cert|RootCA)Path|Cipher|Password|QuietShutdown|VerifyServerCert|Versions))>/
 syn match   confOutputs /\v<^(timestampformat|tlsHostname|token|type|use(ACK|ClientSSLCompression))>/
+
+" ----------
+"  7.1
+" ----------
+syn match   confOutputs /\v<^(remote_queue\.|remote_queue\.sqs\.((access|secret)_key|auth_region|endpoint|message_group_id|retry_policy|max_count\.max_retries_per_part|timeout\.(connect|read|write)))>/
+syn match   confOutputs /\v<^(remote_queue\.sqs\.(large_message_store\.(endpoint|path)|send_interval|max_queue_message_size|enable_(data_integrity_checks|signed_payloads)))>/
+syn match   confOutputs /\v<^(concurrentChannelLimit)>/
 
 syn match   confOutputsConstants /\v<(auto|NO_PRI|tcp|udp)$>/
 

@@ -52,6 +52,11 @@ syn match   confProps /\v<^(TIME(STAMP_FIELDS|_(FORMAT|PREFIX))|TRUNCATE|TZ(_ALI
 syn match   confProps /\v<^(_actions|category|description|detect_trailing_nulls|force_local_processing|given_type|initCrcLength|invalid_cause|is_valid)>/
 syn match   confProps /\v<^(maxDist|priority|pulldown_type|rename|sourcetype|unarchive_(cmd|sourcetype))>/
 
+" ----------
+"  7.1
+" ----------
+syn match   confProps /\v<^(DEPTH_LIMIT)>/
+
 syn match   confComplex /\v<^((EVAL|EXTRACT|FIELDALIAS|LOOKUP|REPORT|SEDCMD|SEGMENTATION|TRANSFORMS)-\w+)>/
 syn match   confComplex /\v<^(MORE|LESS)_THAN(\S+_)?\d+>/
 syn keyword confComplex AS OUTPUT OUTPUTNEW

@@ -46,7 +46,7 @@ syn match   confUserPrefsStanzas contained /\v<(default|general(_default)?|role_
 
 syn match   confUserPrefs /\v<^(datasets:showInstallDialog|dismissedInstrumentationOptInVersion|default_(namespace|(earliest|latest)_time))>/
 syn match   confUserPrefs /\v<^(hideInstrumentationOptInModal|tz|lang|install_source_checksum)>/
-syn match   confUserPrefs /\v<^(search_(assistant|auto_format|line_numbers|syntax_highlighting))>/
+syn match   confUserPrefs /\v<^(search_(assistant|auto_format|line_numbers|syntax_highlighting|use_advanced_editor))>/
 
 syn match   confUserPrefsConstants /\v<(full|compact|none|light|dark|black-white)$>/
 

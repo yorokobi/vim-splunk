@@ -74,6 +74,10 @@ augroup filetypedetect
 augroup END
 
 augroup filetypedetect
+    autocmd BufNewFile,BufRead health.conf setf spl_health
+augroup END
+
+augroup filetypedetect
     autocmd BufNewFile,BufRead indexes.conf setf spl_indexes
 augroup END
 

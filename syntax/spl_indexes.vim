@@ -48,7 +48,7 @@ syn match   confIndexes /\v<^(assureUTF8|bloomHomePath|bucketRebuildMemoryHint|c
 syn match   confIndexes /\v<^(compressRawdata|createBloomfilter|datatype|defaultDatabase|deleted|disable(d|GlobalMetadata))>/
 syn match   confIndexes /\v<^(enable(DataIntegrityControl|OnlineBucketRepair|RealtimeSearch|TsidxReduction)|lastChanceIndex)>/
 syn match   confIndexes /\v<^(frozenTimePeriodInSecs|homePath(\.maxDataSizeMB)?|hotBucketTimeRefreshInterval|inPlaceUpdates)>/
-syn match   confIndexes /\v<^(indexThreads|isReadOnly|journalCompression|max(BloomBackfillBucketAge|BucketSizeCacheEntries|ConcurrentOptimizes))>/
+syn match   confIndexes /\v<^((index|selfStorage)Threads|isReadOnly|journalCompression|max(BloomBackfillBucketAge|BucketSizeCacheEntries|ConcurrentOptimizes))>/
 syn match   confIndexes /\v<^(max((DataSize|GlobalDataSizeMB)|Hot(Buckets|(Idle|Span)Secs)|MemMB|MetaEntries))>/
 syn match   confIndexes /\v<^(max(RunningProcessGroups(LowPriority)?|TimeUnreplicated(NoAcks|WithAcks)|(Total|Volume)DataSizeMB|WarmDBCount))>/
 syn match   confIndexes /\v<^(memPoolMB|min(HotIdleSecsBeforeForceRoll|RawFileSyncSecs|StreamGroupQueueSize)|partialServiceMetaPeriod|path)>/
@@ -56,9 +56,11 @@ syn match   confIndexes /\v<^(processTrackerServiceInterval|quarantine(Future|Pa
 syn match   confIndexes /\v<^(recordreader\.(csv\.dialect|journal\.buffer\.size|name\.(conf_key|regex)))>/
 syn match   confIndexes /\v<^(remote\.s3\.(access_key|auth_region|cipherSuite|dhFile|ecdhCurves|encryption(\.sse-c\.key_(refresh_interval|type))?))>/
 syn match   confIndexes /\v<^(remote\.s3\.(endpoint|header\.[^\ |\=]+|kms\.(access_key|auth_region|key_id|max_concurrent_requests|secret_key|[^\ |\=]+)))>/
-syn match   confIndexes /\v<^(remote\.s3\.(multipart_(down|up)load\.part_size|secret_key|signature_version))>/
+syn match   confIndexes /\v<^(remote\.s3\.(multipart_((down|up)load\.part_size|max_connections)|secret_key|signature_version))>/
 syn match   confIndexes /\v<^(remote\.s3\.ssl((Alt|Common)NameToCheck|RootCAPath|VerifyServerCert|Versions))>/
 syn match   confIndexes /\v<^(remote\.s3\.(supports_versioning|timeout\.(connect|read|write)|use_delimiter)|remotePath|repFactor)>/
+syn match   confIndexes /\v<^(remote\.s3\.(enable_(data_integrity_checks|signed_payloads)|retry_policy|max_count\.max_retries_(per_part|in_total)))>/
+syn match   confIndexes /\v<^(archiver\.selfStorage(Provider|Bucket(Folder)?))>/
 syn match   confIndexes /\v<^(rotatePeriodInSecs|rtRouter(QueueSize|Threads)|service((InactiveIndexes|Meta|SubtaskTiming)Period|OnlyAsNeeded))>/
 syn match   confIndexes /\v<^(split(ByIndexKeys|ter\.file\.split\.(max|min)size|ter\.name\.conf_key)|storageType|streamingTargetTsidxSyncPeriodMsec)>/
 syn match   confIndexes /\v<^(summaryHomePath|suppressBannerList|suspendHotRollByDeleteQuery|sync(Meta)?|thawedPath|throttleCheckPeriod)>/
@@ -79,7 +81,7 @@ syn match   confIndexes /\v<^(vix\.unified\.search\.cutoff_sec|warmToColdScript)
 
 syn match   confIndexesConstants /\v<(auto(_high_volume)?|disable|excel(-tab)?|tsv|textfile|(sequence|rc)file|orc|gzip|lz4)$>/
 syn match   confIndexesConstants /\v<(stream|report|infinite|default|sse-(s3|kms|c)|none|local|remote|event|metric|kms|v(2|4))$>/
-syn match   confIndexesConstants /\v<(mtime|current)>/
+syn match   confIndexesConstants /\v<(mtime|current|max_count)$>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment

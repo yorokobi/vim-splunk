@@ -50,6 +50,11 @@ syn match   confTransforms /\v<^(allow_caching|batch_index_query|(case_sensitive
 syn match   confTransforms /\v<^(external_(cmd|type)|feature_id_element|(index_)?fields_list|filename|filter|match_type|max_ext_batch|(max|min)_(matches|offset_secs))>/
 syn match   confTransforms /\v<^(replicate|time_(field|format))>/
 
+" ----------
+"  7.1
+" ----------
+syn match   conftransforms /\v<^(DEPTH_LIMIT)>/
+
 syn match   confTransformsConstants /\v<(python|executable|kvstore|geo|queue|_(raw|meta|time|MetaData:Index|(TCP|SYSLOG)_ROUTING)|MetaData:(Host|Source(type)?))$>/
 
 syn match confComplex /\v<_(KEY|VAL)_\k+>/

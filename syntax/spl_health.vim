@@ -39,14 +39,14 @@ syn match confGenericStanzas display contained /\v[^\]]+/
 syn region confStanza matchgroup=confStanzaStart start=/^\[/ matchgroup=confStanzaEnd end=/\]/ oneline transparent contains=@confStanzas
 
 " Group clusters
-syn cluster confStanzas contains=confUserSeedStanzas,confGenericStanzas
+syn cluster confStanzas contains=confHealthStanzas,confGenericStanzas
 
-" user-seed.conf
-syn match   confUserSeedStanzas contained /\v<(user_info)>/
+" ui-tour.conf
+syn match   confHealthStanzas contained /\v<(default|health_reporter|clustering|feature:*)>/
 
-syn match   confUserSeed /\v<^(USERNAME|(HASHED_)?PASSWORD)>/
+syn match   confHealth /\v<^(full_health_log_interval|suppress_status_update_ms|health_report_period|disabled|indicator:\S+:(yellow|red))>/
 
-"syn match   confUserSeedConstants /\v<()$>/
+"syn match   confHealthConstants /\v<()>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment
@@ -66,6 +66,6 @@ hi def link confstanzaEnd Delimiter
 " Highlight for stanzas
 hi def link confStanza Function
 hi def link confGenericStanzas Constant
-hi def link confUserSeedStanzas Identifier
-hi def link confUserSeed Keyword
-"hi def link confUserSeedConstants Constant
+hi def link confHealthStanzas Identifier
+hi def link confHealth Keyword
+hi def link confHealthConstants Constant

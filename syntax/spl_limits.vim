@@ -50,6 +50,12 @@ syn match   confLimitsStanzas contained /\v<(search(_(info|metrics|optimization(
 syn match   confLimitsStanzas contained /\v<(search_optimization::(projection_elimination|replace_append_with_union|required_field_values|search_(flip|sort)_normalization))>/
 syn match   confLimitsStanzas contained /\v<(searchresults|set|show_source|slc|slow_peer_disconnect|sort|spath|(si|t)?stats|subsearch|summarize|system_checks|thruput)>/
 syn match   confLimitsStanzas contained /\v<(top|transactions|tscollect|type(ahead|r)|viewstates|xyseries)>/
+
+" --------------
+"  Splunk 7.1
+" --------------
+syn match   confLimitsStanzas  contained /\v<(scheduled_views|search_optimization::search_expansion|directives)>/
+
 syn match   confLimits /\v<^(DelayArchiveProcessorShutdown|action(_execution_threads|s_queue_(size|timeout))|add(_offset|_timestamp|peer_skew_limit))>/
 syn match   confLimits /\v<^(aggregate_metrics|alert(ing_period_ms|s_(expire_period|max_(count|history)|scoping)))>/
 syn match   confLimits /\v<^(allow_(batch_mode|event_summarization|inexact_metasearch|multiple_matching_users|old_summaries|reuse))>/
@@ -102,8 +108,20 @@ syn match   confLimits /\v<^(threads|threshold_(connection_life_time|data_volume
 syn match   confLimits /\v<^(tocsv_(maxretry|retryperiod_ms)|track_indextime_range|truncate_report|ttl|unified_search|use_(bloomfilter|cache|directives|dispatchtmp_dir|metadata_elimination))>/
 syn match   confLimits /\v<^(verify_delete|warn_on_missing_summaries|winningRate|write_multifile_results_out|zl_0_gridcell_(lat|long)span)>/
 
+" --------------
+"  Splunk 7.1
+" --------------
+syn match   confLimits /\v<^(results_queue_read_timeout_sec|search_retry|phased_execution_mode|depth_limit)>/
+syn match   confLimits /\v<^(check_search_marker_(done|sleep)_interval|monitornohandle_max_driver_(mem_mb|records))>/
+syn match   confLimits /\v<^(required_(tags|eventtypes)|read_summary|maxPrdSearchesPerCpu)>/
+
 syn match   confLimitsConstants /\v<(host|splunk_server|all|consec_not_needed|everything|enabled|disabled(SavedSearches)?|DEBUG|INFO|WARN|ERROR)$>/
 syn match   confLimitsConstants /\v<(log_only|(r|t)digest|nearest-rank|interpolated|yes|no|fromcontext|auto|traditional|debug\s+\S+\s+\S+|only|none)$>/
+
+" --------------
+"  Splunk 7.1
+" --------------
+syn match   confLimitsConstants /\v<((single|multi)threaded)$>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment

@@ -45,6 +45,7 @@ syn cluster confStanzas contains=confAuthorizeStanzas,confGenericStanzas
 syn match   confAuthorizeStanzas contained /\v<(default)>/
 syn match   confAuthorizeStanzas contained /\v<((role_|capability::)(accelerate_(datamodel|search)|admin_all_objects|change_(authentication|own_password)))>/
 syn match   confAuthorizeStanzas contained /\v<((role_|capability::)(delete_by_keyword|dispatch_rest_to_indexers|get_(diag|metadata|typeahead)))>/
+syn match   confAuthorizeStanzas contained /\v<((role_|capability::)(run_multi_phased_searches|never_(lockout|expire)))>/
 syn match   confAuthorizeStanzas contained /\v<((role_|capability::)edit_(deployment_(client|server)|dist_peer|encryption_key_provider|forwarders|httpauths))>/
 syn match   confAuthorizeStanzas contained /\v<((role_|capability::)edit_(indexer(_cluster|discovery)|input_defaults|monitor))>/
 syn match   confAuthorizeStanzas contained /\v<((role_|capability::)edit_(modinput_(win(host|net|print)mon|(perf|ad)mon)|roles(_grantable)?))>/
@@ -52,7 +53,7 @@ syn match   confAuthorizeStanzas contained /\v<((role_|capability::)edit_(script
 syn match   confAuthorizeStanzas contained /\v<((role_|capability::)edit_(server(_crl)?|sourcetypes|splunktcp(_ssl|_token)?|tcp|telemetry_settings|token_http))>/
 syn match   confAuthorizeStanzas contained /\v<((role_|capability::)edit_(udp|user|view_html|web_settings))>/
 syn match   confAuthorizeStanzas contained /\v<((role_|capability::)(export_results_is_visible|indexes_edit|input_file|license_(tab|edit|view_warnings)|web_debug))>/
-syn match   confAuthorizeStanzas contained /\v<((role_|capability::)list_(deployment_(client|server)|forwarders|httpauths|indexer(_cluster|discovery)|inputs))>/
+syn match   confAuthorizeStanzas contained /\v<((role_|capability::)list_(deployment_(client|server)|forwarders|httpauths|indexer(_cluster|discovery)|inputs|health|metrics_catalog))>/
 syn match   confAuthorizeStanzas contained /\v<((role_|capability::)list_(introspection|search_(head_clustering|scheduler)|settings|storage_passwords))>/
 syn match   confAuthorizeStanzas contained /\v<((role_|capability::)(output_file|request_remote_tok|rest_(apps_(management|view)|properties_(g|s)et)|restart_splunkd))>/
 syn match   confAuthorizeStanzas contained /\v<((role_|capability::)(rtsearch|run_debug_commands|schedule_(rt)?search|search(_process_config_refresh)?|use_file_operator|extra_x509_validation))>/

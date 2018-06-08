@@ -87,9 +87,20 @@ syn match   confServer /\v<^(supportSSLV3Only|tar_format|target_wait_time|throwO
 syn match   confServer /\v<^(use(((Splunkd)?ClientSSL|HTTP(Client|Server)|SSL)Compression|SslClientSessionCache)|use_batch_mask_changes|useragent|verbose(Level)?)>/
 syn match   confServer /\v<^(x_frame_options_sameorigin)>/
 
+" ----------
+"  7.1
+" ----------
+syn match   confServer /\v<^(rolling_restart|site_by_site|(decommission_force|restart_inactivity)_timeout|reporting_delay_period)>/
+syn match   confServer /\v<^(conf_replication_find_baseline\.use_bloomfilter_only|eviction_padding|max_size_kb)>/
+
 syn match   confServerConstants /\v<(Enterprise|Trial|Forwarder|Free|always|never|requireSetPassword|silent|primaries(_and_hot)?|all|auto|replace|none)$>/
 syn match   confServerConstants /\v<((4|6)-(first|only)|full|manifests|light|no|yes|only|on_ports_enabled|self|(dis|en)abled|searchhead|slave|master|MAX)$>/
 syn match   confServerConstants /\v<((gnu|us)tar|on-http(s)?|site([1-5]?[0-9]|6[0-3]))$>/
+
+" ----------
+"  7.1
+" ----------
+syn match   confServerConstants /\v<(restart|shutdown|searchable(_force)?)$>/
 
 syn match   confComplex /\v<^((EXCLUDE|SEARCHFILTER(LUHN|SIMPLE))-\w+)>/
 

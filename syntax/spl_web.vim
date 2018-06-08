@@ -65,6 +65,11 @@ syn match   confWeb /\v<^(tools\.(decode\.on|encode\.(encoding|on)|proxy\.(base|
 syn match   confWeb /\v<^(tools\.sessions\.timeout|tools\.staticdir\.generate_indexes|trap_module_exceptions|trustedIP|ui_inactivity_timeout|updateCheckerBaseURL)>/
 syn match   confWeb /\v<^(use_future_expires|userRegistrationURL|verifyCookiesWorkDuringLogin|version_label_format|x_frame_options_sameorigin)>/
 
+" ----------
+"  7.1
+" ----------
+syn match   confWeb /\v<^(dashboard_html_allow_iframes)>/
+
 syn match   confWebConstants /\v<(permissive|strict|auto|never|always|(N|n)one|Firebug|Server|no|yes|only|default|custom|Elastic|AllTime)$>/
 
 " Highlight definitions (generic)
