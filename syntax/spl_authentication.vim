@@ -44,6 +44,7 @@ syn cluster confStanzas contains=confAuthenticationStanzas,confGenericStanzas
 " authentication.conf
 syn match  confAuthenticationStanzas contained /\v<(default|authentication|roleMap_[^]]+|cacheTiming|splunk_auth|userToRoleMap_[^]]+)>/
 syn match  confAuthenticationStanzas contained /\v<(authenticationResponseAttrMap_SAML|proxysso-authsettings-key|secrets|duo-externalTwoFactorAuthSettings-key)>/
+syn match  confAuthentication /\v<(^(\S+)|(\s=\s))>/
 syn match  confAuthentication /\v<^(auth(Type|Settings)|passwordHashAlgorithm|externalTwoFactorAuth(Vendor|Settings)|host|SSLEnabled|port|bindDN(password)?|enablePasswordHistory|passwordHistoryCount|constantLoginTime)>/
 syn match  confAuthentication /\v<^((user|group)Base(DN|Filter)|((user|real)Name|email|group(Name|Mapping|Member))Attribute|network_timeout|forceWeakPasswordChange|lockout(Users|(Threshold)?Mins|Attempts))>/
 syn match  confAuthentication /\v<^(dynamic(GroupFilter|MemberAttribute)|nestedGroups|charset|anonymous_referrals|(size|time)limit|expire((Password|Alert)Days|UserAccounts))>/
