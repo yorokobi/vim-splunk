@@ -30,7 +30,7 @@ syn match  confPath   ,\v(^|\s|\=)\zsvolume:\k+(/+\k+)+,
 syn match  confVar    /\$\k\+\$/
 
 syn keyword confBoolean on off t[rue] f[alse] T[rue] F[alse]
-syn keyword confTodo FIXME[:] NOTE[:] TODO[:] contained
+syn keyword confTodo FIXME[:] NOTE[:] TODO[:] CAUTION[:] contained
 
 " Define generic stanzas
 syn match confGenericStanzas display contained /\v[^\]]+/
@@ -91,6 +91,9 @@ syn match   confSavedSearches /\v<^(search|sendresults|(user|vs)id)>/
 "  7.1
 " ----------
 syn match   confSavedSearches /\v<^(defer_scheduled_searchable_idxc)>/
+
+" 7.2.3
+syn match   confSavedSearches /\v<^(workload_pool)>/
 
 syn match   confSavedSearchesConstants /\v<(user|owner|inner|outer|full|none|raw|list|table|events|statistics|visualizations|fast|smart|verbose|patterns)$>/
 syn match   confSavedSearchesConstants /\v<(hidden|compact|full|line(ar)?|log|row|cell|color|number|expression|map|minMidMax|shared(Category|List)|auto)$>/

@@ -30,7 +30,7 @@ syn match  confPath   ,\v(^|\s|\=)\zsvolume:\k+(/+\k+)+,
 syn match  confVar    /\$\k\+\$/
 
 syn keyword confBoolean on off t[rue] f[alse] T[rue] F[alse]
-syn keyword confTodo FIXME[:] NOTE[:] TODO[:] contained
+syn keyword confTodo FIXME[:] NOTE[:] TODO[:] CAUTION[:] contained
 
 " Define generic stanzas
 syn match confGenericStanzas display contained /\v[^\]]+/
@@ -55,8 +55,11 @@ syn match   confAlertActions /\v<^(alert\.execute\.cmd(\.arg\.\d+)?|label|descri
 syn match   confAlertActions /\v<^(subject\.(alert|report)|message\.(report|alert)|footer\.text|include\.((results|view)_link|search|trigger|trigger_time))>/
 syn match   confAlertActions /\v<^(cipherSuite|ssl((Alt|Common)NameToCheck|VerifyServerCert|Versions))>/
 
+" 7.2.3
+syn match   confAlertActions /\v<^(forceCsvResults)>/
+
 syn match   confAlertActions_Constants /\v<(table|raw|logo|title|timestamp|pagination|none|csv|xml|json|description)$>/
-syn match   confAlertActions_Constants /\v<(html|plain|portrait|landscape|letter|legal|ledger|a(2|3|4|5))$>/
+syn match   confAlertActions_Constants /\v<(html|plain|portrait|landscape|letter|legal|ledger|a(2|3|4|5)|auto)$>/
 
 " etc/apps/alert_logevent/README/alert_actions.conf.spec
 syn match   confAlertActionsStanzas contained /\v<logevent>/

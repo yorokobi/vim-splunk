@@ -30,7 +30,7 @@ syn match  confPath   ,\v(^|\s|\=)\zsvolume:\k+(/+\k+)+,
 syn match  confVar    /\$\k\+\$/
 
 syn keyword confBoolean on off t[rue] f[alse] T[rue] F[alse]
-syn keyword confTodo FIXME[:] NOTE[:] TODO[:] contained
+syn keyword confTodo FIXME[:] NOTE[:] TODO[:] CAUTION[:] contained
 
 " Define generic stanzas
 syn match confGenericStanzas display contained /\v[^\]]+/
@@ -84,9 +84,16 @@ syn match   confInputs /\v<^(remote_queue\.sqs\.(timeout\.(connect|read|write|re
 syn match   confInputs /\v<^(remote_queue\.sqs\.(buffer\.visibility|min_pending_messages|large_message_store\.(endpoint|path)))>/
 syn match   confInputs /\v<^(channel(TTL|Reap(Interval|Lowater)))>/
 
+" 7.2.3
+syn match   confInputs /\v<^(maxEventSize|remote_queue\.type)>/
+syn match   confInputs /\v<^(remote_queue\.kinesis\.((access|secret)_key|auth_region|endpoint|retry_policy))>/
+syn match   confInputs /\v<^(remote_queue\.kinesis\.(max_count\.max_retries_per_part|timeout\.(connect|read|write)))>/
+syn match   confInputs /\v<^(remote_queue\.kinesis\.(max_(messages|checkpoints)|min_pending_messages|roll_remote_buckets_interval))>/
+syn match   confInputs /\v<^(remote_queue\.kinesis\.large_message_store\.(endpoint|path))>/
+
 syn match   confInputsConstants /\v<((parsing|index)Queue|auto|never|always|yes|no|only|(proxied_)?ip|dns|none|PDC|single|multikv|sinkhole)$>/
 syn match   confInputsconstants /\v<(connect|accept|transport|tcp|udp|has_key|absent_key:[^:]+:[^\ |\=]+|ipv(4|6)|(in|out)bound)$>/
-syn match   confInputsConstants /\v<(average|count|dev|min|max)$>/
+syn match   confInputsConstants /\v<(average|(max_)?count|dev|min|max|sqs|kinesis)$>/
 
 " Splunk_TA_okta
 syn match   confInputs /\v<^(url|token|(start|end)_date|metrics|(page|batch)_size)>/

@@ -30,7 +30,7 @@ syn match  confPath   ,\v(^|\s|\=)\zsvolume:\k+(/+\k+)+,
 syn match  confVar    /\$\k\+\$/
 
 syn keyword confBoolean on off t[rue] f[alse] T[rue] F[alse]
-syn keyword confTodo FIXME[:] NOTE[:] TODO[:] contained
+syn keyword confTodo FIXME[:] NOTE[:] TODO[:] CAUTION[:] contained
 
 " Define generic stanzas
 syn match confGenericStanzas display contained /\v[^\]]+/
@@ -54,7 +54,10 @@ syn match  confAuthentication /\v<^(skipAttributeQueryRequestForUsers|maxAttribu
 syn match  confAuthentication /\v<^(clientCert|ssl(RootCAPath|VerifyServerCert|Versions|(Alt|Common)NameToCheck|Keysfile(Password)?|Password)|ecdhCurve(s|Name))>/
 syn match  confAuthentication /\v<^(ca(CertFile|Path)|blacklisted(AutoMappedRoles|Users)|nameIdFormat|(sso|slo)Binding|(inboundS|s)ignatureAlgorithm)>/
 syn match  confAuthentication /\v<^(replicateCertificates|role|realName|mail|disabled|filename|namespace|apiHostname|integrationKey|(appS|s)ecretKey)>/
-syn match  confAuthentication /\v<^(failOpen|timeout|useClientSSLCompression)>/
+syn match  confAuthentication /\v<^(failOpen|timeout|useClientSSLCompression|messageOnError|sslVersionsForClient|enableMfaAuthRest)>/
+
+" 7.2.3
+syn match  confAuthentication /\v<^(verboseLoginFailMsg|authManagerUrl|accessKey|clientId)>/
 
 syn match  confAuthenticationConstants /\v<(Splunk|LDAP|Scripted|SAML|ProxySSO|(MD5|SHA(256|512))-crypt(-\d+)?|RSA-SHA(1|256))$>/
 

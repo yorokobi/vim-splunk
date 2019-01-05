@@ -30,7 +30,7 @@ syn match  confPath   ,\v(^|\s|\=)\zsvolume:\k+(/+\k+)+,
 syn match  confVar    /\$\k\+\$/
 
 syn keyword confBoolean on off t[rue] f[alse] T[rue] F[alse]
-syn keyword confTodo FIXME[:] NOTE[:] TODO[:] contained
+syn keyword confTodo FIXME[:] NOTE[:] TODO[:] CAUTION[:] contained
 
 " Define generic stanzas
 syn match confGenericStanzas display contained /\v[^\]]+/
@@ -115,7 +115,11 @@ syn match   confLimits /\v<^(results_queue_read_timeout_sec|search_retry|phased_
 syn match   confLimits /\v<^(check_search_marker_(done|sleep)_interval|monitornohandle_max_driver_(mem_mb|records))>/
 syn match   confLimits /\v<^(required_(tags|eventtypes)|read_summary|maxPrdSearchesPerCpu)>/
 
-syn match   confLimitsConstants /\v<(host|splunk_server|all|consec_not_needed|everything|enabled|disabled(SavedSearches)?|DEBUG|INFO|WARN|ERROR)$>/
+" 7.2.3
+syn match   confLimits /\v<^(results_(serial_format|compression_algorithm)|always_include_indexedfield_lispy)>/
+syn match   confLimits /\v<^(bucket_localize_(acquire_lock_timeout_sec|lookahead_priority_ratio)|srtemp_dir_ttl)>/
+
+syn match   confLimitsConstants /\v<(host|splunk_server|all|consec_not_needed|everything|enabled|disabled(SavedSearches)?|DEBUG|INFO|WARN|ERROR|csv|srs|gzip)$>/
 syn match   confLimitsConstants /\v<(log_only|(r|t)digest|nearest-rank|interpolated|yes|no|fromcontext|auto|traditional|debug\s+\S+\s+\S+|only|none)$>/
 
 " --------------

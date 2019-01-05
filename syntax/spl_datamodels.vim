@@ -30,7 +30,7 @@ syn match  confPath   ,\v(^|\s|\=)\zsvolume:\k+(/+\k+)+,
 syn match  confVar    /\$\k\+\$/
 
 syn keyword confBoolean on off t[rue] f[alse] T[rue] F[alse]
-syn keyword confTodo FIXME[:] NOTE[:] TODO[:] contained
+syn keyword confTodo FIXME[:] NOTE[:] TODO[:] CAUTION[:] contained
 
 " Define generic stanzas
 syn match confGenericStanzas display contained /\v[^\]]+/
@@ -47,6 +47,9 @@ syn match   confDatamodels /\v<^(acceleration(\.(earliest|backfill|max)_time|\.p
 syn match   confDatamodels /\v<^(acceleration\.(max_concurrent|schedule_priority|hunk\.(compression_codec|dfs_block_size|file_format)|allow_skew))>/
 syn match   confDatamodels /\v<^(dataset\.(description|type|commands|fields|display\.(diversity|sample_ratio|limiting|currentCommand|mode)))>/
 syn match   confDatamodels /\v<^(dataset\.display\.datasummary\.(earliest|latest)Time|tags_whitelist)>/
+
+" 7.2.3
+syn match   confDatamodels /\v<^(acceleration\.allow_old_summaries)>/
 
 syn match   confDatamodelsConstants /\v<(default|high(er|est)|latest|random|diverse|rare|data(model|summary)|table)$>/
 

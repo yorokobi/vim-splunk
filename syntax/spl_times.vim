@@ -30,7 +30,7 @@ syn match  confPath   ,\v(^|\s|\=)\zsvolume:\k+(/+\k+)+,
 syn match  confVar    /\$\k\+\$/
 
 syn keyword confBoolean on off t[rue] f[alse] T[rue] F[alse]
-syn keyword confTodo FIXME[:] NOTE[:] TODO[:] contained
+syn keyword confTodo FIXME[:] NOTE[:] TODO[:] CAUTION[:] contained
 
 " Define generic stanzas
 syn match confGenericStanzas display contained /\v[^\]]+/
@@ -42,8 +42,9 @@ syn region confStanza matchgroup=confStanzaStart start=/^\[/ matchgroup=confStan
 syn cluster confStanzas contains=confTimesStanzas,confGenericStanzas
 
 " times.conf
-syn match   confTimesStanzas contained /\v<(default)>/
-syn match   confTimes /\v<^((header_)?label|(earliest|latest)_time|order|(is_)?sub_menu)>/
+syn match   confTimesStanzas contained /\v<(default|settings)>/
+syn match   confTimes /\v<^((header_)?label|(earliest|latest)_time|order|(is_)?sub_menu|disabled)>/
+syn match   confTimes /\v<^(show_(advanced|date(time)?_range|presets|realtime|relative))>/
 
 "syn match   confTimesConstants /\v<()$>/
 

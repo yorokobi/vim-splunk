@@ -30,7 +30,7 @@ syn match  confPath   ,\v(^|\s|\=)\zsvolume:\k+(/+\k+)+,
 syn match  confVar    /\$\k\+\$/
 
 syn keyword confBoolean on off t[rue] f[alse] T[rue] F[alse]
-syn keyword confTodo FIXME[:] NOTE[:] TODO[:] contained
+syn keyword confTodo FIXME[:] NOTE[:] TODO[:] CAUTION[:] contained
 
 " Define generic stanzas
 syn match confGenericStanzas display contained /\v[^\]]+/
@@ -59,7 +59,15 @@ syn match   confOutputs /\v<^(remote_queue\.|remote_queue\.sqs\.((access|secret)
 syn match   confOutputs /\v<^(remote_queue\.sqs\.(large_message_store\.(endpoint|path)|send_interval|max_queue_message_size|enable_(data_integrity_checks|signed_payloads)))>/
 syn match   confOutputs /\v<^(concurrentChannelLimit)>/
 
-syn match   confOutputsConstants /\v<(auto|NO_PRI|tcp|udp)$>/
+syn match   confOutputsConstants /\v<(auto|NO_PRI|tcp|udp|max_count|none)$>/
+
+" 7.2.3
+syn match   confOutputs /\v<^(useSSL|remote_queue\.type|remote_queue\.kinesis\.((access|secret)_key|auth_region|endpoint))>/
+syn match   confOutputs /\v<^(remote_queue\.kinesis\.(enable_(data_integrity_checks|signed_payloads)|retry_policy))>/
+syn match   confOutputs /\v<^(remote_queue\.kinesis\.(max_count.max_retries_per_part|timeout\.(connect|read|write)))>/
+syn match   confOutputs /\v<^(remote_queue\.kinesis\.large_message_store\.(endpoint|path))>/
+syn match   confOutputs /\v<^(remote_queue\.kinesis\.(send_interval|max_queue_message_size))>/
+syn match   confOutputsConstants /\v<(legacy|sqs|kinesis)$>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment

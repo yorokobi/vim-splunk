@@ -214,6 +214,14 @@ augroup filetypedetect
 augroup END
 
 augroup filetypedetect
+    autocmd BufNewFile,BufRead workload_pools.conf setf spl_workload_pools
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead workload_rules.conf setf spl_workload_rules
+augroup END
+
+augroup filetypedetect
     autocmd BufNewFile,BufRead workflow_actions.conf setf spl_workflow_actions
 augroup END
 

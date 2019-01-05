@@ -30,7 +30,7 @@ syn match  confPath   ,\v(^|\s|\=)\zsvolume:\k+(/+\k+)+,
 syn match  confVar    /\$\k\+\$/
 
 syn keyword confBoolean on off t[rue] f[alse] T[rue] F[alse]
-syn keyword confTodo FIXME[:] NOTE[:] TODO[:] contained
+syn keyword confTodo FIXME[:] NOTE[:] TODO[:] CAUTION[:] contained
 
 " Define generic stanzas
 syn match confGenericStanzas display contained /\v[^\]]+/
@@ -87,12 +87,6 @@ syn match   confServer /\v<^(supportSSLV3Only|tar_format|target_wait_time|throwO
 syn match   confServer /\v<^(use(((Splunkd)?ClientSSL|HTTP(Client|Server)|SSL)Compression|SslClientSessionCache)|use_batch_mask_changes|useragent|verbose(Level)?)>/
 syn match   confServer /\v<^(x_frame_options_sameorigin)>/
 
-" ----------
-"  7.1
-" ----------
-syn match   confServer /\v<^(rolling_restart|site_by_site|(decommission_force|restart_inactivity)_timeout|reporting_delay_period)>/
-syn match   confServer /\v<^(conf_replication_find_baseline\.use_bloomfilter_only|eviction_padding|max_size_kb)>/
-
 syn match   confServerConstants /\v<(Enterprise|Trial|Forwarder|Free|always|never|requireSetPassword|silent|primaries(_and_hot)?|all|auto|replace|none)$>/
 syn match   confServerConstants /\v<((4|6)-(first|only)|full|manifests|light|no|yes|only|on_ports_enabled|self|(dis|en)abled|searchhead|slave|master|MAX)$>/
 syn match   confServerConstants /\v<((gnu|us)tar|on-http(s)?|site([1-5]?[0-9]|6[0-3]))$>/
@@ -100,9 +94,29 @@ syn match   confServerConstants /\v<((gnu|us)tar|on-http(s)?|site([1-5]?[0-9]|6[
 " ----------
 "  7.1
 " ----------
-syn match   confServerConstants /\v<(restart|shutdown|searchable(_force)?)$>/
+syn match   confServer /\v<^(rolling_restart|site_by_site|(decommission_force|restart_inactivity)_timeout|reporting_delay_period)>/
+syn match   confServer /\v<^(conf_replication_find_baseline\.use_bloomfilter_only|eviction_padding|max_size_kb)>/
 
+syn match   confServerConstants /\v<(restart|shutdown|searchable(_force)?)$>/
 syn match   confComplex /\v<^((EXCLUDE|SEARCHFILTER(LUHN|SIMPLE))-\w+)>/
+
+" 7.2.3
+syn match   confServer /\v<^(legacyCiphers|splunkd_stop_timeout|sslRootCAPathHonoredOnWindows|decommission_node_force_timeout)>/
+syn match   confServer /\v<^(constrain_singlesite_buckets|max_nonhot_rep_kBps|signatureVersion|enable_eviction_priorities|token)>/
+syn match   confServer /\v<^(max_cache_size|responseTimeout|actions(Interval)?|pstacksEndpoint|reaperThread|dumpAllThreads)>/
+syn match   confServer /\v<^(stacksBufferSizeOrder|maxStacksPerBlock|path|useShell|forceStop(OnShutdown)?|uri|refresh_interval)>/
+syn match   confServer /\v<^(remote\.s3\.header\.(GET|PUT|ALL)\.\S+|remote\.s3\.(access|secret)_key)>/
+syn match   confServer /\v<^(remote\.s3\.((list_objects|signature)_version|auth_region|use_delimiter|endpoint))>/
+syn match   confServer /\v<^(remote\.s3\.(supports_versioning|retry_policy|multipart_(up|down)load\.part_size))>/
+syn match   confServer /\v<^(remote\.s3\.(multipart_max_connections|max_count\.max_retries_(per_part|in_total)))>/
+syn match   confServer /\v<^(remote\.s3\.(timeout\.(connect|read|write)|ssl(VerifyServerCert|Versions|(Common|Alt)NameToCheck|RootCAPath)))>/
+syn match   confServer /\v<^(remote\.s3\.(cipherSuite|ecdhCurves|dhFile|encryption(\.sse-(s3|c\.key_(type|refresh_interval)))?))>/
+syn match   confServer /\v<^(remote\.s3\.kms\.(key_id|(access|secret)_key|auth_region|max_concurrent_requests|cipherSuite))>/
+syn match   confServer /\v<^(remote\.s3\.kms\.ssl(VerifyServerCert|Versions|RootCAPath|(Alt|Common)NameToCheck))>/
+syn match   confServer /\v<^(remote\.s3\.kms\.(ecdhCurves|dhFile))>/
+syn match   confServerConstants /\v<(decryptOnly|max_count|sse-(s3|kms|c)|kms)$>/
+syn match   confServerStanzas contained /\v<(node_auth|watchdog(:timeouts)?|watchdogaction:(pstacks|script)|(rendezvous|bucket_catalog)_service)>/
+syn match   confServerStanzas contained /\v<(search_artifact_remote_storage)>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment

@@ -30,7 +30,7 @@ syn match  confPath   ,\v(^|\s|\=)\zsvolume:\k+(/+\k+)+,
 syn match  confVar    /\$\k\+\$/
 
 syn keyword confBoolean on off t[rue] f[alse] T[rue] F[alse]
-syn keyword confTodo FIXME[:] NOTE[:] TODO[:] contained
+syn keyword confTodo FIXME[:] NOTE[:] TODO[:] CAUTION[:] contained
 
 " Define generic stanzas
 syn match confGenericStanzas display contained /\v[^\]]+/
@@ -63,8 +63,11 @@ syn keyword confComplex AS OUTPUT OUTPUTNEW
 
 syn match   confPropsConstants /\v<((endpoint|entire)_md5|modtime|always|firstline|none|auto(_escaped)?|multi|STATSD|COLLECTD_HTTP)$>/
 
+" 7.2.3
+syn match   confProps /\v<^(METRIC-SCHEMA-TRANSFORMS)>/
+
 syn case ignore
-syn match   confPropsConstants /\v<((c|t|p)sv|w3c|json|xml)$>/
+syn match   confPropsConstants /\v<((c|t|p)sv|w3c|json|xml|hec)$>/
 syn case match
 
 " Highlight definitions (generic)

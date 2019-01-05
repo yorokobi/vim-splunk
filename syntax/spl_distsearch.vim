@@ -30,7 +30,7 @@ syn match  confPath   ,\v(^|\s|\=)\zsvolume:\k+(/+\k+)+,
 syn match  confVar    /\$\k\+\$/
 
 syn keyword confBoolean on off t[rue] f[alse] T[rue] F[alse]
-syn keyword confTodo FIXME[:] NOTE[:] TODO[:] contained
+syn keyword confTodo FIXME[:] NOTE[:] TODO[:] CAUTION[:] contained
 
 " Define generic stanzas
 syn match confGenericStanzas display contained /\v[^\]]+/
@@ -52,7 +52,11 @@ syn match   confDistSearch /\v<^(certDir|(public|private)Key|genKeyScript|allow(
 syn match   confDistSearch /\v<^((max(Memory)?Bundle|concerningReplicatedFile|excludeReplicatedLookup)Size)>/
 syn match   confDistSearch /\v<^(replicate\.[^\ |\=]+|mounted_bundles|bundles_location|default)>/
 
-syn match   confDistSearchConstants /\v<(auto|always|http(s)?)$>/
+" 7.2.3
+syn match   confDistSearch /\v<^(useDisabledListAsBlacklist|enableRFSMonitoring|rfsMonitoringPeriod|rfsSyncReplicationTimeout)>/
+syn match   confDistSearch /\v<^(path|remote\.s3\.(endpoint|encryption))>/
+
+syn match   confDistSearchConstants /\v<(auto|always|http(s)?|sse-s3|none)$>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment

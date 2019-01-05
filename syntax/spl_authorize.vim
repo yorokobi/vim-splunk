@@ -30,7 +30,7 @@ syn match  confPath   ,\v(^|\s|\=)\zsvolume:\k+(/+\k+)+,
 syn match  confVar    /\$\k\+\$/
 
 syn keyword confBoolean on off t[rue] f[alse] T[rue] F[alse]
-syn keyword confTodo FIXME[:] NOTE[:] TODO[:] contained
+syn keyword confTodo FIXME[:] NOTE[:] TODO[:] CAUTION[:] contained
 
 " Define generic stanzas
 syn match confGenericStanzas display contained /\v[^\]]+/
@@ -57,6 +57,11 @@ syn match   confAuthorizeStanzas contained /\v<((role_|capability::)list_(deploy
 syn match   confAuthorizeStanzas contained /\v<((role_|capability::)list_(introspection|search_(head_clustering|scheduler)|settings|storage_passwords))>/
 syn match   confAuthorizeStanzas contained /\v<((role_|capability::)(output_file|request_remote_tok|rest_(apps_(management|view)|properties_(g|s)et)|restart_splunkd))>/
 syn match   confAuthorizeStanzas contained /\v<((role_|capability::)(rtsearch|run_debug_commands|schedule_(rt)?search|search(_process_config_refresh)?|use_file_operator|extra_x509_validation))>/
+
+" 7.2.3
+syn match   confAuthorizeStanzas contained /\v<((role_|capability::)(request_pstacks|edit_health|run_(m)?collect))>/
+syn match   confAuthorizeStanzas contained /\v<((role_|capability::)(edit_(statsd_transforms|metric_schema)|(edit|list|select)_workload_pools|(list|edit)_workload_rules))>/
+
 syn match   confAuthorize /\v<^(srch(Filter(Selecting)?|TimeWin|(Disk|Jobs)Quota|MaxTime|Indexes(Default|Allowed)))>/
 syn match   confAuthorize /\v<^(rtSrchJobsQuota|(import|grantable)Roles|deleteIndexesAllowed|cumulative(Srch|RTSrch)JobsQuota)>/
 syn match   confAuthorizeCaps /\v<^((accelerate_(datamodel|search)|admin_all_objects|change_(authentication|own_password)))>/

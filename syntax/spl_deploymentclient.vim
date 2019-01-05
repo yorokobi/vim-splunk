@@ -30,7 +30,7 @@ syn match  confPath   ,\v(^|\s|\=)\zsvolume:\k+(/+\k+)+,
 syn match  confVar    /\$\k\+\$/
 
 syn keyword confBoolean on off t[rue] f[alse] T[rue] F[alse]
-syn keyword confTodo FIXME[:] NOTE[:] TODO[:] contained
+syn keyword confTodo FIXME[:] NOTE[:] TODO[:] CAUTION[:] contained
 
 " Define generic stanzas
 syn match confGenericStanzas display contained /\v[^\]]+/
@@ -47,6 +47,9 @@ syn match   confDeploymentClient /\v<^(disabled|clientName|workingDir|repository
 syn match   confDeploymentClient /\v<^(serverEndpointPolicy|phoneHomeIntervalInSecs|handshakeRe(tryIntervalInSecs|plySubscriptionRetry))>/
 syn match   confDeploymentClient /\v<^(appEventsResyncIntervalInSecs|reloadDSOnAppInstall|ssl(Versions|VerifyServerCert|(Common|Alt)NameToCheck))>/
 syn match   confDeploymentClient /\v<^(caCertFile|cipherSuite|ecdhCurves|targetUri)>/
+
+" 7.2.3
+syn match   confDeploymentClient /\v<^((connect|send|recv)_timeout)>/
 
 syn match   confDeploymentClientConstants /\v<(accept(SplunkHome|Always)|rejectAlways)$>/
 

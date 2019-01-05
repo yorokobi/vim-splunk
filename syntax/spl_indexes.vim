@@ -30,7 +30,7 @@ syn match  confPath   ,\v(^|\s|\=)\zsvolume:\k+(/+\k+)+,
 syn match  confVar    /\$\k\+\$/
 
 syn keyword confBoolean on off t[rue] f[alse] T[rue] F[alse]
-syn keyword confTodo FIXME[:] NOTE[:] TODO[:] contained
+syn keyword confTodo FIXME[:] NOTE[:] TODO[:] CAUTION[:] contained
 
 " Define generic stanzas
 syn match confGenericStanzas display contained /\v[^\]]+/
@@ -79,8 +79,13 @@ syn match   confIndexes /\v<^(vix\.splunk\.setup\.bundle\.(max\.inactive\.wait|p
 syn match   confIndexes /\v<^(vix\.splunk\.setup\.(onsearch|package(\.max\.inactive\.wait|\.poll\.interval|\.replication|\.setup\.timelimit)?))>/
 syn match   confIndexes /\v<^(vix\.unified\.search\.cutoff_sec|warmToColdScript)>/
 
-syn match   confIndexesConstants /\v<(auto(_high_volume)?|disable|excel(-tab)?|tsv|textfile|(sequence|rc)file|orc|gzip|lz4)$>/
-syn match   confIndexesConstants /\v<(stream|report|infinite|default|sse-(s3|kms|c)|none|local|remote|event|metric|kms|v(2|4))$>/
+" 7.2.3
+syn match   confIndexes /\v<^(bucketMerging|bucketMerge\.((min|max)MergeSizeMB|maxMergeTimeGapSecs)|hotlist_(recency_secs|bloom_filter_recency_hours))>/
+syn match   confIndexes /\v<^(tsidxWritingLevel|archiver\.(coldStorage(Provider|RetentionPeriod)|enableDataArchive|maxDataArchiveRetentionPeriod))>/
+syn match   confIndexes /\v<^(remote\.s3\.list_objects_version)>/
+
+syn match   confIndexesConstants /\v<(auto(_high_volume)?|disable|excel(-tab)?|tsv|(text|sequence|rc)file|orc|gzip|lz4|zstd)$>/
+syn match   confIndexesConstants /\v<(stream|report|infinite|default|sse-(s3|kms|c)|none|local|remote|event|metric|kms|v(1|2|4))$>/
 syn match   confIndexesConstants /\v<(mtime|current|max_count)$>/
 
 " Highlight definitions (generic)
