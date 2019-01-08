@@ -63,11 +63,11 @@ syn match   confAlertActions_Constants /\v<(html|plain|portrait|landscape|letter
 
 " etc/apps/alert_logevent/README/alert_actions.conf.spec
 syn match   confAlertActionsStanzas contained /\v<logevent>/
-syn match   confAlertActions /\v<param\.(event|host|source(type)?|index)>/
+syn match   confAlertActions /\v<^(param\.(event|host|source(type)?|index))>/
 
 " etc/apps/alert_webhook/README/alert_actions.conf.spec
 syn match   confAlertActionsStanzas contained /\v<webhook>/
-syn keyword confAlertActions param.user_agent
+syn match   confAlertActions /\v<^(param.user_agent)>/
 
 " Splunk_TA_okta
 syn match   confAlertActions /\v<^(param\.(action|user_(id|name)|group_(id|name)))>/
