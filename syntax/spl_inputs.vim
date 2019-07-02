@@ -95,6 +95,10 @@ syn match   confInputsConstants /\v<((parsing|index)Queue|auto|never|always|yes|
 syn match   confInputsconstants /\v<(connect|accept|transport|tcp|udp|has_key|absent_key:[^:]+:[^\ |\=]+|ipv(4|6)|(in|out)bound)$>/
 syn match   confInputsConstants /\v<(average|(max_)?count|dev|min|max|sqs|kinesis)$>/
 
+" 7.3.0
+syn match   confInputs /\v<^(log_on_completion|useSSLCompression|use(WinApiProcStats|PDHFmtNoCap100)|run_introspection)>/
+syn match   confInputs /\v<^(remote_queue\.((sqs|kinesis)\.executor_max_workers_count|large_message_store\.supports_versioning))>/
+
 " Splunk_TA_okta
 syn match   confInputs /\v<^(url|token|(start|end)_date|metrics|(page|batch)_size)>/
 

@@ -55,7 +55,7 @@ syn match   confTransforms /\v<^(replicate|time_(field|format))>/
 " ----------
 syn match   confTransforms /\v<^(DEPTH_LIMIT)>/
 
-syn match   confTransformsConstants /\v<(python|executable|kvstore|geo|queue|_(raw|meta|time|MetaData:Index|(TCP|SYSLOG)_ROUTING)|MetaData:(Host|Source(type)?))$>/
+syn match   confTransformsConstants /\v<(python|executable|kvstore|geo(_hex)?|queue|_(raw|meta|time|MetaData:Index|(TCP|SYSLOG)_ROUTING)|MetaData:(Host|Source(type)?))$>/
 
 syn match confComplex /\v<_(KEY|VAL)_\k+>/
 

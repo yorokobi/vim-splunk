@@ -103,6 +103,10 @@ syn match   confSavedSearchesConstants /\v<(stacked(100)?|minimal|shiny|standard
 syn match   confSavedSearchesConstants /\v<(marker|choropleth|value|trend|block|inverse|absolute|large|medium|small|custom|mapping|singlevalue|charting)$>/
 syn match   confSavedSearchesConstants /\v<((greater|less)\ than|(not\ )?equal\ to|(drops|rises)\ by|high(er|est))$>/
 
+" 7.3.0
+syn match   confSavedSearches /\v<^(auto_summarize\.workload_pool|display\.visualizations\.charting\.fieldColors|federated\.provider)>/
+syn match   confSavedSearchesConstants /\v<(number\ of\ (events|hosts|sources)|always)$>/
+
 " alert_logevent
 " etc/apps/alert_logevent/README/savedsearches.conf.spec
 syn match   confSavedSearches /\v<action\.(logevent(\.param\.(event|host|source(type)?|index))|log_event)>/

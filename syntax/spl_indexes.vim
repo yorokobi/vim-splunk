@@ -88,6 +88,9 @@ syn match   confIndexesConstants /\v<(auto(_high_volume)?|disable|excel(-tab)?|t
 syn match   confIndexesConstants /\v<(stream|report|infinite|default|sse-(s3|kms|c)|none|local|remote|event|metric|kms|v(1|2|4))$>/
 syn match   confIndexesConstants /\v<(mtime|current|max_count)$>/
 
+" 7.3.0
+syn match   confIndexes /\v<^(malformedEventIndex|maxGlobalRawDataSizeMB)>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

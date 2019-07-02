@@ -42,11 +42,10 @@ syn region confStanza matchgroup=confStanzaStart start=/^\[/ matchgroup=confStan
 syn cluster confStanzas contains=confWorkLoadPoolsStanzas,confGenericStanzas
 
 " workload_pools.conf
-syn match   confWorkLoadPoolsStanzas contained /\v<(default|general|workload_pool:[^]]+)>/
+syn match   confWorkLoadPoolsStanzas contained /\v<(general|workload_pool:[^\]]+|workload_category:[^\]]+)>/
 
 syn match   confWorkLoadPools /\v<^(enabled|(default|ingest)_pool|workload_pool_base_dir_name|(cpu|mem)_weight)>/
-
-syn match   confWorkLoadPoolsConstants /\v<()$>/
+syn match   confWorkLoadPools /\v<^(category|default_category_pool)>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment

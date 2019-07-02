@@ -53,6 +53,9 @@ syn match   confDatamodels /\v<^(acceleration\.allow_old_summaries)>/
 
 syn match   confDatamodelsConstants /\v<(default|high(er|est)|latest|random|diverse|rare|data(model|summary)|table)$>/
 
+" 7.3.0
+syn match   confDatamodels /\v<^(acceleration\.workload_pool)>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

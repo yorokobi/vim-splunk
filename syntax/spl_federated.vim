@@ -39,27 +39,14 @@ syn match confGenericStanzas display contained /\v[^\]]+/
 syn region confStanza matchgroup=confStanzaStart start=/^\[/ matchgroup=confStanzaEnd end=/\]/ oneline transparent contains=@confStanzas
 
 " Group clusters
-syn cluster confStanzas contains=confDistSearchStanzas,confGenericStanzas
+syn cluster confStanzas contains=confFederatedStanzas,confGenericStanzas
 
-" distsearch.conf
-syn match   confDistSearchStanzas contained /\v<(default|distributedSearch(:[^]]+)?|tokenExchKeys|replication(Settings(:refineConf)?|(White|Black)list))>/
-syn match   confDistSearchStanzas contained /\v<(bundleEnforcer(Black|White)list|searchhead:[^]]+)>/
-syn match   confDistSearch /\v<^(disabled|heartbeat(McastAddr|Port|Frequency)|ttl|statusTimeout|removedTimedOutServers|checkTimedOutServersFrequency)>/
-syn match   confDistSearch /\v<^(autoAddServers|bestEffortSearch|skipOurselves|(disabled_|quarantined_)?servers|shareBundles|useSHPBundleReplication)>/
-syn match   confDistSearch /\v<^(trySSLFirst|(peerResolution|replication)Threads|defaultUriScheme)>/
-syn match   confDistSearch /\v<^((sendRcv|server|connection|send|receive|(authToken(Connection|Send|Receive)))Timeout)>/
-syn match   confDistSearch /\v<^(certDir|(public|private)Key|genKeyScript|allow(SkipEncoding|(Stream|Delta)Upload)|sanitizeMetaFiles)>/
-syn match   confDistSearch /\v<^((max(Memory)?Bundle|concerningReplicatedFile|excludeReplicatedLookup)Size)>/
-syn match   confDistSearch /\v<^(replicate\.[^\ |\=]+|mounted_bundles|bundles_location|default)>/
+" federated.conf
+"syn match   confFederatedStanzas contained /\v<()>/
 
-" 7.2.3
-syn match   confDistSearch /\v<^(useDisabledListAsBlacklist|enableRFSMonitoring|rfsMonitoringPeriod|rfsSyncReplicationTimeout)>/
-syn match   confDistSearch /\v<^(path|remote\.s3\.(endpoint|encryption))>/
+syn match   confFederated /\v<^(type|ip|splunk\.(port|serviceAccount|app))>/
 
-syn match   confDistSearchConstants /\v<(auto|always|http(s)?|sse-s3|none)$>/
-
-" 7.3.0
-syn match   confDistSearch /\v<^(bcs(Path)?|enableRFSReplication)>/
+"syn match   confFederatedConstants /\v<()$>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment
@@ -79,6 +66,6 @@ hi def link confstanzaEnd Delimiter
 " Highlight for stanzas
 hi def link confStanza Function
 hi def link confGenericStanzas Constant
-hi def link confDistSearchStanzas Identifier
-hi def link confDistSearch Keyword
-hi def link confDistSearchConstants Constant
+hi def link confFederatedStanzas Identifier
+hi def link confFederated Keyword
+hi def link confFederatedConstants Constant

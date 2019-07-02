@@ -72,6 +72,9 @@ syn match   confWeb /\v<^(dashboard_html_allow_iframes)>/
 
 syn match   confWebConstants /\v<(permissive|strict|auto|never|always|(N|n)one|Firebug|Server|no|yes|only|default|custom|Elastic|AllTime)$>/
 
+" 7.3.0
+syn match   confWeb /\v<^(splunk_dashboard_app_name)>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

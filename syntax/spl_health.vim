@@ -41,12 +41,16 @@ syn region confStanza matchgroup=confStanzaStart start=/^\[/ matchgroup=confStan
 " Group clusters
 syn cluster confStanzas contains=confHealthStanzas,confGenericStanzas
 
-" ui-tour.conf
+" health.conf
 syn match   confHealthStanzas contained /\v<(default|health_reporter|clustering|feature:*)>/
 
 syn match   confHealth /\v<^(full_health_log_interval|suppress_status_update_ms|health_report_period|disabled|indicator:\S+:(yellow|red))>/
 
-"syn match   confHealthConstants /\v<()>/
+" 7.3.0
+syn match   confHealth /\v<^(alert\.(disabled|actions|min_duration_sec|threshold_color|suppress_period)|display_name)>/
+syn match   confHealth /\v<^(indicator:\S+:description|alert:\S+\.(disabled|min_duration_sec|threshold_color)|action\.\S+)>/
+
+syn match   confHealthConstants /\v<(yellow|red)$>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment

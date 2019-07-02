@@ -64,6 +64,13 @@ syn match   confAuthorizeStanzas contained /\v<((role_|capability::)(edit_(stats
 
 syn match   confAuthorize /\v<^(srch(Filter(Selecting)?|TimeWin|(Disk|Jobs)Quota|MaxTime|Indexes(Default|Allowed)))>/
 syn match   confAuthorize /\v<^(rtSrchJobsQuota|(import|grantable)Roles|deleteIndexesAllowed|cumulative(Srch|RTSrch)JobsQuota)>/
+" 7.3.0
+syn match   confAuthorizeStanzas contained /\v<((role_|capability::)edit_(tokens_(all|own|settings)|watchdog|local_apps))>/
+syn match   confAuthorizeStanzas contained /\v<((role_|capability::)edit_(search_concurrency_(all|scheduled)|metrics_rollup))>/
+syn match   confAuthorizeStanzas contained /\v<((role_|capability::)list_(pipeline_sets|tokens_(all|own)))>/
+syn match   confAuthorizeStanzas contained /\v<((role_|capability::)(upload_lookup_files|apps_restore|fsh_(search|manage)))>/
+syn match   confAuthorize /\v<^(federatedProviders|expiration|disabled)>/
+
 syn match   confAuthorizeCaps /\v<^((accelerate_(datamodel|search)|admin_all_objects|change_(authentication|own_password)))>/
 syn match   confAuthorizeCaps /\v<^((delete_by_keyword|dispatch_rest_to_indexers|get_(diag|metadata|typeahead)))>/
 syn match   confAuthorizeCaps /\v<^(edit_(deployment_(client|server)|dist_peer|encryption_key_provider|forwarders|httpauths))>/
@@ -77,6 +84,12 @@ syn match   confAuthorizeCaps /\v<^(list_(deployment_(client|server)|forwarders|
 syn match   confAuthorizeCaps /\v<^(list_(introspection|search_(head_clustering|scheduler)|settings|storage_passwords))>/
 syn match   confAuthorizeCaps /\v<^((output_file|request_remote_tok|rest_(apps_(management|view)|properties_(g|s)et)|restart_splunkd))>/
 syn match   confAuthorizeCaps /\v<^((rtsearch|run_debug_commands|schedule_(rt)?search|search(_process_config_refresh)?|use_file_operator))>/
+
+" 7.3.0
+syn match   confAuthorizeCaps /\v<^(edit_(tokens_(all|own|settings)|watchdog|local_apps))>/
+syn match   confAuthorizeCaps /\v<^(edit_(search_concurrency_(all|scheduled)|metrics_rollup))>/
+syn match   confAuthorizeCaps /\v<^(list_(pipeline_sets|tokens_(all|own)))>/
+syn match   confAuthorizeCaps /\v<^((upload_lookup_files|apps_restore|fsh_(search|manage)))>/
 
 syn match   confAuthorizeConstants /\v<(enabled|disabled)$>/
 

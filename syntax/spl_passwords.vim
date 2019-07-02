@@ -42,7 +42,7 @@ syn region confStanza matchgroup=confStanzaStart start=/^\[/ matchgroup=confStan
 syn cluster confStanzas contains=confPasswordsStanzas,confGenericStanzas
 
 " passwords.conf
-syn match   confPasswordsStanzas contained /\v<(default)>/
+syn match   confPasswordsStanzas contained /\v<(credential:[^\]]+)>/
 syn match   confPasswords /\v<^(password)>/
 
 syn match   confPasswordsConstants /\v<()$>/

@@ -70,6 +70,14 @@ augroup filetypedetect
 augroup END
 
 augroup filetypedetect
+    autocmd BufNewFile,BufRead federated.conf setf spl_federated
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead fshpasswords.conf setf spl_fshpasswords
+augroup END
+
+augroup filetypedetect
     autocmd BufNewFile,BufRead fields.conf setf spl_fields
 augroup END
 
@@ -103,6 +111,10 @@ augroup END
 
 augroup filetypedetect
     autocmd BufNewFile,BufRead messages.conf setf spl_messages
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead metric_rollups.conf setf spl_metric_rollups
 augroup END
 
 augroup filetypedetect
@@ -214,15 +226,15 @@ augroup filetypedetect
 augroup END
 
 augroup filetypedetect
+    autocmd BufNewFile,BufRead workflow_actions.conf setf spl_workflow_actions
+augroup END
+
+augroup filetypedetect
     autocmd BufNewFile,BufRead workload_pools.conf setf spl_workload_pools
 augroup END
 
 augroup filetypedetect
     autocmd BufNewFile,BufRead workload_rules.conf setf spl_workload_rules
-augroup END
-
-augroup filetypedetect
-    autocmd BufNewFile,BufRead workflow_actions.conf setf spl_workflow_actions
 augroup END
 
 augroup filetypedetect

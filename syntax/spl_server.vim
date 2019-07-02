@@ -118,6 +118,22 @@ syn match   confServerConstants /\v<(decryptOnly|max_count|sse-(s3|kms|c)|kms)$>
 syn match   confServerStanzas contained /\v<(node_auth|watchdog(:timeouts)?|watchdogaction:(pstacks|script)|(rendezvous|bucket_catalog)_service)>/
 syn match   confServerStanzas contained /\v<(search_artifact_remote_storage)>/
 
+" 7.3.0
+syn match   confServerStanzas contained /\v<(dfs(_security)?|introspection:distributed-indexes|app_backup)>/
+
+syn match   confServer /\v<^(pipelineSet(SelectionPolicy|WeightsUpdatePeriod|NumTrackingPeriods)|sslServerHandshakeTimeout)>/
+syn match   confServer /\v<^(tls_(enabled|protocol)|override_default_certificate|use_(spark_security_configs|node_specific_certificates))>/
+syn match   confServer /\v<^(verify_search_peer_to_dfw_client_certificate|legacy_ca_certificate_folder|dfs_(key|trust)store_path)>/
+syn match   confServer /\v<^(search_peer_to_dfw_(common|alt)_name_list|df(c|s|w)_(key|trust)store_password|df(c|s|w)_key_password|df(c|w)_(key|trust)store_path)>/
+syn match   confServer /\v<^(proxy_rules|deferred_cluster_status_update|backup_path)>/
+syn match   confServer /\v<^(rebalance_(pipeline_batch_size|(primary_failover|newgen_propagation|search_completion)_timeout)|searchable_rebalance)>/
+syn match   confServer /\v<^(use_batch_remote_rep_changes|operationStatsCollectionPeriodInSecs)>/
+syn match   confServer /\v<^(dfc_ip_address|extra_kryo_registered_classes|spark_master_(host|webui_port|connect_timeout)|spark_home|connection_retries)>/
+syn match   confServer /\v<^(persist(_pending_upload_from_external|ent_id_set_remove_min_sync_secs)|enable_open_on_stale_object)>/
+syn match   confServer /\v<^(batchStacksThreshold)>/
+
+syn match   confServerConstants /\v<(clustermaster:\S+)$>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

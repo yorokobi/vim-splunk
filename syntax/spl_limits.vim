@@ -127,6 +127,17 @@ syn match   confLimitsConstants /\v<(log_only|(r|t)digest|nearest-rank|interpola
 " --------------
 syn match   confLimitsConstants /\v<((single|multi)threaded)$>/
 
+" 7.3.0
+syn match   confLimitsStanzas  contained /\v<(search_optimization::(dfs_job_extractor|reverse_calculated_fields|replace_(table_with_fields|stats_cmds_with_tstats)))>/
+syn match   confLimitsStanzas  contained /\v<(rollup|dfs)>/
+
+syn match   confLimits /\v<^(file_and_directory_eliminator_reaper_interval|enable_conditional_expansion|record_search_telemetry)>/
+syn match   confLimits /\v<^(max_(searchinfo_map_size|audit_sourcetypes)|track_matching_sourcetypes|execute_postprocess_in_search)>/
+syn match   confLimits /\v<^(bucket_localize_status_check_backoff_start_ms|indexed_csv_(ttl|keep_alive_timeout|inprogress_max_timeout))>/
+syn match   confLimits /\v<^(indexed_kv_limit|persistence_period|commands|minSpanAllowed)>/
+syn match   confLimits /\v<^(dfc_(control_port|num_slots)|dfs_max_(num_keepalives|reduce_partition_size))>/
+syn match   confLimits /\v<^(dfw_(num_(slots(_enabled)?)|receiving_data_port(_count)?))>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

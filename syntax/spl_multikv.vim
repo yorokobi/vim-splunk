@@ -45,7 +45,8 @@ syn cluster confStanzas contains=confMultiKVStanzas,confGenericStanzas
 syn match   confMultiKVStanzas contained /\v<(default)>/
 syn match   confMultiKV /\v<^(\S+\.(start(_offset)?|member|end|linecount|ignore|replace|tokens))>/
 
-syn match   confMultiKVConstants /\v<(_(all|none|align)_|_regex_\s+.+|_tokenize_\s+\d+\s+.+|_token_list_\s+\S+)$>/
+syn match   confMultiKVConstants /\v<(_(all|none)_)$>/
+syn match   confMultiKVConstants /\v<(_(align|chop|token_list|regex|tokenize)_)>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment
