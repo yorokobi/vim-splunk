@@ -20,7 +20,7 @@ mkdir ~/git-projects
 cd git-projects
 git clone https://github.com/yorokobi/vim-splunk.git
 ln -s git-projects/vim-splunk/ftdetect/splunk.vim ~/.vim/ftdetect/splunk.vim
-ln -s git-projects/vim-splunk/syntax/splunk.vim ~/.vim/syntax/splunk.vim
+ln -s git-projects/vim-splunk/syntax/splunk.vim ~/.vim/syntax/spl*.vim
 ```
 Bundle instructions:
 ```
