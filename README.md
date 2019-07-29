@@ -19,8 +19,8 @@ Symlink instructions:
 mkdir ~/git-projects
 cd ~/git-projects
 git clone https://github.com/yorokobi/vim-splunk.git
-mkdir ~/.vim/ftdetect -p
-mkdir ~/.vim/syntax
+if [ ! -d ~/.vim/ftdetect ] ; then mkdir -p ~/.vim/ftdetect ; fi
+if [ ! -d ~/.vim/syntax ] ; then mkdir -p ~/.vim/syntax ; fi
 ln -s ~/git-projects/vim-splunk/ftdetect/splunk.vim ~/.vim/ftdetect/splunk.vim
 ln -s ~/git-projects/vim-splunk/syntax/* ~/.vim/syntax/
 ```
