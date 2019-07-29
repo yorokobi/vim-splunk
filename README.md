@@ -17,10 +17,12 @@ You can either clone the repository somewhere on your file system and use symlin
 Symlink instructions:
 ```
 mkdir ~/git-projects
-cd git-projects
+cd ~/git-projects
 git clone https://github.com/yorokobi/vim-splunk.git
-ln -s git-projects/vim-splunk/ftdetect/splunk.vim ~/.vim/ftdetect/splunk.vim
-ln -s git-projects/vim-splunk/syntax/* ~/.vim/syntax/
+mkdir ~/.vim/ftdetect -p
+mkdir ~/.vim/syntax
+ln -s ~/git-projects/vim-splunk/ftdetect/splunk.vim ~/.vim/ftdetect/splunk.vim
+ln -s ~/git-projects/vim-splunk/syntax/* ~/.vim/syntax/
 ```
 Bundle instructions:
 ```
