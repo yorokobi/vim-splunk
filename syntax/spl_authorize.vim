@@ -91,6 +91,11 @@ syn match   confAuthorizeCaps /\v<^(edit_(search_concurrency_(all|scheduled)|met
 syn match   confAuthorizeCaps /\v<^(list_(pipeline_sets|tokens_(all|own)))>/
 syn match   confAuthorizeCaps /\v<^((upload_lookup_files|apps_restore|fsh_(search|manage)))>/
 
+" 8.0.0
+syn match   confAuthorizeStanzas contained /\v<(tokens_auth)>/
+syn match   confAuthorizeStanzas contained /\v<((role_|capability::)(delete_messages|edit_(authentication_extensions|bookmarks_mc)|list_dist_peer|install_apps|metric_alerts))>/
+syn match   confAuthorizeCaps /\v<^(edit_(authentication_extensions|bookmarks_mc)|list_dist_peer|install_apps|metric_alerts)>/
+
 syn match   confAuthorizeConstants /\v<(enabled|disabled)$>/
 
 " Splunk version 6.

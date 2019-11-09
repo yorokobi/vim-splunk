@@ -39,14 +39,15 @@ syn match confGenericStanzas display contained /\v[^\]]+/
 syn region confStanza matchgroup=confStanzaStart start=/^\[/ matchgroup=confStanzaEnd end=/\]/ oneline transparent contains=@confStanzas
 
 " Group clusters
-syn cluster confStanzas contains=confWorkLoadRulesStanzas,confGenericStanzas
+syn cluster confStanzas contains=confMetricsAlertsStanzas,confGenericStanzas
 
-" workload_rules.conf
-syn match   confWorkLoadRulesStanzas contained /\v<(default|general|workload_rule:[^]]+|workload_rules_order)>/
+" metrics_alerts.conf
+syn match   confMetricsAlertsStanzas contained /\v<(default)>/
 
-syn match   confWorkLoadRules /\v<^(predicate|workload_pool|rules|action|schedule|(end|start)_time|every_(week|month)_days)>/
+syn match   confMetricsAlerts /\v<^(description|groupby|filter|metric_indexes|condition)>/
+syn match   confMetricsAlerts /\v<^(trigger\.(suppress|expires|max_tracked)|label\.\k+|splunk_ui\.\k+|action\.\k+)>/
 
-syn match   confWorkLoadRulesConstants /\v<(alert|move|abort|always_on|time_range|every_(day|week|month))$>/
+syn match   confMetricsAlertsConstants /\v<()$>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment
@@ -66,6 +67,6 @@ hi def link confstanzaEnd Delimiter
 " Highlight for stanzas
 hi def link confStanza Function
 hi def link confGenericStanzas Constant
-hi def link confWorkLoadRulesStanzas Identifier
-hi def link confWorkLoadRules Keyword
-hi def link confWorkLoadRulesConstants Constant
+hi def link confMetricsAlertsStanzas Identifier
+hi def link confMetricsAlerts Keyword
+hi def link confMetricsAlertsConstants Constant

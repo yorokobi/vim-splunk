@@ -39,14 +39,11 @@ syn match confGenericStanzas display contained /\v[^\]]+/
 syn region confStanza matchgroup=confStanzaStart start=/^\[/ matchgroup=confStanzaEnd end=/\]/ oneline transparent contains=@confStanzas
 
 " Group clusters
-syn cluster confStanzas contains=confWorkLoadRulesStanzas,confGenericStanzas
+syn cluster confStanzas contains=confBookmarksStanzas,confGenericStanzas
 
-" workload_rules.conf
-syn match   confWorkLoadRulesStanzas contained /\v<(default|general|workload_rule:[^]]+|workload_rules_order)>/
-
-syn match   confWorkLoadRules /\v<^(predicate|workload_pool|rules|action|schedule|(end|start)_time|every_(week|month)_days)>/
-
-syn match   confWorkLoadRulesConstants /\v<(alert|move|abort|always_on|time_range|every_(day|week|month))$>/
+" bookmarks.conf
+syn match   confBookmarksStanzas contained /\v<(bookmarks_mc:\k+)>/
+syn match   confBookmarks /\v<^(url)>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment
@@ -66,6 +63,7 @@ hi def link confstanzaEnd Delimiter
 " Highlight for stanzas
 hi def link confStanza Function
 hi def link confGenericStanzas Constant
-hi def link confWorkLoadRulesStanzas Identifier
-hi def link confWorkLoadRules Keyword
-hi def link confWorkLoadRulesConstants Constant
+hi def link confBookmarksStanzas Identifier
+hi def link confBookmarks Keyword
+hi def link confBookmarksCaps Type
+hi def link confBookmarksConstants Constant

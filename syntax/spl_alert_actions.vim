@@ -61,6 +61,10 @@ syn match   confAlertActions /\v<^(forceCsvResults)>/
 syn match   confAlertActions_Constants /\v<(table|raw|logo|title|timestamp|pagination|none|csv|xml|json|description)$>/
 syn match   confAlertActions_Constants /\v<(html|plain|portrait|landscape|letter|legal|ledger|a(2|3|4|5)|auto)$>/
 
+" 8.0.0
+syn match   confAlertActions /\v^(python\.version)>/
+syn match   confAlertActions_Constants /\v<(default|python(2|3)?)$>/
+
 " etc/apps/alert_logevent/README/alert_actions.conf.spec
 syn match   confAlertActionsStanzas contained /\v<logevent>/
 syn match   confAlertActions /\v<^(param\.(event|host|source(type)?|index))>/

@@ -69,6 +69,9 @@ syn match   confOutputs /\v<^(remote_queue\.kinesis\.large_message_store\.(endpo
 syn match   confOutputs /\v<^(remote_queue\.kinesis\.(send_interval|max_queue_message_size))>/
 syn match   confOutputsConstants /\v<(legacy|sqs|kinesis)$>/
 
+" 8.0.0
+syn match   confOutputs /\v<^(connectionTTL|remote_queue\.kinesis\.tenantId)>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

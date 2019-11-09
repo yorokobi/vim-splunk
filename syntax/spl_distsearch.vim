@@ -61,6 +61,10 @@ syn match   confDistSearchConstants /\v<(auto|always|http(s)?|sse-s3|none)$>/
 " 7.3.0
 syn match   confDistSearch /\v<^(bcs(Path)?|enableRFSReplication)>/
 
+" 8.0.0
+syn match   confDistSearch /\v<^(replicationPolicy|statusQueueSize|cascade_replication_status_(interval|unchanged_threshold)|activeServerTimeout|remote\.s3\.(url_version|bucket_name|supports_versioning))>/
+syn match   confDistSearchConstants /\v<(classic|cascading|rfs|mounted|v(1|2))$>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

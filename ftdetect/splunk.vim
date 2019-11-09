@@ -30,6 +30,10 @@ augroup filetypedetect
 augroup END
 
 augroup filetypedetect
+    autocmd BufNewFile,BufRead bookmarks.conf setf spl_bookmarks
+augroup END
+
+augroup filetypedetect
     autocmd BufNewFile,BufRead collections.conf setf spl_collections
 augroup END
 
@@ -111,6 +115,10 @@ augroup END
 
 augroup filetypedetect
     autocmd BufNewFile,BufRead messages.conf setf spl_messages
+augroup END
+
+augroup filetypedetect
+    autocmd BufNewFile,BufRead metric_alerts.conf setf spl_metric_alerts
 augroup END
 
 augroup filetypedetect

@@ -52,6 +52,9 @@ syn match   confHealth /\v<^(indicator:\S+:description|alert:\S+\.(disabled|min_
 
 syn match   confHealthConstants /\v<(yellow|red)$>/
 
+" 8.0.0
+syn match   confHealthStanzas contained /\v<(distributed_health_reporter)>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error
