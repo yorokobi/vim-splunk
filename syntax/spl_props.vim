@@ -57,7 +57,9 @@ syn match   confProps /\v<^(maxDist|priority|pulldown_type|rename|sourcetype|una
 " ----------
 syn match   confProps /\v<^(DEPTH_LIMIT)>/
 
-syn match   confComplex /\v<^((EVAL|EXTRACT|FIELDALIAS|LOOKUP|REPORT|SEDCMD|SEGMENTATION|TRANSFORMS)-[0-9A-Za-z_-]+)>/
+syn match   confComplex /\v<^((EXTRACT|REPORT|TRANSFORMS)-[^=]+)>/
+syn match   confComplex /\v<^((EVAL|FIELDALIAS|SEDCMD|SEGMENTATION)-[0-9A-Za-z_-]+)>/
+syn match   confComplex /\v<^(\c(LOOKUP)(-)?[^=]+)>/
 syn match   confComplex /\v<^(MORE|LESS)_THAN(\S+_)?\d+>/
 syn keyword confComplex AS OUTPUT OUTPUTNEW
 
