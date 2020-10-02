@@ -21,11 +21,12 @@ augroup filetypedetect
     au BufNewFile,BufRead federated.conf setf spl_federated
     au BufNewFile,BufRead fshpasswords.conf setf spl_fshpasswords
     au BufNewFile,BufRead fields.conf setf spl_fields
+    au BufNewFile,BufRead global-banner.conf setf spl_global-banner
     au BufNewFile,BufRead health.conf setf spl_health
     au BufNewFile,BufRead indexes.conf setf spl_indexes
     au BufNewFile,BufRead inputs.conf setf spl_inputs
     au! BufNewFile,BufRead */etc/*limits.conf
-    au BufNewFile,BufRead */etc/system/local/limits.conf,*/etc/apps/*limits.conf setf spl_limits
+    au BufNewFile,BufRead */etc/system/README/limits.conf,*/etc/system/local/limits.conf,*/etc/apps/*limits.conf setf spl_limits
     au BufNewFile,BufRead literals.conf setf spl_literals
     au BufNewFile,BufRead livetail.conf setf spl_livetail
     au BufNewFile,BufRead macros.conf setf spl_macros
@@ -60,6 +61,7 @@ augroup filetypedetect
     au BufNewFile,BufRead web.conf setf spl_web
     au BufNewFile,BufRead wmi.conf setf spl_wmi
     au BufNewFile,BufRead workflow_actions.conf setf spl_workflow_actions
+    au BufNewFile,BufRead workload_policy.conf setf spl_workload_policy
     au BufNewFile,BufRead workload_pools.conf setf spl_workload_pools
     au BufNewFile,BufRead workload_rules.conf setf spl_workload_rules
     au BufNewFile,BufRead splunk_monitoring_console_assets.conf setf spl_monitoring_console_assets

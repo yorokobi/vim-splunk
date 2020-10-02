@@ -72,6 +72,17 @@ syn match   confOutputsConstants /\v<(legacy|sqs|kinesis)$>/
 " 8.0.0
 syn match   confOutputs /\v<^(connectionTTL|remote_queue\.kinesis\.tenantId)>/
 
+" 8.1.0
+syn match   confOutputsStanzas contained /\v<(httpout)>/
+
+syn match   confOutputs /\v<^(httpEventCollectorToken|uri|batch(Size|Timeout))>/
+syn match   confOutputs /\v<^(remote_queue\.sqs_smartbus\.((access|secret)_key|auth_region|endpoint|message_group_id|retry_policy))>/
+syn match   confOutputs /\v<^(remote_queue\.sqs_smartbus\.(max_count\.max_retries_per_part|timeout\.(connect|read|write)))>/
+syn match   confOutputs /\v<^(remote_queue\.sqs_smartbus\.(large_message_store\.(endpoint|path)|send_interval|max_queue_message_size))>/
+syn match   confOutputs /\v<^(remote_queue\.sqs_smartbus\.(enable_(data_integrity_checks|signed_payloads)|executor_max_(workers|jobs)_count))>/
+
+syn match   confOutputsConstants /\v<(sqs(_smartbus)|kinesis)$>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

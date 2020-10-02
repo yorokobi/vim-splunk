@@ -107,6 +107,9 @@ syn match   confSavedSearchesConstants /\v<((greater|less)\ than|(not\ )?equal\ 
 syn match   confSavedSearches /\v<^(auto_summarize\.workload_pool|display\.visualizations\.charting\.fieldColors|federated\.provider)>/
 syn match   confSavedSearchesConstants /\v<(number\ of\ (events|hosts|sources)|always)$>/
 
+" 8.1.0
+syn match   confSavedSearches /\v<^(action\.email\.allow_empty_attachment|alert\.suppress\.group_name)>/
+
 " alert_logevent
 " etc/apps/alert_logevent/README/savedsearches.conf.spec
 syn match   confSavedSearches /\v<action\.(logevent(\.param\.(event|host|source(type)?|index))|log_event)>/
@@ -132,6 +135,7 @@ syn match   confSavedSearches /\v<^(action\.itsi_event_generator\.param\.(entity
 syn match   confSavedSearches /\v<^(action\.itsi_event_generator\.param\.(meta_data|is_ad_at|ad_at_kpi_ids))>/
 syn match   confSavedSearches /\v<^(action\.indicator(\._itsi_(kpi|service)_id)?)>/
 syn match   confSavedSearches /\v<^(action\.itsi_sample_event_action_ping\.param\.host|action\.keyindicator\.invert|action\.makestreams\.param\.verbose)>/
+
 syn match   confSavedSearchesConstants /\v<(blue|red|orange|yellow|purple|green)$>/
 
 " Highlight definitions (generic)

@@ -50,6 +50,11 @@ syn match   confCommands /\v<^(changes_colorder|outputheader|clear_required_fiel
 
 syn match   confCommandsConstants /\v<(log|message|none)$>/
 
+" 8.1.0
+syn match   confCommands /\v<^(python\.version)>/
+
+syn match   confCommandsConstants /\v<(default|python(2|3)?)$>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

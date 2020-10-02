@@ -91,6 +91,25 @@ syn match   confIndexesConstants /\v<(mtime|current|max_count)$>/
 " 7.3.0
 syn match   confIndexes /\v<^(malformedEventIndex|maxGlobalRawDataSizeMB)>/
 
+" 8.1.0
+syn match   confIndexes /\v<^(fileSystemExecutorWorkers|hotBucketStreaming.extraBucketBuildingCmdlineArgs|python\.version)>/
+syn match   confIndexes /\v<^(metric\.(maxHotBuckets|splitByIndexKeys|enableFloatingPointCompression|compressionBlockSize|stubOutRawdataJournal|timestampResolution))>/
+syn match   confIndexes /\v<^((metric\.)?tsidxTargetSizeMB|waitPeriodInSecsForManifestWrite)>/
+syn match   confIndexes /\v<^(hotBucketStreaming\.(sendSlices|removeRemoteSlicesOnRoll|reportStatus|deleteHotsAfterRestart))>/
+syn match   confIndexes /\v<^(remote\.s3\.(url_version|bucket_name|encryption\.cse\.(algorithm|tmp_dir|key_(type|refresh_interval))|max_download_batch_size))>/
+syn match   confIndexes /\v<^(remote\.gs\.(credential_file|service_account_email|project_id|(upload|download)_chunk_size))>/
+syn match   confIndexes /\v<^(remote\.gs\.(max_(parallel_non_upload_threads|threads_per_parallel_upload|connection_pool_size|download_batch_size|count\.max_retries_per_part)))>/
+syn match   confIndexes /\v<^(remote\.gs\.(remove_all_versions|use_delimiter|retry_policy|backoff\.((initial|max)_delay_ms|scaling)))>/
+syn match   confIndexes /\v<^(remote\.gs\.(connectUsingIpVersion|sslVerifyServer(Cert|Name)|sslVersionsForClient|sslRootCAPath))>/
+syn match   confIndexes /\v<^(remote\.gs\.(cipherSuite|encryption(\.gcp-sse-c\.key_(type|refresh_interval))?))>/
+syn match   confIndexes /\v<^(remote\.gs\.(gcp_kms\.(locations|key(_ring)?)))>/
+syn match   confIndexes /\v<^(remote\.gs\.())>/
+syn match   confIndexes /\v<^(remote\.gs\.())>/
+syn match   confIndexes /\v<^(remote\.gs\.())>/
+syn match   confIndexes /\v<^()>/
+syn match   confIndexes /\v<^()>/
+syn match   confIndexesConstants /\v<(default|python(2|3)?|aes-256-gcm|4-only|6-only|ssl3|tls1.(0|1|2)|gcp-sse-(c|kms|gcp))$>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

@@ -62,7 +62,7 @@ syn match   confAuthorizeStanzas contained /\v<((role_|capability::)(rtsearch|ru
 syn match   confAuthorizeStanzas contained /\v<((role_|capability::)(request_pstacks|edit_health|run_(m)?collect))>/
 syn match   confAuthorizeStanzas contained /\v<((role_|capability::)(edit_(statsd_transforms|metric_schema)|(edit|list|select)_workload_pools|(list|edit)_workload_rules))>/
 
-syn match   confAuthorize /\v<^(srch(Filter(Selecting)?|TimeWin|(Disk|Jobs)Quota|MaxTime|Indexes(Default|Allowed)))>/
+syn match   confAuthorize /\v<^(srch(Filter(Selecting)?|TimeWin|(Disk|Jobs)Quota|MaxTime|Indexes(Default|Allowed|Disallowed)))>/
 syn match   confAuthorize /\v<^(rtSrchJobsQuota|(import|grantable)Roles|deleteIndexesAllowed|cumulative(Srch|RTSrch)JobsQuota)>/
 " 7.3.0
 syn match   confAuthorizeStanzas contained /\v<((role_|capability::)edit_(tokens_(all|own|settings)|watchdog|local_apps))>/
@@ -97,6 +97,11 @@ syn match   confAuthorizeStanzas contained /\v<((role_|capability::)(delete_mess
 syn match   confAuthorizeCaps /\v<^(edit_(authentication_extensions|bookmarks_mc)|list_dist_peer|install_apps|metric_alerts)>/
 
 syn match   confAuthorizeConstants /\v<(enabled|disabled)$>/
+
+" 8.1.0
+syn match   confAuthorizeStanzas contained /\v<((role_|capability::)edit_(log_alert_event|health_subset))>/
+syn match   confAuthorizeStanzas contained /\v<((role_|capability::)(list_(health_subset|token_http)|pattern_detect|run_(msearch|walklex)))>/
+syn match   confAuthorizeStanzas contained /\v<((role_|capability::)((list|edit)_workload_policy|edit_global_banner))>/
 
 " Splunk version 6.
 syn match   confAuthorizeStanzas /\v<((role_|capability::)list_accelerate_search)>/

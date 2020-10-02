@@ -59,7 +59,13 @@ syn match  confAuthentication /\v<^(failOpen|timeout|useClientSSLCompression|mes
 " 7.2.3
 syn match  confAuthentication /\v<^(verboseLoginFailMsg|authManagerUrl|accessKey|clientId)>/
 
-syn match  confAuthenticationConstants /\v<(Splunk|LDAP|Scripted|SAML|ProxySSO|(MD5|SHA(256|512))-crypt(-\d+)?|RSA-SHA(1|256))$>/
+syn match  confAuthenticationConstants /\v<(Splunk|LDAP|Scripted|SAML|ProxySSO|(MD5|SHA(256|512))-crypt(-\d+)?|RSA-SHA(1|256|384|512))$>/
+
+" 8.1.0
+syn match  confAuthenticationStanzas contained /\v<(lockedRoleToFullDNMap_\k+)>/
+syn match  confAuthentication /\v<^(python\.version|partialChainCertVerification|script(Functions|Timeout|SecureArguments)|getUsersPrecacheLimit)>/
+syn match  confAuthentication /\v<^(assertionTimeSkew|inboundDigestMethod|lockRoleToFullDN|allowPartialSignatures)>/
+syn match  confAuthenticationConstants /\v<(default|python(2|3)?)$>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment

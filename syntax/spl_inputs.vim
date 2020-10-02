@@ -99,6 +99,17 @@ syn match   confInputsConstants /\v<(average|(max_)?count|dev|min|max|sqs|kinesi
 syn match   confInputs /\v<^(log_on_completion|useSSLCompression|use(WinApiProcStats|PDHFmtNoCap100)|run_introspection)>/
 syn match   confInputs /\v<^(remote_queue\.((sqs|kinesis)\.executor_max_workers_count|large_message_store\.supports_versioning))>/
 
+" 8.1.0
+syn match   confInputsStanzas contained /\v<(powershell(2)?)>/
+
+syn match   confInputs /\v<^(python\.version|crossOriginSharingHeaders|evt_exclude_fields|(io|serialization)_threads|event_serialization_format)>/
+syn match   confInputs /\v<^(remote_queue.sqs_smartbus.((access|secret)_key|auth_region|endpoint|max_connections|message_group_id|retry_policy))>/
+syn match   confInputs /\v<^(remote_queue.sqs_smartbus.(max_count.max_retries_per_part|timeout.(connect|read|write|receive_message|visibility)))>/
+syn match   confInputs /\v<^(remote_queue.sqs_smartbus.(buffer.visibility|executor_max_workers_count|min_pending_messages|large_message_store.(endpoint|path)))>/
+syn match   confInputs /\v<^(remote_queue.sqs_smartbus.(dead_letter_queue.(name|process_interval)))>/
+
+syn match   confInputsConstants /\v<(default|python(2|3)?|kv|json|sqs_smartbus)$>/
+
 " Splunk_TA_okta
 syn match   confInputs /\v<^(url|token|(start|end)_date|metrics|(page|batch)_size)>/
 
