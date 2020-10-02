@@ -26,7 +26,7 @@ augroup filetypedetect
     au BufNewFile,BufRead indexes.conf setf spl_indexes
     au BufNewFile,BufRead inputs.conf setf spl_inputs
     au! BufNewFile,BufRead */etc/*limits.conf
-    au BufNewFile,BufRead */etc/system/README/limits.conf,*/etc/system/local/limits.conf,*/etc/apps/*limits.conf setf spl_limits
+    au BufNewFile,BufRead */etc/system/default/limits.conf,*/etc/system/local/limits.conf,*/etc/apps/*limits.conf setf spl_limits
     au BufNewFile,BufRead literals.conf setf spl_literals
     au BufNewFile,BufRead livetail.conf setf spl_livetail
     au BufNewFile,BufRead macros.conf setf spl_macros
