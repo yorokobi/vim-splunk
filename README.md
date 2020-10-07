@@ -1,7 +1,7 @@
 Syntax highlighting for Splunk's .conf files
 =============
 
-This project is released under the Zero Clause BSD license. Feel free to create your own branch and submit a pull request via Github or email me: colbyw at gmail dot com.
+This project is unlicensed. If you wish to contribute, please fork this repository and submit a pull request via Github or email me: colbyw at gmail dot com.
 
 Thanks to the many contributors to this project.
 
