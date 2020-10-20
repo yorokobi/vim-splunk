@@ -75,6 +75,11 @@ syn match   confWebConstants /\v<(permissive|strict|auto|never|always|(N|n)one|F
 " 7.3.0
 syn match   confWeb /\v<^(splunk_dashboard_app_name)>/
 
+" 8.1.0
+syn match   confWeb /\v<^(enable_secure_entity_move|enable_insecure_pdfgen|dashboard_html_(allow_embeddable_content|wrap_embed|allowed_domains))>/
+syn match   confWeb /\v<^(engine\.autoreload\.on|tools\.encode\.text_only|crossOriginSharingHeaders|includeSubDomains|preload)>/
+syn match   confWeb /\v<^(appServerProcessLogStderr|enableSearchJobXslt)>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

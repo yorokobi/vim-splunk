@@ -45,9 +45,10 @@ syn cluster confStanzas contains=confMetricsAlertsStanzas,confGenericStanzas
 syn match   confMetricsAlertsStanzas contained /\v<(default)>/
 
 syn match   confMetricsAlerts /\v<^(description|groupby|filter|metric_indexes|condition)>/
-syn match   confMetricsAlerts /\v<^(trigger\.(suppress|expires|max_tracked)|label\.\k+|splunk_ui\.\k+|action\.\k+)>/
+syn match   confMetricsAlerts /\v<^(trigger\.(suppress|expires|max_tracked|prepare|(action|evaluation)_per_group)|label\.\k+|splunk_ui\.\k+|action\.\k+)>/
+syn match   confMetricsAlerts /\v<^(trigger\.(threshold))>/
 
-syn match   confMetricsAlertsConstants /\v<()$>/
+syn match   confMetricsAlertsConstants /\v<(always|once|always\ after\ \dm|once\ after\ \dm)$>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment

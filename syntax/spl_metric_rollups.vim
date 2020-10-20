@@ -45,8 +45,9 @@ syn cluster confStanzas contains=confMetricRollupsStanzas,confGenericStanzas
 syn match   confMetricRollupsStanzas contained /\v<(index:[^]]+)>/
 
 syn match   confMetricRollups /\v<^(defaultAggregation|dimensionList(Type)?|aggregation\.\S+|rollup\.\S+\.(span|rollupIndex))>/
+syn match   confMetricRollups /\v<^(metricList(Type)?)>/
 
-syn match   confMetricRollupsConstants /\v<(avg|count|max|median|min|perc\d+|sum)$>/
+syn match   confMetricRollupsConstants /\v<(avg|count|max|median|min|perc\d+|sum|(ex|in)cluded)$>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment

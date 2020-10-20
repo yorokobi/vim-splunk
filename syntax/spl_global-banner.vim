@@ -39,18 +39,13 @@ syn match confGenericStanzas display contained /\v[^\]]+/
 syn region confStanza matchgroup=confStanzaStart start=/^\[/ matchgroup=confStanzaEnd end=/\]/ oneline transparent contains=@confStanzas
 
 " Group clusters
-syn cluster confStanzas contains=confRestMapStanzas,confGenericStanzas
+syn cluster confStanzas contains=confGlobalbannerStanzas,confGenericStanzas
 
-" restmap.conf
-syn match   confRestMapStanzas contained /\v<(global|(admin(_external)?|eai|input|peerupload|script|validation):[^]]+|proxy:appsbrowser|restreplayshc)>/
-syn match   confRestMap /\v<^(allow(GetAuth|RestReplay)|(defaultRestReplay|authKey)Stanza|pythonHandlerPath|match|requireAuthentication)>/
-syn match   confRestMap /\v<^(restReplay(Stanza)?|capability(\.(post|delete|get|put))?|acceptFrom|includeInAccessLog|xsl|members)>/
-syn match   confRestMap /\v<^(script(type|\.arg\.\d+|\.param)?|output_modes|pass(Conf|Http(Cookies|Headers)|Payload|Session|SystemAuth))>/
-syn match   confRestMap /\v<^(|driver(\.arg\.\d+|\.env\.[^\ |\=]+)?|showInDirSvc|desc|dynamic|path|untar|methods|destination|filternodes)>/
-syn match   confRestMap /\v<^(handler(actions|file|persistentmode|type)?|node(list)?s)>/
-syn match   confRestMap /\v<^(python\.version)>/
+" global-banner.conf
+syn match   confGlobalbannerStanzas contained /\v<(default|BANNER_MESSAGE_SINGLETON)>/
+syn match   confGlobalbanner /\v<^(global_banner\.(visible|message|background_color|hyperlink(_text)?))>/
 
-syn match   confRestMapConstants /\v<(default|python(2|3)?)$>/
+syn match   confGlobalbannerConstants /\v<(green|blue|yellow|orange|red)$>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment
@@ -70,6 +65,6 @@ hi def link confstanzaEnd Delimiter
 " Highlight for stanzas
 hi def link confStanza Function
 hi def link confGenericStanzas Constant
-hi def link confRestMapStanzas Identifier
-hi def link confRestMap Keyword
-hi def link confRestMapConstants Constant
+hi def link confGlobalbannerStanzas Identifier
+hi def link confGlobalbanner Keyword
+hi def link confGlobalbannerConstants Constant

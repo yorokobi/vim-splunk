@@ -56,6 +56,9 @@ syn match   confDatamodelsConstants /\v<(default|high(er|est)|latest|random|dive
 " 7.3.0
 syn match   confDatamodels /\v<^(acceleration\.workload_pool)>/
 
+" 8.1.0
+syn match   confDatamodels /\v<^(acceleration.source_guid|strict_fields)>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

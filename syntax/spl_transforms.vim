@@ -55,14 +55,25 @@ syn match   confTransforms /\v<^(replicate|time_(field|format))>/
 " ----------
 syn match   confTransforms /\v<^(DEPTH_LIMIT)>/
 
-syn match   confTransformsConstants /\v<(python|executable|kvstore|geo(_hex)?|queue|_(raw|meta|time|MetaData:Index|(TCP|SYSLOG)_ROUTING)|MetaData:(Host|Source(type)?))$>/
+syn match   confTransformsConstants /\v<(python|executable|kvstore|geo(_hex)?|queue|_(raw|meta|time|_MetaData:Index|(TCP|SYSLOG)_ROUTING)|MetaData:(Host|Source(type)?))$>/
 
 syn match confComplex /\v<_(KEY|VAL)_\k+>/
 
 " 7.2.3
-syn match   confTransforms /\v<^(INGEST_EVAL|cache_size|METRIC-SCHEMA-(MEASURES|BLACKLIST-DIMS))>/
-syn match   confComplex /\v<METRIC-SCHEMA-(MEASURES|BLACKLIST-DIMS)-\k+>/
 syn match   confTransformsStanzas contained /\v<(metric-schema:[^]]+)>/
+
+syn match   confTransforms /\v<^(INGEST_EVAL|cache_size|METRIC-SCHEMA-(MEASURES|BLACKLIST-DIMS))>/
+
+syn match   confComplex /\v<METRIC-SCHEMA-(MEASURES|(WHITE|BLACK)LIST-DIMS)-\k+>/
+
+" 8.1.0
+syn match   confTransforms /\v<^(reverse_lookup_honor_case_sensitive_match|python\.version)>/
+syn match   confTransforms /\v<^()>/
+syn match   confTransforms /\v<^()>/
+syn match   confTransforms /\v<^()>/
+syn match   confTransforms /\v<^()>/
+
+syn match   confTransformsConstants /\v<(default|python(2|3)?)$>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment

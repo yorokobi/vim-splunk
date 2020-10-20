@@ -71,6 +71,10 @@ syn match   confProps /\v<^(METRIC-SCHEMA-TRANSFORMS)>/
 " 8.0.0
 syn match   confProps /\v<^(HEADER_FIELD_ACCEPTABLE_SPECIAL_CHARACTERS)>/
 
+" 8.1.0
+syn match   confProps /\v<^(LB_CHUNK_BREAKER(_TRUNCATE)?|STATSD_EMIT_SINGLE_MEASUREMENT_FORMAT|termFrequencyWeightedDist)>/
+syn keyword confComplex ASNEW
+
 syn case ignore
 syn match   confPropsConstants /\v<((c|t|p)sv|w3c|json|xml|hec)$>/
 syn case match

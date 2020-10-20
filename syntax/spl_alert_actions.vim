@@ -65,6 +65,10 @@ syn match   confAlertActions_Constants /\v<(html|plain|portrait|landscape|letter
 syn match   confAlertActions /\v^(python\.version)>/
 syn match   confAlertActions_Constants /\v<(default|python(2|3)?)$>/
 
+" 8.1.0
+syn match   confAlertActionsStanzas contained /\v<summary_metric_index>/
+syn match   confAlertActions /\v^(allowedDomainList|escapeCSVNewline|allow_empty_attachment)>/
+
 " etc/apps/alert_logevent/README/alert_actions.conf.spec
 syn match   confAlertActionsStanzas contained /\v<logevent>/
 syn match   confAlertActions /\v<^(param\.(event|host|source(type)?|index))>/

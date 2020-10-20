@@ -119,7 +119,7 @@ syn match   confLimits /\v<^(required_(tags|eventtypes)|read_summary|maxPrdSearc
 syn match   confLimits /\v<^(results_(serial_format|compression_algorithm)|always_include_indexedfield_lispy)>/
 syn match   confLimits /\v<^(bucket_localize_(acquire_lock_timeout_sec|lookahead_priority_ratio)|srtemp_dir_ttl)>/
 
-syn match   confLimitsConstants /\v<(host|splunk_server|all|consec_not_needed|everything|enabled|disabled(SavedSearches)?|DEBUG|INFO|WARN|ERROR|csv|srs|gzip)$>/
+syn match   confLimitsConstants /\v<(host|splunk_server|all|consec_not_needed|everything|enabled|disabled(SavedSearches)?|DEBUG|INFO|WARN|ERROR|csv|srs|gzip|zstd)$>/
 syn match   confLimitsConstants /\v<(log_only|(r|t)digest|nearest-rank|interpolated|yes|no|fromcontext|auto|traditional|debug\s+\S+\s+\S+|only|none)$>/
 
 " --------------
@@ -137,6 +137,23 @@ syn match   confLimits /\v<^(bucket_localize_status_check_backoff_start_ms|index
 syn match   confLimits /\v<^(indexed_kv_limit|persistence_period|commands|minSpanAllowed)>/
 syn match   confLimits /\v<^(dfc_(control_port|num_slots)|dfs_max_(num_keepalives|reduce_partition_size))>/
 syn match   confLimits /\v<^(dfw_(num_(slots(_enabled)?)|receiving_data_port(_count)?))>/
+
+" 8.1.0
+syn match   confLimitsStanzas contained /\v<(metric_alerts|msearch|(si|m)stats|auth|kvstore_migration|mcollect|segmenter)>/
+syn match   confLimitsStanzas contained /\v<(search_optimization::(replace_datamodel_stats_cmds_with_tstats|pr_job_extractor))>/
+
+syn match   confLimits /\v<^((agg|m(s)?p|(c)?lb)_cpu_profiling|subsearch_artifacts_delete_policy|bundle_status_expiry_time|search_telemetry_file_limit)>/
+syn match   confLimits /\v<^(indexed_fields_expansion|use_search_evaluator_v2|bucket_localize_connect_timeout_max_retries|read_final_results_from_timeliner)>/
+syn match   confLimits /\v<^(search_process_(configure_oom_score_adj|set_oom_score_adj)|log_search_messages|search_messages_severity)>/
+syn match   confLimits /\v<^(ingest_(max_memtable_bytes|lookup_refresh_period_secs)|shared_provider_cache_size|input_errors_fatal)>/
+syn match   confLimits /\v<^(condition_evaluation_interval|search_(delay|ttl)|honor_action|target_per_timeseries|create_context|tmpfile_compression(_level)?)>/
+syn match   confLimits /\v<^(time_bin_limit|enable_install_apps|periodic_timer_interval|max_failed_status_unchanged_count|restprocessor_errors_fatal)>/
+syn match   confLimits /\v<^(tscollect_queue_size|commands_(add|rm)|autoAppliedPercentage|rdinPairingTimeout|always_use_single_value_output)>/
+syn match   confLimits /\v<^(dfs_(max_search_result_size|resource_awareness|post_proc_speedup|num_post_proc_speedup_threads|post_proc_(in|out)put_queue_size|estimation_time))>/
+syn match   confLimits /\v<^(dfs_(remote_search_timeout|max_remote_pipeline|meta_phase_exec_timeout|enable_parallel_serializer|num_of_remote_serializer_pipeline|remote_io_kickout_period|eventcount_limit))>/
+syn match   confLimits /\v<^(enable_dfs_search_f(eed|all)back|use_segmenter_v2)>/
+
+syn match   confLimitsConstants /\v<(immediate|ttl|app|user|system)$>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment

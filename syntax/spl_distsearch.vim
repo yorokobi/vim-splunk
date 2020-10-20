@@ -65,6 +65,10 @@ syn match   confDistSearch /\v<^(bcs(Path)?|enableRFSReplication)>/
 syn match   confDistSearch /\v<^(replicationPolicy|statusQueueSize|cascade_replication_status_(interval|unchanged_threshold)|activeServerTimeout|remote\.s3\.(url_version|bucket_name|supports_versioning))>/
 syn match   confDistSearchConstants /\v<(classic|cascading|rfs|mounted|v(1|2))$>/
 
+" 8.1.0
+syn match   confDistSearch /\v<^(minKeyLength|legacyKeyLengthAuthPolicy|warnMaxBundleSizePerc|allowDeltaIndexing)>/
+syn match   confDistSearchConstants /\v<(reject|warn)$>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error
