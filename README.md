@@ -14,7 +14,14 @@ Installation Instructions
 
 You can either clone the repository somewhere on your file system and use symlinks to the corresponding directories or clone to `~/.vim/bundle` as a submodule.
 
-Symlink instructions:
+Vim native packages:
+```
+if [ ! -d ~/.vim/pack/plugins/start ] ; then mkdir -p ~/.vim/pack/plugins/start ; fi
+cd ~/.vim/pack/plugins/start
+git clone https://github.com/yorokobi/vim-splunk.git
+```
+
+Symlink instructions (`:help packages`):
 ```
 mkdir ~/git-projects
 cd ~/git-projects
