@@ -48,6 +48,8 @@ syn match   confUserPrefs /\v<^(datasets:showInstallDialog|dismissedInstrumentat
 syn match   confUserPrefs /\v<^(hideInstrumentationOptInModal|tz|lang|install_source_checksum)>/
 syn match   confUserPrefs /\v<^(search_(assistant|auto_format|line_numbers|syntax_highlighting|use_advanced_editor))>/
 
+syn match   confUserPrefs /\v<^(render_version_messages|notification_python_3_impact|eai_(app_only|results_per_page)|checked_new_(maintenance_)?version|new_(maintenance_)?version|appOrder)>/
+
 syn match   confUserPrefsConstants /\v<(full|compact|none|light|dark|black-white)$>/
 
 " Highlight definitions (generic)
