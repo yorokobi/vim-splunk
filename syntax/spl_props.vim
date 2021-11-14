@@ -57,13 +57,13 @@ syn match   confProps /\v<^(maxDist|priority|pulldown_type|rename|sourcetype|una
 " ----------
 syn match   confProps /\v<^(DEPTH_LIMIT)>/
 
-syn match   confComplex /\v<^((EXTRACT|REPORT|TRANSFORMS)-[^=]+)>/
+syn match   confComplex /\v<^((EXTRACT|REPORT|TRANSFORMS)-[0-9A-Za-z_-]+)>/
 syn match   confComplex /\v<^((EVAL|FIELDALIAS|SEDCMD|SEGMENTATION)-[0-9A-Za-z_-]+)>/
 syn match   confComplex /\v<^(\c(LOOKUP)(-)?[^=]+)>/
 syn match   confComplex /\v<^(MORE|LESS)_THAN(\S+_)?\d+>/
 syn keyword confComplex AS OUTPUT OUTPUTNEW
 
-syn match   confPropsConstants /\v<((endpoint|entire)_md5|modtime|always|firstline|none|auto(_escaped)?|multi|STATSD|COLLECTD_HTTP)$>/
+syn match   confPropsConstants /\v<((endpoint|entire)_md5|modtime|always|firstline|none|auto(_escaped)?|multi|STATSD|COLLECTD_HTTP|NONE|CURRENT|subseconds|all)$>/
 
 " 7.2.3
 syn match   confProps /\v<^(METRIC-SCHEMA-TRANSFORMS)>/
@@ -74,6 +74,9 @@ syn match   confProps /\v<^(HEADER_FIELD_ACCEPTABLE_SPECIAL_CHARACTERS)>/
 " 8.1.0
 syn match   confProps /\v<^(LB_CHUNK_BREAKER(_TRUNCATE)?|STATSD_EMIT_SINGLE_MEASUREMENT_FORMAT|termFrequencyWeightedDist)>/
 syn keyword confComplex ASNEW
+
+" 8.2
+syn match   confProps /\v<^(DETERMINE_TIMESTAMP_DATE_WITH_SYSTEM_TIME)>/
 
 syn case ignore
 syn match   confPropsConstants /\v<((c|t|p)sv|w3c|json|xml|hec)$>/

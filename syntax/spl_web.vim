@@ -80,6 +80,9 @@ syn match   confWeb /\v<^(enable_secure_entity_move|enable_insecure_pdfgen|dashb
 syn match   confWeb /\v<^(engine\.autoreload\.on|tools\.encode\.text_only|crossOriginSharingHeaders|includeSubDomains|preload)>/
 syn match   confWeb /\v<^(appServerProcessLogStderr|enableSearchJobXslt)>/
 
+" 8.2
+syn match   confWeb /\v<^(enable_splunk_dashboard_app_feature|firstTimeLoginMessageOption|firstTimeLoginMessage|simplexml_dashboard_create_version|allowRemoteProxy)>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

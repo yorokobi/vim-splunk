@@ -57,7 +57,12 @@ syn match   confDatamodelsConstants /\v<(default|high(er|est)|latest|random|dive
 syn match   confDatamodels /\v<^(acceleration\.workload_pool)>/
 
 " 8.1.0
-syn match   confDatamodels /\v<^(acceleration.source_guid|strict_fields)>/
+syn match   confDatamodels /\v<^(acceleration\.source_guid|strict_fields)>/
+
+" 8.2
+syn match   confDatamodels /\v<^(acceleration\.(store|external\.max_interval_per_summarization_run))>/
+
+syn match   confDatamodelsConstants /\v<(splunk|external|orc|parquet)$>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment

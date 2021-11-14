@@ -68,12 +68,15 @@ syn match   confComplex /\v<METRIC-SCHEMA-(MEASURES|(WHITE|BLACK)LIST-DIMS)-\k+>
 
 " 8.1.0
 syn match   confTransforms /\v<^(reverse_lookup_honor_case_sensitive_match|python\.version)>/
-syn match   confTransforms /\v<^()>/
-syn match   confTransforms /\v<^()>/
-syn match   confTransforms /\v<^()>/
-syn match   confTransforms /\v<^()>/
 
 syn match   confTransformsConstants /\v<(default|python(2|3)?)$>/
+
+" 8.2
+
+syn match   confTransforms /\v<^(METRIC-SCHEMA-WHITELIST-DIMS)>/
+syn match   confTransforms /\v<^()>/
+syn match   confTransforms /\v<^()>/
+syn match   confTransformsConstants /\v<(_ALLNUMS_|_NUMS_EXCEPT_)>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment

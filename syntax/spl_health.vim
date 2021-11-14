@@ -60,6 +60,9 @@ syn match   confHealthStanzas contained /\v<(tree_view:health_subset)>/
 syn match   confHealth /\v<^(indicator:\S+:indicator|tree_view:health_subset)>/
 syn match   confHealthConstants /\v<(enabled|disabled)$>/
 
+" 8.2
+syn match   confHealth /\v<^(latency_tracker_log_interval_sec|aggregate_ingestion_latency_health)>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

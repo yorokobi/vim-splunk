@@ -110,6 +110,12 @@ syn match   confInputs /\v<^(remote_queue.sqs_smartbus.(dead_letter_queue.(name|
 
 syn match   confInputsConstants /\v<(default|python(2|3)?|kv|json|sqs_smartbus)$>/
 
+" 8.2
+syn match   confInputs /\v<^(remote_queue.sqs_smartbus.large_message_store.(encryption_scheme|kms_endpoint|key_(id|refresh_interval)))>/
+syn match   confInputs /\v<^(run_only_one)>/
+
+syn match   confInputsConstants /\v<(sse-(s3|c))>/
+
 " UF journalctl
 syn match   confInputs /\v<^(journalctl-(in|ex)clude-fields|journalctl-(filter|(user-)?unit|identifier|priority|boot|facility|grep))>/
 syn match   confInputs /\v<^(journalctl-(dmesg|quiet|freetext))>/

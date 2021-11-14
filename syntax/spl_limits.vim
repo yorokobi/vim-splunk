@@ -155,6 +155,16 @@ syn match   confLimits /\v<^(enable_dfs_search_f(eed|all)back|use_segmenter_v2)>
 
 syn match   confLimitsConstants /\v<(immediate|ttl|app|user|system)$>/
 
+" 8.2
+syn match   confLimitsStanzas contained /\v<(dbinspect|search_optimization::set_required_fields)>/
+
+syn match   confLimits /\v<^(get_summary_id_(connection|rcv|send)_timeout|max_id_length_before_hash|max_fieldmeta_cnt_ui)>/
+syn match   confLimits /\v<^(enable_splunkd_kv_lookup_indexing|enforce_auto_lookup_order|max_keymap_rows|use_(spill_thread|stats_v2))>/
+syn match   confLimits /\v<^(async_saved_search_(fetch|interval)|defaultReducersPerPhase)>/
+syn match   confLimits /\v<^(autoAppliedToAdhocSearches|maxPreviewMemUsageMb|enablePreview|disabledCommandList|detect_search_time_field_collisions|stats)>/
+
+syn match   confLimitsConstants /\v<(fixed-width)$>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

@@ -48,6 +48,9 @@ syn match   confWorkLoadRules /\v<^(predicate|workload_pool|rules|action|schedul
 
 syn match   confWorkLoadRulesConstants /\v<(alert|move|abort|always_on|time_range|every_(day|week|month))$>/
 
+" 8.2
+syn match   confWorkLoadRules /\v<^(disabled)>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

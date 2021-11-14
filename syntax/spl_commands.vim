@@ -55,6 +55,9 @@ syn match   confCommands /\v<^(python\.version)>/
 
 syn match   confCommandsConstants /\v<(default|python(2|3)?)$>/
 
+" 8.2
+syn match   confCommands /\v<^(pass_timezone)>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

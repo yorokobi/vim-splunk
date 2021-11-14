@@ -52,6 +52,9 @@ syn match   confRestMap /\v<^(python\.version)>/
 
 syn match   confRestMapConstants /\v<(default|python(2|3)?)$>/
 
+" 8.2
+syn match   confRestMapConstants /\v<(base64)$>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

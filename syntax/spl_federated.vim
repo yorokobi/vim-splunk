@@ -45,6 +45,7 @@ syn cluster confStanzas contains=confFederatedStanzas,confGenericStanzas
 "syn match   confFederatedStanzas contained /\v<()>/
 
 syn match   confFederated /\v<^(type|ip|splunk\.(port|serviceAccount|app))>/
+syn match   confFederated /\v<^(hostPort|serviceAccount|password|appContext|useFSHKnowledgeObjects)>/
 
 "syn match   confFederatedConstants /\v<()$>/
 

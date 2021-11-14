@@ -69,6 +69,9 @@ syn match   confDistSearchConstants /\v<(classic|cascading|rfs|mounted|v(1|2))$>
 syn match   confDistSearch /\v<^(minKeyLength|legacyKeyLengthAuthPolicy|warnMaxBundleSizePerc|allowDeltaIndexing)>/
 syn match   confDistSearchConstants /\v<(reject|warn)$>/
 
+" 8.2
+syn match   confDistSearch /\v<(preCompressKnowledgeBundles(Classic|Cascade)Mode)>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

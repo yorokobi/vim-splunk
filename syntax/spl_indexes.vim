@@ -110,6 +110,10 @@ syn match   confIndexes /\v<^()>/
 syn match   confIndexes /\v<^()>/
 syn match   confIndexesConstants /\v<(default|python(2|3)?|aes-256-gcm|4-only|6-only|ssl3|tls1.(0|1|2)|gcp-sse-(c|kms|gcp))$>/
 
+" 8.2
+syn match   confIndexes /\v<^(bucketMerge\.maxMergeTimeSpanSecs|tsidxDedupPostingsListMaxTermsLimit|hotBucketStreaming\.removeRemoteSlicesOnFreeze)>/
+syn match   confIndexes /\v<^(remote\.s3\.max_idle_connections|federated\.(provider|dataset))>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

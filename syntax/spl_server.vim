@@ -132,7 +132,7 @@ syn match   confServer /\v<^(dfc_ip_address|extra_kryo_registered_classes|spark_
 syn match   confServer /\v<^(persist(_pending_upload_from_external|ent_id_set_remove_min_sync_secs)|enable_open_on_stale_object)>/
 syn match   confServer /\v<^(batchStacksThreshold)>/
 
-syn match   confServerConstants /\v<(clustermaster:\S+)$>/
+syn match   confServerConstants /\v<(cluster(manager|master):\S+)$>/
 
 " 8.1.0
 syn match   confServerStanzas contained /\v<(cascading_replication|cache_manager_service|hot_bucket_streaming)>/
@@ -156,6 +156,18 @@ syn match   confServer /\v<^()>/
 
 syn match   confServerConstants /\v<(python(2|3)?|force_python3|weighted_random|round_robin|up|batch_adding|starting)$>/
 syn match   confServerConstants /\v<(smallest|largest|mmapv1|wiredTiger|size_balanced|random|none|tar\.lz4)$>/
+
+" 8.2
+syn match   confServer /\v<^(preShutdownCleanup|reset_manifests_on_startup|percent_manifests_to_reset|regex_cache_hiwater)>/
+syn match   confServer /\v<^(allowWwwAuthHeader|cookieSameSiteSecure|imds_version|manager_uri)>/
+syn match   confServer /\v<^(primary_src_persist_secs|searchable_rolling_(peer_state_delay_interval|site_down_policy))>/
+syn match   confServer /\v<^(percent_peers_to_reload|precompress_cluster_bundle|precompress_artifacts)>/
+syn match   confServer /\v<^(conf_deploy_precompress_bundles|cache_upload_backoff_sleep_secs|max_known_remote_absent_summaries)>/
+syn match   confServer /\v<^(usePreloadedPstacks|scsTokenScriptPath)>/
+
+syn match   confServerConstants /\v<((fullyqualified|cluster|short)name|track-only|v(1|2)|peer|manager|most|half)$>/
+
+syn match   confServerStanzas /\v<(imds|clustermanager:\S+|federated_search|distributed_leases)>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment

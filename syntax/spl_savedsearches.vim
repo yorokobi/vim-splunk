@@ -110,6 +110,12 @@ syn match   confSavedSearchesConstants /\v<(number\ of\ (events|hosts|sources)|a
 " 8.1.0
 syn match   confSavedSearches /\v<^(action\.email\.allow_empty_attachment|alert\.suppress\.group_name)>/
 
+" 8.2
+syn match   confSavedSearches /\v<^(schedule_as|dispatch.allow_partial_results|skip_scheduled_realtime_idxc)>/
+syn match   confSavedSearches /\v<^(durable.((track_time|backfill)_type|lag_time|max_backfill_intervals)|action.summary_metric_index.(inline|_name)?)>/
+
+syn match   confSavedSearchesConstants /\v<(classic|prjob|_(index)?time|time_(interval|whole))$>/
+
 " alert_logevent
 " etc/apps/alert_logevent/README/savedsearches.conf.spec
 syn match   confSavedSearches /\v<action\.(logevent(\.param\.(event|host|source(type)?|index))|log_event)>/

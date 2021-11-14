@@ -83,6 +83,12 @@ syn match   confOutputs /\v<^(remote_queue\.sqs_smartbus\.(enable_(data_integrit
 
 syn match   confOutputsConstants /\v<(sqs(_smartbus)|kinesis)$>/
 
+" 8.2
+syn match   confOutputs /\v<^(polling_interval|maxSendQSize|remote_queue.sqs_smartbus.encoding_format)>/
+syn match   confOutputs /\v<^(remote_queue.sqs_smartbus.large_message_store.(encryption_scheme|kms_endpoint|key_(id|refresh_interval)))>/
+
+syn match   confOutputsConstants /\v<(protobuf|s2s|sse-(s3|c))$>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error
