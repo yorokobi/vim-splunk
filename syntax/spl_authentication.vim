@@ -67,6 +67,9 @@ syn match  confAuthentication /\v<^(python\.version|partialChainCertVerification
 syn match  confAuthentication /\v<^(assertionTimeSkew|inboundDigestMethod|lockRoleToFullDN|allowPartialSignatures)>/
 syn match  confAuthenticationConstants /\v<(default|python(2|3)?)$>/
 
+" 8.2
+syn match  confAuthentication /\v<^(getUserInfoTtl|useAuthExtForTokenAuthOnly|excluded(AutoMappedRoles|Users))>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

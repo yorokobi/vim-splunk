@@ -42,7 +42,7 @@ syn region confStanza matchgroup=confStanzaStart start=/^\[/ matchgroup=confStan
 syn cluster confStanzas contains=confHealthStanzas,confGenericStanzas
 
 " health.conf
-syn match   confHealthStanzas contained /\v<(default|health_reporter|clustering|feature:*)>/
+syn match   confHealthStanzas contained /\v<(default|health_reporter|clustering|feature:\k+|alert_action:\k+)>/
 
 syn match   confHealth /\v<^(full_health_log_interval|suppress_status_update_ms|health_report_period|disabled|indicator:\S+:(yellow|red))>/
 

@@ -162,6 +162,7 @@ syn match   confLimits /\v<^(get_summary_id_(connection|rcv|send)_timeout|max_id
 syn match   confLimits /\v<^(enable_splunkd_kv_lookup_indexing|enforce_auto_lookup_order|max_keymap_rows|use_(spill_thread|stats_v2))>/
 syn match   confLimits /\v<^(async_saved_search_(fetch|interval)|defaultReducersPerPhase)>/
 syn match   confLimits /\v<^(autoAppliedToAdhocSearches|maxPreviewMemUsageMb|enablePreview|disabledCommandList|detect_search_time_field_collisions|stats)>/
+syn match   confLimits /\v<^(max_searches_started_per_cycle|include_events_omitted_when_filtering_numeric_values)>/
 
 syn match   confLimitsConstants /\v<(fixed-width)$>/
 

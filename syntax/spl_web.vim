@@ -82,6 +82,7 @@ syn match   confWeb /\v<^(appServerProcessLogStderr|enableSearchJobXslt)>/
 
 " 8.2
 syn match   confWeb /\v<^(enable_splunk_dashboard_app_feature|firstTimeLoginMessageOption|firstTimeLoginMessage|simplexml_dashboard_create_version|allowRemoteProxy)>/
+syn match   confWeb /\v<^(pdfgen_trusted_hosts|job_default_auto_cancel|enable_jQuery2)>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment

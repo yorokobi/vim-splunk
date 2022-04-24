@@ -104,7 +104,13 @@ syn match   confAuthorizeStanzas contained /\v<((role_|capability::)(list_(healt
 syn match   confAuthorizeStanzas contained /\v<((role_|capability::)((list|edit)_workload_policy|edit_global_banner))>/
 
 " 8.2
-syn match   confAuthorizeStanzas contained /\v<(commands:user_configurable)>/
+syn match   confAuthorizeStanzas contained /\v<(commands:user_configurable|capability::edit_manager_xml)>/
+syn match   confAuthorize /\v<^(prefix)>/
+syn match   confAuthorizeCaps /\v<^(delete_messages|edit_(log_alert_event|health(_subset)?)|request_pstacks)>/
+syn match   confAuthorizeCaps /\v<^(list_(accelerate_search|health(_subset)?|metrics_catalog|token_http))>/
+syn match   confAuthorizeCaps /\v<^(never_(lockout|expire)|pattern_detect|run_(collect|m(collect|search)|walklex))>/
+syn match   confAuthorizeCaps /\v<^(edit_(global_banner|kvstore|manager_xml|metric_schema|statsd_transforms|workload_(pools|rules|policy)))>/
+syn match   confAuthorizeCaps /\v<^(select_workload_pools|list_(workload_(pools|rules|policy)))>/
 
 " Splunk version 6.
 syn match   confAuthorizeStanzas /\v<((role_|capability::)list_accelerate_search)>/
