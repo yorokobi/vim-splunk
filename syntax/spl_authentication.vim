@@ -51,7 +51,7 @@ syn match  confAuthentication /\v<^(script(Path|SearchFilters)|(userLogin|getUse
 syn match  confAuthentication /\v<^(idp((SSO|SLO|AttributeQuery)Url|CertPath)|errorUrl(Label)?|(entity|issuer)Id|sign(AuthnRequest|edAssertion))>/
 syn match  confAuthentication /\v<^(attributeQuery(Soap(Password|Username)|(Request|Response)Signed)|redirectAfterLogoutToUrl|defaultRoleIfMissing)>/
 syn match  confAuthentication /\v<^(skipAttributeQueryRequestForUsers|maxAttributeQuery(Threads|QueueSize)|allowSslCompression|cipherSuite)>/
-syn match  confAuthentication /\v<^(clientCert|ssl(RootCAPath|VerifyServerCert|Versions|(Alt|Common)NameToCheck|Keysfile(Password)?|Password)|ecdhCurve(s|Name))>/
+syn match  confAuthentication /\v<^(clientCert|ssl(RootCAPath|VerifyServer(Cert|Name)|Versions|(Alt|Common)NameToCheck|Keysfile(Password)?|Password)|ecdhCurve(s|Name))>/
 syn match  confAuthentication /\v<^(ca(CertFile|Path)|blacklisted(AutoMappedRoles|Users)|nameIdFormat|(sso|slo)Binding|(inboundS|s)ignatureAlgorithm)>/
 syn match  confAuthentication /\v<^(replicateCertificates|role|realName|mail|disabled|filename|namespace|apiHostname|integrationKey|(appS|s)ecretKey)>/
 syn match  confAuthentication /\v<^(failOpen|timeout|useClientSSLCompression|messageOnError|sslVersionsForClient|enableMfaAuthRest|enableRangeRetrieval)>/
@@ -69,6 +69,10 @@ syn match  confAuthenticationConstants /\v<(default|python(2|3)?)$>/
 
 " 8.2
 syn match  confAuthentication /\v<^(getUserInfoTtl|useAuthExtForTokenAuthOnly|excluded(AutoMappedRoles|Users))>/
+
+" 9.0.0
+syn match  confAuthentication /\v<^(userInfoTTL)>/
+syn match  confAuthenticationConstants /\v<(SHA(1|256|384|512))$>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment

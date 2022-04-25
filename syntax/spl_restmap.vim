@@ -55,6 +55,10 @@ syn match   confRestMapConstants /\v<(default|python(2|3)?)$>/
 " 8.2
 syn match   confRestMapConstants /\v<(base64)$>/
 
+" 9.0.0
+syn match   confRestMapStanzas contained /\v<(proxybundleupload(rshcluster)?:\k+)>/
+syn match   confRestMap /\v<^(stream)>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

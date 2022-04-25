@@ -53,7 +53,7 @@ syn match   confAlertActions /\v<^(report(Paper(Size|Orientation)|Server(Enabled
 syn match   confAlertActions /\v<^(pdf\.(logo_path|html_image_rendering|(footer|header)_(enabled|center|left|right)))>/
 syn match   confAlertActions /\v<^(alert\.execute\.cmd(\.arg\.\d+)?|label|description)>/
 syn match   confAlertActions /\v<^(subject\.(alert|report)|message\.(report|alert)|footer\.text|include\.((results|view)_link|search|trigger|trigger_time))>/
-syn match   confAlertActions /\v<^(cipherSuite|ssl((Alt|Common)NameToCheck|VerifyServerCert|Versions))>/
+syn match   confAlertActions /\v<^(cipherSuite|ssl((Alt|Common)NameToCheck|VerifyServer(Cert|Name)|Versions))>/
 
 " 7.2.3
 syn match   confAlertActions /\v<^(forceCsvResults)>/

@@ -48,7 +48,7 @@ syn match   confWeb /\v<^(SSOMode|acceptFrom|allowSs(lCompression|lRenegotiation
 syn match   confWeb /\v<^(app(NavReportsLimit|Server(Ports|ProcessShutdownTimeout))|auto_refresh_views|busyKeepAliveIdleTimeout|caCertPath)>/
 syn match   confWeb /\v<^(cache(Bytes|Entries)Limit|choropleth_shape_limit|cipherSuite|crossOriginSharingPolicy|customFavicon|dashboard_html_allow_inline_styles)>/
 syn match   confWeb /\v<^(dedicatedIoThreads|dhFile|django_((force_)?enable|path)|docsCheckerBaseURL|ecdhCurve(s|Name)|embed_(footer|uri))>/
-syn match   confWeb /\v<^(enable(SplunkWeb(ClientNetloc|SSL)|WebDebug|_(autocomplete|insecure)_login|_gzip|_pivot_adhoc_acceleration|_proxy_write|_risky_command_check))>/
+syn match   confWeb /\v<^(enable(SplunkWeb(ClientNetloc|SSL)|WebDebug|_(autocomplete|insecure)_login|_gzip|_pivot_adhoc_acceleration|_proxy_write|_risky_command_check(_dashboard)?))>/
 syn match   confWeb /\v<^(enabled_decomposers|engine\.autoreload_on|export_timeout|flash_(major|minor|revision)_version|forceHttp10|httpport)>/
 syn match   confWeb /\v<^(job_(max|min)_polling_interval|js_logger_mode(_(server_(end_point|(max|poll)_buffer)))?|js_no_cache)>/
 syn match   confWeb /\v<^(jschart_((results|series)_limit|test_mode|truncation_limit(\.(chrome|firefox|ie11|safari))?))>/
@@ -83,6 +83,11 @@ syn match   confWeb /\v<^(appServerProcessLogStderr|enableSearchJobXslt)>/
 " 8.2
 syn match   confWeb /\v<^(enable_splunk_dashboard_app_feature|firstTimeLoginMessageOption|firstTimeLoginMessage|simplexml_dashboard_create_version|allowRemoteProxy)>/
 syn match   confWeb /\v<^(pdfgen_trusted_hosts|job_default_auto_cancel|enable_jQuery2)>/
+
+" 9.0.0
+syn match   confWebStanzas contained /\v<(smc)>/
+
+syn match   confWeb /\v<^(sslServerHandshakeTimeout|allow_insecure_libraries_toggle|remoteRoot)>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment

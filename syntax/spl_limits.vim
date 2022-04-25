@@ -100,7 +100,7 @@ syn match   confLimits /\v<^(remote_timeline(_(connection_timeout|fetchall|max_(
 syn match   confLimits /\v<^(render_endpoint_timeout|replication_(file_ttl|period_sec)|result(_queue_max_size|s_queue_min_size)|return_actions_with_normalized_ids)>/
 syn match   confLimits /\v<^(reuse_map_maxsize|rr_(m(ax|in)_sleep_ms|sleep_factor)|saved_searches_disabled|scheduled_view_timeout|sensitivity)>/
 syn match   confLimits /\v<^(search_((2_hash_cache|history_load)_timeout|history_max_runtimes|keepalive_(frequency|max)|process_(memory_usage_(percentage_)?threshold|mode)))>/
-syn match   confLimits /\v<^(shc_(accurate_access_counts|local_quota_check|(role|syswide)_quota_enforcement)|show_warn_on_filtered_indexes|shp_dispatch_to_slave)>/
+syn match   confLimits /\v<^(shc_(accurate_access_counts|local_quota_check|(role|syswide)_quota_enforcement)|show_warn_on_filtered_indexes|shp_dispatch_to_(member|slave))>/
 syn match   confLimits /\v<^(sleep_seconds|soft_preview_queue_size|sparkline_(maxsize|time_steps)|squashcase|stack_size|stale_lock_seconds)>/
 syn match   confLimits /\v<^(status_(buckets|cache_(in_memory_ttl|size)|period_ms)|subsearch_(max(out|time)|timeout)|summariesonly|summary_mode)>/
 syn match   confLimits /\v<^(suppress_derived_info|sync_bundle_replication|tailing_proc_speed|target_time_perchunk|tdigest_(k|max_buffer_size))>/
@@ -165,6 +165,19 @@ syn match   confLimits /\v<^(autoAppliedToAdhocSearches|maxPreviewMemUsageMb|ena
 syn match   confLimits /\v<^(max_searches_started_per_cycle|include_events_omitted_when_filtering_numeric_values)>/
 
 syn match   confLimitsConstants /\v<(fixed-width)$>/
+
+" 9.0.0
+syn match   confLimitsStanzas contained /\v<(search_throttling::(per_cpu|physical_ram)|collect|watchdog)>/
+syn match   confLimitsStanzas contained /\v<(search_optimization::(insert_redistribute_command|replace_chart_cmds_with_tstats))>/
+
+syn match   confLimits /\v<^(enableConcurrentPipelineProcessing|total_search_concurrency_limit|shc_adhoc_quota_enforcement)>/
+syn match   confLimits /\v<^(remote_search_requests_throttling_type|async_quota_update(_freq)?|enable_(createrss|file)_command)>/
+syn match   confLimits /\v<^(use_removable_search_cache|search_retry_(max_historical|waiting_time)|search_telemetry_component_limit)>/
+syn match   confLimits /\v<^(role_based_field_filtering|max_concurrent|min_memory_per_search|format_multivalue_collect|collect_ignore_minor_breakers)>/
+syn match   confLimits /\v<^(check_for_invalid_time|(min|max)_chunk_size_kb|chunk_size_double_every|max_servers|banned_segments)>/
+syn match   confLimits /\v<^(previewReducerDutyCycle|stack_files_(ttl|removal_period))>/
+
+syn match   confLimitsConstants /\v<(overflow|per_cpu|physical_ram)$>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment

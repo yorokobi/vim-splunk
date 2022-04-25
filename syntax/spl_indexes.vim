@@ -114,6 +114,17 @@ syn match   confIndexesConstants /\v<(default|python(2|3)?|aes-256-gcm|4-only|6-
 syn match   confIndexes /\v<^(bucketMerge\.maxMergeTimeSpanSecs|tsidxDedupPostingsListMaxTermsLimit|hotBucketStreaming\.removeRemoteSlicesOnFreeze)>/
 syn match   confIndexes /\v<^(remote\.s3\.max_idle_connections|federated\.(provider|dataset))>/
 
+" 9.0.0
+syn match   confIndexes /\v<^(bucketMerge\.(min|max)MergeCount|deleteId|archiver\.selfStorage(DisableMPU|Encryption))>/
+syn match   confIndexes /\v<^(remote\.s3\.(tsidx_compression|use_sdk))>/
+syn match   confIndexes /\v<^(remote\.azure\.(sslVersions|sslVerifyServer(Cert|Name)|use_delimiter|httpKeepAlive|(access|secret)_key))>/
+syn match   confIndexes /\v<^(remote\.azure\.((tenant|client)_id|client_secret|sslRootCAPath|cipherSuite|encryption|endpoint))>/
+syn match   confIndexes /\v<^(remote\.azure\.(azure-sse-kv\.encryptionScope|supports_versioning|container_name|upload\.(chunk_size|concurrency)))>/
+syn match   confIndexes /\v<^(remote\.azure\.(download\.(chunk_size|concurrency)|max_(download_batch|listing_page)_size|retry_policy))>/
+syn match   confIndexes /\v<^(remote\.azure\.(max_count\.max_retries_in_total|backoff\.(initial|max_retry)_delay_ms))>/
+
+syn match   confIndexesConstants /\v<(azure-sse-(kv|ms)|cse|(m)?s)$>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

@@ -113,7 +113,19 @@ syn match   confAuthorizeCaps /\v<^(edit_(global_banner|kvstore|manager_xml|metr
 syn match   confAuthorizeCaps /\v<^(select_workload_pools|list_(workload_(pools|rules|policy)))>/
 
 " Splunk version 6.
-syn match   confAuthorizeStanzas /\v<((role_|capability::)list_accelerate_search)>/
+syn match   confAuthorizeStanzas contained /\v<((role_|capability::)list_accelerate_search)>/
+
+" 9.0.0
+syn match   confAuthorize /\v<^(fieldFilterLimit)>/
+syn match   confAuthorizeComplex /\v<^(fieldFilter-\k+)>/
+syn match   confAuthorizeComplex /\v<((host|source(type)?)::\k+)$>/
+syn match   confAuthorizeStanzas contained /\v<((role_|capability::)((edit_own|list_all)_objects|(edit|list)_ingest_rulesets|edit_modinput_journald))>/
+syn match   confAuthorizeStanzas contained /\v<((role_|capability::)run_(dump|custom_command|sendalert|commands_ignoring_field_filter)|rest_access_server_endpoints)>/
+syn match   confAuthorizeStanzas contained /\v<((role_|capability::)(rest_access_server_endpoints|upload_mmdb_files|edit_field_filter))>/
+syn match   confAuthorizeStanzas contained /\v<((role_|capability::)(list_(cascading_plans|remote_(input|output)_queue)))>/
+syn match   confAuthorizeStanzas contained /\v<((role_|capability::)(merge_buckets|edit_web_features|read_internal_libraries_settings))>/
+
+syn match   confAuthorizeConstants /\v<(never)$>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment
@@ -137,3 +149,4 @@ hi def link confAuthorizeStanzas Identifier
 hi def link confAuthorize Keyword
 hi def link confAuthorizeCaps Type
 hi def link confAuthorizeConstants Constant
+hi def link confAuthorizeComplex PreProc

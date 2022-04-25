@@ -47,7 +47,7 @@ syn match   confOutputsStanzas contained /\v<(default|indexAndForward|indexer_di
 syn match   confOutputs /\v<^(ackTimeoutOnShutdown|autoLB(Frequency|Volume)|backoffOnFailure|block(OnCloning|WarnThreshold)|channel(Reap(Interval|Lowater)|TTL))>/
 syn match   confOutputs /\v<^(cipherSuite|clientCert|compressed|(connection|read|write)Timeout|(cxn|rcv|send)_timeout|defaultGroup|(dnsResolution|secsInFailure)Interval|drop(Cloned)?EventsOnQueueFull)>/
 syn match   confOutputs /\v<^(ecdhCurves|forceTimebasedAutoLB|forwardedindex\.(\d+\.(black|white)list|filter\.disable)|heartbeatFrequency|index(AndForward|erDiscovery)?)>/
-syn match   confOutputs /\v<^(master_uri|max(ConnectionsPerIndexer|(Event|Queue)Size|FailuresPerInterval)|negotiate(NewProtocol|ProtocolLevel)|pass4SymmKey)>/
+syn match   confOutputs /\v<^((manager|master)_uri|max(ConnectionsPerIndexer|(Event|Queue)Size|FailuresPerInterval)|negotiate(NewProtocol|ProtocolLevel)|pass4SymmKey)>/
 syn match   confOutputs /\v<^(priority|selectiveIndexing|sendCookedData|server|socks(Password|ResolveDNS|Server|Username)|syslogSourceType|tcpSendBufSz)>/
 syn match   confOutputs /\v<^(ssl((Alt|Common)NameToCheck|(Cert|RootCA)Path|Cipher|Password|QuietShutdown|VerifyServerCert|Versions))>/
 syn match   confOutputs /\v<^(timestampformat|tlsHostname|token|type|use(ACK|ClientSSLCompression))>/
@@ -88,6 +88,19 @@ syn match   confOutputs /\v<^(polling_interval|maxSendQSize|remote_queue.sqs_sma
 syn match   confOutputs /\v<^(remote_queue.sqs_smartbus.large_message_store.(encryption_scheme|kms_endpoint|key_(id|refresh_interval)))>/
 
 syn match   confOutputsConstants /\v<(protobuf|s2s|sse-(s3|c))$>/
+
+" 9.0.0
+syn match   confOutputsStanzas contained /\v<(rfs:\k+)>/
+
+syn match   confOutputs /\v<^(connectionsPerTarget|autoLBFrequencyIntervalOnGroupFailure|autoBatch|sslVerifyServerName)>/
+syn match   confOutputs /\v<^(remote_queue.sqs_smartbus.large_message_store.(ssl(VerifyServerCert|Versions|(Alt|Common)NameToCheck|RootCAPath)))>/
+syn match   confOutputs /\v<^(remote_queue.sqs_smartbus.large_message_store.(cipherSuite|ecdhCurves|dhFile))>/
+syn match   confOutputs /\v<^(dropEventsOnUploadError|batchSizeThresholdKB|compression(Level)?|path|description)>/
+syn match   confOutputs /\v<^(remote.s3.(encryption|(access|secret)_key|(signature|url)_version|supports_versioning|endpoint|retry_policy))>/
+syn match   confOutputs /\v<^(remote.s3.(ssl(VerifyServerCert|Versions|(Alt|Common)NameToCheck|RootCAPath)|cipherSuite|ecdhCurves))>/
+syn match   confOutputs /\v<^(remote.s3.(kms.(auth_region|key_id|ssl\k+))|authMethod)>/
+
+syn match   confOutputsConstants /\v<(sse-(s3|kms)|cse|zstd|lz4|gzip)$>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment

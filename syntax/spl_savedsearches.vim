@@ -116,6 +116,9 @@ syn match   confSavedSearches /\v<^(durable.((track_time|backfill)_type|lag_time
 
 syn match   confSavedSearchesConstants /\v<(classic|prjob|_(index)?time|time_(interval|whole))$>/
 
+" 9.0.0
+syn match   confSavedSearches /\v<^(dispatch.rate_limit_retry|precalculate_required_fields_for_alerts)>/
+
 " alert_logevent
 " etc/apps/alert_logevent/README/savedsearches.conf.spec
 syn match   confSavedSearches /\v<action\.(logevent(\.param\.(event|host|source(type)?|index))|log_event)>/

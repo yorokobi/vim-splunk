@@ -72,11 +72,13 @@ syn match   confTransforms /\v<^(reverse_lookup_honor_case_sensitive_match|pytho
 syn match   confTransformsConstants /\v<(default|python(2|3)?)$>/
 
 " 8.2
-
 syn match   confTransforms /\v<^(METRIC-SCHEMA-WHITELIST-DIMS)>/
-syn match   confTransforms /\v<^()>/
-syn match   confTransforms /\v<^()>/
 syn match   confTransformsConstants /\v<(_ALLNUMS_|_NUMS_EXCEPT_)>/
+
+" 9.0.0
+syn match   confTransformsStanzas contained /\v<(_ruleset:global_settings)>/
+
+syn match   confTransforms /\v<^(STOP_PROCESSING_IF|metrics.(disabled|report_interval|rule_filter))>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment

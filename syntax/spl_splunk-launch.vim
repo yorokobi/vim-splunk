@@ -43,7 +43,7 @@ syn cluster confStanzas contains=confSplunkLaunchStanzas,confGenericStanzas
 
 " splunk-launch.conf
 "syn match   confSplunkLaunchStanzas contained /\v<(default)>/
-syn match   confSplunkLaunch /\v<^(SPLUNK_(FIPS|BINDIP|DB|HOME|IGNORE_SELINUX|OS_USER|(SERVER|WEB)_NAME)|OPTIMISTIC_ABOUT_FILE_LOCKING)>/
+syn match   confSplunkLaunch /\v<^(SPLUNK_(FIPS|BINDIP|DB|HOME|IGNORE_SELINUX|OS_USER|(SERVER|WEB)_NAME)|OPTIMISTIC_ABOUT_FILE_LOCKING|PYTHONHTTPSVERIFY)>/
 
 "syn match   confSplunkLaunchConstants /\v<()$>/
 

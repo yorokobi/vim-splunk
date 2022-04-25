@@ -78,6 +78,10 @@ syn keyword confComplex ASNEW
 " 8.2
 syn match   confProps /\v<^(DETERMINE_TIMESTAMP_DATE_WITH_SYSTEM_TIME)>/
 
+" 9.0.0
+syn match   confProps /\v<^(ROUTE_EVENTS_OLDER_THAN)>/
+syn match   confComplex /\v<^(RULESET(_DESC)?-[0-9A-Za-z_-]+)>/
+
 syn case ignore
 syn match   confPropsConstants /\v<((c|t|p)sv|w3c|json|xml|hec)$>/
 syn case match

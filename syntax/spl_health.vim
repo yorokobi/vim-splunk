@@ -63,6 +63,11 @@ syn match   confHealthConstants /\v<(enabled|disabled)$>/
 " 8.2
 syn match   confHealth /\v<^(latency_tracker_log_interval_sec|aggregate_ingestion_latency_health)>/
 
+" 9.0.0
+syn match   confHealth /\v<^(latency_tracker_log_interval|ingestion_latency_send_interval(_max)?|snooze_end_time|friendly_description)>/
+syn match   confHealth /\v<^(indicator:\S+:friendly_description)>/
+syn match   confHealth /\v<^()>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

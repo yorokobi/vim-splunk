@@ -50,7 +50,10 @@ syn match   confUserPrefs /\v<^(search_(assistant|auto_format|line_numbers|synta
 
 syn match   confUserPrefs /\v<^(render_version_messages|notification_python_3_impact|eai_(app_only|results_per_page)|checked_new_(maintenance_)?version|new_(maintenance_)?version|appOrder)>/
 
-syn match   confUserPrefsConstants /\v<(full|compact|none|light|dark|black-white)$>/
+syn match   confUserPrefsConstants /\v<(full|compact|none|light|dark|black-white|enterprise)$>/
+
+" 9.0.0
+syn match   confUserPrefs /\v<^(theme|notification_(python_2_removal|noah_upgrade))>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment

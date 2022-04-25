@@ -45,7 +45,7 @@ syn cluster confStanzas contains=confDeploymentClientStanzas,confGenericStanzas
 syn match   confDeploymentClientStanzas contained /\v<(default|deployment\-client|target-broker:[^]]+)>/
 syn match   confDeploymentClient /\v<^(disabled|clientName|workingDir|repositoryLocation|serverRepositoryLocationPolicy|endpoint)>/
 syn match   confDeploymentClient /\v<^(serverEndpointPolicy|phoneHomeIntervalInSecs|handshakeRe(tryIntervalInSecs|plySubscriptionRetry))>/
-syn match   confDeploymentClient /\v<^(appEventsResyncIntervalInSecs|reloadDSOnAppInstall|ssl(Versions|VerifyServerCert|(Common|Alt)NameToCheck))>/
+syn match   confDeploymentClient /\v<^(appEventsResyncIntervalInSecs|reloadDSOnAppInstall|ssl(Versions|VerifyServer(Cert|Name)|(Common|Alt)NameToCheck))>/
 syn match   confDeploymentClient /\v<^(caCertFile|cipherSuite|ecdhCurves|targetUri)>/
 
 " 7.2.3

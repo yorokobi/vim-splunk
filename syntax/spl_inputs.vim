@@ -116,6 +116,12 @@ syn match   confInputs /\v<^(run_only_one)>/
 
 syn match   confInputsConstants /\v<(sse-(s3|c))>/
 
+" 9.0.0
+syn match   confInputs /\v<^(logCertificateData|certLog(MaxCacheEntries|RepeatFrequency)|sslServerHandshakeTimeout|nonmetric_counters)>/
+syn match   confInputs /\v<^(evt_skip_GUID_resolution)>/
+syn match   confInputs /\v<^(remote_queue.sqs.smartbus.(renew_retries))>/
+syn match   confInputs /\v<^(remote_queue.sqs.smartbus.(large_message_store\.(ssl(VerifyServerCert|Versions|(Alt|Common)NameToCheck|RootCAPath)|cipherSuite|ecdhCurves|dhFile)))>/
+
 " UF journalctl
 syn match   confInputs /\v<^(journalctl-(in|ex)clude-fields|journalctl-(filter|(user-)?unit|identifier|priority|boot|facility|grep))>/
 syn match   confInputs /\v<^(journalctl-(dmesg|quiet|freetext))>/

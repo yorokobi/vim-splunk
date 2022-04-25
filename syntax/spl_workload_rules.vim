@@ -51,6 +51,10 @@ syn match   confWorkLoadRulesConstants /\v<(alert|move|abort|always_on|time_rang
 " 8.2
 syn match   confWorkLoadRules /\v<^(disabled)>/
 
+" 9.0.0
+syn match   confWorkLoadRulesStanzas contained /\v<(search_filter_rule:[^]]+)>/
+syn match   confWorkLoadRules /\v<^((start|end)_date)>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

@@ -70,7 +70,11 @@ syn match   confDistSearch /\v<^(minKeyLength|legacyKeyLengthAuthPolicy|warnMaxB
 syn match   confDistSearchConstants /\v<(reject|warn)$>/
 
 " 8.2
-syn match   confDistSearch /\v<(preCompressKnowledgeBundles(Classic|Cascade)Mode)>/
+syn match   confDistSearch /\v<^(preCompressKnowledgeBundles(Classic|Cascade)Mode)>/
+
+" 9.0.0
+syn match   confDistSearchStanzas contained /\v<(replication(Allow|Deny)list|bundleEnforcer(Allow|Deny)list)>/
+syn match   confDistSearch /\v<^(cascade_plan_replication_(retry_fast|threshold_failures))>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment

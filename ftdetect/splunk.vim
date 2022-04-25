@@ -59,6 +59,7 @@ augroup filetypedetect
     au BufNewFile,BufRead viewstates.conf setf spl_viewstates
     au BufNewFile,BufRead visualizations.conf setf spl_visualizations
     au BufNewFile,BufRead web.conf setf spl_web
+    au BufNewFile,BufRead web-features.conf setf spl_web-features
     au BufNewFile,BufRead wmi.conf setf spl_wmi
     au BufNewFile,BufRead workflow_actions.conf setf spl_workflow_actions
     au BufNewFile,BufRead workload_policy.conf setf spl_workload_policy

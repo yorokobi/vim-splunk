@@ -39,23 +39,12 @@ syn match confGenericStanzas display contained /\v[^\]]+/
 syn region confStanza matchgroup=confStanzaStart start=/^\[/ matchgroup=confStanzaEnd end=/\]/ oneline transparent contains=@confStanzas
 
 " Group clusters
-syn cluster confStanzas contains=confAppStanzas,confGenericStanzas
+syn cluster confStanzas contains=confWebFeaturesStanzas,confGenericStanzas
 
-" app.conf
-syn match   confAppStanzas contained /\v<(default|author|id|launcher|package|install|triggers|ui|credentials_settings|credential:[^]]+|diag|shclustering)>/
+" web.conf
+syn match   confWebFeaturesStanzas contained /\v<(feature:quarantine_files)>/
 
-syn match   confApp /\v<^(email|company|group|name|version|remote_tab|version|description|author|id|check_for_updates)>/
-syn match   confApp /\v<^(state(_change_requires_restart)?|build|allows_disable|install_source(_local)?_checksum|attribution_link)>/
-syn match   confApp /\v<^(reload\.[^\ |\=]+|is_(visible|configured|manageable)|show_in_nav|label|docs_section_override)>/
-syn match   confApp /\v<^(setup_view|verify_script|password|extension_script|data_limit|default_gather_lookups)>/
-syn match   confApp /\v<^(deployer_(lookups_)?push_mode|show_upgrade_notification|python\.version)>/
-
-syn match   confAppConstants /\v<(disabled|enabled|never|simple|(rest|access)_endpoints|http_(get|post))$>/
-syn match   confAppConstants /\v<(preserve_lookups|always_(preserve|overwrite)|full|merge_to_default|(local|default)_only)$>/
-syn match   confAppConstants /\v<(default|python(2|3)?)$>/
-
-" 9.0.0
-syn match   confApp /\v<^(supported_themes)>/
+syn match   confWebFeatures /\v<^(enable_(jQuery2|unsupported_hotlinked_imports))>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment
@@ -75,6 +64,6 @@ hi def link confstanzaEnd Delimiter
 " Highlight for stanzas
 hi def link confStanza Function
 hi def link confGenericStanzas Constant
-hi def link confAppStanzas Identifier
-hi def link confApp Keyword
-hi def link confAppConstants Constant
+hi def link confWebFeaturesStanzas Identifier
+hi def link confWebFeatures Keyword
+hi def link confWebFeaturesConstants Constant
