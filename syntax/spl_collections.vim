@@ -44,7 +44,7 @@ syn cluster confStanzas contains=confCollectionsStanzas,confGenericStanzas
 " collections.conf
 syn match   confCollectionsStanzas contained /\v<(default)>/
 syn match   confCollections /\v<^(enforceTypes|field\.[^\ |\=]+|accelerated_fields\.[^\ |\=]+|profiling(Enabled|ThresholdMs)|replicate)>/
-syn match   confCollections /\v<^(replication_dump_(strategy|maximum_file_size)|type)>/
+syn match   confCollections /\v<^(replication_dump_(strategy|maximum_file_size)|type|disabled)>/
 
 syn match   confCollectionsConstants /\v<(number|bool|string|time|internal_cache|undefined|one_file|auto)$>/
 
