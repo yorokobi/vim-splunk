@@ -68,10 +68,14 @@ syn match   confIndexes /\v<^(timePeriodInSecBeforeTsidxReduction|tsidx(Reductio
 syn match   confIndexes /\v<^(vix\.(command(\.arg\.\d+)?|env\.(HUNK_THIRDPARTY_JARS|env)|family|fs\.default\.name))>/
 syn match   confIndexes /\v<^(vix\.input\.\d+\.(accept|(e|l)t\.(format|offset|regex|timezone|value)|ignore|path|required\.fields))>/
 syn match   confIndexes /\v<^(vix\.(javaprops\.JVM|kerberos\.(keytab|principal)|mapred\.job\.tracker|mode|property|provider))>/
+syn match   confIndexes /\v<^(vix\.env\.(MAPREDUCE_USER|HADOOP_(HEAPSIZE|CLIENT_OPTS)))>/
+syn match   confIndexes /\v<^(vix\.mapred\.(job\.(reuse\.jvm\.num\.tasks|(map|reduce)\.memory\.mb|queue\.name)|child\.java\.opts|reduce\.tasks))>/
+syn match   confIndexes /\v<^(vix\.mapreduce\.(job\.(jvm\.numtasks|reduces|queuename)|(map|reduce)\.(java\.opts|memory\.mb)))>/
 syn match   confIndexes /\v<^(vix\.output\.buckets\.(from\.indexes|max\.network\.bandwidth|older\.than|path))>/
 syn match   confIndexes /\v<^(vix\.splunk\.(heartbeat(\.interval|\.path|\.threshold)?|home\.(datanode|hdfs)|impersonation|jars))>/
 syn match   confIndexes /\v<^(vix\.splunk\.search\.(column\.filter|debug|mixedmode(\.maxstream)?|mr\.mapper\.output\.(gzlevel|replication)))>/
 syn match   confIndexes /\v<^(vix\.splunk\.search\.(mr\.((max|min)splits|poll|splits\.multiplier|threads)|recordreader(\.avro\.regex|\.sequence\.ignore\.key)?))>/
+syn match   confIndexes /\v<^(vix\.splunk\.search\.recordreader\.((csv|sequence)\.regex))>/
 syn match   confIndexes /\v<^(vix\.splunk\.search\.splitter(\.hive\.(column(names|types)|dbname|fileformat(\.inputformat)?|ppd))?)>/
 syn match   confIndexes /\v<^(vix\.splunk\.search\.splitter\.hive\.rowformat\.(collectionitems\.terminated|escaped|(fields|lines|mapkeys)\.terminated))>/
 syn match   confIndexes /\v<^(vix\.splunk\.search\.splitter\.(hive\.(serde(\.properties)?|tablename)|parquet\.simplifyresult))>/
