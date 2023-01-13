@@ -42,9 +42,9 @@ syn region confStanza matchgroup=confStanzaStart start=/^\[/ matchgroup=confStan
 syn cluster confStanzas contains=confWebFeaturesStanzas,confGenericStanzas
 
 " web.conf
-syn match   confWebFeaturesStanzas contained /\v<(feature:quarantine_files)>/
+syn match   confWebFeaturesStanzas contained /\v<(feature:(quarantine_files|dashboard_inputs_localization))>/
 
-syn match   confWebFeatures /\v<^(enable_(jQuery2|unsupported_hotlinked_imports))>/
+syn match   confWebFeatures /\v<^(enable_(jQuery2|unsupported_hotlinked_imports|dashboard_inputs_localization))>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment
