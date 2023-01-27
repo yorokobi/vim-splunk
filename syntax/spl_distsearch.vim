@@ -75,6 +75,9 @@ syn match   confDistSearch /\v<^(preCompressKnowledgeBundles(Classic|Cascade)Mod
 " 9.0.0
 syn match   confDistSearchStanzas contained /\v<(replication(Allow|Deny)list|bundleEnforcer(Allow|Deny)list)>/
 syn match   confDistSearch /\v<^(cascade_plan_replication_(retry_fast|threshold_failures))>/
+syn match   confDistSearch /\v<^(parallelReduceBackwardCompatibility|searchableIndexMapping)>/
+
+syn match   confDistSearchConstants /\v<(cloud|enterprise|(en|dis)abled)$>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment

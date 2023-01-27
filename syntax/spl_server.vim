@@ -178,6 +178,8 @@ syn match   confServer /\v<^(cm_(heartbeat_period|max_hbmiss_count|com_timeout)|
 syn match   confServer /\v<^(conf_replication_summary.(in|ex)cludelist.\k+|remote_job_retry_attempts|remote.s3.kms.ssl\k+)>/
 syn match   confServer /\v<^(slices_upload_retry_pending|transparent_mode|whole_search_execution_optimization|(sends|receives)DeltaBundle)>/
 syn match   confServer /\v<^(syncProxyBundleToClusterMembers|(alert|suppression)_store|sanitize_uri_param)>/
+syn match   confServer /\v<^(invalidateSessionTokensOnLogout|logoutCacheRefreshInterval|enable_encrypt_bundle)>/
+syn match   confServer /\v<^(remote\.s3\.header\.(POST|GET)\.\k+)>/
 
 syn match   confServerConstants /\v<(crl|manual)$>/
 

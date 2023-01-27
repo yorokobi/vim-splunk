@@ -41,7 +41,7 @@ syn region confStanza matchgroup=confStanzaStart start=/^\[/ matchgroup=confStan
 " Group clusters
 syn cluster confStanzas contains=confWebFeaturesStanzas,confGenericStanzas
 
-" web.conf
+" web-features.conf
 syn match   confWebFeaturesStanzas contained /\v<(feature:(quarantine_files|dashboard_inputs_localization))>/
 
 syn match   confWebFeatures /\v<^(enable_(jQuery2|unsupported_hotlinked_imports|dashboard_inputs_localization))>/

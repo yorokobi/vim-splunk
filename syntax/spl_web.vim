@@ -88,6 +88,8 @@ syn match   confWeb /\v<^(pdfgen_trusted_hosts|job_default_auto_cancel|enable_jQ
 syn match   confWebStanzas contained /\v<(smc)>/
 
 syn match   confWeb /\v<^(sslServerHandshakeTimeout|allow_insecure_libraries_toggle|remoteRoot)>/
+syn match   confWeb /\v<^(enableCertBasedUserAuth|certBasedUserAuth(Method|PivOidList))>/
+syn match   confWeb /\v<^(dashboards_csp_allowed_domains|enforce_dashboards_csp)>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment

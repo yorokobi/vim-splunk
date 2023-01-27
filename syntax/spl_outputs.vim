@@ -90,7 +90,7 @@ syn match   confOutputs /\v<^(remote_queue.sqs_smartbus.large_message_store.(enc
 syn match   confOutputsConstants /\v<(protobuf|s2s|sse-(s3|c))$>/
 
 " 9.0.0
-syn match   confOutputsStanzas contained /\v<(rfs:\k+)>/
+syn match   confOutputsStanzas contained /\v<(rfs(:\k+)?)>/
 
 syn match   confOutputs /\v<^(connectionsPerTarget|autoLBFrequencyIntervalOnGroupFailure|autoBatch|sslVerifyServerName)>/
 syn match   confOutputs /\v<^(remote_queue.sqs_smartbus.large_message_store.(ssl(VerifyServerCert|Versions|(Alt|Common)NameToCheck|RootCAPath)))>/
@@ -99,8 +99,10 @@ syn match   confOutputs /\v<^(dropEventsOnUploadError|batchSizeThresholdKB|compr
 syn match   confOutputs /\v<^(remote.s3.(encryption|(access|secret)_key|(signature|url)_version|supports_versioning|endpoint|retry_policy))>/
 syn match   confOutputs /\v<^(remote.s3.(ssl(VerifyServerCert|Versions|(Alt|Common)NameToCheck|RootCAPath)|cipherSuite|ecdhCurves))>/
 syn match   confOutputs /\v<^(remote.s3.(kms.(auth_region|key_id|ssl\k+))|authMethod)>/
+syn match   confOutputs /\v<^(partitionBy|remote\.s3\.(kms\.\k+|metadata_max_attempts))>/
 
 syn match   confOutputsConstants /\v<(sse-(s3|kms)|cse|zstd|lz4|gzip)$>/
+syn match   confOutputsConstants /\v<(legacy|year|month|day|sourcetype)$>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment

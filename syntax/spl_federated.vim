@@ -42,12 +42,13 @@ syn region confStanza matchgroup=confStanzaStart start=/^\[/ matchgroup=confStan
 syn cluster confStanzas contains=confFederatedStanzas,confGenericStanzas
 
 " federated.conf
-syn match   confFederatedStanzas contained /\v<(provider)>/
+syn match   confFederatedStanzas contained /\v<(provider|general)>/
 
-syn match   confFederated /\v<^(type|ip|splunk\.(port|serviceAccount|app))>/
+syn match   confFederated /\v<^(type|ip|splunk\.(port|serviceAccount|app)|mode)>/
 syn match   confFederated /\v<^(hostPort|serviceAccount|password|appContext|useFSHKnowledgeObjects)>/
+syn match   confFederated /\v<^(needs_consent|heartbeat(Enabled|Interval)|connectivityFailuresThreshold)>/
 
-syn match   confFederatedConstants /\v<(splunk)$>/
+syn match   confFederatedConstants /\v<(splunk|aws_s3|standard|transparent)$>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment
