@@ -52,7 +52,7 @@ syn match   confApp /\v<^(deployer_(lookups_)?push_mode|show_upgrade_notificatio
 
 syn match   confAppConstants /\v<(disabled|enabled|never|simple|(rest|access)_endpoints|http_(get|post))$>/
 syn match   confAppConstants /\v<(preserve_lookups|always_(preserve|overwrite)|full|merge_to_default|(local|default)_only)$>/
-syn match   confAppConstants /\v<(default|python(2|3)|overwrite_on_change?|dark|light)$>/
+syn match   confAppConstants /\v<(default|python(2|3)?|overwrite_on_change|dark|light)$>/
 
 " 9.0.0
 syn match   confApp /\v<^(supported_themes)>/
