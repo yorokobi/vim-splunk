@@ -179,6 +179,14 @@ syn match   confLimits /\v<^(previewReducerDutyCycle|stack_files_(ttl|removal_pe
 
 syn match   confLimitsConstants /\v<(overflow|per_cpu|physical_ram)$>/
 
+" 9.1.0
+syn match   confLimitsStanzas contained /\v<(eval|rest|ingest_actions)>/
+
+syn match   confLimits /\v<^(max(ArchiveNestLevel|_history_storage_retention_time|_persistent_connections)|search_(history_storage_mode|launch_timeout_seconds))>/
+syn match   confLimits /\v<^(max_idle_process_(count|memory)|max_search_process_pool|printf_max_(precision|width)|allow_reload)>/
+syn match   confLimits /\v<^(disable_transparent_mode_federation|async_admission_eval_interval|auto_finalize_secs_after_maxtime)>/
+syn match   confLimits /\v<^(rfs\.provider\.(rawdata_limit_mb|max_workers))>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

@@ -59,6 +59,9 @@ syn match   confRestMapConstants /\v<(base64)$>/
 syn match   confRestMapStanzas contained /\v<(proxybundleupload(rshcluster)?:\k+)>/
 syn match   confRestMap /\v<^(stream)>/
 
+" 9.1.0
+syn match   confRestMap /\v<^(v1APIBlockGETSearchLaunch|max(CacheTime|RestResults)|streamlineXmlSerialization)>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

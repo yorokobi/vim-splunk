@@ -42,7 +42,7 @@ syn region confStanza matchgroup=confStanzaStart start=/^\[/ matchgroup=confStan
 syn cluster confStanzas contains=confAuditStanzas,confGenericStanzas
 
 " audit.conf
-syn match   confAuditStanzas contained /\v<(default)>/
+syn match   confAuditStanzas contained /\v<(default|auditTrail)>/
 syn match   confAudit /\v<^(queueing>)/
 
 " Highlight definitions (generic)

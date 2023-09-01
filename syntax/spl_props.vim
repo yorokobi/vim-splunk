@@ -86,6 +86,10 @@ syn case ignore
 syn match   confPropsConstants /\v<((c|t|p)sv|w3c|json|xml|hec)$>/
 syn case match
 
+" 9.1.0
+syn match   confProps /\v<^(unarchive_cmd_start_mode)>/
+syn match   confPropsConstants /\v<(direct|shell)$>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

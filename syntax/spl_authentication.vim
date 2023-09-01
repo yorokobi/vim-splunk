@@ -74,6 +74,9 @@ syn match  confAuthentication /\v<^(getUserInfoTtl|useAuthExtForTokenAuthOnly|ex
 syn match  confAuthentication /\v<^(userInfoTTL)>/
 syn match  confAuthenticationConstants /\v<(SHA(1|256|384|512))$>/
 
+" 9.1.0
+syn match  confAuthentication /\v<^(idpCertExpiration(WarningDays|CheckInterval))>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

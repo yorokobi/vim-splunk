@@ -100,7 +100,7 @@ syn match   confInputs /\v<^(log_on_completion|useSSLCompression|use(WinApiProcS
 syn match   confInputs /\v<^(remote_queue\.((sqs|kinesis)\.executor_max_workers_count|large_message_store\.supports_versioning))>/
 
 " 8.1.0
-syn match   confInputsStanzas contained /\v<(powershell(2)?|journald:\/\/[^\]]+|journald)>/
+syn match   confInputsStanzas contained /\v<(powershell(2)?|journald:\/\/\k+|journald)>/
 
 syn match   confInputs /\v<^(python\.version|crossOriginSharingHeaders|evt_exclude_fields|(io|serialization)_threads|event_serialization_format)>/
 syn match   confInputs /\v<^(remote_queue.sqs_smartbus.((access|secret)_key|auth_region|endpoint|max_connections|message_group_id|retry_policy))>/
@@ -114,7 +114,7 @@ syn match   confInputsConstants /\v<(default|python(2|3)?|kv|json|sqs_smartbus)$
 syn match   confInputs /\v<^(remote_queue.sqs_smartbus.large_message_store.(encryption_scheme|kms_endpoint|key_(id|refresh_interval)))>/
 syn match   confInputs /\v<^(run_only_one)>/
 
-syn match   confInputsConstants /\v<(sse-(s3|c))>/
+syn match   confInputsConstants /\v<(sse-(s3|c))$>/
 
 " 9.0.0
 syn match   confInputs /\v<^(logCertificateData|certLog(MaxCacheEntries|RepeatFrequency)|sslServerHandshakeTimeout|nonmetric_counters)>/
@@ -122,6 +122,14 @@ syn match   confInputs /\v<^(evt_skip_GUID_resolution)>/
 syn match   confInputs /\v<^(remote_queue.sqs.smartbus.(renew_retries))>/
 syn match   confInputs /\v<^(remote_queue.sqs.smartbus.(large_message_store\.(ssl(VerifyServerCert|Versions|(Alt|Common)NameToCheck|RootCAPath)|cipherSuite|ecdhCurves|dhFile)))>/
 syn match   confInputs /\v<^(logRetireOldS2S(MaxCache|RepeatFrequency)?)>/
+
+" 9.1.0
+syn match   confInputsStanzas contained /\v<(logd:\/\/\k+)>/
+
+syn match   confInputs /\v<^(rollingRestartReturnServerBusy|wec_event_format|checkpointSync|channel_wait_time)>/
+syn match   confInputs /\v<^(logd-(backtrace|debug|info|loss|signpost|predicate|process|source|(in|ex)clude-fields|interval|starttime|freetext))>/
+
+syn match   confInputsConstants /\v<((raw|rendered)_event)$>/
 
 " UF journalctl
 syn match   confInputs /\v<^(journalctl-(in|ex)clude-fields|journalctl-(filter|(user-)?unit|identifier|priority|boot|facility|grep))>/

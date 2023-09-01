@@ -183,6 +183,14 @@ syn match   confServer /\v<^(remote\.s3\.header\.(POST|GET)\.\k+)>/
 
 syn match   confServerConstants /\v<(crl|manual)$>/
 
+" 9.1.0
+syn match   confServer /\v<^(enable_search_process_long_lifespan|conf_generation_include\.\k+|mgmtMode)>/
+syn match   confServer /\v<^(lm_(uri|ping_interval)|generation_max_staleness|localization_(based_primary_selection|update_batch_size))>/
+syn match   confServer /\v<^(allow_concurrent_dispatch_savedsearch)>/
+syn match   confServer /\v<^()>/
+
+syn match   confServerConstants /\v<(tcp)$>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

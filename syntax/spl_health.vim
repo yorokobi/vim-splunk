@@ -66,7 +66,9 @@ syn match   confHealth /\v<^(latency_tracker_log_interval_sec|aggregate_ingestio
 " 9.0.0
 syn match   confHealth /\v<^(latency_tracker_log_interval|ingestion_latency_send_interval(_max)?|snooze_end_time|friendly_description)>/
 syn match   confHealth /\v<^(indicator:\S+:friendly_description)>/
-syn match   confHealth /\v<^()>/
+
+" 9.1.0
+syn match   confHealth /\v<^(distributed_disabled)>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment

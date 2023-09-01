@@ -125,6 +125,17 @@ syn match   confAuthorizeStanzas contained /\v<((role_|capability::)(rest_access
 syn match   confAuthorizeStanzas contained /\v<((role_|capability::)(list_(cascading_plans|remote_(input|output)_queue)))>/
 syn match   confAuthorizeStanzas contained /\v<((role_|capability::)(merge_buckets|edit_web_features|read_internal_libraries_settings))>/
 
+" 9.1
+syn match   confAuthorizeCaps /\v<^((edit_own|list_all)_objects|run_(dump|sendalert|custom_command)|rest_access_server_endpoints|embed_report)>/
+syn match   confAuthorizeCaps /\v<^(run_commands_ignoring_field_filter|change_audit|edit_(cmd|upload_and_index|tcp_stream|field_filter|restmap))>/
+syn match   confAuthorizeCaps /\v<^(refresh_application_licenses|restart_reason|edit_storage_passwords|apps_backup|list_(cascading_plans|remote_(input|output)_queue)|(list|edit)_ingest_rulesets|capture_ingest_events)>/
+syn match   confAuthorizeCaps /\v<^(read_internal_libraries_settings|edit_web_features|upload_mmdb_files|use_remote_proxy|merge_buckets)>/
+syn match   confAuthorizeStanzas contained /\v<((role_|capability::)(change_(audit|user_seed)|edit_(storage_passwords|cmd|upload_and_index|tcp_stream|restmap)|restart_reason|embed_report|refresh_application_licenses))>/
+syn match   confAuthorizeStanzas contained /\v<((role_|capability::)(apps_backup|use_remote_proxy|capture_ingest_events))>/
+syn match   confAuthorizeStanzas contained /\v<(role_(admin|user|can_delete|power|splunk-system-role))>/
+
+syn match   confAuthorize /\v<^(kvstore_(create|update|delete)\.(implicit_)?deny_list)>/
+
 syn match   confAuthorizeConstants /\v<(never)$>/
 
 " Highlight definitions (generic)

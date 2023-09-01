@@ -104,6 +104,13 @@ syn match   confOutputs /\v<^(partitionBy|remote\.s3\.(kms\.\k+|metadata_max_att
 syn match   confOutputsConstants /\v<(sse-(s3|kms)|cse|zstd|lz4|gzip)$>/
 syn match   confOutputsConstants /\v<(legacy|year|month|day|sourcetype)$>/
 
+" 9.1.0
+syn match   confOutputs /\v<^(enableOldS2SProtocol|partitionBy|format(\.(nd)?json\.index_time_fields)?|disabled|)>/
+syn match   confOutputs /\v<^(remote_queue\.sqs_smartbus\.(consume_interval|drop_data(_index_list)?|enable_inline_data))>/
+syn match   confOutputs /\v<^(remote\.s3\.auth_region)>/
+
+syn match   confOutputsConstants /\v<((nd)?json|raw)$>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error
