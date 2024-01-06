@@ -1,7 +1,6 @@
-Syntax highlighting for Splunk's .conf files
-=============
+# Syntax highlighting for Splunk's .conf files
 
-This project is unlicensed. If you wish to contribute, please fork this repository and submit a pull request via Github or email me: colbyw at gmail dot com.
+This project is unlicensed. If you wish to contribute, please fork this repository and submit a pull request or email me.
 
 Thanks to the many contributors to this project.
 
@@ -9,20 +8,19 @@ Thanks to the many contributors to this project.
 
 ![props.conf example with solarized colour scheme](sample_props_conf.png)
 
-Installation Instructions
-=============
+## Installation Instructions
 
-You can either clone the repository somewhere on your file system and use symlinks to the corresponding directories or clone to `~/.vim/bundle` as a submodule.
+### Vim native packages (`:help packages`):
 
-Vim native packages (`:help packages`):
-```
+```bash
 if [ ! -d ~/.vim/pack/plugins/start ] ; then mkdir -p ~/.vim/pack/plugins/start ; fi
 cd ~/.vim/pack/plugins/start
 git clone https://github.com/yorokobi/vim-splunk.git
 ```
 
-Symlink instructions:
-```
+### Symlink instructions:
+
+```bash
 mkdir ~/git-projects
 cd ~/git-projects
 git clone https://github.com/yorokobi/vim-splunk.git
@@ -31,13 +29,17 @@ if [ ! -d ~/.vim/syntax ] ; then mkdir -p ~/.vim/syntax ; fi
 ln -s ~/git-projects/vim-splunk/ftdetect/splunk.vim ~/.vim/ftdetect/splunk.vim
 ln -s ~/git-projects/vim-splunk/syntax/* ~/.vim/syntax/
 ```
-Bundle instructions:
-```
+
+### Bundle instructions:
+
+```bash
 cd ~/.vim/bundle
 git clone https://github.com/yorokobi/vim-splunk.git
 ```
-Submodule instructions:
-```
+
+### Submodule instructions:
+
+```bash
 cd ~/your/vim/bundle/repo
 git submodule add https://github.com/yorokobi/vim-splunk.git
 git commit -am "Added vim-splunk as a submodule"
