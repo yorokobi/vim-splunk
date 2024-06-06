@@ -138,6 +138,9 @@ syn match   confAuthorize /\v<^(kvstore_(create|update|delete)\.(implicit_)?deny
 
 syn match   confAuthorizeConstants /\v<(never)$>/
 
+" Enterprise Security
+syn match   confAuthorizeCaps /\v<^(edit_(correlationsearches|identitylookup|log_review_settings|lookups|managed_configurations|suppressions))>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error
