@@ -140,7 +140,7 @@ syn match   confAuthorizeConstants /\v<(never)$>/
 
 " 9.3.0
 syn match   confAuthorize /\v<^(fieldFilterExemption)>/
-syn match   confAuthorizeCaps /\v<^(list_all_(users|roles))>/
+syn match   confAuthorizeCaps /\v<^(list_all_(users|roles)|list_field_filter|(create|edit)_external_lookup|edit_spl2_permissions)>/
 syn match   confAuthorizeStanzas contained /\v<((role_|capability::)(list_all_(users|roles)|edit_(messages|user_seed)))>/
 syn match   confAuthorizeStanzas contained /\v<((role_|capability::)((create|edit)_external_lookup|list_field_filter|edit_spl2_permissions))>/
 
