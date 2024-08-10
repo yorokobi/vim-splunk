@@ -187,6 +187,13 @@ syn match   confLimits /\v<^(max_idle_process_(count|memory)|max_search_process_
 syn match   confLimits /\v<^(disable_transparent_mode_federation|async_admission_eval_interval|auto_finalize_secs_after_maxtime)>/
 syn match   confLimits /\v<^(rfs\.provider\.(rawdata_limit_mb|max_workers))>/
 
+" 9.3.0
+syn match   confLimitsStanzas contained /\v<(spl2)>/
+syn match   confLimits /\v<^(remote_search_requests_(send_capabilities_list|reject_if_capabilities_list_absent))>/
+syn match   confLimits /\v<^(search_startup_config_timeout_ms|field_filters|update_datamodel_usage_stats|idle_connections_log_frequency)>/
+syn match   confLimits /\v<^(render_chromium_(timeout|screenshot_delay)|sleep_rebuild_deletion_seconds)>/
+syn match   confLimits /\v<^(installed_files_(integrity_interval|anomalous_integrity_interval)|excluded_commands|rfsS3DestinationOff|origin)>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

@@ -131,6 +131,13 @@ syn match   confInputs /\v<^(logd-(backtrace|debug|info|loss|signpost|predicate|
 
 syn match   confInputsConstants /\v<((raw|rendered)_event)$>/
 
+" 9.3.0
+syn match   confInputsStanzas contained /\v<(cloud_processor_smartbus_queue:\k+:\k+)>/
+syn match   confInputsConstants /\v<(latest|python3\.(7|9)|disabled_for_internal|enabled_for_all|sqs_(datalake|smartbus_cp))$>/
+syn match   confInputs /\v<^(s2s_indexes_validation|process_completion_check_interval|remote_queue\.\k+|encoding_format)>/
+syn match   confInputs /\v<^(retry_policy|max_count\.max_retries_per_part)>/
+syn match   confInputs /\v<^(large_message_store\.(sslVerifyServerCert|sslVersions|sslRootCAPath|cipherSuite|ecdhCurves|encryption_scheme|key_refresh_interval))>/
+
 " UF journalctl
 syn match   confInputs /\v<^(journalctl-(in|ex)clude-fields|journalctl-(filter|(user-)?unit|identifier|priority|boot|facility|grep))>/
 syn match   confInputs /\v<^(journalctl-(dmesg|quiet|freetext))>/

@@ -47,6 +47,9 @@ syn match   confSplunkLaunch /\v<^(SPLUNK_(FIPS|BINDIP|DB|HOME|IGNORE_SELINUX|OS
 
 "syn match   confSplunkLaunchConstants /\v<()$>/
 
+" 9.3.0
+syn match   confSplunkLaunch /\v<^(SPLUNK_PYTHON_DONT_ESCAPE_PRINTABLE|ENABLE_CPUSHARES)>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

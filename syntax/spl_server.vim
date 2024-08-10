@@ -191,6 +191,16 @@ syn match   confServer /\v<^()>/
 
 syn match   confServerConstants /\v<(tcp)$>/
 
+" 9.3.0
+syn match   confServerStanzas contained /\v<(teleport_supervisor|localProxy)>/
+syn match   confServerConstants /\v<(python3\.(7|9)|force_python3|unspecified|splunk|OS)$>/
+syn match   confServer /\v<^(unbiasLanguageForLogging|is_remote_queue_accounting_batched|conf_cache_memory_optimization)>/
+syn match   confServer /\v<^(cgroup_location|caTrustStore(Path)?|auto_fix_corrupt_buckets|remote_storage_freeze_delay_period)>/
+syn match   confServer /\v<^(notify_buckets_usage_(period|batch_size)|max_usage_rebalance_(retries|operations_per_service))>/
+syn match   confServer /\v<^(bucket_usage_decay_half_life|usage_rebalance_bucket_movement_factor)>/
+syn match   confServer /\v<^(jobs_data_lite\.(enabled|exclude_fields|(search|default)_field_len|max_status_size_per_hb))>/
+syn match   confServer /\v<^(cache_upload_bucket_has_priority|max_concurrent_requests|response_timeout_ms)>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

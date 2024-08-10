@@ -55,6 +55,9 @@ syn match   confUserPrefsConstants /\v<(full|compact|none|light|dark|black-white
 " 9.0.0
 syn match   confUserPrefs /\v<^(theme|notification_(python_2_removal|noah_upgrade))>/
 
+" 9.3.0
+syn match   confUserPrefs /\v<^(restart_background_jobs|app_bar_cache_timeout_min)>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

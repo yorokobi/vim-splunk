@@ -77,6 +77,11 @@ syn match  confAuthenticationConstants /\v<(SHA(1|256|384|512))$>/
 " 9.1.0
 syn match  confAuthentication /\v<^(idpCertExpiration(WarningDays|CheckInterval))>/
 
+" 9.3.0
+syn match  confAuthentication /\v<^(authTypePreferredForUserCollision|saml_negative_cache_timeout|cacheSAMLUserInfotoDisk)>/
+syn match  confAuthentication /\v<^(enableAutoMappedRoles|allowEntities)>/
+syn match  confAuthenticationConstants /\v<(latest|python3\.(7|9))$>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

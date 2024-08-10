@@ -81,7 +81,7 @@ syn match   confOutputs /\v<^(remote_queue\.sqs_smartbus\.(max_count\.max_retrie
 syn match   confOutputs /\v<^(remote_queue\.sqs_smartbus\.(large_message_store\.(endpoint|path)|send_interval|max_queue_message_size))>/
 syn match   confOutputs /\v<^(remote_queue\.sqs_smartbus\.(enable_(data_integrity_checks|signed_payloads)|executor_max_(workers|jobs)_count))>/
 
-syn match   confOutputsConstants /\v<(sqs(_smartbus)|kinesis)$>/
+syn match   confOutputsConstants /\v<(sqs(_smartbus(_cp)?)|kinesis)$>/
 
 " 8.2
 syn match   confOutputs /\v<^(polling_interval|maxSendQSize|remote_queue.sqs_smartbus.encoding_format)>/
@@ -98,8 +98,9 @@ syn match   confOutputs /\v<^(remote_queue.sqs_smartbus.large_message_store.(cip
 syn match   confOutputs /\v<^(dropEventsOnUploadError|batchSizeThresholdKB|compression(Level)?|path|description)>/
 syn match   confOutputs /\v<^(remote.s3.(encryption|(access|secret)_key|(signature|url)_version|supports_versioning|endpoint|retry_policy))>/
 syn match   confOutputs /\v<^(remote.s3.(ssl(VerifyServerCert|Versions|(Alt|Common)NameToCheck|RootCAPath)|cipherSuite|ecdhCurves))>/
-syn match   confOutputs /\v<^(remote.s3.(kms.(auth_region|key_id|ssl\k+))|authMethod)>/
-syn match   confOutputs /\v<^(partitionBy|remote\.s3\.(kms\.\k+|metadata_max_attempts))>/
+syn match   confOutputs /\v<^(remote.s3.(kms.(auth_region|key_id)|authMethod))>/
+syn match   confOutputs /\v<^(partitionBy|metadata_max_attempts)>/
+syn match   confOutputs /\v<^(remote\.s3\.kms\.(ssl(VerifyServerCert|Versions|RootCAPath|AltNamesToCheck|CommonNameToCheck)|cipherSuite|ecdhCurves|dhFile))>/
 
 syn match   confOutputsConstants /\v<(sse-(s3|kms)|cse|zstd|lz4|gzip)$>/
 syn match   confOutputsConstants /\v<(legacy|year|month|day|sourcetype)$>/
@@ -110,6 +111,14 @@ syn match   confOutputs /\v<^(remote_queue\.sqs_smartbus\.(consume_interval|drop
 syn match   confOutputs /\v<^(remote\.s3\.auth_region)>/
 
 syn match   confOutputsConstants /\v<((nd)?json|raw)$>/
+
+" 9.3.0
+syn match   confOutputsStanzas contained /\v<(cloud_processing_queue)>/
+syn match   confOutputs /\v<^(certRotationCheckInterval|autoCertRotation)>/
+syn match   confOutputs /\v<^(remote_queue\.sqs_smartbus\.check_replication_(enabled|interval|executor_max_workers_count|executor_max_jobs_count))>/
+syn match   confOutputs /\v<^(remote_queue\.sqs_smartbus\.enable_shared_receipts|fs\.appendToFileUntilSizeMB|fs\.timeBeforeClosingFileSecs)>/
+syn match   confOutputs /\v<^(remote\.s3\.metadata_max_attempts|remote\.sts\.assume_role\.(role_arn|external_id|duration_secs)|authMethod)>/
+
 
 " Highlight definitions (generic)
 hi def link confComment Comment

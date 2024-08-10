@@ -51,6 +51,11 @@ syn match   confServerClass /\v<^(targetRepositoryLocation|tmpFolder)>/
 
 syn match   confServerClassConstants /\v<((black|white)list|(dis|en)abled|noop)$>/
 
+" 9.3.0
+syn match   confServerClass /\v<^(syncMode|maxConcurrentDownloads|reloadCheckInterval|packageTypesFilter|updaterRunningFilter)>/
+syn match   confServerClass /\v<^(cronSchedule)>/
+syn match   confServerClassConstants /\v<(none|sharedDir)$>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

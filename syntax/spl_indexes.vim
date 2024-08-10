@@ -129,6 +129,12 @@ syn match   confIndexes /\v<^(remote\.azure\.(max_count\.max_retries_in_total|ba
 
 syn match   confIndexesConstants /\v<(azure-sse-(kv|ms)|cse|(m)?s)$>/
 
+" 9.3.0
+syn match   confIndexesConstants /\v<(latest|python3\.(7|9)|sha256)$>/
+syn match   confIndexes /\v<^(remote\.s3\.max_batchremove_batch_size)>/
+syn match   confIndexes /\v<^(remote\.(s3|gs|azure)\.data_integrity_validation)>/
+syn match   confIndexes /\v<^(remote\.azure\.tsidx_compression)>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

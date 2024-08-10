@@ -138,6 +138,12 @@ syn match   confAuthorize /\v<^(kvstore_(create|update|delete)\.(implicit_)?deny
 
 syn match   confAuthorizeConstants /\v<(never)$>/
 
+" 9.3.0
+syn match   confAuthorize /\v<^(fieldFilterExemption)>/
+syn match   confAuthorizeCaps /\v<^(list_all_(users|roles))>/
+syn match   confAuthorizeStanzas contained /\v<((role_|capability::)(list_all_(users|roles)|edit_(messages|user_seed)))>/
+syn match   confAuthorizeStanzas contained /\v<((role_|capability::)((create|edit)_external_lookup|list_field_filter|edit_spl2_permissions))>/
+
 " Enterprise Security
 syn match   confAuthorizeCaps /\v<^(edit_(correlationsearches|identitylookup|log_review_settings|lookups|managed_configurations|suppressions))>/
 

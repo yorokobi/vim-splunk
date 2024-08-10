@@ -62,6 +62,10 @@ syn match   confRestMap /\v<^(stream)>/
 " 9.1.0
 syn match   confRestMap /\v<^(v1APIBlockGETSearchLaunch|max(CacheTime|RestResults)|streamlineXmlSerialization)>/
 
+" 9.3.0
+syn match   confRestMapConstants /\v<(latest|python3\.(7|9))$>/
+syn match   confRestMap /\v<^(maxConcurrent)>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

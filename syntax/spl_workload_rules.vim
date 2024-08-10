@@ -55,6 +55,9 @@ syn match   confWorkLoadRules /\v<^(disabled)>/
 syn match   confWorkLoadRulesStanzas contained /\v<(search_filter_rule:[^]]+)>/
 syn match   confWorkLoadRules /\v<^((start|end)_date)>/
 
+" 9.3.0
+syn match   confWorkLoadRules /\v<^(numeric_search_time_range)>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

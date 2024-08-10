@@ -43,7 +43,7 @@ syn cluster confStanzas contains=confSavedSearchesStanzas,confGenericStanzas
 
 " savedsearches.conf
 syn match   confSavedSearchesStanzas contained /\v<(default)>/
-syn match   confSavedSearches /\v<^(action\.email(\.(from|include\.(results_link|search|trigger(_time)?|view_link)|inline|mailserver|maxresults|send(csv|pdf|results)|subject|to|(b)cc))?)>/
+syn match   confSavedSearches /\v<^(action\.email(\.(from|include\.(results_link|search|trigger(_time)?|view_link)|inline|mailserver|maxresults|send(csv|pdf|results|png)|subject|to|(b)cc))?)>/
 syn match   confSavedSearches /\v<^(action\.lookup(\.(append|filename))?|action\.populate_lookup(\.dest)?|action\.script(\.filename)?)>/
 syn match   confSavedSearches /\v<^(action\.summary_index(\.(_name|inline|[^\ |\=]+))?|action\.rss|allow_skew)>/
 syn match   confSavedSearches /\v<^(alert\.(digest_mode|display_view|expires|managedBy|severity|suppress(\.fields|\.period)?|track)|alert_condition)>/

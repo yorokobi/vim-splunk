@@ -80,6 +80,9 @@ syn match   confTransformsStanzas contained /\v<(_ruleset:global_settings)>/
 
 syn match   confTransforms /\v<^(STOP_PROCESSING_IF|metrics.(disabled|report_interval|rule_filter))>/
 
+" 9.3.0
+syn match   confTransformsConstants /\v<(latest|python3\.(7|9))$>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

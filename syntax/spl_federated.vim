@@ -51,6 +51,13 @@ syn match   confFederated /\v<^(controlCommands(Max(Threads|TimeThreshold)|Featu
 
 syn match   confFederatedConstants /\v<(splunk|aws_s3|standard|transparent)$>/
 
+" 9.3.0
+syn match   confFederatedStanzas contained /\v<(s2s_standard_mode_unsupported_command:meta(data|search))>/
+syn match   confFederatedStanzas contained /\v<(s2s_transparent_mode_unsupported_command:(makeresults|delete|dump|map|run(shellscript)?))>/
+syn match   confFederatedStanzas contained /\v<(s2s_transparent_mode_unsupported_command:(script|send(alert|email)|rest|summarize|tstats))>/
+syn match   confFederated /\v<^(proxyBundlesTTL|remoteEventsDownloadRetryCountMax|remoteEventsDownloadRetryTimeoutMs|verbose_mode)>/
+syn match   confFederated /\v<^(max_preview_generation_duration|active|allow_target|rsh_min_version_(cloud|onprem))>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

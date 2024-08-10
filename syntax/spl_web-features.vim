@@ -55,6 +55,16 @@ syn match   confWebFeatures /\v<^(enable_(acuif_pages|(home|triggered_alerts)_vn
 syn match   confWebFeatures /\v<^((internal\.)?dashboards_trusted_domain\.\k+|disable_highcharts_accessibility|optimize_ui_prefs_performance)>/
 syn match   confWebFeatures /\v<^()>/
 
+" 9.3.0
+syn match   confWebFeaturesStanzas contained /\v<(feature::windows_rce|feature:(splunk_web_optimizations|spotlight_search|appserver))>/
+syn match   confWebFeaturesStanzas contained /\v<(feature:(search_sidebar|field_filters|identity_sidecar_scim))>/
+syn match   confWebFeatures /\v<^(activate_(dsl_webworkers_for_visualizations|save_report_to_dashboard_studio|source_mode_validation))>/
+syn match   confWebFeatures /\v<^(allow_multiple_interactions|show_corner_radius_editor|activate_scheduled_export|execute_chain_searches_with_tokens_in_search_process)>/
+syn match   confWebFeatures /\v<^(enable_((datasets|authoverview|password_management_page)_vnext|react_users_page))>/
+syn match   confWebFeatures /\v<^(enable_app_bar_(performance_optimizations|caching)|bypass_app_bar_performance_optimizations_apps)>/
+syn match   confWebFeatures /\v<^(enable_(spotlight_search|sidebar_preview|field_filters_ui)|enabled|python\.version)>/
+syn match   confWebFeaturesConstants /\v<(latest|python3\.(7|9))$>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

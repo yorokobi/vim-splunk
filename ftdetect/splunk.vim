@@ -21,6 +21,7 @@ augroup filetypedetect
     au BufNewFile,BufRead federated.conf setf spl_federated
     au BufNewFile,BufRead fshpasswords.conf setf spl_fshpasswords
     au BufNewFile,BufRead fields.conf setf spl_fields
+    au BufNewFile,BufRead field_filters.conf setf spl_field_filters
     au BufNewFile,BufRead global-banner.conf setf spl_global-banner
     au BufNewFile,BufRead health.conf setf spl_health
     au BufNewFile,BufRead indexes.conf setf spl_indexes
