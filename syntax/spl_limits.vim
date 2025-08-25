@@ -194,6 +194,25 @@ syn match   confLimits /\v<^(search_startup_config_timeout_ms|field_filters|upda
 syn match   confLimits /\v<^(render_chromium_(timeout|screenshot_delay)|sleep_rebuild_deletion_seconds)>/
 syn match   confLimits /\v<^(installed_files_(integrity_interval|anomalous_integrity_interval)|excluded_commands|rfsS3DestinationOff|origin)>/
 
+" 9.3.2
+syn match   confLimitsStanzas contained /\v<(storage_passwords_masking)>/
+syn match   confLimits /\v<^(shc_cached_artifacts_ttl|view_cleartext_(allowlist|spl_rest))>/
+
+" 9.4.0
+syn match   confLimitsStanzas contained /\v<(email|datalake)>/
+syn match   confLimits /\v<^(result_limit|throttle_peer_busy_wait|use_bucket_predictor_v2|max_preview_generation_inputcount)>/
+syn match   confLimits /\v<^(search_transaction_establish_connection_max_retries|active_eligibility_age)>/
+syn match   confLimits /\v<^(version_upgrade_max_((start)?retries|command_time_ms)|disable_inactive_channels)>/
+syn match   confLimits /\v<^(version_upgrade_(time_duration_block_s|polling_((version_)?max_wait_ms|interval_ms)))>/
+syn match   confLimits /\v<^(version_upgrade_(backup_disabled|terminate_timeout_s|keep_backups)|scheduler_user_timezone_cache_expiry)>/
+syn match   confLimits /\v<^(rfs\.provider\.max_concurrent_uploads|sqs\.ingest\.max_threads|run_as_owner_ttl)>/
+
+" 10.0.0
+syn match   confLimitsStanzas contained /\v<(reloads)>/
+syn match   confLimits /\v<^(high_accuracy_results_queue_size|auto_exclude_segmented_terms|toggle_server_conf_reload)>/
+syn match   confLimits /\v<^(indexedcsv_failure_cleanup|dynamic_max_searches_perc(_upper_limit|_increase_(period|increment))?)>/
+syn match   confLimits /\v<^(results_deduplication|custom_configuration_files_ignore_reload)>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

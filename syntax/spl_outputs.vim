@@ -119,6 +119,17 @@ syn match   confOutputs /\v<^(remote_queue\.sqs_smartbus\.check_replication_(ena
 syn match   confOutputs /\v<^(remote_queue\.sqs_smartbus\.enable_shared_receipts|fs\.appendToFileUntilSizeMB|fs\.timeBeforeClosingFileSecs)>/
 syn match   confOutputs /\v<^(remote\.s3\.metadata_max_attempts|remote\.sts\.assume_role\.(role_arn|external_id|duration_secs)|authMethod)>/
 
+" 9.4.0
+syn match   confOutputsConstants /\v<(asq|azure-sse-(kv|ms|c))$>/
+syn match   confOutputs /\v<^(queueSize|persistentQueueSize)>/
+syn match   confOutputs /\v<^(remote_queue\.asq\.(encoding_format|enable_inline_data|(access|secret)_key|endpoint|retry_policy))>/
+syn match   confOutputs /\v<^(remote_queue\.asq\.(max_count\.max_retries_in_total|timeout\.(connect|read|write)))>/
+syn match   confOutputs /\v<^(remote_queue\.asq\.large_message_store\.(endpoint|path|container_name|ssl(VerifyServerCert|Versions|RootCAPath)|cipherSuite))>/
+syn match   confOutputs /\v<^(remote_queue\.asq\.(send_interval|max_queue_message_size|drop_data(_index_list)?))>/
+syn match   confOutputs /\v<^(remote_queue\.asq\.(executor_max_(workers|jobs)_count|large_message_store\.encryption_scheme))>/
+syn match   confOutputs /\v<^(remote_queue\.asq\.(azure-sse-kv\.encryptionScope|large_message_store\.azure-sse-c\.key_type))>/
+syn match   confOutputs /\v<^(remote_queue\.asq\.large_message_store\.azure-sse-c\.azure_kv\.(key_(name|vault_(tenant|client)_id)|endpoint|key_vault_client_secret))>/
+syn match   confOutputs /\v<^(remote_queue\.asq\.large_message_store\.enable_shared_receipts)>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment

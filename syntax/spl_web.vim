@@ -88,8 +88,27 @@ syn match   confWeb /\v<^(pdfgen_trusted_hosts|job_default_auto_cancel|enable_jQ
 syn match   confWebStanzas contained /\v<(smc)>/
 
 syn match   confWeb /\v<^(sslServerHandshakeTimeout|allow_insecure_libraries_toggle|remoteRoot)>/
-syn match   confWeb /\v<^(enableCertBasedUserAuth|certBasedUserAuth(Method|PivOidList))>/
-syn match   confWeb /\v<^(dashboards_csp_allowed_domains|enforce_dashboards_csp)>/
+syn match   confWeb /\v<^(enableCertBasedUserAuth|certBasedUserAuth(Method|PivOidList)|ssl(RootCAPath|ServerHandShakeTimeout))>/
+syn match   confWeb /\v<^(dashboards_csp_allowed_domains|enforce_dashboards_csp|show_app_context)>/
+syn match   confWeb /\v<^(enable_risky_command_check_dashboard|allow_insecure_libraries_toggle)>/
+
+" 9.0.2
+syn match   confWeb /\v<^(certBasedUserAuth(Method|PivOidList))>/
+
+" 9.1.1
+syn match   confWebConstants /\v<(lax|not_specified)$>/
+syn match   confWeb /\v<^(cookieSameSite)>/
+
+" 9.2.0
+syn match   confWebStanzas contained /\v<(remoteUI)>/
+syn match   confWeb /\v<^(optInRemoteUI|allowExternalRemote)>/
+
+" 9.3.0
+syn match   confWeb /\v<^(remoteProxyLegacyRequireDoubleEncodedUriArgs)>/
+
+" 10.0.0
+syn match   confWebStanzas contained /\v<(admin_config_ui)>/
+syn match   confWeb /\v<^(proxyHostPort|dashboards_trusted_domains_list)>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment

@@ -90,6 +90,9 @@ syn case match
 syn match   confProps /\v<^(unarchive_cmd_start_mode)>/
 syn match   confPropsConstants /\v<(direct|shell)$>/
 
+" 9.4.0
+syn match   confProps /\v<^(MAX_EXPECTED_EVENT_LINES|SOURCETYPE_NAME_RESTRICTED_CHARACTERS)>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

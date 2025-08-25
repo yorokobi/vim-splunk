@@ -2,6 +2,7 @@ augroup filetypedetect
     au BufNewFile,BufRead eventgen.conf,ldap.conf,logging.conf,pdf_server.conf,perfmon.conf,regmon-filters.conf,ssl.conf,tenants.conf,tsidx_retention.conf,app_permissions.conf,deep_dive_drilldowns.conf,drawing_elements.conf,drilldownsearch_offset.conf,itsi_da.conf,itsi_deep_dive.conf,itsi_glass_table.conf,itsi_kpi_template.conf,itsi_module_viz.conf,itsi_notable_event_retention.conf,itsi_notable_event_severity.conf,itsi_notable_event_status.conf,itsi_service.conf,itsi_settings.conf,managed_configurations.conf,notable_event_actions.conf,postprocess.conf,service_analyzer_settings.conf,threshold_labels.conf,threshold_periods.conf,okta.conf,database.conf,healthlog.conf,settings.conf setf splunk
 
     au BufNewFile,BufRead admon.conf setf spl_admon
+    au BufNewFile,BufRead agent_management.conf setf spl_agent_management
     au BufNewFile,BufRead alert_actions.conf setf spl_alert_actions
     au BufNewFile,BufRead app.conf setf spl_app
     au BufNewFile,BufRead audit.conf setf spl_audit

@@ -81,6 +81,10 @@ syn match   confAlertActions /\v<^(param\.(event|host|source(type)?|index))>/
 syn match   confAlertActionsStanzas contained /\v<webhook>/
 syn match   confAlertActions /\v<^(param.user_agent)>/
 
+" 10.0.0
+syn match   confAlertActions /\v<^(newLineValuesInCSV|oauth_(client_(id|secret)|url|scope))>/
+syn match   confAlertActions /\v<^(enable_allowlist|allowlist\.\k+)>/
+
 " Splunk_TA_okta
 syn match   confAlertActions /\v<^(param\.(action|user_(id|name)|group_(id|name)))>/
 

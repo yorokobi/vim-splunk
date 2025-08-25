@@ -138,6 +138,13 @@ syn match   confInputs /\v<^(s2s_indexes_validation|process_completion_check_int
 syn match   confInputs /\v<^(retry_policy|max_count\.max_retries_per_part)>/
 syn match   confInputs /\v<^(large_message_store\.(sslVerifyServerCert|sslVersions|sslRootCAPath|cipherSuite|ecdhCurves|encryption_scheme|key_refresh_interval))>/
 
+" 9.4.0
+syn match   confInputsConstants /\v<(asq)$>/
+
+" 10.0.0
+syn match   confInputsConstants /\v<(warn_at_80)$>/
+syn match   confInputs /\v<^(backpressureState|remote\.asq\.backoff\.(initial|max_retry)_delay)>/
+
 " UF journalctl
 syn match   confInputs /\v<^(journalctl-(in|ex)clude-fields|journalctl-(filter|(user-)?unit|identifier|priority|boot|facility|grep))>/
 syn match   confInputs /\v<^(journalctl-(dmesg|quiet|freetext))>/

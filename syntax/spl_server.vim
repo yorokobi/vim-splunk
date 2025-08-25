@@ -201,6 +201,23 @@ syn match   confServer /\v<^(bucket_usage_decay_half_life|usage_rebalance_bucket
 syn match   confServer /\v<^(jobs_data_lite\.(enabled|exclude_fields|(search|default)_field_len|max_status_size_per_hb))>/
 syn match   confServer /\v<^(cache_upload_bucket_has_priority|max_concurrent_requests|response_timeout_ms)>/
 
+" 9.4.0
+syn match   confServerStanzas contained /\v<(spl2|version_control)>/
+syn match   confServerConstants /\v<(round_robin|weighted_random|blocked_queue_count|AWS|KVstore)$>/
+syn match   confServer /\v<^(pipelineSetAutoScale|conf_cache_rebuild_stanzas_optimization|enable_tls_proxy)>/
+syn match   confServer /\v<^(corrupt_bucket_updates_batch_size|conf_replication_quarantine_large_lookups|dbCursorOperationTimeout)>/
+syn match   confServer /\v<^(member_add_(use_artifact_status_cache|decouple_artifact_reporting)|minSnapshotHistoryWindow)>/
+syn match   confServer /\v<^(kvstoreUpgrade(CheckInterval|OnStartup(Enabled|Retries|Delay))|provider|allocated_max_threads_percentage)>/
+syn match   confServer /\v<^(run_as_owner_enabled|repoDir)>/
+
+" 10.0.0
+syn match   confServerStanzas contained /\v<(dataplaneSslConfig|s3_client_threads(:\k+)?|localWebSocketProxy|postgres|ipc_broker)>/
+syn match   confServerStanzas contained /\v<(data_management|opamp_binary_(splunk_)?edge)>/
+syn match   confServerConstants /\v<(cohosted|local|per_client)$>/
+syn match   confServer /\v<^(python\.not_compatible|serverCertDataplane|certDPCreateScript|autoAdjustQueue|name|signature|version)>/
+syn match   confServer /\v<^(max_backup_restore_(threads|jobs)|defaultKVStoreType|enable_(splunk_spotlight|supervisor_admin_api))>/
+syn match   confServer /\v<^(defaultCidrPrefixLength|ocspValidation|pool_size|enable_clustered_mode|edge_processor_enabled|otel_collector_management_enabled)>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

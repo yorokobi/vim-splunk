@@ -45,6 +45,10 @@ syn cluster confStanzas contains=confAuditStanzas,confGenericStanzas
 syn match   confAuditStanzas contained /\v<(default|auditTrail)>/
 syn match   confAudit /\v<^(queueing>)/
 
+" 10.0.0
+syn match   confAudit /\v<^(logging_format)>/
+syn match   confAuditConstants /\v<()$>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

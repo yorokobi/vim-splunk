@@ -79,6 +79,9 @@ syn match   confDistSearch /\v<^(parallelReduceBackwardCompatibility|searchableI
 
 syn match   confDistSearchConstants /\v<(cloud|enterprise|(en|dis)abled)$>/
 
+" 10.0.0
+syn match   confDistSearch /\v<^(useIPAddrAsHost)>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

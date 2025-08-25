@@ -70,6 +70,12 @@ syn match   confHealth /\v<^(indicator:\S+:friendly_description)>/
 " 9.1.0
 syn match   confHealth /\v<^(distributed_disabled)>/
 
+" 9.4.0
+syn match   confHealth /\v<^(suppress_status_reason_update_s)>/
+
+" 10.0.0
+syn match   confHealthStanzas contained /\v<(data_management_health_reporter)>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

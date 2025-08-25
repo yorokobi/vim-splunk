@@ -58,6 +58,17 @@ syn match   confFederatedStanzas contained /\v<(s2s_transparent_mode_unsupported
 syn match   confFederated /\v<^(proxyBundlesTTL|remoteEventsDownloadRetryCountMax|remoteEventsDownloadRetryTimeoutMs|verbose_mode)>/
 syn match   confFederated /\v<^(max_preview_generation_duration|active|allow_target|rsh_min_version_(cloud|onprem))>/
 
+" 9.4.0
+syn match   confFederated /\v<^(max_preview_generation_inputcount)>/
+
+" 9.4.3
+syn match   confFederated /\v<^(previewOnRshEnabled)>/
+
+" 10.0.0
+syn match   confFederated /\v<^(allow(LookupsToExistOnlyOnRshForStandardMode|edAndDefaultFederatedProvidersEnabled))>/
+syn match   confFederated /\v<^(s2s_standard_mode_local_only_commands)>/
+syn match   confFederatedStanzas contained /\v<(s2s_unsupported_command:show_source)>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

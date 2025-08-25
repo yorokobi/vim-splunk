@@ -68,9 +68,10 @@ syn match   confIndexes /\v<^(timePeriodInSecBeforeTsidxReduction|tsidx(Reductio
 syn match   confIndexes /\v<^(vix\.(command(\.arg\.\d+)?|env\.(HUNK_THIRDPARTY_JARS|env)|family|fs\.default\.name))>/
 syn match   confIndexes /\v<^(vix\.input\.\d+\.(accept|(e|l)t\.(format|offset|regex|timezone|value)|ignore|path|required\.fields))>/
 syn match   confIndexes /\v<^(vix\.(javaprops\.JVM|kerberos\.(keytab|principal)|mapred\.job\.tracker|mode|property|provider))>/
-syn match   confIndexes /\v<^(vix\.env\.(MAPREDUCE_USER|HADOOP_(HEAPSIZE|CLIENT_OPTS)))>/
+syn match   confIndexes /\v<^(vix\.javaprops\.\k+)>/
+syn match   confIndexes /\v<^(vix\.env\.(MAPREDUCE_USER|HADOOP_(HEAPSIZE|CLIENT_OPTS))|vix\.env\.\k+)>/
 syn match   confIndexes /\v<^(vix\.mapred\.(job\.(reuse\.jvm\.num\.tasks|(map|reduce)\.memory\.mb|queue\.name)|child\.java\.opts|reduce\.tasks))>/
-syn match   confIndexes /\v<^(vix\.mapreduce\.(job\.(jvm\.numtasks|reduces|queuename)|(map|reduce)\.(java\.opts|memory\.mb)))>/
+syn match   confIndexes /\v<^(vix\.mapreduce\.(job\.(jvm\.numtasks|reduces|queuename)|(map|reduce)\.(java\.opts|memory\.mb)|\k+))>/
 syn match   confIndexes /\v<^(vix\.output\.buckets\.(from\.indexes|max\.network\.bandwidth|older\.than|path))>/
 syn match   confIndexes /\v<^(vix\.splunk\.(heartbeat(\.interval|\.path|\.threshold)?|home\.(datanode|hdfs)|impersonation|jars))>/
 syn match   confIndexes /\v<^(vix\.splunk\.search\.(column\.filter|debug|mixedmode(\.maxstream)?|mr\.mapper\.output\.(gzlevel|replication)))>/
@@ -127,13 +128,19 @@ syn match   confIndexes /\v<^(remote\.azure\.(azure-sse-kv\.encryptionScope|supp
 syn match   confIndexes /\v<^(remote\.azure\.(download\.(chunk_size|concurrency)|max_(download_batch|listing_page)_size|retry_policy))>/
 syn match   confIndexes /\v<^(remote\.azure\.(max_count\.max_retries_in_total|backoff\.(initial|max_retry)_delay_ms))>/
 
-syn match   confIndexesConstants /\v<(azure-sse-(kv|ms)|cse|(m)?s)$>/
+syn match   confIndexesConstants /\v<(azure-sse-(kv|ms)|cse|(m)?s|azure_kv)$>/
 
 " 9.3.0
 syn match   confIndexesConstants /\v<(latest|python3\.(7|9)|sha256)$>/
 syn match   confIndexes /\v<^(remote\.s3\.max_batchremove_batch_size)>/
 syn match   confIndexes /\v<^(remote\.(s3|gs|azure)\.data_integrity_validation)>/
 syn match   confIndexes /\v<^(remote\.azure\.tsidx_compression)>/
+
+" 9.4.0
+syn match   confIndexesConstants /\v<(azure-sse-c)$>/
+syn match   confIndexes /\v<^(zstdCompressionStrategy|remote\.s3\.compression(_extension_list)?)>/
+syn match   confIndexes /\v<^(remote\.azure\.(encryption\.azure-sse-c\.key_type|azure_kv\.(endpoint|key_(name|vault_(client|tenant)_id))))>/
+syn match   confIndexes /\v<^(remote\.azure\.(azure_kv\.key_vault_client_secret|compression(_extension_list)?))>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment

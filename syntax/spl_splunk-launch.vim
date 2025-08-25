@@ -50,6 +50,10 @@ syn match   confSplunkLaunch /\v<^(SPLUNK_(FIPS|BINDIP|DB|HOME|IGNORE_SELINUX|OS
 " 9.3.0
 syn match   confSplunkLaunch /\v<^(SPLUNK_PYTHON_DONT_ESCAPE_PRINTABLE|ENABLE_CPUSHARES)>/
 
+" 10.0.0
+syn match   confSplunkLaunchConstants /\v<(140-(2|3))$>/
+syn match   confSplunkLaunch /\v<^(SPLUNK_FIPS_VERSION)>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error
@@ -68,6 +72,6 @@ hi def link confstanzaEnd Delimiter
 " Highlight for stanzas
 hi def link confStanza Function
 hi def link confGenericStanzas Constant
-"hi def link confSplunkLaunchStanzas Identifier
+hi def link confSplunkLaunchStanzas Identifier
 hi def link confSplunkLaunch Keyword
-"hi def link confSplunkLaunchConstants Constant
+hi def link confSplunkLaunchConstants Constant

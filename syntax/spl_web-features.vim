@@ -65,6 +65,20 @@ syn match   confWebFeatures /\v<^(enable_app_bar_(performance_optimizations|cach
 syn match   confWebFeatures /\v<^(enable_(spotlight_search|sidebar_preview|field_filters_ui)|enabled|python\.version)>/
 syn match   confWebFeaturesConstants /\v<(latest|python3\.(7|9))$>/
 
+" 9.4.0
+syn match   confWebFeaturesStanzas contained /\v<(feature:(system_namespace_redirection|federated_search))>/
+syn match   confWebFeatures /\v<^(activate_downsampling|lazy_load_data_frames_for_visualizations|bypass_clonedeep_options_scope_for_visualizations)>/
+syn match   confWebFeatures /\v<^(activate_(dashboard_versioning|add_saved_searches_from_studio|o11y_dashboards|chromium_legacy_export))>/
+syn match   confWebFeatures /\v<^(enable_(authentication_providers_LDAP|admin_LDAP-groups|authorization_tokens|duo_mfa)_vnext)>/
+syn match   confWebFeatures /\v<^(enable_(authorization_roles|authentication_users|reports)_vnext)>/
+syn match   confWebFeatures /\v<^(enable_(system_namespace_redirection|ipv6_validations))>/
+
+" 10.0.0
+syn match   confWebFeaturesStanzas contained /\v<(feature:(pdfgen|knowledge_object_favorites))>/
+syn match   confWebFeatures /\v<^(activate_(o11y_service_graph|dashboard_publishing_and_view_without_login|(link|save)_to_dashboard_tab))>/
+syn match   confWebFeatures /\v<^(enable_(job_manager|alerts|admin_alert_actions|saml)_vnext)>/
+syn match   confWebFeatures /\v<^(enable_(search_bar_performance_optimizations|saved_search_pageload_optimization|(dashboards|reports)_favorites))>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

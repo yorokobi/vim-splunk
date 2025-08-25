@@ -144,6 +144,13 @@ syn match   confAuthorizeCaps /\v<^(list_all_(users|roles)|list_field_filter|(cr
 syn match   confAuthorizeStanzas contained /\v<((role_|capability::)(list_all_(users|roles)|edit_(messages|user_seed)))>/
 syn match   confAuthorizeStanzas contained /\v<((role_|capability::)((create|edit)_external_lookup|list_field_filter|edit_spl2_permissions))>/
 
+" 10.0.0
+syn match   confAuthorize /\v<^(srchFederatedProviders(Allowed|Default))>/
+syn match   confAuthorizeStanzas contained /\v<((role_|capability::)((edit|list)_certificates|edit_saved_search(_owner)?|list_saved_searches))>/
+syn match   confAuthorizeStanzas contained /\v<((role_|capability::)(edit_published_dashboards|(list|edit)_spl2_modules|edit_spl2_datasets))>/
+syn match   confAuthorizeStanzas contained /\v<((role_|capability::)(run_spl2_search|(edit|provision)_data_management_agent|edit_data_management_edgeprocessor))>/
+syn match   confAuthorizeStanzas contained /\v<((role_|capability::)(list|edit)_data_management_otelcollector)>/
+
 " Enterprise Security
 syn match   confAuthorizeCaps /\v<^(edit_(correlationsearches|identitylookup|log_review_settings|lookups|managed_configurations|suppressions))>/
 
