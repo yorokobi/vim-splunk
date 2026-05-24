@@ -87,9 +87,7 @@ syn match   confSavedSearches /\v<^(displayview|embed\.enabled|enableSched|is_vi
 syn match   confSavedSearches /\v<^(quantity|query|realtime_schedule|relation|restart_on_searchpeer_add|role|run_(n_times|on_startup)|schedule(_window|_priority)?)>/
 syn match   confSavedSearches /\v<^(search|sendresults|(user|vs)id)>/
 
-" ----------
-"  7.1
-" ----------
+" 7.1
 syn match   confSavedSearches /\v<^(defer_scheduled_searchable_idxc)>/
 
 " 7.2.3
@@ -121,6 +119,9 @@ syn match   confSavedSearches /\v<^(dispatch.rate_limit_retry|precalculate_requi
 
 " 9.4.0
 syn match   confSavedSearches /\v<^(calculate_alert_required_fields_in_search)>/
+
+" 10.x
+syn match   confSavedSearches /\v<^(allow_data_time_skew|federated_providers)>/
 
 " alert_logevent
 " etc/apps/alert_logevent/README/savedsearches.conf.spec

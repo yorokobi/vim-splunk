@@ -83,6 +83,9 @@ syn match   confTransforms /\v<^(STOP_PROCESSING_IF|metrics.(disabled|report_int
 " 9.3.0
 syn match   confTransformsConstants /\v<(latest|python3\.(7|9))$>/
 
+" 10.x
+syn match   confTransforms /\v<^(CAN_OPTIMIZE_IE|max_duplicates|python\.required)>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

@@ -106,9 +106,10 @@ syn match   confWeb /\v<^(optInRemoteUI|allowExternalRemote)>/
 " 9.3.0
 syn match   confWeb /\v<^(remoteProxyLegacyRequireDoubleEncodedUriArgs)>/
 
-" 10.0.0
-syn match   confWebStanzas contained /\v<(admin_config_ui)>/
-syn match   confWeb /\v<^(proxyHostPort|dashboards_trusted_domains_list)>/
+" 10.x
+syn match   confWebStanzas contained /\v<(admin_config_ui|nghttpx_server)>/
+syn match   confWeb /\v<^(proxyHostPort|dashboards_trusted_domains_list|allowedSplunkWebClient(Netloc|Scheme)List)>/
+syn match   confWeb /\v<^(auto_start|workers|backendConnectionsPerFrontend)>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment

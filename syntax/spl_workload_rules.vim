@@ -46,7 +46,7 @@ syn match   confWorkLoadRulesStanzas contained /\v<(default|general|workload_rul
 
 syn match   confWorkLoadRules /\v<^(predicate|workload_pool|rules|action|schedule|(end|start)_time|every_(week|month)_days|user_message)>/
 
-syn match   confWorkLoadRulesConstants /\v<(alert|move|abort|always_on|time_range|every_(day|week|month))$>/
+syn match   confWorkLoadRulesConstants /\v<(alert|move|abort|always_on|time_range|every_(day|week|month)|queue|filter)$>/
 
 " 8.2
 syn match   confWorkLoadRules /\v<^(disabled)>/

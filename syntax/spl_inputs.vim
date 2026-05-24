@@ -43,7 +43,7 @@ syn cluster confStanzas contains=confInputsStanzas,confGenericStanzas
 
 " inputs.conf
 syn match   confInputsStanzas contained /\v<(default|blacklist:[^]]+|tcp(-ssl)?:(\/\/[^:]+:)?\d+|udp:(\/\/[^:]+:)?\d+|splunktcp((-ssl)?:(\/\/[^:]+:)?\d+)?)>/
-syn match   confInputsStanzas contained /\v<(batch|monitor|fifo|script|perfmon|splunktcptoken|MonitorNoHandle|Win(EventLog|(Host|Net|Print|Reg)Mon)):\/\/[^]]+>/
+syn match   confInputsStanzas contained /\v<(batch|monitor|fifo|script|perfmon|splunktcptoken|MonitorNoHandle|Win(EventLog|(Host|Net|Print|Reg)Mon)):\/\/[^\]]+>/
 syn match   confInputsStanzas contained /\v<(admon|powershell(2)?):\/\/[^]]+>/
 syn match   confInputsStanzas contained /\v<(SSL|fschange:[^]]+|filter:(white|black)list:[^]]+|http(:\/\/[^]]+)?)>/
 
@@ -141,9 +141,14 @@ syn match   confInputs /\v<^(large_message_store\.(sslVerifyServerCert|sslVersio
 " 9.4.0
 syn match   confInputsConstants /\v<(asq)$>/
 
-" 10.0.0
-syn match   confInputsConstants /\v<(warn_at_80)$>/
+" 10.x
 syn match   confInputs /\v<^(backpressureState|remote\.asq\.backoff\.(initial|max_retry)_delay)>/
+syn match   confInputs /\v<^(jsonParser(MaxEventSize)?|ackExpiryMode|headerEnforcementMode|ackRequiredAnyCookie)>/
+syn match   confInputs /\v<^(maxMemoryUsagePct|hecCacheCapacity|customMetadataMode)>/
+syn match   confInputs /\v<^(remote_queue.gcs_smartbus.(pubsub|storage)_endpoint|adsUseSSL)>/
+syn match   confInputs /\v<^(python\.required)>/
+syn match   confInputsConstants /\v<(warn(_at_80)?|tls1\.(0|1|2|3)|legacy|vectorized|expire_at_90|block)$>/
+syn match   confInputsConstants /\v<(disabled|query_string)$>/
 
 " UF journalctl
 syn match   confInputs /\v<^(journalctl-(in|ex)clude-fields|journalctl-(filter|(user-)?unit|identifier|priority|boot|facility|grep))>/

@@ -7,6 +7,7 @@ augroup filetypedetect
     au BufNewFile,BufRead app.conf setf spl_app
     au BufNewFile,BufRead audit.conf setf spl_audit
     au BufNewFile,BufRead authentication.conf setf spl_authentication
+    au BufNewFile,BufRead authentication_node.conf setf spl_authentication_node
     au BufNewFile,BufRead authorize.conf setf spl_authorize
     au BufNewFile,BufRead bookmarks.conf setf spl_bookmarks
     au BufNewFile,BufRead collections.conf setf spl_collections

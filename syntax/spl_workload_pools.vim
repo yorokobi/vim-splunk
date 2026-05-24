@@ -47,6 +47,9 @@ syn match   confWorkLoadPoolsStanzas contained /\v<(general|workload_pool:[^\]]+
 syn match   confWorkLoadPools /\v<^(enabled|(default|ingest)_pool|workload_pool_base_dir_name|(cpu|mem)_weight)>/
 syn match   confWorkLoadPools /\v<^(category|default_category_pool)>/
 
+" 10.x
+syn match   confWorkLoadPools /\v<^(allow_basic|threaded)>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

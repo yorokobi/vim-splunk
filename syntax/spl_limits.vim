@@ -207,11 +207,27 @@ syn match   confLimits /\v<^(version_upgrade_(time_duration_block_s|polling_((ve
 syn match   confLimits /\v<^(version_upgrade_(backup_disabled|terminate_timeout_s|keep_backups)|scheduler_user_timezone_cache_expiry)>/
 syn match   confLimits /\v<^(rfs\.provider\.max_concurrent_uploads|sqs\.ingest\.max_threads|run_as_owner_ttl)>/
 
-" 10.0.0
-syn match   confLimitsStanzas contained /\v<(reloads)>/
+" 10.x
+syn match   confLimitsStanzas contained /\v<(reloads|indexing_search_log|inputlookup|makeresults)>/
 syn match   confLimits /\v<^(high_accuracy_results_queue_size|auto_exclude_segmented_terms|toggle_server_conf_reload)>/
 syn match   confLimits /\v<^(indexedcsv_failure_cleanup|dynamic_max_searches_perc(_upper_limit|_increase_(period|increment))?)>/
-syn match   confLimits /\v<^(results_deduplication|custom_configuration_files_ignore_reload)>/
+syn match   confLimits /\v<^(results_deduplication|custom_configuration_files_ignore_reload|max_search_string_size)>/
+syn match   confLimits /\v<^(xml_cpu_profiling|capture_subsearch_telemetry|enable_early_evaluated_subsearch)>/
+syn match   confLimits /\v<^(hostwide_queued_search_limit|(index|fetch)_remote_search_telemetry|optimize_search_telemetry)>/
+syn match   confLimits /\v<^(remote_search_telemetry_file_limit|include_temp_dirs_in_disk_usage|idle_process_hostwide_memory_threshold)>/
+syn match   confLimits /\v<^(status_cache_per_entry_max_size|status_field_truncation\.(enabled|exclude_fields|(search|default)_field_len))>/
+syn match   confLimits /\v<^(priority_based_dispatch_reaper|dispatch_dir_maximum_count)>/
+syn match   confLimits /\v<^(rate_limit_per_day|queue_capacity|sinkhole_file_limit|kv_chunk_size|inputlookup_cursor)>/
+syn match   confLimits /\v<^(indexed_csv_include_underscore_key_field|optimize_time_bin_memory|enable_oauth2_for_applications)>/
+syn match   confLimits /\v<^(file_tracking_db_fsync_enabled|max_documents_per_batch_export_backup_kvservice)>/
+syn match   confLimits /\v<^(max_size_per_batch_export_backup_kvservice_mb|max_documents_per_conditional_update)>/
+syn match   confLimits /\v<^(version_upgrade_max_start_retries|export_max_(file_size|scale_factor)|suppression_cleanup_interval)>/
+syn match   confLimits /\v<^(dispatch_mode|allow_skew_hash_algorithm|max_pull_based_fetch|durable_search_disabled)>/
+syn match   confLimits /\v<^(shc_role_quota_base_only_enforcement|pull_interval(_throttle_(limit|interval))?)>/
+syn match   confLimits /\v<^(shc_scheduler_sticky_jobs_expiry|dispatch_only_when_kvstore_ready|disable_local_dma_search)>/
+syn match   confLimits /\v<^(enableDestConfigOnDs)>/
+
+syn match   confLimitsConstants /\v<(push|pull|djb2|xxh32)$>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment

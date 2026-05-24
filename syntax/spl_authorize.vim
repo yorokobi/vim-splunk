@@ -144,12 +144,23 @@ syn match   confAuthorizeCaps /\v<^(list_all_(users|roles)|list_field_filter|(cr
 syn match   confAuthorizeStanzas contained /\v<((role_|capability::)(list_all_(users|roles)|edit_(messages|user_seed)))>/
 syn match   confAuthorizeStanzas contained /\v<((role_|capability::)((create|edit)_external_lookup|list_field_filter|edit_spl2_permissions))>/
 
-" 10.0.0
-syn match   confAuthorize /\v<^(srchFederatedProviders(Allowed|Default))>/
+" 10.x
 syn match   confAuthorizeStanzas contained /\v<((role_|capability::)((edit|list)_certificates|edit_saved_search(_owner)?|list_saved_searches))>/
 syn match   confAuthorizeStanzas contained /\v<((role_|capability::)(edit_published_dashboards|(list|edit)_spl2_modules|edit_spl2_datasets))>/
 syn match   confAuthorizeStanzas contained /\v<((role_|capability::)(run_spl2_search|(edit|provision)_data_management_agent|edit_data_management_edgeprocessor))>/
-syn match   confAuthorizeStanzas contained /\v<((role_|capability::)(list|edit)_data_management_otelcollector)>/
+syn match   confAuthorizeStanzas contained /\v<((role_|capability::)((list|edit)_data_management_otelcollector|delete_saml_user))>/
+syn match   confAuthorizeStanzas contained /\v<((role_|capability::)(list|edit)_alert_actions)>/
+syn match   confAuthorizeStanzas contained /\v<((role_|capability::)((list|edit)(_spl2_module_permissions|(auto_refresh|deactivate)_dashboards)))>/
+syn match   confAuthorizeStanzas contained /\v<((role_|capability::)edit_data_management_pipeline_job)>/
+syn match   confAuthorizeStanzas contained /\v<((role_|capability::)((list_|edit_)(oauth_config(s|_role_mappings)|internal_oauth_clients|authentication_node)))>/
+syn match   confAuthorizeStanzas contained /\v<((role_|capability::)((delete|list)_oauth_config_clients))>/
+syn match   confAuthorizeStanzas contained /\v<((role_|capability::)(edit|read)_connections)>/
+syn match   confAuthorizeStanzas contained /\v<((role_|capability::)(edit|read|write)_datasets)>/
+syn match   confAuthorizeStanzas contained /\v<((role_|capability::)edit_(storage_passwords_masking|heap_profiler))>/
+syn match   confAuthorizeStanzas contained /\v<((role_|capability::)(create_bulk_data_move|(auto_refresh|deactivate)_dashboards))>/
+syn match   confAuthorizeStanzas contained /\v<((role_|capability::)edit_((out|in)put_ingest_processor|federated_indexes))>/
+syn match   confAuthorizeStanzas contained /\v<((role_|capability::)(list_|edit_)(federated_providers|conf_objects))>/
+syn match   confAuthorize /\v<^(srchFederatedProviders(Allowed|Default)|queuedSearchQuota)>/
 
 " Enterprise Security
 syn match   confAuthorizeCaps /\v<^(edit_(correlationsearches|identitylookup|log_review_settings|lookups|managed_configurations|suppressions))>/

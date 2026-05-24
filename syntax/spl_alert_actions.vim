@@ -54,6 +54,7 @@ syn match   confAlertActions /\v<^(pdf\.(logo_path|html_image_rendering|(footer|
 syn match   confAlertActions /\v<^(alert\.execute\.cmd(\.arg\.\d+)?|label|description)>/
 syn match   confAlertActions /\v<^(subject\.(alert|report)|message\.(report|alert)|footer\.text|include\.((results|view)_link|search|trigger|trigger_time))>/
 syn match   confAlertActions /\v<^(cipherSuite|ssl((Alt|Common)NameToCheck|VerifyServer(Cert|Name)|Versions))>/
+syn match   confAlertActions_Constants /\v<(tls1\.(0|1|2|3))$>/
 
 " 7.2.3
 syn match   confAlertActions /\v<^(forceCsvResults)>/
@@ -72,6 +73,9 @@ syn match   confAlertActions /\v<^(allowedDomainList|escapeCSVNewline|allow_empt
 " 9.3.0
 syn match   confAlertActions /\v<^(sendpng)>/
 syn match   confAlertActions_Constants /\v<(latest|python3\.(7|9))$>/
+
+" 10.x
+syn match   confAlertActions /\v<^(python\.required)>/
 
 " etc/apps/alert_logevent/README/alert_actions.conf.spec
 syn match   confAlertActionsStanzas contained /\v<logevent>/

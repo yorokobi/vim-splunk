@@ -52,9 +52,7 @@ syn match   confProps /\v<^(TIME(STAMP_FIELDS|_(FORMAT|PREFIX))|TRUNCATE|TZ(_ALI
 syn match   confProps /\v<^(_actions|category|description|detect_trailing_nulls|force_local_processing|given_type|initCrcLength|invalid_cause|is_valid)>/
 syn match   confProps /\v<^(maxDist|priority|pulldown_type|rename|sourcetype|unarchive_(cmd|sourcetype))>/
 
-" ----------
 "  7.1
-" ----------
 syn match   confProps /\v<^(DEPTH_LIMIT)>/
 
 syn match   confComplex /\v<^((EXTRACT|REPORT|TRANSFORMS)-[0-9A-Za-z_-]+)>/
@@ -92,6 +90,11 @@ syn match   confPropsConstants /\v<(direct|shell)$>/
 
 " 9.4.0
 syn match   confProps /\v<^(MAX_EXPECTED_EVENT_LINES|SOURCETYPE_NAME_RESTRICTED_CHARACTERS)>/
+
+" 10.x
+syn match   confProps /\v<^(XML_INDEXED_EXTRACTIONS_PIPELINE|extraction_cutoff|XML_IE_(IN|EX)CLUDE)>/
+syn match   confProps /\v<^(OPTIMIZE_IE_EXTRACT|trackPipelineLatency)>/
+syn match   confPropsConstants /\v<(XML(KV(-WINEVT)?)?|structuredparsing|wineventlog|typing|exec)$>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment

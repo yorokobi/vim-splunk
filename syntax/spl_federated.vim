@@ -64,10 +64,20 @@ syn match   confFederated /\v<^(max_preview_generation_inputcount)>/
 " 9.4.3
 syn match   confFederated /\v<^(previewOnRshEnabled)>/
 
-" 10.0.0
+" 10.x
+syn match   confFederatedStanzas contained /\v<(s2s_unsupported_command:show_source|features|s2s_transparent_mode_unsupported_command:loadjob)>/
 syn match   confFederated /\v<^(allow(LookupsToExistOnlyOnRshForStandardMode|edAndDefaultFederatedProvidersEnabled))>/
-syn match   confFederated /\v<^(s2s_standard_mode_local_only_commands)>/
-syn match   confFederatedStanzas contained /\v<(s2s_unsupported_command:show_source)>/
+syn match   confFederated /\v<^(s2s_standard_mode_local_only_commands|useAppContextFromSearch|fedSrchIndexesAllowed)>/
+syn match   confFederated /\v<^(providerVerificationMode|enable_streaming_optimization|federated_search_retry_count)>/
+syn match   confFederated /\v<^(federated_search_(remote_ttl|max_events_per_bucket))>/
+syn match   confFederated /\v<^(sal_api_base_url|rsh_delta_write_timeout|skipLoadWithoutPpcFor|expand_federated_index_wildcard_only)>/
+syn match   confFederated /\v<^(allow(CaseInsensitivityForFederatedProvider|IndexBasedProviderFiltering|Ast(ProjectionElim|PredicateMerge)))>/
+syn match   confFederated /\v<^(allowAst(InsertRedistributeCommand|Replace(ChartCmds|DatamodelStatsCmds)WithTstats))>/
+syn match   confFederated /\v<^(allowAstReplace(TableWithFields|SdselectWithSdsql)|proxyBundleToCaptainEnabled)>/
+syn match   confFederated /\v<^(fsh(FeaturesTransactionRequestEnabled|HeartbeatRest(Connect|Read)Timeout))>/
+syn match   confFederated /\v<^(proxyBundleFromMemberToCaptain(Connection|Read|Write)Timeout)>/
+syn match   confFederated /\v<^(legacy_aws_federated_(provider|index)_support)>/
+syn match   confFederatedConstants /\v<(deactivated|audit|strict|auto)$>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment

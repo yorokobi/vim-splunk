@@ -82,6 +82,17 @@ syn match  confAuthentication /\v<^(authTypePreferredForUserCollision|saml_negat
 syn match  confAuthentication /\v<^(enableAutoMappedRoles|allowEntities)>/
 syn match  confAuthenticationConstants /\v<(latest|python3\.(7|9))$>/
 
+" 10.x
+syn match  confAuthenticationStanzas contained /\v<(oauth2_restricted_endpoints|oauth2_settings|oauth2_external_config_[^\]]+)>/
+syn match  confAuthenticationStanzas contained /\v<(oauth2_external_(role_mapping|app_client)_[^\]]+)>/
+syn match  confAuthenticationStanzas contained /\v<(auth-tokens|splunk_token_settings)>/
+syn match  confAuthentication /\v<^(scimSupportedDomains|python\.required|scsSyncUserDeletes|signatureRawPubKey)>/
+syn match  confAuthentication /\v<^(include(AssertionConsumerServiceURL|Destination)|universalPrompt|hostnames)>/
+syn match  confAuthentication /\v<^(certFile|issuer(_uri)?|audience|(clientId|groups)Claim|disable|friendlyName)>/
+syn match  confAuthentication /\v<^(jwks_uri|appClient|(created|modified)At|oAuth2Config|roles|ipv(4|6)_cidrs)>/
+syn match  confAuthentication /\v<^(maxRequestAge|use_cloudconnect|cloudconnect_tenant)>/
+syn match  confAuthenticationConstants /\v<(tls1\.(0|1|2|3))$>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

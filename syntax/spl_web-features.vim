@@ -73,11 +73,20 @@ syn match   confWebFeatures /\v<^(enable_(authentication_providers_LDAP|admin_LD
 syn match   confWebFeatures /\v<^(enable_(authorization_roles|authentication_users|reports)_vnext)>/
 syn match   confWebFeatures /\v<^(enable_(system_namespace_redirection|ipv6_validations))>/
 
-" 10.0.0
-syn match   confWebFeaturesStanzas contained /\v<(feature:(pdfgen|knowledge_object_favorites))>/
+" 10.x
+syn match   confWebFeaturesStanzas contained /\v<(feature:(pdfgen|knowledge_object_favorites|new_data_management_experience|modern-nav))>/
+syn match   confWebFeaturesStanzas contained /\v<(feature:(authentication_oauth|search_ai_assistant|splunk_ai_canvas|spl2))>/
+syn match   confWebFeaturesStanzas contained /\v<(feature:(splunk_oauth_clients|appserver_security))>/
 syn match   confWebFeatures /\v<^(activate_(o11y_service_graph|dashboard_publishing_and_view_without_login|(link|save)_to_dashboard_tab))>/
-syn match   confWebFeatures /\v<^(enable_(job_manager|alerts|admin_alert_actions|saml)_vnext)>/
+syn match   confWebFeatures /\v<^(enable_(job_manager|alerts|admin_alert_actions|saml)_vnext|check_ai_canvas_eligible)>/
 syn match   confWebFeatures /\v<^(enable_(search_bar_performance_optimizations|saved_search_pageload_optimization|(dashboards|reports)_favorites))>/
+syn match   confWebFeatures /\v<^(activate_(custom_visualizations|studio_extension_framework|conditional_visibility|spl2_datasources))>/
+syn match   confWebFeatures /\v<^(activate_scheduled_export_upscaling|enable_new_data_management_home|enable_nav_vnext)>/
+syn match   confWebFeatures /\v<^(enable_data_(ui_workflow-actions|props_(sourcetype-rename|fieldaliases)|transforms_extractions)_vnext)>/
+syn match   confWebFeatures /\v<^(enable_data_props_(extractions|calcfields)_vnext|enable_data_indexes(_cloud)?_vnext)>/
+syn match   confWebFeatures /\v<^(enable_(dashboards|admin_directory|federation_page)_vnext|python\.required)>/
+syn match   confWebFeatures /\v<^(enable_(messages_list_performance_optimizations|authentication_oauth_ui|search_ai_assistant|spl2))>/
+syn match   confWebFeatures /\v<^(enable_splunk_oauth_clients_ui|deactivate_(custom_mako_templates|custom_cherrypy_controllers))>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment

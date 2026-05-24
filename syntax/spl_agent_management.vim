@@ -45,12 +45,19 @@ syn cluster confStanzas contains=confAgentManagementStanzas,confGenericStanzas
 
 syn match   confAgentManagementStanzas contained /\v<(general|(search|splunkd)_client|settings_sync)>/
 syn match   confAgentManagementStanzas contained /\v<(effective_configuration)>/
+syn match   confAgentManagementStanzas contained /\v<(telemetry)>/
 
 syn match   confAgentManagement /\v<^(fallback_to_deployment_server_ui|log_level|request_timeout|polling_interval)>/
 syn match   confAgentManagement /\v<^(query_(agents_(with_error|offline|updated_config)))>/
 syn match   confAgentManagement /\v<^(query_agent_version|query_app_summary|connection_(pool_size|keep_alive))>/
 syn match   confAgentManagement /\v<^(max_size|cleanup_(schedule|threshold))>/
-" syn match   confAgentManagement /\v<^()>/
+syn match   confAgentManagement /\v<^(enabled|cron_schedule|(collection|job)_timeout)>/
+
+" 10.4.0
+syn match   confAgentManagementStanzas contained /\v<(repository_database)>/
+syn match   confAgentManagement /\v<^(stale_csv_cleanup_(ttl|interval)_m|repository_type)>/
+syn match   confAgentManagement /\v<^(agents_matching_(max_concurrent_ds_requests|(refresh_(batch_size|interval_s|timeout_m))))>/
+syn match   confAgentManagement /\v<^(database_(prune_interval|items_ttl)_h|(app|client|phonehome)_events_(file_limit|ingestion_(interval_m|batch_size)))>/
 
 syn match   confAgentManagementConstants /\v<((dis|en)abled)$>/
 

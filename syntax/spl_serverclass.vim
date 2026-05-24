@@ -56,6 +56,9 @@ syn match   confServerClass /\v<^(syncMode|maxConcurrentDownloads|reloadCheckInt
 syn match   confServerClass /\v<^(cronSchedule)>/
 syn match   confServerClassConstants /\v<(none|sharedDir)$>/
 
+" 10.x
+syn match   confServerClass /\v<^(applicationMatchingCacheDisabled)>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

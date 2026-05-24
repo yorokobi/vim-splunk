@@ -113,7 +113,7 @@ syn match   confIndexes /\v<^(remote\.gs\.())>/
 syn match   confIndexes /\v<^(remote\.gs\.())>/
 syn match   confIndexes /\v<^()>/
 syn match   confIndexes /\v<^()>/
-syn match   confIndexesConstants /\v<(default|python(2|3)?|aes-256-gcm|4-only|6-only|ssl3|tls1.(0|1|2)|gcp-sse-(c|kms|gcp))$>/
+syn match   confIndexesConstants /\v<(default|python(2|3)?|aes-256-gcm|4-only|6-only|ssl3|tls1.(0|1|2|3)|gcp-sse-(c|kms|gcp))$>/
 
 " 8.2
 syn match   confIndexes /\v<^(bucketMerge\.maxMergeTimeSpanSecs|tsidxDedupPostingsListMaxTermsLimit|hotBucketStreaming\.removeRemoteSlicesOnFreeze)>/
@@ -141,6 +141,9 @@ syn match   confIndexesConstants /\v<(azure-sse-c)$>/
 syn match   confIndexes /\v<^(zstdCompressionStrategy|remote\.s3\.compression(_extension_list)?)>/
 syn match   confIndexes /\v<^(remote\.azure\.(encryption\.azure-sse-c\.key_type|azure_kv\.(endpoint|key_(name|vault_(client|tenant)_id))))>/
 syn match   confIndexes /\v<^(remote\.azure\.(azure_kv\.key_vault_client_secret|compression(_extension_list)?))>/
+
+" 10.x
+syn match   confIndexes /\v<^(mdlIndex|remote.s3.object_locks_retention_period)>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment

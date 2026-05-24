@@ -50,7 +50,7 @@ syn match   confSplunkLaunch /\v<^(SPLUNK_(FIPS|BINDIP|DB|HOME|IGNORE_SELINUX|OS
 " 9.3.0
 syn match   confSplunkLaunch /\v<^(SPLUNK_PYTHON_DONT_ESCAPE_PRINTABLE|ENABLE_CPUSHARES)>/
 
-" 10.0.0
+" 10.x
 syn match   confSplunkLaunchConstants /\v<(140-(2|3))$>/
 syn match   confSplunkLaunch /\v<^(SPLUNK_FIPS_VERSION)>/
 

@@ -45,9 +45,12 @@ syn cluster confStanzas contains=confAuditStanzas,confGenericStanzas
 syn match   confAuditStanzas contained /\v<(default|auditTrail)>/
 syn match   confAudit /\v<^(queueing>)/
 
-" 10.0.0
-syn match   confAudit /\v<^(logging_format)>/
-syn match   confAuditConstants /\v<()$>/
+" 10.x
+syn match   confAuditStanzas contained /\v<(auditconfig:\/\k+((\/\k+)+)?)>/
+syn match   confAudit /\v<^(logging_format|(en|dis)abled|sampling\.\k+)>/
+syn match   confAudit /\v<^()>/
+syn match   confAuditConstants /\v<(v(1|2)|both|all)$>/
+
 
 " Highlight definitions (generic)
 hi def link confComment Comment
@@ -68,5 +71,5 @@ hi def link confstanzaEnd Delimiter
 hi def link confStanza Function
 hi def link confGenericStanzas Constant
 hi def link confAuditStanzas Identifier
-hi def link confAudit_Constants Constant
+hi def link confAuditConstants Constant
 hi def link confAudit Keyword

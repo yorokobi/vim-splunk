@@ -61,6 +61,9 @@ syn match   confCommands /\v<^(pass_timezone)>/
 " 9.3.0
 syn match   confCommandsConstants /\v<(latest|python3\.(7|9))$>/
 
+" 10.x
+syn match   confCommands /\v<^(python\.required)>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

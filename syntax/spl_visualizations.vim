@@ -51,6 +51,10 @@ syn match   confVisualizations /\v<^(trellis_(default_height|min_widths|per_row)
 
 syn match   confVisualizationsConstants /\v<(json(_rows|_cols)?|asc|desc)$>/
 
+" 10.x
+syn match   confVisualizations /\v<^(framework_type)>/
+syn match   confVisualizationsConstants /\v<((legacy|studio)_visualization)$>/
+
 " Highlight definitions (generic)
 hi def link confComment Comment
 hi def link confSpecComment Error

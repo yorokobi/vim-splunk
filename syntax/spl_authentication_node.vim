@@ -39,22 +39,13 @@ syn match confGenericStanzas display contained /\v[^\]]+/
 syn region confStanza matchgroup=confStanzaStart start=/^\[/ matchgroup=confStanzaEnd end=/\]/ oneline transparent contains=@confStanzas
 
 " Group clusters
-syn cluster confStanzas contains=confDeploymentClientStanzas,confGenericStanzas
+syn cluster confStanzas contains=confAuthenticationNodeStanzas,confGenericStanzas
 
-" deploymentclient.conf
-syn match   confDeploymentClientStanzas contained /\v<(default|deployment\-client|target-broker:[^]]+)>/
-syn match   confDeploymentClient /\v<^(disabled|clientName|workingDir|repositoryLocation|serverRepositoryLocationPolicy|endpoint)>/
-syn match   confDeploymentClient /\v<^(serverEndpointPolicy|phoneHomeIntervalInSecs|handshakeRe(tryIntervalInSecs|plySubscriptionRetry))>/
-syn match   confDeploymentClient /\v<^(appEventsResyncIntervalInSecs|reloadDSOnAppInstall|ssl(Versions|VerifyServer(Cert|Name)|(Common|Alt)NameToCheck))>/
-syn match   confDeploymentClient /\v<^(caCertFile|cipherSuite|ecdhCurves|targetUri)>/
-
-" 7.2.3
-syn match   confDeploymentClient /\v<^((connect|send|recv)_timeout)>/
-
-syn match   confDeploymentClientConstants /\v<(accept(SplunkHome|Always)|rejectAlways)$>/
-
-" 10.x
-syn match   confDeploymentClientConstants /\v<(tls1\.(0|1|2|3))$>/
+" authentication_node.conf
+syn match  confAuthenticationNodeStanzas contained /\v<(client_\k+)>/
+syn match  confAuthenticationNode /\v<^(id|name|grantTypes|jwks|roles|tokenEndpointAuthMethod|instanceId|redirectUris)>/
+syn match  confAuthenticationNode /\v<^(responseTypes|scopes)>/
+syn match  confAuthenticationNodeConstants /\v<()$>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment
@@ -74,6 +65,6 @@ hi def link confstanzaEnd Delimiter
 " Highlight for stanzas
 hi def link confStanza Function
 hi def link confGenericStanzas Constant
-hi def link confDeploymentClientStanzas Identifier
-hi def link confDeploymentClient Keyword
-hi def link confDeploymentClientConstants Constant
+hi def link confAuthenticationNodeStanzas Identifier
+hi def link confAuthenticationNodeConstants Constant
+hi def link confAuthenticationNode Keyword

@@ -60,9 +60,9 @@ syn match   confApp /\v<^(supported_themes)>/
 " 9.3.0
 syn match   confAppConstants /\v<(latest|python3\.(7|9))$>/
 
-" 10.0.0
+" 10.x
 syn match   confAppStanzas contained /\v<(data_management)>/
-syn match   confApp /\v<^(plugin_enabled)>/
+syn match   confApp /\v<^(plugin_enabled|python\.required)>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment

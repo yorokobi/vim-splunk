@@ -63,8 +63,12 @@ syn match   confRestMap /\v<^(stream)>/
 syn match   confRestMap /\v<^(v1APIBlockGETSearchLaunch|max(CacheTime|RestResults)|streamlineXmlSerialization)>/
 
 " 9.3.0
-syn match   confRestMapConstants /\v<(latest|python3\.(7|9))$>/
+syn match   confRestMapConstants /\v<(latest|python3\.(7|9)|unlimited)$>/
 syn match   confRestMap /\v<^(maxConcurrent)>/
+
+" 10.x
+syn match   confRestMapStanzas contained /\v<(proxybundleshc(member|captain):\k+)>/
+syn match   confRestMap /\v<^(max_content_length|python\.required)>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment

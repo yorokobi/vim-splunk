@@ -52,9 +52,7 @@ syn match   confOutputs /\v<^(priority|selectiveIndexing|sendCookedData|server|s
 syn match   confOutputs /\v<^(ssl((Alt|Common)NameToCheck|(Cert|RootCA)Path|Cipher|Password|QuietShutdown|VerifyServerCert|Versions))>/
 syn match   confOutputs /\v<^(timestampformat|tlsHostname|token|type|use(ACK|ClientSSLCompression))>/
 
-" ----------
-"  7.1
-" ----------
+" 7.1
 syn match   confOutputs /\v<^(remote_queue\.|remote_queue\.sqs\.((access|secret)_key|auth_region|endpoint|message_group_id|retry_policy|max_count\.max_retries_per_part|timeout\.(connect|read|write)))>/
 syn match   confOutputs /\v<^(remote_queue\.sqs\.(large_message_store\.(endpoint|path)|send_interval|max_queue_message_size|enable_(data_integrity_checks|signed_payloads)))>/
 syn match   confOutputs /\v<^(concurrentChannelLimit)>/
@@ -114,7 +112,7 @@ syn match   confOutputsConstants /\v<((nd)?json|raw)$>/
 
 " 9.3.0
 syn match   confOutputsStanzas contained /\v<(cloud_processing_queue)>/
-syn match   confOutputs /\v<^(certRotationCheckInterval|autoCertRotation)>/
+syn match   confOutputs /\v<^(certRotation(CheckInterval|ThresholdPct)|autoCertRotation)>/
 syn match   confOutputs /\v<^(remote_queue\.sqs_smartbus\.check_replication_(enabled|interval|executor_max_workers_count|executor_max_jobs_count))>/
 syn match   confOutputs /\v<^(remote_queue\.sqs_smartbus\.enable_shared_receipts|fs\.appendToFileUntilSizeMB|fs\.timeBeforeClosingFileSecs)>/
 syn match   confOutputs /\v<^(remote\.s3\.metadata_max_attempts|remote\.sts\.assume_role\.(role_arn|external_id|duration_secs)|authMethod)>/
@@ -130,6 +128,18 @@ syn match   confOutputs /\v<^(remote_queue\.asq\.(executor_max_(workers|jobs)_co
 syn match   confOutputs /\v<^(remote_queue\.asq\.(azure-sse-kv\.encryptionScope|large_message_store\.azure-sse-c\.key_type))>/
 syn match   confOutputs /\v<^(remote_queue\.asq\.large_message_store\.azure-sse-c\.azure_kv\.(key_(name|vault_(tenant|client)_id)|endpoint|key_vault_client_secret))>/
 syn match   confOutputs /\v<^(remote_queue\.asq\.large_message_store\.enable_shared_receipts)>/
+
+" 10.x
+syn match   confOutputs /\v<^(remote_queue\.gcs_smartbus\.back_off_policy_option\.(initial|max|scaling))>/
+syn match   confOutputs /\v<^(remote_queue\.gcs_smartbus\.(credential_file|enable_inline_data|encoding_format))>/
+syn match   confOutputs /\v<^(remote_queue\.gcs_smartbus\.large_message_store\.(cipherSuite|connectUsingIpVersion))>/
+syn match   confOutputs /\v<^(remote_queue\.gcs_smartbus\.large_message_store\.encryption(\.gcp-sse-c\.key_(type|refresh_interval))?)>/
+syn match   confOutputs /\v<^(remote_queue\.gcs_smartbus\.large_message_store\.gcp_kms\.(key(_ring)?|locations))>/
+syn match   confOutputs /\v<^(remote_queue\.gcs_smartbus\.large_message_store\.ssl(RootCAPath|VersionsForClient|VerifyServer(Name|Cert)))>/
+syn match   confOutputs /\v<^(remote_queue\.gcs_smartbus\.max_(hold_time|pending_messages)_option)>/
+syn match   confOutputs /\v<^(remote_queue\.gcs_smartbus\.(retry_policy_option|send_interval|storage_endpoint))>/
+syn match   confOutputs /\v<^(remote_queue\.gcs_smartbus\.(project_id|large_message_store\.path|pubsub_endpoint))>/
+syn match   confOutputsConstants /\v<(tls1\.(0|1|2|3)|gcs_smartbus|(4|6)-only|gcp-sse-(c|kms|gcp))$>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment

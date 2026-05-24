@@ -79,8 +79,11 @@ syn match   confDistSearch /\v<^(parallelReduceBackwardCompatibility|searchableI
 
 syn match   confDistSearchConstants /\v<(cloud|enterprise|(en|dis)abled)$>/
 
-" 10.0.0
-syn match   confDistSearch /\v<^(useIPAddrAsHost)>/
+" 10.x
+syn match   confDistSearchStanzas contained /\v<(replicationSettings:fileSpecific)>/
+syn match   confDistSearch /\v<^(useIPAddrAsHost|bundleTransferTimeout|slowReplicationLoggingInterval)>/
+syn match   confDistSearch /\v<^(useChecksumforDeltaCalculation|rfsMaxDeltaCountBetweenFull)>/
+syn match   confDistSearchConstants /\v<(allow|deny)$>/
 
 " Highlight definitions (generic)
 hi def link confComment Comment
