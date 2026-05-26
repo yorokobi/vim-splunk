@@ -2,83 +2,35 @@
 " Language: Splunk configuration files
 " Maintainer: Colby Williams <colbyw at gmail dot com>
 
-if version < 600
-    syntax clear
-elseif exists("b:current_syntax")
-    finish
-endif
+" user-prefs.conf
 
-setlocal iskeyword+=.
-setlocal iskeyword+=:
-setlocal iskeyword+=-
-
-syn case match
-
-syn match confComment /^#.*/ contains=confTodo oneline display
-syn match confSpecComment /^\s.*/ contains=confTodo oneline display
-syn match confSpecComment /^\*.*/ contains=confTodo oneline display
-
-syn region confString start=/"/ skip="\\\"" end=/"/ oneline display contains=confNumber,confVar
-syn region confString start=/`/             end=/`/ oneline display contains=confNumber,confVar
-syn region confString start=/'/ skip="\\'"  end=/'/ oneline display contains=confNumber,confVar
-syn match  confNumber /\v[+-]?\d+([ywdhsm]|m(on|ins?))(\@([ywdhs]|m(on|ins?))\d*)?>/
-syn match  confNumber /\v[+-]?\d+(\.\d+)*>/
-syn match  confNumber /\v<\d+[TGMK]B>/
-syn match  confNumber /\v<\d+(k)?b>/
-syn match  confPath   ,\v(^|\s|\=)\zs(file:|https?:|\$\k+)?(/+\k+)+(:\d+)?,
-syn match  confPath   ,\v(^|\s|\=)\zsvolume:\k+(/+\k+)+,
-syn match  confVar    /\$\k\+\$/
-
-syn keyword confBoolean on off t[rue] f[alse] T[rue] F[alse]
-syn keyword confTodo FIXME[:] NOTE[:] TODO[:] CAUTION[:] contained
-
-" Define generic stanzas
-syn match confGenericStanzas display contained /\v[^\]]+/
-
-" Define stanzas
-syn region confStanza matchgroup=confStanzaStart start=/^\[/ matchgroup=confStanzaEnd end=/\]/ oneline transparent contains=@confStanzas
+" Source common highlight elements
+source <sfile>:p:h/spl_common.vim
 
 " Group clusters
-syn cluster confStanzas contains=confUserPrefsStanzas,confGenericStanzas
+syn cluster confStanzas contains=confUserPrefsStanzas,confCommonStanzas,confGenericStanzas
 
-" user-prefs.conf
-syn match   confUserPrefsStanzas contained /\v<(default|general(_default)?|role_[^]]+)>/
+" Stanzas
+syn match   confUserPrefsStanzas contained /\v<(general_default|role_[^]]+)>/
 
+" Key words
 syn match   confUserPrefs /\v<^(datasets:showInstallDialog|dismissedInstrumentationOptInVersion|default_(namespace|(earliest|latest)_time))>/
 syn match   confUserPrefs /\v<^(hideInstrumentationOptInModal|tz|lang|install_source_checksum)>/
 syn match   confUserPrefs /\v<^(search_(assistant|auto_format|line_numbers|syntax_highlighting|use_advanced_editor))>/
-
-syn match   confUserPrefs /\v<^(render_version_messages|notification_python_3_impact|eai_(app_only|results_per_page)|checked_new_(maintenance_)?version|new_(maintenance_)?version|appOrder)>/
-
-syn match   confUserPrefsConstants /\v<(full|compact|none|light|dark|black-white|enterprise|default(-|_)system(-|_)theme)$>/
-
-" 9.0.0
+syn match   confUserPrefs /\v<^(render_version_messages|notification_python_3_impact|eai_(app_only|results_per_page))>/
+syn match   confUserPrefs /\v<^(checked_new_(maintenance_)?version|new_(maintenance_)?version|appOrder)>/
 syn match   confUserPrefs /\v<^(theme|notification_(python_2_removal|noah_upgrade))>/
-
-" 9.3.0
 syn match   confUserPrefs /\v<^(restart_background_jobs|app_bar_cache_timeout_min)>/
 
-" 10.0.0
+" Constants
+syn match   confUserPrefsConstants /\v<(full|compact|none|light|dark|black-white|enterprise|default(-|_)system(-|_)theme)$>/
 syn match   confUserPrefsConstants /\v<(black\-white)$>/
 
-" Highlight definitions (generic)
-hi def link confComment Comment
-hi def link confSpecComment Error
-hi def link confBoolean Boolean
-hi def link confTodo Todo
+" Deprecated
+syn match   confDeprecated /\v<^(showWhatsNew)>/
 
-" Other highlight
-hi def link confString String
-hi def link confNumber Number
-hi def link confPath   Number
-hi def link confVar    PreProc
-
-hi def link confStanzaStart Delimiter
-hi def link confstanzaEnd Delimiter
-
-" Highlight for stanzas
-hi def link confStanza Function
-hi def link confGenericStanzas Constant
+" Highlighting
 hi def link confUserPrefsStanzas Identifier
 hi def link confUserPrefs Keyword
 hi def link confUserPrefsConstants Constant
+hi def link confDeprecated Removed

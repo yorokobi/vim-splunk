@@ -2,78 +2,27 @@
 " Language: Splunk configuration files
 " Maintainer: Colby Williams <colbyw at gmail dot com>
 
-if version < 600
-    syntax clear
-elseif exists("b:current_syntax")
-    finish
-endif
+" deploymentclient.conf
 
-setlocal iskeyword+=.
-setlocal iskeyword+=:
-setlocal iskeyword+=-
-
-syn case match
-
-syn match confComment /^#.*/ contains=confTodo oneline display
-syn match confSpecComment /^\s.*/ contains=confTodo oneline display
-syn match confSpecComment /^\*.*/ contains=confTodo oneline display
-
-syn region confString start=/"/ skip="\\\"" end=/"/ oneline display contains=confNumber,confVar
-syn region confString start=/`/             end=/`/ oneline display contains=confNumber,confVar
-syn region confString start=/'/ skip="\\'"  end=/'/ oneline display contains=confNumber,confVar
-syn match  confNumber /\v[+-]?\d+([ywdhsm]|m(on|ins?))(\@([ywdhs]|m(on|ins?))\d*)?>/
-syn match  confNumber /\v[+-]?\d+(\.\d+)*>/
-syn match  confNumber /\v<\d+[TGMK]B>/
-syn match  confNumber /\v<\d+(k)?b>/
-syn match  confPath   ,\v(^|\s|\=)\zs(file:|https?:|\$\k+)?(/+\k+)+(:\d+)?,
-syn match  confPath   ,\v(^|\s|\=)\zsvolume:\k+(/+\k+)+,
-syn match  confVar    /\$\k\+\$/
-
-syn keyword confBoolean on off t[rue] f[alse] T[rue] F[alse]
-syn keyword confTodo FIXME[:] NOTE[:] TODO[:] CAUTION[:] contained
-
-" Define generic stanzas
-syn match confGenericStanzas display contained /\v[^\]]+/
-
-" Define stanzas
-syn region confStanza matchgroup=confStanzaStart start=/^\[/ matchgroup=confStanzaEnd end=/\]/ oneline transparent contains=@confStanzas
+" Source common highlight elements
+source <sfile>:p:h/spl_common.vim
 
 " Group clusters
-syn cluster confStanzas contains=confDeploymentClientStanzas,confGenericStanzas
+syn cluster confStanzas contains=confDeploymentClientStanzas,confCommonStanzas,confGenericStanzas
 
-" deploymentclient.conf
-syn match   confDeploymentClientStanzas contained /\v<(default|deployment\-client|target-broker:[^]]+)>/
-syn match   confDeploymentClient /\v<^(disabled|clientName|workingDir|repositoryLocation|serverRepositoryLocationPolicy|endpoint)>/
+" Stanzas
+syn match   confDeploymentClientStanzas contained /\v<(deployment\-client|target-broker:[^]]+)>/
+
+" Key words
+syn match   confDeploymentClient /\v<^(clientName|workingDir|repositoryLocation|serverRepositoryLocationPolicy|endpoint)>/
 syn match   confDeploymentClient /\v<^(serverEndpointPolicy|phoneHomeIntervalInSecs|handshakeRe(tryIntervalInSecs|plySubscriptionRetry))>/
-syn match   confDeploymentClient /\v<^(appEventsResyncIntervalInSecs|reloadDSOnAppInstall|ssl(Versions|VerifyServer(Cert|Name)|(Common|Alt)NameToCheck))>/
-syn match   confDeploymentClient /\v<^(caCertFile|cipherSuite|ecdhCurves|targetUri)>/
+syn match   confDeploymentClient /\v<^(appEventsResyncIntervalInSecs|reloadDSOnAppInstall)>/
+syn match   confDeploymentClient /\v<^(targetUri|(connect|send|recv)_timeout)>/
 
-" 7.2.3
-syn match   confDeploymentClient /\v<^((connect|send|recv)_timeout)>/
-
+" Constants
 syn match   confDeploymentClientConstants /\v<(accept(SplunkHome|Always)|rejectAlways)$>/
 
-" 10.x
-syn match   confDeploymentClientConstants /\v<(tls1\.(0|1|2|3))$>/
-
-" Highlight definitions (generic)
-hi def link confComment Comment
-hi def link confSpecComment Error
-hi def link confBoolean Boolean
-hi def link confTodo Todo
-
-" Other highlight
-hi def link confString String
-hi def link confNumber Number
-hi def link confPath   Number
-hi def link confVar    PreProc
-
-hi def link confStanzaStart Delimiter
-hi def link confstanzaEnd Delimiter
-
-" Highlight for stanzas
-hi def link confStanza Function
-hi def link confGenericStanzas Constant
+" Highlighting
 hi def link confDeploymentClientStanzas Identifier
 hi def link confDeploymentClient Keyword
 hi def link confDeploymentClientConstants Constant

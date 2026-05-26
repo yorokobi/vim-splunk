@@ -2,83 +2,36 @@
 " Language: Splunk configuration files
 " Maintainer: Colby Williams <colbyw at gmail dot com>
 
-if version < 600
-    syntax clear
-elseif exists("b:current_syntax")
-    finish
-endif
-
-setlocal iskeyword+=.
-setlocal iskeyword+=:
-setlocal iskeyword+=-
-
-syn case match
-
-syn match confComment /^#.*/ contains=confTodo oneline display
-syn match confSpecComment /^\s.*/ contains=confTodo oneline display
-syn match confSpecComment /^\*.*/ contains=confTodo oneline display
-
-syn region confString start=/"/ skip="\\\"" end=/"/ oneline display contains=confNumber,confVar
-syn region confString start=/`/             end=/`/ oneline display contains=confNumber,confVar
-syn region confString start=/'/ skip="\\'"  end=/'/ oneline display contains=confNumber,confVar
-syn match  confNumber /\v[+-]?\d+([ywdhsm]|m(on|ins?))(\@([ywdhs]|m(on|ins?))\d*)?>/
-syn match  confNumber /\v[+-]?\d+(\.\d+)*>/
-syn match  confNumber /\v<\d+[TGMK]B>/
-syn match  confNumber /\v<\d+(k)?b>/
-syn match  confPath   ,\v(^|\s|\=)\zs(file:|https?:|\$\k+)?(/+\k+)+(:\d+)?,
-syn match  confPath   ,\v(^|\s|\=)\zsvolume:\k+(/+\k+)+,
-syn match  confVar    /\$\k\+\$/
-
-syn keyword confBoolean on off t[rue] f[alse] T[rue] F[alse]
-syn keyword confTodo FIXME[:] NOTE[:] TODO[:] CAUTION[:] contained
-
-" Define generic stanzas
-syn match confGenericStanzas display contained /\v[^\]]+/
-
-" Define stanzas
-syn region confStanza matchgroup=confStanzaStart start=/^\[/ matchgroup=confStanzaEnd end=/\]/ oneline transparent contains=@confStanzas
-
-" Group clusters
-syn cluster confStanzas contains=confAgentManagementStanzas,confGenericStanzas
-
 " agent_management.conf
 
-syn match   confAgentManagementStanzas contained /\v<(general|(search|splunkd)_client|settings_sync)>/
-syn match   confAgentManagementStanzas contained /\v<(effective_configuration)>/
-syn match   confAgentManagementStanzas contained /\v<(telemetry)>/
+" Source common highlight elements
+source <sfile>:p:h/spl_common.vim
 
-syn match   confAgentManagement /\v<^(fallback_to_deployment_server_ui|log_level|request_timeout|polling_interval)>/
+" Group clusters
+syn cluster confStanzas contains=confAgentManagementStanzas,confCommonStanzas,confGenericStanzas
+
+" Stanzas
+syn match   confAgentManagementStanzas contained /\v<((search|splunkd)_client|settings_sync)>/
+syn match   confAgentManagementStanzas contained /\v<(effective_configuration|telemetry|repository_database)>/
+
+" Key words
+syn match   confAgentManagement /\v<^(request_timeout|polling_interval)>/
 syn match   confAgentManagement /\v<^(query_(agents_(with_error|offline|updated_config)))>/
 syn match   confAgentManagement /\v<^(query_agent_version|query_app_summary|connection_(pool_size|keep_alive))>/
 syn match   confAgentManagement /\v<^(max_size|cleanup_(schedule|threshold))>/
-syn match   confAgentManagement /\v<^(enabled|cron_schedule|(collection|job)_timeout)>/
-
-" 10.4.0
-syn match   confAgentManagementStanzas contained /\v<(repository_database)>/
+syn match   confAgentManagement /\v<^(cron_schedule|(collection|job)_timeout)>/
 syn match   confAgentManagement /\v<^(stale_csv_cleanup_(ttl|interval)_m|repository_type)>/
 syn match   confAgentManagement /\v<^(agents_matching_(max_concurrent_ds_requests|(refresh_(batch_size|interval_s|timeout_m))))>/
 syn match   confAgentManagement /\v<^(database_(prune_interval|items_ttl)_h|(app|client|phonehome)_events_(file_limit|ingestion_(interval_m|batch_size)))>/
 
-syn match   confAgentManagementConstants /\v<((dis|en)abled)$>/
+" Constants
+" syn match   confAgentManagementConstants /\v<()$>/
 
-" Highlight definitions (generic)
-hi def link confComment Comment
-hi def link confSpecComment Error
-hi def link confBoolean Boolean
-hi def link confTodo Todo
+" Deprecated
+syn match   confDeprecated /\v<^(fallback_to_deployment_server_ui|log_level)>/
 
-" Other highlight
-hi def link confString String
-hi def link confNumber Number
-hi def link confPath   Number
-hi def link confVar    PreProc
-
-hi def link confStanzaStart Delimiter
-hi def link confstanzaEnd Delimiter
-
-" Highlight for stanzas
-hi def link confStanza Function
-hi def link confGenericStanzas Constant
+" Highlighting
 hi def link confAgentManagementStanzas Identifier
 hi def link confAgentManagement Keyword
 hi def link confAgentManagementConstants Constant
+hi def link confDeprecated Removed

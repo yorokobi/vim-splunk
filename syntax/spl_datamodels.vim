@@ -2,47 +2,18 @@
 " Language: Splunk configuration files
 " Maintainer: Colby Williams <colbyw at gmail dot com>
 
-if version < 600
-    syntax clear
-elseif exists("b:current_syntax")
-    finish
-endif
+" datamodels.conf
 
-setlocal iskeyword+=.
-setlocal iskeyword+=:
-setlocal iskeyword+=-
-
-syn case match
-
-syn match confComment /^#.*/ contains=confTodo oneline display
-syn match confSpecComment /^\s.*/ contains=confTodo oneline display
-syn match confSpecComment /^\*.*/ contains=confTodo oneline display
-
-syn region confString start=/"/ skip="\\\"" end=/"/ oneline display contains=confNumber,confVar
-syn region confString start=/`/             end=/`/ oneline display contains=confNumber,confVar
-syn region confString start=/'/ skip="\\'"  end=/'/ oneline display contains=confNumber,confVar
-syn match  confNumber /\v[+-]?\d+([ywdhsm]|m(on|ins?))(\@([ywdhs]|m(on|ins?))\d*)?>/
-syn match  confNumber /\v[+-]?\d+(\.\d+)*>/
-syn match  confNumber /\v<\d+[TGMK]B>/
-syn match  confNumber /\v<\d+(k)?b>/
-syn match  confPath   ,\v(^|\s|\=)\zs(file:|https?:|\$\k+)?(/+\k+)+(:\d+)?,
-syn match  confPath   ,\v(^|\s|\=)\zsvolume:\k+(/+\k+)+,
-syn match  confVar    /\$\k\+\$/
-
-syn keyword confBoolean on off t[rue] f[alse] T[rue] F[alse]
-syn keyword confTodo FIXME[:] NOTE[:] TODO[:] CAUTION[:] contained
-
-" Define generic stanzas
-syn match confGenericStanzas display contained /\v[^\]]+/
-
-" Define stanzas
-syn region confStanza matchgroup=confStanzaStart start=/^\[/ matchgroup=confStanzaEnd end=/\]/ oneline transparent contains=@confStanzas
+" Source common highlight elements
+source <sfile>:p:h/spl_common.vim
 
 " Group clusters
-syn cluster confStanzas contains=confDatamodelsStanzas,confGenericStanzas
+syn cluster confStanzas contains=confDatamodelsStanzas,confCommonStanzas,confGenericStanzas
 
 " datamodels.conf
-syn match   confDatamodelsStanzas contained /\v<(default)>/
+" syn match   confDatamodelsStanzas contained /\v<()>/
+
+" Key words
 syn match   confDatamodels /\v<^(acceleration(\.(earliest|backfill|max)_time|\.poll_buckets_until_maxtime|\.cron_schedule|\.manual_rebuilds)?)>/
 syn match   confDatamodels /\v<^(acceleration\.(max_concurrent|schedule_priority|hunk\.(compression_codec|dfs_block_size|file_format)|allow_skew))>/
 syn match   confDatamodels /\v<^(dataset\.(description|type|commands|fields|display\.(diversity|sample_ratio|limiting|currentCommand|mode)))>/

@@ -2,47 +2,18 @@
 " Language: Splunk configuration files
 " Maintainer: Colby Williams <colbyw at gmail dot com>
 
-if version < 600
-    syntax clear
-elseif exists("b:current_syntax")
-    finish
-endif
+" savedsearches.conf
 
-setlocal iskeyword+=.
-setlocal iskeyword+=:
-setlocal iskeyword+=-
-
-syn case match
-
-syn match confComment /^#.*/ contains=confTodo oneline display
-syn match confSpecComment /^\s.*/ contains=confTodo oneline display
-syn match confSpecComment /^\*.*/ contains=confTodo oneline display
-
-syn region confString start=/"/ skip="\\\"" end=/"/ oneline display contains=confNumber,confVar
-syn region confString start=/`/             end=/`/ oneline display contains=confNumber,confVar
-syn region confString start=/'/ skip="\\'"  end=/'/ oneline display contains=confNumber,confVar
-syn match  confNumber /\v[+-]?\d+([ywdhsm]|m(on|ins?))(\@([ywdhs]|m(on|ins?))\d*)?>/
-syn match  confNumber /\v[+-]?\d+(\.\d+)*>/
-syn match  confNumber /\v<\d+[TGMK]B>/
-syn match  confNumber /\v<\d+(k)?b>/
-syn match  confPath   ,\v(^|\s|\=)\zs(file:|https?:|\$\k+)?(/+\k+)+(:\d+)?,
-syn match  confPath   ,\v(^|\s|\=)\zsvolume:\k+(/+\k+)+,
-syn match  confVar    /\$\k\+\$/
-
-syn keyword confBoolean on off t[rue] f[alse] T[rue] F[alse]
-syn keyword confTodo FIXME[:] NOTE[:] TODO[:] CAUTION[:] contained
-
-" Define generic stanzas
-syn match confGenericStanzas display contained /\v[^\]]+/
-
-" Define stanzas
-syn region confStanza matchgroup=confStanzaStart start=/^\[/ matchgroup=confStanzaEnd end=/\]/ oneline transparent contains=@confStanzas
+" Source common highlight elements
+source <sfile>:p:h/spl_common.vim
 
 " Group clusters
-syn cluster confStanzas contains=confSavedSearchesStanzas,confGenericStanzas
+syn cluster confStanzas contains=confSavedSearchesStanzas,confCommonStanzas,confGenericStanzas
 
-" savedsearches.conf
-syn match   confSavedSearchesStanzas contained /\v<(default)>/
+" Stanzas
+" syn match   confSavedSearchesStanzas contained /\v<()>/
+
+" Key words
 syn match   confSavedSearches /\v<^(action\.email(\.(from|include\.(results_link|search|trigger(_time)?|view_link)|inline|mailserver|maxresults|send(csv|pdf|results|png)|subject|to|(b)cc))?)>/
 syn match   confSavedSearches /\v<^(action\.lookup(\.(append|filename))?|action\.populate_lookup(\.dest)?|action\.script(\.filename)?)>/
 syn match   confSavedSearches /\v<^(action\.summary_index(\.(_name|inline|[^\ |\=]+))?|action\.rss|allow_skew)>/
@@ -84,15 +55,19 @@ syn match   confSavedSearches /\v<^(display\.visualizations\.singlevalue\.(trend
 syn match   confSavedSearches /\v<^(display\.visualizations\.singlevalue\.use(Colors|ThousandSeparators))>/
 syn match   confSavedSearches /\v<^(display\.visualizations\.trellis\.(enabled|scales\.shared|size|splitBy))>/
 syn match   confSavedSearches /\v<^(displayview|embed\.enabled|enableSched|is_visible|max_concurrent|nextrun|qualifiedSearch|request\.ui_dispatch_(app|view))>/
-syn match   confSavedSearches /\v<^(quantity|query|realtime_schedule|relation|restart_on_searchpeer_add|role|run_(n_times|on_startup)|schedule(_window|_priority)?)>/
+syn match   confSavedSearches /\v<^(run_(n_times|on_startup)|schedule(_window|_priority))>/
 syn match   confSavedSearches /\v<^(search|sendresults|(user|vs)id)>/
-
-" 7.1
-syn match   confSavedSearches /\v<^(defer_scheduled_searchable_idxc)>/
-
-" 7.2.3
+syn match   confSavedSearches /\v<^(auto_summarize\.workload_pool|display\.visualizations\.charting\.fieldColors|federated\.provider)>/
+syn match   confSavedSearches /\v<^(action\.email\.allow_empty_attachment|alert\.suppress\.group_name)>/
+syn match   confSavedSearches /\v<^(schedule_as|dispatch.allow_partial_results|skip_scheduled_realtime_idxc)>/
+syn match   confSavedSearches /\v<^(durable.((track_time|backfill)_type|lag_time|max_backfill_intervals)|action.summary_metric_index.(inline|_name)?)>/
+syn match   confSavedSearches /\v<^(defer_scheduled_searchable_idxc|quantity|query|realtime_schedule|relation|restart_on_searchpeer_add|role)>/
 syn match   confSavedSearches /\v<^(workload_pool)>/
+syn match   confSavedSearches /\v<^(dispatch.rate_limit_retry|precalculate_required_fields_for_alerts)>/
+syn match   confSavedSearches /\v<^(calculate_alert_required_fields_in_search)>/
+syn match   confSavedSearches /\v<^(allow_data_time_skew|federated_providers)>/
 
+" Constants
 syn match   confSavedSearchesConstants /\v<(user|owner|inner|outer|full|none|raw|list|table|events|statistics|visualizations|fast|smart|verbose|patterns)$>/
 syn match   confSavedSearchesConstants /\v<(hidden|compact|full|line(ar)?|log|row|cell|color|number|expression|map|minMidMax|shared(Category|List)|auto)$>/
 syn match   confSavedSearchesConstants /\v<(categor(y|ical)|threshold|number|percent(ile)?|before|after|heatmap|highlow|ellipsis(Middle|None|End|Middle|Start)|visible|collapsed|all)$>/
@@ -100,28 +75,11 @@ syn match   confSavedSearchesConstants /\v<(inherit|(filler|marker|radial)Gauge|
 syn match   confSavedSearchesConstants /\v<(stacked(100)?|minimal|shiny|standard|seriesCompare|right|bottom(right)?|top|left|sequential|divergent)$>/
 syn match   confSavedSearchesConstants /\v<(marker|choropleth|value|trend|block|inverse|absolute|large|medium|small|custom|mapping|singlevalue|charting)$>/
 syn match   confSavedSearchesConstants /\v<((greater|less)\ than|(not\ )?equal\ to|(drops|rises)\ by|high(er|est))$>/
-
-" 7.3.0
-syn match   confSavedSearches /\v<^(auto_summarize\.workload_pool|display\.visualizations\.charting\.fieldColors|federated\.provider)>/
 syn match   confSavedSearchesConstants /\v<(number\ of\ (events|hosts|sources)|always)$>/
-
-" 8.1.0
-syn match   confSavedSearches /\v<^(action\.email\.allow_empty_attachment|alert\.suppress\.group_name)>/
-
-" 8.2
-syn match   confSavedSearches /\v<^(schedule_as|dispatch.allow_partial_results|skip_scheduled_realtime_idxc)>/
-syn match   confSavedSearches /\v<^(durable.((track_time|backfill)_type|lag_time|max_backfill_intervals)|action.summary_metric_index.(inline|_name)?)>/
-
 syn match   confSavedSearchesConstants /\v<(classic|prjob|_(index)?time|time_(interval|whole))$>/
 
-" 9.0.0
-syn match   confSavedSearches /\v<^(dispatch.rate_limit_retry|precalculate_required_fields_for_alerts)>/
-
-" 9.4.0
-syn match   confSavedSearches /\v<^(calculate_alert_required_fields_in_search)>/
-
-" 10.x
-syn match   confSavedSearches /\v<^(allow_data_time_skew|federated_providers)>/
+" Deprecated
+syn match   confSavedSearchesDeprecated /\v<^(schedule)>/
 
 " alert_logevent
 " etc/apps/alert_logevent/README/savedsearches.conf.spec
@@ -135,40 +93,8 @@ syn match   confSavedSearches /\v<action\.webhook(\.param\.url)?>/
 " etc/apps/splunk_monitoring_console/README/savedsearches.conf.spec
 syn match   confSavedSearches /\v<display\.visualizations\.custom\.splunk_monitoring_console\.heatmap\.(baseColor|legendTitle|showLegend|showTooltip|(show)?([XxYy])Axis)>/
 
-" Splunk DB Connect 3.1.1
-syn match   confSavedSearches /\v<^(action\.alert_output(\.param\.output)?)>/
-
-" ITSI
-syn match   confSavedSearches /\v<^(display\.page\.\w+\.\d+\.(collection_name|title|color|drilldown_uri|order))>/
-syn match   confSavedSearches /\v<^(action\.makestreams(\.param\.(fields|description|protocols|duration|category|limit))?)>/
-syn match   confSavedSearches /\v<^(action\.itsi_event_generator(\.param\.(title|description|owner|status|severity))?)>/
-syn match   confSavedSearches /\v<^(action\.itsi_event_generator\.param\.drilldown_search_(title|search|(latest|earliest)_offset))>/
-syn match   confSavedSearches /\v<^(action\.itsi_event_generator\.param\.(drilldown_(title|uri)|event_identifier_fields|service_ids))>/
-syn match   confSavedSearches /\v<^(action\.itsi_event_generator\.param\.(entity_lookup_field|search_type|editor))>/
-syn match   confSavedSearches /\v<^(action\.itsi_event_generator\.param\.(meta_data|is_ad_at|ad_at_kpi_ids))>/
-syn match   confSavedSearches /\v<^(action\.indicator(\._itsi_(kpi|service)_id)?)>/
-syn match   confSavedSearches /\v<^(action\.itsi_sample_event_action_ping\.param\.host|action\.keyindicator\.invert|action\.makestreams\.param\.verbose)>/
-
-syn match   confSavedSearchesConstants /\v<(blue|red|orange|yellow|purple|green)$>/
-
-" Highlight definitions (generic)
-hi def link confComment Comment
-hi def link confSpecComment Error
-hi def link confBoolean Boolean
-hi def link confTodo Todo
-
-" Other highlight
-hi def link confString String
-hi def link confNumber Number
-hi def link confPath   Number
-hi def link confVar    PreProc
-
-hi def link confStanzaStart Delimiter
-hi def link confstanzaEnd Delimiter
-
-" Highlight for stanzas
-hi def link confStanza Function
-hi def link confGenericStanzas Constant
+" Highlighting
 hi def link confSavedSearchesStanzas Identifier
 hi def link confSavedSearches Keyword
 hi def link confSavedSearchesConstants Constant
+hi def link confSavedSearchesDeprecated Removed

@@ -2,69 +2,25 @@
 " Language: Splunk configuration files
 " Maintainer: Colby Williams <colbyw at gmail dot com>
 
-if version < 600
-    syntax clear
-elseif exists("b:current_syntax")
-    finish
-endif
+" authentication_node.conf
 
-setlocal iskeyword+=.
-setlocal iskeyword+=:
-setlocal iskeyword+=-
-
-syn case match
-
-syn match confComment /^#.*/ contains=confTodo oneline display
-syn match confSpecComment /^\s.*/ contains=confTodo oneline display
-syn match confSpecComment /^\*.*/ contains=confTodo oneline display
-
-syn region confString start=/"/ skip="\\\"" end=/"/ oneline display contains=confNumber,confVar
-syn region confString start=/`/             end=/`/ oneline display contains=confNumber,confVar
-syn region confString start=/'/ skip="\\'"  end=/'/ oneline display contains=confNumber,confVar
-syn match  confNumber /\v[+-]?\d+([ywdhsm]|m(on|ins?))(\@([ywdhs]|m(on|ins?))\d*)?>/
-syn match  confNumber /\v[+-]?\d+(\.\d+)*>/
-syn match  confNumber /\v<\d+[TGMK]B>/
-syn match  confNumber /\v<\d+(k)?b>/
-syn match  confPath   ,\v(^|\s|\=)\zs(file:|https?:|\$\k+)?(/+\k+)+(:\d+)?,
-syn match  confPath   ,\v(^|\s|\=)\zsvolume:\k+(/+\k+)+,
-syn match  confVar    /\$\k\+\$/
-
-syn keyword confBoolean on off t[rue] f[alse] T[rue] F[alse]
-syn keyword confTodo FIXME[:] NOTE[:] TODO[:] CAUTION[:] contained
-
-" Define generic stanzas
-syn match confGenericStanzas display contained /\v[^\]]+/
-
-" Define stanzas
-syn region confStanza matchgroup=confStanzaStart start=/^\[/ matchgroup=confStanzaEnd end=/\]/ oneline transparent contains=@confStanzas
+" Source common highlight elements
+source <sfile>:p:h/spl_common.vim
 
 " Group clusters
 syn cluster confStanzas contains=confAuthenticationNodeStanzas,confGenericStanzas
 
-" authentication_node.conf
+" Stanzas
 syn match  confAuthenticationNodeStanzas contained /\v<(client_\k+)>/
-syn match  confAuthenticationNode /\v<^(id|name|grantTypes|jwks|roles|tokenEndpointAuthMethod|instanceId|redirectUris)>/
+
+" Key words
+syn match  confAuthenticationNode /\v<^(id|grantTypes|jwks|roles|tokenEndpointAuthMethod|instanceId|redirectUris)>/
 syn match  confAuthenticationNode /\v<^(responseTypes|scopes)>/
-syn match  confAuthenticationNodeConstants /\v<()$>/
 
-" Highlight definitions (generic)
-hi def link confComment Comment
-hi def link confSpecComment Error
-hi def link confBoolean Boolean
-hi def link confTodo Todo
+" Constants
+" syn match  confAuthenticationNodeConstants /\v<()$>/
 
-" Other highlight
-hi def link confString String
-hi def link confNumber Number
-hi def link confPath   Number
-hi def link confVar    PreProc
-
-hi def link confStanzaStart Delimiter
-hi def link confstanzaEnd Delimiter
-
-" Highlight for stanzas
-hi def link confStanza Function
-hi def link confGenericStanzas Constant
+" Highlighting
 hi def link confAuthenticationNodeStanzas Identifier
 hi def link confAuthenticationNodeConstants Constant
 hi def link confAuthenticationNode Keyword

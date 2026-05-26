@@ -1,7 +1,4 @@
 augroup filetypedetect
-    au BufNewFile,BufRead eventgen.conf,ldap.conf,logging.conf,pdf_server.conf,perfmon.conf,regmon-filters.conf,ssl.conf,tenants.conf,tsidx_retention.conf,app_permissions.conf,deep_dive_drilldowns.conf,drawing_elements.conf,drilldownsearch_offset.conf,itsi_da.conf,itsi_deep_dive.conf,itsi_glass_table.conf,itsi_kpi_template.conf,itsi_module_viz.conf,itsi_notable_event_retention.conf,itsi_notable_event_severity.conf,itsi_notable_event_status.conf,itsi_service.conf,itsi_settings.conf,managed_configurations.conf,notable_event_actions.conf,postprocess.conf,service_analyzer_settings.conf,threshold_labels.conf,threshold_periods.conf,okta.conf,database.conf,healthlog.conf,settings.conf setf splunk
-
-    au BufNewFile,BufRead admon.conf setf spl_admon
     au BufNewFile,BufRead agent_management.conf setf spl_agent_management
     au BufNewFile,BufRead alert_actions.conf setf spl_alert_actions
     au BufNewFile,BufRead app.conf setf spl_app
@@ -13,7 +10,6 @@ augroup filetypedetect
     au BufNewFile,BufRead collections.conf setf spl_collections
     au BufNewFile,BufRead commands.conf setf spl_commands
     au BufNewFile,BufRead datamodels.conf setf spl_datamodels
-    au BufNewFile,BufRead datatypesbnf.conf setf spl_datatypesbnf
     au BufNewFile,BufRead default-mode.conf setf spl_default-mode
     au BufNewFile,BufRead deploymentclient.conf setf spl_deploymentclient
     au BufNewFile,BufRead distsearch.conf setf spl_distsearch
@@ -21,7 +17,6 @@ augroup filetypedetect
     au BufNewFile,BufRead eventdiscoverer.conf setf spl_eventdiscoverer
     au BufNewFile,BufRead eventtypes.conf setf spl_eventtypes
     au BufNewFile,BufRead federated.conf setf spl_federated
-    au BufNewFile,BufRead fshpasswords.conf setf spl_fshpasswords
     au BufNewFile,BufRead fields.conf setf spl_fields
     au BufNewFile,BufRead field_filters.conf setf spl_field_filters
     au BufNewFile,BufRead global-banner.conf setf spl_global-banner
@@ -68,29 +63,8 @@ augroup filetypedetect
     au BufNewFile,BufRead workload_policy.conf setf spl_workload_policy
     au BufNewFile,BufRead workload_pools.conf setf spl_workload_pools
     au BufNewFile,BufRead workload_rules.conf setf spl_workload_rules
-    au BufNewFile,BufRead splunk_monitoring_console_assets.conf setf spl_monitoring_console_assets
     au BufNewFile,BufRead checklist.conf setf spl_checklist
-    au BufNewFile,BufRead dmc_alerts.conf setf spl_dmc_alerts
-    au BufNewFile,BufRead launcher.conf setf spl_launcher
     au BufNewFile,BufRead instance.cfg setf spl_instance_cfg
-    au BufNewFile,BufRead crawl.conf setf spl_crawl
     au BufNewFile,BufRead default.meta,local.meta setf spl_dotmeta
-    au BufNewFile,BufRead telemetry.conf setf spl_telemetry
-
-" Splunk Machine Learning Toolkit 2.4.0
-    au BufNewFile,BufRead algos.conf setf spl_algos
-    au BufNewFile,BufRead mlspl.conf setf spl_mlspl
-
-" Splunk DB Connect 3.1.1
-    au BufNewFile,BufRead db_connections.conf setf spl_db_connections
-    au BufNewFile,BufRead db_connection_types.conf setf spl_db_connection_types
-    au BufNewFile,BufRead db_input_templates.conf setf spl_db_input_templates
-    au BufNewFile,BufRead db_inputs.conf setf spl_db_inputs
-    au BufNewFile,BufRead db_lookups.conf setf spl_db_lookups
-    au BufNewFile,BufRead db_outputs.conf setf spl_db_outputs
-    au BufNewFile,BufRead app-migration.conf setf spl_db_app-migration
-    au BufNewFile,BufRead identities.conf setf spl_db_identities
-    au BufNewFile,BufRead ui-metrics-collector.conf setf spl_db_ui-metrics-collector
-    au BufNewFile,BufRead dbx_settings.conf setf spl_db_dbx_settings
 augroup END
 
